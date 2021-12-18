@@ -1,94 +1,90 @@
-<?php
-use Dompdf\Dompdf;
+<style>
+    .container {
+        width: 100%;
+    }
 
-        if (isset($getDados['tipo_impressao'])) {
-            $view = view('relatorio/output', $dados);
-            if ($getDados['tipo_impressao'] === 'pdf') {
-                $nomeArquivo = 'relatorio - ' . date('d-m-Y-H-i-s') . '.pdf';
-                $dompdf = new Dompdf();
-                $dompdf->loadHtml($view);
-                $dompdf->render();
-                $dompdf->stream($nomeArquivo, ['Attachment' => true]);
-            }
-          else {
-            echo view('', $dados);
-        }
+    h1 {
+        background-color: #ccc;
+        margin: 0;
+        padding: 10px;
+        text-align: center;
+    }
 
-?>
-<script type="text/javascript">
-    $(document).ready(function() {
+    p {
+        margin: 0;
+        text-align: center;
+        background-color: #ccc;
+        padding-bottom: 10px;
+    }
 
-        $(".reset").click(function() {
-            $('#formBusca').find("input[type=text]").val('');
-        });
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
 
-        $('#dataInicial').datepicker({
-            format: 'dd/mm/yyyy',
-            todayBtn: 'linked',
-            language: 'pt-BR',
-            autoclose: true
-        });
-        $('#dataFinal').datepicker({
-            format: 'dd/mm/yyyy',
-            todayBtn: 'linked',
-            language: 'pt-BR',
-            autoclose: true
-        });
-    });
-</script>
-<nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item"><?php echo anchor('', "Home") ?></li>
-        <li class="breadcrumb-item active" aria-current="pag">Relatório</li>
-    </ol>
-</nav>
-<h1>Relatório</h1>
-<div class="card">
-    <div class="card-header">
-        Relatório
-    </div>
-    <div class="card-body">
-        <div class="mx-auto col-sm-8">
-            <div class="form-row">
-                <div class="col">
-                    <label for="id">Id</label>
-                    <input type="text" name="id" id="id" class="form-control" value="<?php echo !empty($descricao) ? $descricao : '' ?>">
-                </div>
-                <div class="col">
-                    <label for="categorias_id">Setor</label>
-                    <input type="text" name="dataInicial" id="dataInicial" class="form-control" value="<?php echo !empty($dataInicial) ? $dataInicial : '' ?>">
-            
-                </div>
-                <div class="col">
-                    <label for="tipo">Tipo</label>
-                </div>
-            </div>
-            <div class="form-row mt-3">
-                <div class="col">
-                    <label for="dataInicial">Data Inicial</label>
-                    <input type="text" name="dataInicial" id="dataInicial" class="form-control" value="<?php echo !empty($dataInicial) ? $dataInicial : '' ?>">
-                </div>
-                <div class="col">
-                    <label for="dataFinal">Data Final</label>
-                    <input type="text" name="dataFinal" id="dataFinal" class="form-control" value="<?php echo !empty($dataFinal) ? $dataFinal : '' ?>">
-                </div>
-            </div>
-            <div class="form-group mt-3">
-                <div class="custom-control custom-radio">
-                    <input type="radio" id="pdf" name="tipo_impressao" class="custom-control-input" value="pdf">
-                    <label class="custom-control-label text-default" for="pdf">Gerar PDF</label>
-                </div>
-                <div class="custom-control custom-radio ">
-                    <input type="radio" id="csv" name="tipo_impressao" class="custom-control-input" value="csv">
-                    <label class="custom-control-label text-default" for="csv">Gerar CSV</label>
-                </div>
-            </div>
-            <div class="form-row mt-3 d-flex justify-content-end">
-                <input type="button" value="Limpar Campos" class="btn btn-secondary btn-sm reset">
-            </div>
-            <div class="form-row mt-3">
-                <div class="col text-center">
-                </div>
-            </div>
-        </div>
+    tr th {
+        padding: 15px;
+        color: #fff;
+        background-color: #555;
+        border-right: 1px solid;
+    }
+
+    tr th:last-child {
+        border-right: none;
+    }
+
+    table,
+    tr,
+    td {
+        border: 1px solid;
+        padding: 10px;
+
+    }
+
+    .text-success {
+        color: forestgreen;
+    }
+
+    .text-danger {
+        color: red;
+    }
+
+    .nome-categoria {
+        font-weight: bolder;
+        background-color: #ccc;
+    }
+
+    .text-right {
+        text-align: right;
+    }
+
+    .text-center {
+        text-align: center
+    }
+</style>
+
+<div class="container">
+    <h1>Relatório de Os do Equipamento</h1>
+    <p><small>Gerado em: <?php echo date("d/m/Y H:i:s") ?></small></p>
+    <table>
+        <?php
+        include("conexao.php");
+        $sql = "SELECT * FROM `os_preventiva` JOIN equipamento ON fk_equipamento=id WHERE dataProxima < CURRENT_DATE ";
+        $resultadoT = mysqli_query($mysqli, $sql);
+        $qtd_equipamentos = mysqli_num_rows($resultadoT);
+        $row = $resultadoT->fetch_array(MYSQLI_ASSOC);
+        ?>
+            <tr>
+                <th>Date</th>
+                <td>12 February</td>
+            </tr>
+            <tr>
+                <th>Event</th>
+                <td>Waltz with Strauss</td>
+            </tr>
+            <tr>
+                <th>Venue</th>
+                <td>Main Hall</td>
+            </tr>
+    </table>
 </div>

@@ -5,7 +5,7 @@ namespace App\Controllers;
 use App\Models\BannerModel;
 use App\Models\CategoriaModel;
 use App\Models\UsuarioModel;
-
+use CodeIgniter\HTTP\Files\UploadedFile;
 class Usuario extends BaseController
 {
     private $usuarioModel;
@@ -30,7 +30,7 @@ class Usuario extends BaseController
         ]);
         echo view('common/footer');
     }
-    
+
     public function edit($id)
     {
 
@@ -77,10 +77,20 @@ class Usuario extends BaseController
                 'tipo' => 'danger'
             ]);
         }
-    }    
+    }
     public function store()
     {
+        
         $post = $this->request->getPost();
+
+        if ($imagefile = $this->request->getFiles()) {
+            foreach($imagefile['foto'] as $img) {
+                if ($img->isValid() && ! $img->hasMoved()) {
+                    $newName = $img->getRandomName();
+                    $img->move(base_url('assets/img/'), $newName);
+                }
+            }
+        }
         if ($this->usuarioModel->save($post)) {
             return redirect()->to('/usuario/')->with('mensagem', 'Dados cadastrados com sucesso.');
         } else {

@@ -173,27 +173,17 @@ $sql_query = $mysqli->query("SELECT * FROM arquivos") or die($mysqli->error);
                 </button>
             </div>
             <div class="modal-body">
-                <form id="formCadastroUsuario" action="<?= base_url('usuario/store') ?>" method="post">
+                <form id="formCadastroUsuario" action="<?= base_url('usuario/store') ?>" method="post" enctype="multipart/form-data">
                     <input id="uid" type="hidden" name="uid" value="">
                     <div class="row">
 
                         <div class="form-group col-6 col-sm-6">
-                            <label for="nome">Nome:</label>
+                            <label for="nome">Nome Completo:</label>
                             <input type="text" class="form-control form-control-sm" id="nome" placeholder="Nome" name="nome" required>
                         </div>
                         <div class="form-group col-6 col-sm-6">
-                            <label for="nome_arq">nome_arq</label>
-                            <input type="text" class="form-control form-control-sm" id="nome_arq" placeholder="Nome" name="nome_arqu" required>
-                        </div>
-
-                        <div class="form-group col-6 col-sm-6">
-                            <label for="slug">Nome:</label>
-                            <input type="text" class="form-control form-control-sm" id="slug" placeholder="Nome" name="slug" required>
-                        </div>
-
-                        <div class="form-group col-6 col-sm-6">
-                            <label for="arquivo">Foto:</label>
-                            <input type="file" class="form-control form-control-sm" id="arquivo" name="arquivo">
+                            <label for="foto">Foto:</label>
+                            <input type="file" class="form-control form-control-sm" id="foto" name="foto">
                         </div>
                         <div class="form-group col-8 col-sm-6">
                             <label for="email">E-mail:</label>
@@ -204,10 +194,9 @@ $sql_query = $mysqli->query("SELECT * FROM arquivos") or die($mysqli->error);
                             <input type="password" class="form-control form-control-sm" id="senha" placeholder="Senha" name="senha" required>
                         </div>
                         <div class="form-group col-6 col-sm-6">
-                            <label for="repita_senha">repita_senha:</label>
-                            <input type="password" class="form-control form-control-sm" id="repita_senha" placeholder="repita_senha" name="repita_senha" required>
+                            <label for="repita_senha">Repita sua senha:</label>
+                            <input type="password" class="form-control form-control-sm" id="repita_senha"  name="repita_senha" required>
                         </div>
-
                         <div class="form-group col-6 col-sm-6">
                             <label for="ativo">Ativo:</label>
                             <select class="form-control form-control-sm" id="ativo" placeholder="Ativo" name="ativo" required>
@@ -255,13 +244,3 @@ $sql_query = $mysqli->query("SELECT * FROM arquivos") or die($mysqli->error);
         </div>
     </div>
 </div>
-<script>
-    $('.btn').on('click', function() {
-        $('.arquivo').trigger('click');
-    });
-
-    $('.arquivo').on('change', function() {
-        var fileName = $(this)[0].files[0].name;
-        $('#file').val(fileName);
-    });
-</script>
