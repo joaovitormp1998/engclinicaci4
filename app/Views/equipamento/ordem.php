@@ -28,7 +28,7 @@
     }
 
     .btn-success {
-      width: 142px;
+      width: 144px;
     }
 
     .close {
@@ -167,26 +167,26 @@
                   <?php if (isset($dadosEquipamento['id'])) : ?>
                     <?php if (count($ospreventivasEquipamento) > 0) : ?>
                       <section class="grid grid-template-rows-1" id="botoesdeos">
-                        <div class="item"><a href="<?php echo base_url("tiposdeordem/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modalCadastroPreventiva"> <i class="fas fa-user"></i>O.S Preventiva</a></div>
-                        <div class="item"><a href="<?php echo base_url("tiposdeordem/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success"> <i class="fas fa-user"></i>O.S Instalação</a></div>
+                        <div class="item"><a href="<?php echo base_url("tiposdeordem/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modalCadastroPreventiva"> <i class="fas fa-user"></i> O.S Preventiva</a></div>
+                        <div class="item"><a href="<?php echo base_url("tiposdeordem/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success"> <i class="fas fa-user"></i> O.S Instalação</a></div>
 
-                        <div class="item"><a href="<?php echo base_url("tiposdeordem/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modalCadastroPreventiva"> <i class="fas fa-user"></i>O.S Treinamento</a></div>
-                        <div class="item"><a href="<?php echo base_url("tiposdeordem/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success"> <i class="fas fa-user"></i>O.S Corretiva</a></div>
+                        <div class="item"><a href="<?php echo base_url("tiposdeordem/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modalCadastroPreventiva"> <i class="fas fa-user"></i> O.S Treinamento</a></div>
+                        <div class="item"><a href="<?php echo base_url("tiposdeordem/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success"> <i class="fas fa-user"></i> O.S Corretiva</a></div>
 
-                        <div class="item"><a href="<?php echo base_url("tiposdeordem/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modalCadastroPreventiva"> <i class="fas fa-user"></i>O.S Inspeção</a></div>
-                        <div class="item"><a href="<?php echo base_url("tiposdeordem/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success"> <i class="fas fa-user"></i>O.S Calibração</a></div>
+                        <div class="item"><a href="<?php echo base_url("tiposdeordem/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modalCadastroPreventiva"> <i class="fas fa-user"></i> O.S Inspeção</a></div>
+                        <div class="item"><a href="<?php echo base_url("tiposdeordem/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success"> <i class="fas fa-user"></i> O.S Calibração</a></div>
                       </section>
                     <?php else : ?>
                       <p class="text-danger">Equipamento sem Ordem de Serviço Cadastrada. Deseja Adicionar?</p>
                       <section class="grid grid-template-rows-1" id="botoesdeos">
-                        <div class="item"><a href="<?php echo base_url("tiposdeordem/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modalCadastroPreventiva"> <i class="fas fa-user"></i>O.S Preventiva</a></div>
-                        <div class="item"><a href="<?php echo base_url("tiposdeordem/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success"> <i class="fas fa-user"></i>O.S Instalação</a></div>
+                        <div class="item"><a href="<?php echo base_url("tiposdeordem/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modalCadastroPreventiva"> <i class="fas fa-user"></i> O.S Preventiva</a></div>
+                        <div class="item"><a href="<?php echo base_url("tiposdeordem/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success"> <i class="fas fa-user"></i> O.S Instalação</a></div>
 
-                        <div class="item"><a href="<?php echo base_url("tiposdeordem/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modalCadastroPreventiva"> <i class="fas fa-user"></i>O.S Treinamento</a></div>
-                        <div class="item"><a href="<?php echo base_url("tiposdeordem/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success"> <i class="fas fa-user"></i>O.S Corretiva</a></div>
+                        <div class="item"><a href="<?php echo base_url("tiposdeordem/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modalCadastroPreventiva"> <i class="fas fa-user"></i> O.S Treinamento</a></div>
+                        <div class="item"><a href="<?php echo base_url("tiposdeordem/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success"> <i class="fas fa-user"></i> O.S Corretiva</a></div>
 
-                        <div class="item"><a href="<?php echo base_url("tiposdeordem/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modalCadastroPreventiva"> <i class="fas fa-user"></i>O.S Inspeção</a></div>
-                        <div class="item"><a href="<?php echo base_url("tiposdeordem/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success"> <i class="fas fa-user"></i>O.S Calibração</a></div>
+                        <div class="item"><a href="<?php echo base_url("tiposdeordem/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modalCadastroPreventiva"> <i class="fas fa-user"></i> O.S Inspeção</a></div>
+                        <div class="item"><a href="<?php echo base_url("tiposdeordem/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success"> <i class="fas fa-user"></i> O.S Calibração</a></div>
                       </section>
                     <?php endif; ?>
                   <?php else : ?>
