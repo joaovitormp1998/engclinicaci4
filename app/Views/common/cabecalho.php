@@ -5,9 +5,9 @@
         #barradolado {
             background: #00997D !important;
         }
-        
-        .m-0{
-            color: #00997D  !important ;
+
+        .m-0 {
+            color: #00997D !important;
         }
     </style>
     <div class="wrapper">
@@ -24,7 +24,7 @@
                     <a href="<?= base_url('') ?>" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="<?= base_url('/contato') ?>" class="nav-link">Entre em Contato</a>
+                    <a href="<?= base_url('/contato') ?>" class="nav-link">Contato</a>
                 </li>
             </ul>
         </nav>
@@ -43,9 +43,9 @@
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        
-                        <img src="<?= base_url('assets/img/') ?>/<?php echo session()->foto 
-                        ?>" class="img-circle elevation-2" alt="User Image">
+
+                        <img src="<?= base_url('assets/img/') ?>/<?php echo session()->foto
+                                                                    ?>" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
                         <a href="#" class="d-block"><?php echo session()->nome ?></a>
@@ -82,27 +82,13 @@
                             </ul>
                         </li>
                         <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
-                                <i class="far fa-file-pdf"></i>
+                            <a href="<?= base_url('/contato') ?>" class="nav-link">
+                                <i class="far fa-user"></i>
                                 <p>
-                                    Documentos
-                                    <i class="right fas fa-angle-left"></i>
+                                    Contato
+
                                 </p>
                             </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="<?= base_url('documentos') ?>" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Baixar</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="<?= base_url('importar') ?>" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Enviar</p>
-                                    </a>
-                                </li>
-                            </ul>
                         </li>
                         <li class="nav-item has-treeview">
                             <a href="<?= base_url('busca') ?>" class="nav-link">
