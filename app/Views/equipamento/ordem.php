@@ -1,4 +1,9 @@
-  <style>
+<?php
+include './config.php';
+include("conexao.php");
+
+?>
+<style>
     .l {
       color: darkred;
     }
@@ -134,8 +139,8 @@
                     <p class="text-muted text-sm"><b>Patrimonio: </b> <?php echo ($dadosEquipamento['patrimonio']); ?> </p>
                   </div>
                   <div class="col-5 text-center">
-                    <img src="https://br.qr-code-generator.com/wp-content/themes/qr/new_structure/markets/core_market/generator/dist/generator/assets/images/websiteQRCode_noFrame.png" alt="" class=" img-fluid">
-                  </div>
+                  <?php echo "<img src='" . URL . "imgqrcode/" .  $dadosEquipamento['id'] . ".svg' width='100'><br><hr>"; ?> 
+                </div>
                   <div class="col-7">
                     <p class="text-muted text-sm"><b>Criticidade: </b> <?php echo ($dadosEquipamento['criticidade']); ?> </p>
                     <p class="text-muted text-sm"><b>Tag: </b> <?php echo ($dadosEquipamento['tag']); ?> </p>

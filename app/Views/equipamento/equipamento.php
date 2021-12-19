@@ -12,8 +12,8 @@ use chillerlan\QRCode\{
 
 foreach ($equipamentos as $equipamento) :
 
-endforeach; 
-$_base="http://localhost:8080/equipamento/";
+endforeach;
+$_base = "http://localhost:8080/equipamento/";
 // Em caso de rodar em produção alterar linha abaixo
 // $_base="http://www.softeng.com.br/equipamento/";
 $url = base_url($_base . 'ordem/' . $equipamento['id']);
@@ -38,7 +38,7 @@ $qrcode->render($url, 'assets/imgqrcode/' . $nome_img);
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">Equipamentos</h1>
+                    <h1 class="m-0 text-dark" >Cadastro de Equipamentos</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -105,22 +105,24 @@ $qrcode->render($url, 'assets/imgqrcode/' . $nome_img);
                         <th>Marca</th>
                         <th>Modelo</th>
                         <th>Setor</th>
+                        <th>Criticidade</th>
                         <th>Qr Code</th>
-                        <th>Editar</th>
-                        <th> Deletar</th>
+                        <th>Ações</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php foreach ($equipamentos as $equipamento) : ?>
                         <tr>
-                            <td><?= $equipamento['id'] ?></td>
-                            <td><a href="<?= base_url($_base . 'ordem/' . $equipamento['id']) ?>"><?= $equipamento['nome'] ?></td>
-                            <td><?= $equipamento['marca'] ?></td>
-                            <td><?= $equipamento['modelo'] ?></td>
-                            <td><?= $equipamento['setor'] ?></td>
-                            <td><?php echo "<img src='" . URL . "imgqrcode/" .  $equipamento['id']. ".svg' width='100'><br><hr>"; ?></td>
-                            <td><a href="<?= base_url($_base . 'edit/' . $equipamento['id']) ?>"  class="btn-editar" data-id="<?= $equipamento['id'] ?>"><i class="far fa-edit"></i></a></td>
-                            <td><a href="<?= base_url($_base . 'delete/' . $equipamento['id']) ?>" class="btn-excluir" data-id="<?= $equipamento['id'] ?>" onclick="return confirma();"><i class="far fa-trash-alt"></i></a></td>
+                            <td align="center"><?= $equipamento['id'] ?></td>
+                            <td align="justify"><a href="<?= base_url($_base . 'ordem/' . $equipamento['id']) ?>"><?= $equipamento['nome'] ?></td>
+                            <td align="justify"><?= $equipamento['marca'] ?></td>
+                            <td align="justify"><?= $equipamento['modelo'] ?></td>
+                            <td align="center"><?= $equipamento['setor'] ?></td>
+                            <td align="center"><?= $equipamento['criticidade'] ?></td>
+                            <td align="center"><?php echo "<img src='" . URL . "imgqrcode/" .  $equipamento['id'] . ".svg' width='100'><br><hr>"; ?></td>
+                            <td><a href="<?= base_url($_base . 'edit/' . $equipamento['id']) ?>" class="btn-editar" data-id="<?= $equipamento['id'] ?>"><i class="far fa-edit"></i></a>
+                              &nbsp;&nbsp;  <a href="<?= base_url($_base . 'delete/' . $equipamento['id']) ?>" class="btn-excluir" data-id="<?= $equipamento['id'] ?>" onclick="return confirma();"><i class="far fa-trash-alt"></i></a>
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                     <br>
@@ -216,7 +218,7 @@ $qrcode->render($url, 'assets/imgqrcode/' . $nome_img);
                         <label for="periodicidade">Periodicidade:</label>
                         <input type="text" value="<?php echo isset($dadosEquipamento) ? $dadosEquipamento['periodicidade'] : '' ?>" class="form-control form-control-sm" id="periodicidade" placeholder="Periodicidade" name="periodicidade">
                     </div>
-                    <div> <input type="hidden" id="nome_img_qr" name="nome_img_qr" value="<?= isset($dadosEquipamento) ? $dadosEquipamento['id']: ''?>.svg">
+                    <div> <input type="hidden" id="nome_img_qr" name="nome_img_qr" value="<?= isset($dadosEquipamento) ? $dadosEquipamento['id'] : '' ?>.svg">
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -257,11 +259,13 @@ $qrcode->render($url, 'assets/imgqrcode/' . $nome_img);
 
 <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js ">
 </script>
-<script> $(document).ready(function(){
+<script>
+    $(document).ready(function() {
         $('#tablita').DataTable({
-            dom:'Bftip',
+            dom: 'Bftip',
             buttons: [
                 'pdfHtml5',
             ]
         });
-    });</script>
+    });
+</script>

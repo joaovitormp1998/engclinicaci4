@@ -28,7 +28,7 @@ class Usuario extends BaseController
         echo view('usuario/index', [
             'usuarios' => $usuarioModel->paginate(10),
         ]);
-        echo view('common/footer');
+        echo view('common/rodape');
     }
 
     public function edit($id)

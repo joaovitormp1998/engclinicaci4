@@ -17,8 +17,11 @@ class Relatorio extends BaseController
         $data = [
             'boku' => $this->BokuModel->AllData(),
         ];
-        
-        return view('relatorio/index');
+
+        echo view('common/cabecalho');
+        echo view('relatorio/index');
+
+        echo view('common/rodape');
     }
 
     public function printpdf()
@@ -40,6 +43,5 @@ class Relatorio extends BaseController
 
         // Output the generated PDF to Browser
         $dompdf->stream();
-        
     }
 }
