@@ -27,6 +27,10 @@
       color: whitesmoke
     }
 
+    .btn-success {
+      width: 142px;
+    }
+
     .close {
       color: whitesmoke;
       text-decoration: none
@@ -34,6 +38,19 @@
 
     .modal-content {
       border-color: #008080;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .grid-template-rows-1 {
+      grid-template-rows: 38px 38px 40px 10px;
+    }
+
+    .card-body1 {
+      display: none;
     }
   </style>
   <div class="content-wrapper">
@@ -55,13 +72,52 @@
     </div>
 
     <script>
-                function confirma() {
-                    if (!confirm("Deseja excluir este registros?")) {
-                        return false;
-                    }
-                    return true;
-                }
-            </script>
+      function confirma() {
+        if (!confirm("Deseja excluir este registros?")) {
+          return false;
+
+        }
+        return true;
+      }
+
+      function display1(){
+        return document.getElementById("card-body1").style.display = "block";
+      }
+      
+      function displayFalse1(){
+        return document.getElementById("card-body1").style.display = "none";
+      }
+      function display2(){
+        return document.getElementById("card-body2").style.display = "block";
+      }
+      function displayFalse2(){
+        return document.getElementById("card-body2").style.display = "none";
+      }
+      function display3(){
+        return document.getElementById("card-body3").style.display = "block";
+      }
+      function displayFalse3(){
+        return document.getElementById("card-body3").style.display = "none";
+      }
+      function display4(){
+        return document.getElementById("card-body4").style.display = "block";
+      }
+      function displayFalse4(){
+        return document.getElementById("card-body4").style.display = "none";
+      }
+      function display5(){
+        return document.getElementById("card-body5").style.display = "block";
+      }
+      function displayFalse5(){
+        return document.getElementById("card-body5").style.display = "none";
+      }
+      function display6(){
+        return document.getElementById("card-body6").style.display = "block";
+      }
+      function displayFalse6(){
+        return document.getElementById("card-body6").style.display = "none";
+      }
+    </script>
     <section class="content">
       <div class="container-fluid">
         <div class="row">
@@ -110,14 +166,28 @@
                   <?php endif; ?>
                   <?php if (isset($dadosEquipamento['id'])) : ?>
                     <?php if (count($ospreventivasEquipamento) > 0) : ?>
-                      <ul>
-                        <a href="<?php echo base_url("tiposdeordem/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modalCadastroPreventiva"> <i class="fas fa-user"></i>O.S Preventiva</a>
-                        <a href="<?php echo base_url("tiposdeordem/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success"> <i class="fas fa-user"></i>O.S Instalação</a>
-                      </ul>
+                      <section class="grid grid-template-rows-1" id="botoesdeos">
+                        <div class="item"><a href="<?php echo base_url("tiposdeordem/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modalCadastroPreventiva"> <i class="fas fa-user"></i>O.S Preventiva</a></div>
+                        <div class="item"><a href="<?php echo base_url("tiposdeordem/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success"> <i class="fas fa-user"></i>O.S Instalação</a></div>
+
+                        <div class="item"><a href="<?php echo base_url("tiposdeordem/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modalCadastroPreventiva"> <i class="fas fa-user"></i>O.S Treinamento</a></div>
+                        <div class="item"><a href="<?php echo base_url("tiposdeordem/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success"> <i class="fas fa-user"></i>O.S Corretiva</a></div>
+
+                        <div class="item"><a href="<?php echo base_url("tiposdeordem/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modalCadastroPreventiva"> <i class="fas fa-user"></i>O.S Inspeção</a></div>
+                        <div class="item"><a href="<?php echo base_url("tiposdeordem/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success"> <i class="fas fa-user"></i>O.S Calibração</a></div>
+                      </section>
                     <?php else : ?>
                       <p class="text-danger">Equipamento sem Ordem de Serviço Cadastrada. Deseja Adicionar?</p>
-                      <a href="<?php echo base_url("tiposdeordem/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modalCadastroPreventiva"> <i class="fas fa-user"></i>O.S Preventiva</a>
-                      <a href="<?php echo base_url("tiposdeordem/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success"> <i class="fas fa-user"></i>O.S Instalação</a>
+                      <section class="grid grid-template-rows-1" id="botoesdeos">
+                        <div class="item"><a href="<?php echo base_url("tiposdeordem/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modalCadastroPreventiva"> <i class="fas fa-user"></i>O.S Preventiva</a></div>
+                        <div class="item"><a href="<?php echo base_url("tiposdeordem/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success"> <i class="fas fa-user"></i>O.S Instalação</a></div>
+
+                        <div class="item"><a href="<?php echo base_url("tiposdeordem/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modalCadastroPreventiva"> <i class="fas fa-user"></i>O.S Treinamento</a></div>
+                        <div class="item"><a href="<?php echo base_url("tiposdeordem/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success"> <i class="fas fa-user"></i>O.S Corretiva</a></div>
+
+                        <div class="item"><a href="<?php echo base_url("tiposdeordem/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modalCadastroPreventiva"> <i class="fas fa-user"></i>O.S Inspeção</a></div>
+                        <div class="item"><a href="<?php echo base_url("tiposdeordem/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success"> <i class="fas fa-user"></i>O.S Calibração</a></div>
+                      </section>
                     <?php endif; ?>
                   <?php else : ?>
                     <p><small>Salve o cliente antes de inserir um telefone</small></p>
@@ -133,22 +203,31 @@
                 <h3 class="card-title">Historico O.S Preventiva</h3>
 
                 <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse" onclick="return display1();"><i class="fas fa-plus"></i>
                   </button>
-                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+                  <button type="button" class="btn btn-tool"  onclick="return displayFalse1();"><i class="fas fa-minus"></i></button>
                 </div>
               </div>
-              <div class="card-body">
+              <div class="card-body1" id="card-body1">
                 <div>
-                  <ul>
-                    <?php foreach ($ospreventivasEquipamento as $ospreventivaEquipamento) : ?>
-                      <? $ospreventivaEquipamento['funcionario'] ?>
-                      <li class="my-3 pr-3"> Data: <?php echo $ospreventivaEquipamento['dataPreventiva'] ?> &nbsp;<a href="<?php echo base_url("tiposdeordem/delete/{$ospreventivaEquipamento['idOs']}/{$dadosEquipamento['id']}") ?>" onclick="return confirma();" class="btn-excluir" title="Excluir Resgistro de OS"><i class="far fa-trash-alt"></i></a> <button type="button" class="btn btn-ligth" data-toggle="modal" data-target="#modalExemplo">
-                          <i class="fas fa-eye"></i>
-                        </button></li>
+                  <table class="table table-strip">
+                    <thead>
 
-                    <?php endforeach; ?>
-                  </ul>
+                      <tr>
+                        <th>Data Preventiva</th>
+
+                        <th colspan="2">Ações</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <?php foreach ($ospreventivasEquipamento as $ospreventivaEquipamento) : ?>
+                        <th><?php echo  date_format(new DateTime($ospreventivaEquipamento['dataPreventiva']), 'd/m/Y '); ?></th>
+                        <th><a href="<?php echo base_url("tiposdeordem/delete/{$ospreventivaEquipamento['idOs']}/{$dadosEquipamento['id']}") ?>" onclick="return confirma()" class="btn-excluir" title="Excluir Resgistro de OS"><i class="far fa-trash-alt"></i></a> <button type="button" class="btn btn-ligth" data-toggle="modal" data-target="#modalExemplo">
+                            <i class="fas fa-eye"></i>
+                          </button></th>
+                    </tbody>
+                  <?php endforeach; ?>
+                  </table>
                 </div>
                 <div class="chart">
                   <canvas id="lineChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
@@ -164,12 +243,80 @@
                 <h3 class="card-title">Historico O.S Corretiva</h3>
 
                 <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse" onclick="return display2();"><i class="fas fa-plus"></i>
                   </button>
-                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+                  <button type="button" class="btn btn-tool" onclick="return displayFalse2();"><i class="fas fa-minus"></i></button>
                 </div>
               </div>
-              <div class="card-body">
+              <div class="card-body1" id="card-body2">
+                <div class="chart">
+                  <canvas id="lineChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                </div>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <div class="card card-info">
+              <div class="card-header">
+                <h3 class="card-title">Historico O.S Instalação</h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse" onclick="return display3();"><i class="fas fa-plus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" onclick="return displayFalse3();"><i class="fas fa-minus"></i></button>
+                </div>
+              </div>
+              <div class="card-body1" id="card-body3">
+                <div class="chart">
+                  <canvas id="lineChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                </div>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <div class="card card-info">
+              <div class="card-header">
+                <h3 class="card-title">Historico O.S Inspeção</h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse" onclick="return display4();"><i class="fas fa-plus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" onclick="return displayFalse4();"><i class="fas fa-minus"></i></button>
+                </div>
+              </div>
+              <div class="card-body1" id="card-body4">
+                <div class="chart">
+                  <canvas id="lineChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                </div>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <div class="card card-info">
+              <div class="card-header">
+                <h3 class="card-title">Historico O.S Treinamento</h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse" onclick="return display5();"><i class="fas fa-plus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" onclick="return displayFalse5();"><i class="fas fa-minus"></i></button>
+                </div>
+              </div>
+              <div class="card-body1" id="card-body5">
+                <div class="chart">
+                  <canvas id="lineChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                </div>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <div class="card card-info">
+              <div class="card-header">
+                <h3 class="card-title">Historico O.S Calibração </h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse" onclick="return display6();"><i class="fas fa-plus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool"onclick="return displayFalse6();"><i class="fas fa-minus"></i></button>
+                </div>
+              </div>
+              <div class="card-body1" id="card-body6">
                 <div class="chart">
                   <canvas id="lineChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
                 </div>
@@ -278,28 +425,35 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-          <?php foreach ($ospreventivasEquipamento as $os) : ?>
-                  
-            <h5 class="modal-title" id="exampleModalLabel">Dados da O.S</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-              <span aria-hidden="true">&times;</span>
-            </button>
+            <?php foreach ($ospreventivasEquipamento as $os) : ?>
+
+              <h5 class="modal-title" id="exampleModalLabel">Dados da O.S</h5>
+              <button typte="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                <span aria-hidden="true">&times;</span>
+              </button>
           </div>
           <div class="modal-body">
-            <p class="text-muted text-sm"><b>Data Preventiva: </b> <?php echo $os['dataPreventiva']; ?> </p>
-            <p class="text-muted text-sm"><b>Data Proxima : </b> <?php echo $os['dataProxima']; ?></p>
-            <p class="text-muted text-sm"><b>Técnico Responsável: </b> <?php echo ($os['tecnico']); ?> </p>
-            <p class="text-muted text-sm"><b>Data Entrada: </b> <?php echo $os['dataEntrada']; ?> </p>
-            <p class="text-muted text-sm"><b>Hora Entrada : </b> <?php echo $os['horaEntrada']; ?></p>
-            <p class="text-muted text-sm"><b>Data Saida: </b> <?php echo $os['dataSaida']; ?> </p>
-            <p class="text-muted text-sm"><b>Hora Saida : </b> <?php echo $os['horaSaida']; ?></p>
-           
-          </div>
+            <div class="row">
+              <div class="col md-8">
+                <p class="text-muted text-sm"><b>Data Preventiva: </b> <?php echo date_format(new DateTime($os['dataPreventiva']), 'd/m/Y '); ?> </p>
+                <p class="text-muted text-sm"><b>Data Proxima : </b> <?php echo date_format(new DateTime($os['dataProxima']), 'd/m/Y '); ?></p>
+                <p class="text-muted text-sm"><b>Técnico Responsável: </b><?php echo $os['tecnico']; ?></p>
+                <p class="text-muted text-sm"><b>Data Entrada: </b> <?php echo date_format(new DateTime($os['dataEntrada']), 'd/m/Y '); ?></p>
+                <p class="text-muted text-sm"><b>Hora Entrada : </b> <?php echo $os['horaEntrada']; ?></p>
+                <p class="text-muted text-sm"><b>Data Saida: </b> <?php echo date_format(new DateTime($os['dataSaida']), 'd/m/Y '); ?></p>
+                <p class="text-muted text-sm"><b>Hora Saida : </b> <?php echo $os['horaSaida']; ?></p>
+              </div>
+              <div class="col md-4">
+                <label>Foto da OS</label>
+                <img src="<?= base_url('assets/img/ospadrao.jpeg') ?>" width="150px" height="150px"></img>
+              </div>
+            </div>
           <?php endforeach; ?>
-                  
+
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
             <button type="button" class="btn btn-primary">Salvar mudanças</button>
+          </div>
           </div>
         </div>
       </div>
