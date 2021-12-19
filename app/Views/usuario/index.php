@@ -41,7 +41,7 @@ $sql_query = $mysqli->query("SELECT * FROM arquivos") or die($mysqli->error);
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">Usuario</h1>
+                    <h1 class="m-0 text-dark" align="right">  Cadastro de Usuarios</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -119,8 +119,8 @@ $sql_query = $mysqli->query("SELECT * FROM arquivos") or die($mysqli->error);
 
             <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#modalCadastroUsuario"><i class="fas fa-plus"></i>
 
-            </button><br>
-
+            </button></br>
+            </br>
             <script>
                 function confirma() {
                     if (!confirm("Deseja excluir este registros?")) {
@@ -129,30 +129,29 @@ $sql_query = $mysqli->query("SELECT * FROM arquivos") or die($mysqli->error);
                     return true;
                 }
             </script>
-            <table class="table table">
+            <table id="tablita"class="table table-striped">
                 <thead>
                     <tr>
-                        <th>Id</th>
-
+                        <th align="center">ID</th>
                         <th>Foto</th>
                         <th>Nome</th>
-
                         <th>Nivel</th>
                         <th>Email</th>
-                        <th colspan="2">Ações</th>
+                        <th>Ações</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php foreach ($usuarios as $usuario) : ?>
                         <tr>
-                            <td><?= $usuario['id'] ?></td>
-                            <td><img src="<?= base_url('assets/img/') ?>/<?= $usuario['foto'] ?>" width="50px" height="50px"></td>
+                            <td align="justify"><?= $usuario['id'] ?></td>
+                            <td align="justify"><img src="<?= base_url('assets/img/') ?>/<?= $usuario['foto'] ?>" width="50px" height="50px"></td>
 
-                            <td><?= $usuario['nome'] ?></td>
-                            <td><?= $usuario['admin'] ?></td>
-                            <td><?= $usuario['email'] ?></td>
-                            <td><a href="<?= base_url($_base . 'edit/') ?>/<?= $usuario['id'] ?>" class="btn-editar" data-id="<?= $usuario['id'] ?>"><i class="far fa-edit"></i></a></td>
-                            <td><a href="<?= base_url($_base . 'delete/') ?>/<?= $usuario['id'] ?>" onclick='return confirma();' class="btn-excluir" data-id="<?= $usuario['id'] ?>"><i class="far fa-trash-alt"></i></a></td>
+                            <td align="justify"><?= $usuario['nome'] ?></td>
+                            <td align="center"><?= $usuario['admin'] ?></td>
+                            <td align="justify"><?= $usuario['email'] ?></td>
+                            <td align="center"><a href="<?= base_url($_base . 'edit/') ?>/<?= $usuario['id'] ?>" class="btn-editar" data-id="<?= $usuario['id'] ?>"><i class="far fa-edit"></i></a>
+                            &nbsp;&nbsp;    <a href="<?= base_url($_base . 'delete/') ?>/<?= $usuario['id'] ?>" onclick='return confirma();' class="btn-excluir" data-id="<?= $usuario['id'] ?>"><i class="far fa-trash-alt"></i></a>
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
@@ -195,7 +194,7 @@ $sql_query = $mysqli->query("SELECT * FROM arquivos") or die($mysqli->error);
                         </div>
                         <div class="form-group col-6 col-sm-6">
                             <label for="repita_senha">Repita sua senha:</label>
-                            <input type="password" class="form-control form-control-sm" id="repita_senha"  name="repita_senha" required>
+                            <input type="password" class="form-control form-control-sm" id="repita_senha" name="repita_senha" required>
                         </div>
                         <div class="form-group col-6 col-sm-6">
                             <label for="ativo">Ativo:</label>
@@ -244,3 +243,16 @@ $sql_query = $mysqli->query("SELECT * FROM arquivos") or die($mysqli->error);
         </div>
     </div>
 </div>
+
+<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js ">
+</script>
+<script>
+    $(document).ready(function() {
+        $('#tablita').DataTable({
+            dom: 'Bftip',
+            buttons: [
+                'pdfHtml5',
+            ]
+        });
+    });
+</script>
