@@ -5,7 +5,6 @@
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <h1 class="m-0 text-dark">Formulario de Contato</h1>
-
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -27,7 +26,6 @@
                             </div>
                         </div>
                         <div class="card-body p-3">
-
                             <!--Body-->
                             <div class="form-group">
                                 <div class="input-group mb-2">
@@ -50,16 +48,15 @@
                                     <div class="input-group-prepend">
                                         <div class="input-group-text"><i class="fa fa-at text-info"></i></div>
                                     </div>
-                                    <input type="email" class="form-control" id="nombre" name="email" placeholder="exemplo@gmail.com" required>
+                                    <input type="email" class="form-control" id="email" name="email" placeholder="exemplo@gmail.com" required>
                                 </div>
                             </div>
-
                             <div class="form-group">
                                 <div class="input-group mb-2">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text"><i class="fa fa-comment text-info"></i></div>
                                     </div>
-                                    <textarea class="form-control" name="menssage" placeholder="Digite seu roblema:" required></textarea>
+                                    <textarea class="form-control" name="message" id="message" placeholder="Digite seu problema:" required></textarea>
                                 </div>
                             </div>
 
@@ -67,11 +64,8 @@
                                 <input type="submit" value="Enviar" class="btn btn-outline-info btn-block rounded-0 py-2">
                             </div>
                         </div>
-
                     </div>
                 </form>
-
-
             </div>
         </div>
     </div>
