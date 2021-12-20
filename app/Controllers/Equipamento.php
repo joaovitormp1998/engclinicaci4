@@ -5,6 +5,8 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\EquipamentoModel;
 use App\Models\OspreventivaModel;
+use App\Models\OsinstalacaoModel;
+use App\Models\OscorretivaModel;
 
 class Equipamento extends BaseController
 {
@@ -83,6 +85,7 @@ class Equipamento extends BaseController
         $equipamentoModel = new EquipamentoModel();
         $ospreventivaModel = new OspreventivaModel();
 
+
         $dadosEquipamento = $equipamentoModel->find($id);
 
         if (is_null($dadosEquipamento)) {
@@ -132,15 +135,22 @@ class Equipamento extends BaseController
     {
         $equipamentoModel = new EquipamentoModel();
         $ospreventivaModel = new OspreventivaModel();
+        $osinstalacaoModel = new OsinstalacaoModel();
+        $oscorretivaModel = new OscorretivaModel();
 
         $dadosEquipamento = $equipamentoModel->find($id);
 
         $ospreventivasEquipamento = $ospreventivaModel->getByIdEquipamento($dadosEquipamento['id']);
+        $osinstalacoesEquipamento = $osinstalacaoModel->getByIdEquipamento($dadosEquipamento['id']);
+        $oscorretivasEquipamento = $oscorretivaModel->getByIdEquipamento($dadosEquipamento['id']);
         echo view('common/cabecalho');
         echo view('equipamento/ordem', [
             'titulo' => 'Dados de Equipamento',
             'ospreventivasEquipamento' => $ospreventivasEquipamento,
+            'osinstalacoesEquipamento' => $osinstalacoesEquipamento,
+            'oscorretivasEquipamento' => $oscorretivasEquipamento,
             'dadosEquipamento' => $dadosEquipamento
+
         ]);
         echo view('common/rodape');
 

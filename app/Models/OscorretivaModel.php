@@ -16,9 +16,7 @@ class OscorretivaModel extends Model
     protected $protectFields        = true;
     protected $allowedFields        = [
         'idOs',
-        'dataPreventiva',
-        'dataProxima',
-        'funcionario',	
+        'funcionario',
         'falha',
         'defeito',
         'solucao',
