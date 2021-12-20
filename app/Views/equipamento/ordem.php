@@ -182,7 +182,7 @@ include("conexao.php");
                   <a href="javascript:;" class="btn btn-sm btn-success" disabled> <i class="fas fa-user"></i>O.S Preventiva</a>
                 <?php endif; ?>
                 <?php if (isset($dadosEquipamento['id'])) : ?>
-                  <?php if (count($ospreventivasEquipamento) > 0 || count($ostreinamentosEquipamento) > 0 ||count($osinstalacoesEquipamento) > 0|| count($oscorretivasEquipamento) > 0 ||count($oscalibracoesEquipamento) > 0||count($osinspecoesEquipamento) > 0) : ?>
+                  <?php if (count($ospreventivasEquipamento) > 0 || count($ostreinamentosEquipamento) > 0 || count($osinstalacoesEquipamento) > 0 || count($oscorretivasEquipamento) > 0 || count($oscalibracoesEquipamento) > 0 || count($osinspecoesEquipamento) > 0) : ?>
                     <section class="grid grid-template-rows-1" id="botoesdeos">
                       <div class="item"><a href="<?php echo base_url("ospreventiva/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modalCadastroPreventiva"> <i class="fas fa-user"></i> O.S Preventiva</a></div>
                       <div class="item"><a href="<?php echo base_url("osinstalacao/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modalCadastroInstalacao"> <i class="fas fa-user"></i> O.S Instalação</a></div>
@@ -339,7 +339,7 @@ include("conexao.php");
               </div>
             </div>
             <div class="card-body1" id="card-body4">
-            <div>
+              <div>
                 <table class="table table-strip">
                   <thead>
                     <tr>
@@ -377,7 +377,7 @@ include("conexao.php");
               </div>
             </div>
             <div class="card-body1" id="card-body5">
-            <div>
+              <div>
                 <table class="table table-strip">
                   <thead>
                     <tr>
@@ -389,7 +389,7 @@ include("conexao.php");
                     <?php foreach ($ostreinamentosEquipamento as $ostreinamentoEquipamento) : ?>
                       <th><?php echo  date_format(new DateTime($ostreinamentoEquipamento['dataEntrada']), 'd/m/Y '); ?></th>
                       <th><a href="<?php echo base_url("ostreinamento/delete/{$ostreinamentoEquipamento['idOs']}/{$dadosEquipamento['id']}") ?>" onclick="return confirma()" class="btn-excluir" title="Excluir Resgistro de OS"><i class="far fa-trash-alt"></i></a>
-                        <button type="button" class="btn btn-ligth" data-toggle="modal" data-target="#modalExemplo2">
+                        <button type="button" class="btn btn-ligth" data-toggle="modal" data-target="#modalExemplo5">
                           <i class="fas fa-eye"></i>
                         </button>
                       </th>
@@ -415,7 +415,7 @@ include("conexao.php");
               </div>
             </div>
             <div class="card-body1" id="card-body6">
-            <div>
+              <div>
                 <table class="table table-strip">
                   <thead>
                     <tr>
@@ -427,7 +427,7 @@ include("conexao.php");
                     <?php foreach ($oscalibracoesEquipamento as $oscalibracaoEquipamento) : ?>
                       <th><?php echo  date_format(new DateTime($oscalibracaoEquipamento['dataEntrada']), 'd/m/Y '); ?></th>
                       <th><a href="<?php echo base_url("oscalibracao/delete/{$oscalibracaoEquipamento['idOs']}/{$dadosEquipamento['id']}") ?>" onclick="return confirma()" class="btn-excluir" title="Excluir Registro de OS"><i class="far fa-trash-alt"></i></a>
-                        <button type="button" class="btn btn-ligth" data-toggle="modal" data-target="#modalExemplo6" title="Visualizar Registro de OS">
+                        <button type="button" class="btn btn-ligth" data-toggle="modal" data-target="#modalExemplo4" title="Visualizar Registro de OS">
                           <i class="fas fa-eye"></i>
                         </button>
                       </th>
@@ -1041,6 +1041,114 @@ include("conexao.php");
       </div>
     </div>
   </div>
+  <!-- Inicio Modal de apresentação de dados da o.s Corretiva -->
+  <div class="modal fade" id="modalExemplo3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Dados da O.S de Corretiva</h5>
+          <button typte="button" class="close" data-dismiss="modal" aria-label="Fechar">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col md-8">
+              <?php foreach ($oscorretivasEquipamento as $os) : ?>
+                <p class="text-muted text-sm"><b>Técnico Responsável: </b><?php echo $os['tecnico']; ?></p>
+                <p class="text-muted text-sm"><b>Data Entrada: </b> <?php echo date_format(new DateTime($os['dataEntrada']), 'd/m/Y '); ?></p>
+                <p class="text-muted text-sm"><b>Hora Entrada: </b> <?php echo $os['horaEntrada']; ?></p>
+                <p class="text-muted text-sm"><b>Data Saida: </b> <?php echo date_format(new DateTime($os['dataSaida']), 'd/m/Y '); ?></p>
+                <p class="text-muted text-sm"><b>Hora Saida: </b> <?php echo $os['horaSaida']; ?></p>
+              <?php endforeach; ?>
+            </div>
+            <div class="col md-4">
+              <label>Foto da OS</label>
+              <img src="<?= base_url('assets/img/ospadrao.jpeg') ?>" width="150px" height="150px"></img>
+            </div>
+          </div>
+
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Inicio Modal de apresentação de dados da o.s Calibracao -->
+  <div class="modal fade" id="modalExemplo4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Dados da O.S de Calibracao</h5>
+          <button typte="button" class="close" data-dismiss="modal" aria-label="Fechar">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col md-8">
+              <?php foreach ($oscalibracoesEquipamento as $os) : ?>
+                <p class="text-muted text-sm"><b>Técnico Responsável: </b><?php echo $os['tecnico']; ?></p>
+                <p class="text-muted text-sm"><b>Data Entrada: </b> <?php echo date_format(new DateTime($os['dataEntrada']), 'd/m/Y '); ?></p>
+                <p class="text-muted text-sm"><b>Hora Entrada: </b> <?php echo $os['horaEntrada']; ?></p>
+                <p class="text-muted text-sm"><b>Data Saida: </b> <?php echo date_format(new DateTime($os['dataSaida']), 'd/m/Y '); ?></p>
+                <p class="text-muted text-sm"><b>Hora Saida: </b> <?php echo $os['horaSaida']; ?></p>
+              <?php endforeach; ?>
+            </div>
+            <div class="col md-4">
+              <label>Foto da OS</label>
+              <img src="<?= base_url('assets/img/ospadrao.jpeg') ?>" width="150px" height="150px"></img>
+            </div>
+          </div>
+
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Inicio Modal de apresentação de dados da o.s Treinamento -->
+  <div class="modal fade" id="modalExemplo5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Dados da O.S de Treinamento</h5>
+          <button typte="button" class="close" data-dismiss="modal" aria-label="Fechar">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col md-8">
+              <?php foreach ($ostreinamentosEquipamento as $os) : ?>
+                <p class="text-muted text-sm"><b>Técnico Responsável: </b><?php echo $os['tecnico']; ?></p>
+                <p class="text-muted text-sm"><b>Data Entrada: </b> <?php echo date_format(new DateTime($os['dataEntrada']), 'd/m/Y '); ?></p>
+                <p class="text-muted text-sm"><b>Hora Entrada: </b> <?php echo $os['horaEntrada']; ?></p>
+                <p class="text-muted text-sm"><b>Data Saida: </b> <?php echo date_format(new DateTime($os['dataSaida']), 'd/m/Y '); ?></p>
+                <p class="text-muted text-sm"><b>Hora Saida: </b> <?php echo $os['horaSaida']; ?></p>
+              <?php endforeach; ?>
+            </div>
+            <div class="col md-4">
+              <label>Foto da OS</label>
+              <img src="<?= base_url('assets/img/ospadrao.jpeg') ?>" width="150px" height="150px"></img>
+            </div>
+          </div>
+
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <!-- Inicio Modal de apresentação de dados da o.s Inspeção -->
   <div class="modal fade" id="modalExemplo6" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -1077,117 +1185,5 @@ include("conexao.php");
       </div>
     </div>
   </div>
-
-  <!-- Inicio Modal de apresentação de dados da o.s Corretiva -->
-
-  <div class="modal fade" id="modalExemplo3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Dados da O.S de Corretiva</h5>
-          <button typte="button" class="close" data-dismiss="modal" aria-label="Fechar">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div class="row">
-            <div class="col md-8">
-              <?php foreach ($oscorretivasEquipamento as $os) : ?>
-                <p class="text-muted text-sm"><b>Técnico Responsável: </b><?php echo $os['tecnico']; ?></p>
-                <p class="text-muted text-sm"><b>Data Entrada: </b> <?php echo date_format(new DateTime($os['dataEntrada']), 'd/m/Y '); ?></p>
-                <p class="text-muted text-sm"><b>Hora Entrada: </b> <?php echo $os['horaEntrada']; ?></p>
-                <p class="text-muted text-sm"><b>Data Saida: </b> <?php echo date_format(new DateTime($os['dataSaida']), 'd/m/Y '); ?></p>
-                <p class="text-muted text-sm"><b>Hora Saida: </b> <?php echo $os['horaSaida']; ?></p>
-              <?php endforeach; ?>
-            </div>
-            <div class="col md-4">
-              <label>Foto da OS</label>
-              <img src="<?= base_url('assets/img/ospadrao.jpeg') ?>" width="150px" height="150px"></img>
-            </div>
-          </div>
-
-
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-    <!-- Inicio Modal de apresentação de dados da o.s Calibracao -->
-  
-  <div class="modal fade" id="modalExemplo4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Dados da O.S de Calibracao</h5>
-          <button typte="button" class="close" data-dismiss="modal" aria-label="Fechar">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div class="row">
-            <div class="col md-8">
-              <?php foreach ($oscalibracoesEquipamento as $os) : ?>
-                <p class="text-muted text-sm"><b>Técnico Responsável: </b><?php echo $os['tecnico']; ?></p>
-                <p class="text-muted text-sm"><b>Data Entrada: </b> <?php echo date_format(new DateTime($os['dataEntrada']), 'd/m/Y '); ?></p>
-                <p class="text-muted text-sm"><b>Hora Entrada: </b> <?php echo $os['horaEntrada']; ?></p>
-                <p class="text-muted text-sm"><b>Data Saida: </b> <?php echo date_format(new DateTime($os['dataSaida']), 'd/m/Y '); ?></p>
-                <p class="text-muted text-sm"><b>Hora Saida: </b> <?php echo $os['horaSaida']; ?></p>
-              <?php endforeach; ?>
-            </div>
-            <div class="col md-4">
-              <label>Foto da OS</label>
-              <img src="<?= base_url('assets/img/ospadrao.jpeg') ?>" width="150px" height="150px"></img>
-            </div>
-          </div>
-
-
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-      <!-- Inicio Modal de apresentação de dados da o.s Treinamento -->
-    
-  <div class="modal fade" id="modalExemplo5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Dados da O.S de Treinamento</h5>
-          <button typte="button" class="close" data-dismiss="modal" aria-label="Fechar">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div class="row">
-            <div class="col md-8">
-              <?php foreach ($ostreinamentosEquipamento as $os) : ?>
-                <p class="text-muted text-sm"><b>Técnico Responsável: </b><?php echo $os['tecnico']; ?></p>
-                <p class="text-muted text-sm"><b>Data Entrada: </b> <?php echo date_format(new DateTime($os['dataEntrada']), 'd/m/Y '); ?></p>
-                <p class="text-muted text-sm"><b>Hora Entrada: </b> <?php echo $os['horaEntrada']; ?></p>
-                <p class="text-muted text-sm"><b>Data Saida: </b> <?php echo date_format(new DateTime($os['dataSaida']), 'd/m/Y '); ?></p>
-                <p class="text-muted text-sm"><b>Hora Saida: </b> <?php echo $os['horaSaida']; ?></p>
-              <?php endforeach; ?>
-            </div>
-            <div class="col md-4">
-              <label>Foto da OS</label>
-              <img src="<?= base_url('assets/img/ospadrao.jpeg') ?>" width="150px" height="150px"></img>
-            </div>
-          </div>
-
-
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>  
 
 </div>
