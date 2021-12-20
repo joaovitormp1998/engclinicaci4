@@ -7,6 +7,9 @@ use App\Models\EquipamentoModel;
 use App\Models\OspreventivaModel;
 use App\Models\OsinstalacaoModel;
 use App\Models\OscorretivaModel;
+use App\Models\OstreinamentoModel;
+use App\Models\OsinspecaoModel;
+use App\Models\OscalibracaoModel;
 
 class Equipamento extends BaseController
 {
@@ -138,17 +141,30 @@ class Equipamento extends BaseController
         $osinstalacaoModel = new OsinstalacaoModel();
         $oscorretivaModel = new OscorretivaModel();
 
+
+        $ostreinamentoModel = new OstreinamentoModel();
+        $osinspecaoModel = new OsinspecaoModel();
+        $oscalibracaoModel = new OscalibracaoModel();
+
         $dadosEquipamento = $equipamentoModel->find($id);
 
         $ospreventivasEquipamento = $ospreventivaModel->getByIdEquipamento($dadosEquipamento['id']);
         $osinstalacoesEquipamento = $osinstalacaoModel->getByIdEquipamento($dadosEquipamento['id']);
         $oscorretivasEquipamento = $oscorretivaModel->getByIdEquipamento($dadosEquipamento['id']);
+        $osinspecoesEquipamento = $osinspecaoModel->getByIdEquipamento($dadosEquipamento['id']);
+        $ostreinamentosEquipamento = $ostreinamentoModel->getByIdEquipamento($dadosEquipamento['id']);
+        $oscalibracoesEquipamento = $oscalibracaoModel->getByIdEquipamento($dadosEquipamento['id']);
+
         echo view('common/cabecalho');
         echo view('equipamento/ordem', [
             'titulo' => 'Dados de Equipamento',
             'ospreventivasEquipamento' => $ospreventivasEquipamento,
             'osinstalacoesEquipamento' => $osinstalacoesEquipamento,
             'oscorretivasEquipamento' => $oscorretivasEquipamento,
+            'osinspecoesEquipamento' => $osinspecoesEquipamento,
+            'ostreinamentosEquipamento' => $ostreinamentosEquipamento,
+            'oscalibracoesEquipamento' => $oscalibracoesEquipamento,
+
             'dadosEquipamento' => $dadosEquipamento
 
         ]);

@@ -89,10 +89,10 @@ class Ospreventiva extends BaseController
         $ospreventivaModel = new OspreventivaModel();
 
         if ($ospreventivaModel->where('fk_equipamento', $fk_equipamento)->delete($idOs)) {
-            return redirect()->to("/equipamento/edit/{$fk_equipamento}")->with('mensagem_telefone', 'Telefone excluído com sucesso.');
+            return redirect()->to("/equipamento/ordem/{$fk_equipamento}")->with('mensagem_telefone', 'OS preventiva excluída com sucesso.');
         } else {
             return redirect()->to('/mensagem')->with('mensagem', [
-                'mensagem' => 'Erro ao excluir o telefone.',
+                'mensagem' => 'Erro ao excluir a Preventiva.',
                 'tipo' => 'danger'
             ]);
         }

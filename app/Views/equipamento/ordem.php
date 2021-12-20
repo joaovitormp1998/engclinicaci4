@@ -184,26 +184,26 @@ include("conexao.php");
                 <?php if (isset($dadosEquipamento['id'])) : ?>
                   <?php if (count($ospreventivasEquipamento) > 0) : ?>
                     <section class="grid grid-template-rows-1" id="botoesdeos">
-                      <div class="item"><a href="<?php echo base_url("tiposdeordem/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modalCadastroPreventiva"> <i class="fas fa-user"></i> O.S Preventiva</a></div>
-                      <div class="item"><a href="<?php echo base_url("tiposdeordem/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modalCadastroInstalacao"> <i class="fas fa-user"></i> O.S Instalação</a></div>
+                      <div class="item"><a href="<?php echo base_url("ospreventiva/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modalCadastroPreventiva"> <i class="fas fa-user"></i> O.S Preventiva</a></div>
+                      <div class="item"><a href="<?php echo base_url("osinstalacao/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modalCadastroInstalacao"> <i class="fas fa-user"></i> O.S Instalação</a></div>
 
-                      <div class="item"><a href="<?php echo base_url("tiposdeordem/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modalCadastroTreinamento"> <i class="fas fa-user"></i> O.S Treinamento</a></div>
-                      <div class="item"><a href="<?php echo base_url("tiposdeordem/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modalCadastroCorretiva"> <i class="fas fa-user"></i> O.S Corretiva</a></div>
+                      <div class="item"><a href="<?php echo base_url("ostreinamento/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modalCadastroTreinamento"> <i class="fas fa-user"></i> O.S Treinamento</a></div>
+                      <div class="item"><a href="<?php echo base_url("oscorretiva/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modalCadastroCorretiva"> <i class="fas fa-user"></i> O.S Corretiva</a></div>
 
-                      <div class="item"><a href="<?php echo base_url("tiposdeordem/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modalCadastroInspecao"> <i class="fas fa-user"></i> O.S Inspeção</a></div>
-                      <div class="item"><a href="<?php echo base_url("tiposdeordem/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modalCadastroCalibracao"> <i class="fas fa-user"></i> O.S Calibração</a></div>
+                      <div class="item"><a href="<?php echo base_url("osinspecao/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modalCadastroInspecao"> <i class="fas fa-user"></i> O.S Inspeção</a></div>
+                      <div class="item"><a href="<?php echo base_url("oscalibracao/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modalCadastroCalibracao"> <i class="fas fa-user"></i> O.S Calibração</a></div>
                     </section>
                   <?php else : ?>
                     <p class="text-danger">Equipamento sem Ordem de Serviço Cadastrada. Deseja Adicionar?</p>
                     <section class="grid grid-template-rows-1" id="botoesdeos">
-                      <div class="item"><a href="<?php echo base_url("tiposdeordem/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modalCadastroPreventiva"> <i class="fas fa-user"></i> O.S Preventiva</a></div>
-                      <div class="item"><a href="<?php echo base_url("tiposdeordem/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modalCadastroInstalacao"><i class="fas fa-user"></i> O.S Instalação</a></div>
+                      <div class="item"><a href="<?php echo base_url("ospreventiva/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modalCadastroPreventiva"> <i class="fas fa-user"></i> O.S Preventiva</a></div>
+                      <div class="item"><a href="<?php echo base_url("osinstalacao/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modalCadastroInstalacao"><i class="fas fa-user"></i> O.S Instalação</a></div>
 
-                      <div class="item"><a href="<?php echo base_url("tiposdeordem/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modalCadastroTreinamento"> <i class="fas fa-user"></i> O.S Treinamento</a></div>
-                      <div class="item"><a href="<?php echo base_url("tiposdeordem/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modalCadastroCorretiva"><i class="fas fa-user"></i> O.S Corretiva</a></div>
+                      <div class="item"><a href="<?php echo base_url("ostreinamento/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modalCadastroTreinamento"> <i class="fas fa-user"></i> O.S Treinamento</a></div>
+                      <div class="item"><a href="<?php echo base_url("oscorretiva/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modalCadastroCorretiva"><i class="fas fa-user"></i> O.S Corretiva</a></div>
 
-                      <div class="item"><a href="<?php echo base_url("tiposdeordem/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modalCadastroInspecao"> <i class="fas fa-user"></i> O.S Inspeção</a></div>
-                      <div class="item"><a href="<?php echo base_url("tiposdeordem/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modalCadastroCalibracao"> <i class="fas fa-user"></i> O.S Calibração</a></div>
+                      <div class="item"><a href="<?php echo base_url("osinspecao/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modalCadastroInspecao"> <i class="fas fa-user"></i> O.S Inspeção</a></div>
+                      <div class="item"><a href="<?php echo base_url("oscalibracao/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modalCadastroCalibracao"> <i class="fas fa-user"></i> O.S Calibração</a></div>
                     </section>
                   <?php endif; ?>
                 <?php else : ?>
@@ -270,14 +270,14 @@ include("conexao.php");
                 <table class="table table-strip">
                   <thead>
                     <tr>
-                      <th>Data Preventiva</th>
+                      <th>Data Cadastro</th>
                       <th colspan="2">Ações</th>
                     </tr>
                   </thead>
                   <tbody>
                     <?php foreach ($oscorretivasEquipamento as $oscorretivaEquipamento) : ?>
-                      <th><?php echo  date_format(new DateTime($oscorretivaEquipamento['dataPreventiva']), 'd/m/Y '); ?></th>
-                      <th><a href="<?php echo base_url("tiposdeordem/delete/{$oscorretivaEquipamento['idOs']}/{$dadosEquipamento['id']}") ?>" onclick="return confirma()" class="btn-excluir" title="Excluir Resgistro de OS"><i class="far fa-trash-alt"></i></a>
+                      <th><?php echo  date_format(new DateTime($oscorretivaEquipamento['dataEntrada']), 'd/m/Y '); ?></th>
+                      <th><a href="<?php echo base_url("oscorretiva/delete/{$oscorretivaEquipamento['idOs']}/{$dadosEquipamento['id']}") ?>" onclick="return confirma()" class="btn-excluir" title="Excluir Resgistro de OS"><i class="far fa-trash-alt"></i></a>
                         <button type="button" class="btn btn-ligth" data-toggle="modal" data-target="#modalExemplo3">
                           <i class="fas fa-eye"></i>
                         </button>
@@ -339,6 +339,26 @@ include("conexao.php");
               </div>
             </div>
             <div class="card-body1" id="card-body4">
+            <div>
+                <table class="table table-strip">
+                  <thead>
+                    <tr>
+                      <th>Data de Cadastro</th>
+                      <th colspan="2">Ações</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <?php foreach ($osinspecoesEquipamento as $osinspecaoEquipamento) : ?>
+                      <th><?php echo  date_format(new DateTime($osinspecaoEquipamento['dataEntrada']), 'd/m/Y '); ?></th>
+                      <th><a href="<?php echo base_url("osinspecao/delete/{$osinspecaoEquipamento['idOs']}/{$dadosEquipamento['id']}") ?>" onclick="return confirma()" class="btn-excluir" title="Excluir Registro de OS"><i class="far fa-trash-alt"></i></a>
+                        <button type="button" class="btn btn-ligth" data-toggle="modal" data-target="#modalExemplo6" title="Visualizar Registro de OS">
+                          <i class="fas fa-eye"></i>
+                        </button>
+                      </th>
+                  </tbody>
+                <?php endforeach; ?>
+                </table>
+              </div>
               <div class="chart">
                 <canvas id="lineChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
               </div>
@@ -357,6 +377,26 @@ include("conexao.php");
               </div>
             </div>
             <div class="card-body1" id="card-body5">
+            <div>
+                <table class="table table-strip">
+                  <thead>
+                    <tr>
+                      <th>Data de Cadastro</th>
+                      <th colspan="2">Ações</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <?php foreach ($ostreinamentosEquipamento as $ostreinamentoEquipamento) : ?>
+                      <th><?php echo  date_format(new DateTime($ostreinamentoEquipamento['dataEntrada']), 'd/m/Y '); ?></th>
+                      <th><a href="<?php echo base_url("ostreinamento/delete/{$ostreinamentoEquipamento['idOs']}/{$dadosEquipamento['id']}") ?>" onclick="return confirma()" class="btn-excluir" title="Excluir Resgistro de OS"><i class="far fa-trash-alt"></i></a>
+                        <button type="button" class="btn btn-ligth" data-toggle="modal" data-target="#modalExemplo2">
+                          <i class="fas fa-eye"></i>
+                        </button>
+                      </th>
+                  </tbody>
+                <?php endforeach; ?>
+                </table>
+              </div>
               <div class="chart">
                 <canvas id="lineChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
               </div>
@@ -375,6 +415,26 @@ include("conexao.php");
               </div>
             </div>
             <div class="card-body1" id="card-body6">
+            <div>
+                <table class="table table-strip">
+                  <thead>
+                    <tr>
+                      <th>Data de Cadastro</th>
+                      <th colspan="2">Ações</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <?php foreach ($oscalibracoesEquipamento as $oscalibracaoEquipamento) : ?>
+                      <th><?php echo  date_format(new DateTime($oscalibracaoEquipamento['dataEntrada']), 'd/m/Y '); ?></th>
+                      <th><a href="<?php echo base_url("oscalibracao/delete/{$oscalibracaoEquipamento['idOs']}/{$dadosEquipamento['id']}") ?>" onclick="return confirma()" class="btn-excluir" title="Excluir Registro de OS"><i class="far fa-trash-alt"></i></a>
+                        <button type="button" class="btn btn-ligth" data-toggle="modal" data-target="#modalExemplo6" title="Visualizar Registro de OS">
+                          <i class="fas fa-eye"></i>
+                        </button>
+                      </th>
+                  </tbody>
+                <?php endforeach; ?>
+                </table>
+              </div>
               <div class="chart">
                 <canvas id="lineChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
               </div>
@@ -396,7 +456,7 @@ include("conexao.php");
           </button>
         </div>
         <div class="modal-body">
-          <form id="formCadastroEquipamento" action="<?= base_url('tiposdeordem/store') ?>" method="post">
+          <form id="formCadastroEquipamento" action="<?= base_url('ospreventiva/store') ?>" method="post">
             <input id="uid" type="hidden" name="uid" value="">
 
             </hr>
@@ -576,7 +636,7 @@ include("conexao.php");
           </button>
         </div>
         <div class="modal-body">
-          <form id="formCadastroEquipamento" action="<?= base_url('tiposdeordem/store') ?>" method="post">
+          <form id="formCadastroEquipamento" action="<?= base_url('ostreinamento/store') ?>" method="post">
             <input id="uid" type="hidden" name="uid" value="">
 
             </hr>
@@ -748,7 +808,7 @@ include("conexao.php");
           </button>
         </div>
         <div class="modal-body">
-          <form id="formCadastroEquipamento" action="<?= base_url('tiposdeordem/store') ?>" method="post">
+          <form id="formCadastroEquipamento" action="<?= base_url('osinspecao/store') ?>" method="post">
             <input id="uid" type="hidden" name="uid" value="">
 
             </hr>
@@ -834,7 +894,7 @@ include("conexao.php");
           </button>
         </div>
         <div class="modal-body">
-          <form id="formCadastroEquipamento" action="<?= base_url('tiposdeordem/store') ?>" method="post">
+          <form id="formCadastroEquipamento" action="<?= base_url('oscalibracao/store') ?>" method="post">
             <input id="uid" type="hidden" name="uid" value="">
 
             </hr>
@@ -981,11 +1041,50 @@ include("conexao.php");
       </div>
     </div>
   </div>
+  <!-- Inicio Modal de apresentação de dados da o.s Inspeção -->
+  <div class="modal fade" id="modalExemplo6" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Dados da O.S de Inspeção</h5>
+          <button typte="button" class="close" data-dismiss="modal" aria-label="Fechar">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col md-8">
+              <?php foreach ($osinspecoesEquipamento as $os) : ?>
+                <p class="text-muted text-sm"><b>Técnico Responsável: </b><?php echo $os['tecnico']; ?></p>
+                <p class="text-muted text-sm"><b>Data Entrada: </b> <?php echo date_format(new DateTime($os['dataEntrada']), 'd/m/Y '); ?></p>
+                <p class="text-muted text-sm"><b>Hora Entrada: </b> <?php echo $os['horaEntrada']; ?></p>
+                <p class="text-muted text-sm"><b>Data Saida: </b> <?php echo date_format(new DateTime($os['dataSaida']), 'd/m/Y '); ?></p>
+                <p class="text-muted text-sm"><b>Hora Saida: </b> <?php echo $os['horaSaida']; ?></p>
+              <?php endforeach; ?>
+            </div>
+            <div class="col md-4">
+              <label>Foto da OS</label>
+              <img src="<?= base_url('assets/img/ospadrao.jpeg') ?>" width="150px" height="150px"></img>
+            </div>
+          </div>
+
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Inicio Modal de apresentação de dados da o.s Corretiva -->
+
   <div class="modal fade" id="modalExemplo3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Dados da O.S de Instalacao</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Dados da O.S de Corretiva</h5>
           <button typte="button" class="close" data-dismiss="modal" aria-label="Fechar">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -1016,4 +1115,79 @@ include("conexao.php");
       </div>
     </div>
   </div>
+    <!-- Inicio Modal de apresentação de dados da o.s Calibracao -->
+  
+  <div class="modal fade" id="modalExemplo4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Dados da O.S de Calibracao</h5>
+          <button typte="button" class="close" data-dismiss="modal" aria-label="Fechar">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col md-8">
+              <?php foreach ($oscalibracoesEquipamento as $os) : ?>
+                <p class="text-muted text-sm"><b>Técnico Responsável: </b><?php echo $os['tecnico']; ?></p>
+                <p class="text-muted text-sm"><b>Data Entrada: </b> <?php echo date_format(new DateTime($os['dataEntrada']), 'd/m/Y '); ?></p>
+                <p class="text-muted text-sm"><b>Hora Entrada: </b> <?php echo $os['horaEntrada']; ?></p>
+                <p class="text-muted text-sm"><b>Data Saida: </b> <?php echo date_format(new DateTime($os['dataSaida']), 'd/m/Y '); ?></p>
+                <p class="text-muted text-sm"><b>Hora Saida: </b> <?php echo $os['horaSaida']; ?></p>
+              <?php endforeach; ?>
+            </div>
+            <div class="col md-4">
+              <label>Foto da OS</label>
+              <img src="<?= base_url('assets/img/ospadrao.jpeg') ?>" width="150px" height="150px"></img>
+            </div>
+          </div>
+
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+      <!-- Inicio Modal de apresentação de dados da o.s Treinamento -->
+    
+  <div class="modal fade" id="modalExemplo5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Dados da O.S de Treinamento</h5>
+          <button typte="button" class="close" data-dismiss="modal" aria-label="Fechar">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col md-8">
+              <?php foreach ($ostreinamentosEquipamento as $os) : ?>
+                <p class="text-muted text-sm"><b>Técnico Responsável: </b><?php echo $os['tecnico']; ?></p>
+                <p class="text-muted text-sm"><b>Data Entrada: </b> <?php echo date_format(new DateTime($os['dataEntrada']), 'd/m/Y '); ?></p>
+                <p class="text-muted text-sm"><b>Hora Entrada: </b> <?php echo $os['horaEntrada']; ?></p>
+                <p class="text-muted text-sm"><b>Data Saida: </b> <?php echo date_format(new DateTime($os['dataSaida']), 'd/m/Y '); ?></p>
+                <p class="text-muted text-sm"><b>Hora Saida: </b> <?php echo $os['horaSaida']; ?></p>
+              <?php endforeach; ?>
+            </div>
+            <div class="col md-4">
+              <label>Foto da OS</label>
+              <img src="<?= base_url('assets/img/ospadrao.jpeg') ?>" width="150px" height="150px"></img>
+            </div>
+          </div>
+
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>  
+
 </div>
