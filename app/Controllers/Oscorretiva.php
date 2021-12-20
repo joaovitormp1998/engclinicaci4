@@ -51,10 +51,10 @@ class OsCorretiva extends BaseController
     $oscorretivaModel = new OscorretivaModel();
 
     if ($oscorretivaModel->save($post)) {
-      return redirect()->to("/equipamento/ordem/{$post['fk_equipamento']}")->with('mensagem_telefone', 'Ordem inserida com sucesso.');
+      return redirect()->to("/equipamento/ordem/{$post['fk_equipamento']}")->with('mensagem_telefone', 'Ordem Corretiva inserida com sucesso.');
     } else {
       return redirect()->to('/mensagem')->with('mensagem', [
-        'mensagem' => 'Erro ao salvar o telefone.',
+        'mensagem' => 'Erro ao salvar ordem Corretiva.',
         'tipo' => 'danger'
       ]);
     }
@@ -76,7 +76,7 @@ class OsCorretiva extends BaseController
       return redirect()->to("/equipamento/ordem/{$fk_equipamento}")->with('mensagem_telefone', 'Ordem de OS corretiva excluida com sucesso.');
     } else {
       return redirect()->to('/mensagem')->with('mensagem', [
-        'mensagem' => 'Erro ao excluir a os de instalação.',
+        'mensagem' => 'Erro ao excluir a os Corretiva.',
         'tipo' => 'danger'
       ]);
     }

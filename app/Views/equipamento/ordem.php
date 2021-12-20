@@ -182,7 +182,7 @@ include("conexao.php");
                   <a href="javascript:;" class="btn btn-sm btn-success" disabled> <i class="fas fa-user"></i>O.S Preventiva</a>
                 <?php endif; ?>
                 <?php if (isset($dadosEquipamento['id'])) : ?>
-                  <?php if (count($ospreventivasEquipamento) > 0) : ?>
+                  <?php if (count($ospreventivasEquipamento) > 0 || count($ostreinamentosEquipamento) > 0 ||count($osinstalacoesEquipamento) > 0|| count($oscorretivasEquipamento) > 0 ||count($oscalibracoesEquipamento) > 0||count($osinspecoesEquipamento) > 0) : ?>
                     <section class="grid grid-template-rows-1" id="botoesdeos">
                       <div class="item"><a href="<?php echo base_url("ospreventiva/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modalCadastroPreventiva"> <i class="fas fa-user"></i> O.S Preventiva</a></div>
                       <div class="item"><a href="<?php echo base_url("osinstalacao/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modalCadastroInstalacao"> <i class="fas fa-user"></i> O.S Instalação</a></div>

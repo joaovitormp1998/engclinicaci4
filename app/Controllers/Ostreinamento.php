@@ -51,7 +51,7 @@ class Ostreinamento extends BaseController
     $ostreinamentoModel = new OstreinamentoModel();
 
     if ($ostreinamentoModel->save($post)) {
-      return redirect()->to("/equipamento/ordem/{$post['fk_equipamento']}")->with('mensagem_telefone', 'Ordem inserida com sucesso.');
+      return redirect()->to("/equipamento/ordem/{$post['fk_equipamento']}")->with('mensagem_telefone', 'Ordem de Treinamento salva com sucesso.');
     } else {
       return redirect()->to('/mensagem')->with('mensagem', [
         'mensagem' => 'Erro ao salvar o telefone.',
@@ -73,7 +73,7 @@ class Ostreinamento extends BaseController
     $ostreinamentoModel = new OstreinamentoModel();
 
     if ($ostreinamentoModel->where('fk_equipamento', $fk_equipamento)->delete($idOs)) {
-      return redirect()->to("/equipamento/ordem/{$fk_equipamento}")->with('mensagem_telefone', 'Ordem de Treinamento excluida com sucesso.');
+      return redirect()->to("/equipamento/ordem/{$fk_equipamento}")->with('mensagem_telefone', 'Ordem de Treinamento excluída com sucesso.');
     } else {
       return redirect()->to('/mensagem')->with('mensagem', [
         'mensagem' => 'Erro ao excluir a os de treinamento.',

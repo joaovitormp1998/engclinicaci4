@@ -51,7 +51,7 @@ class Osinspecao extends BaseController
     $osinspecaoModel = new OsinspecaoModel();
 
     if ($osinspecaoModel->save($post)) {
-      return redirect()->to("/equipamento/ordem/{$post['fk_equipamento']}")->with('mensagem_telefone', 'Ordem inserida com sucesso.');
+      return redirect()->to("/equipamento/ordem/{$post['fk_equipamento']}")->with('mensagem_telefone', 'Ordem de Inspeção Salva com sucesso.');
     } else {
       return redirect()->to('/mensagem')->with('mensagem', [
         'mensagem' => 'Erro ao salvar o telefone.',
@@ -73,7 +73,7 @@ class Osinspecao extends BaseController
     $osinspecaoModel = new OsinspecaoModel();
 
     if ($osinspecaoModel->where('fk_equipamento', $fk_equipamento)->delete($idOs)) {
-      return redirect()->to("/equipamento/ordem/{$fk_equipamento}")->with('mensagem_telefone', 'Ordem de Inspecao excluida com sucesso.');
+      return redirect()->to("/equipamento/ordem/{$fk_equipamento}")->with('mensagem_telefone', 'Ordem de Inspeção excluída com sucesso.');
     } else {
       return redirect()->to('/mensagem')->with('mensagem', [
         'mensagem' => 'Erro ao excluir a os de inspeção.',

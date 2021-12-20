@@ -51,7 +51,7 @@ class Oscalibracao extends BaseController
     $oscalibracaoModel = new OscalibracaoModel();
 
     if ($oscalibracaoModel->save($post)) {
-      return redirect()->to("/equipamento/ordem/{$post['fk_equipamento']}")->with('mensagem_telefone', 'Ordem calibração com sucesso.');
+      return redirect()->to("/equipamento/ordem/{$post['fk_equipamento']}")->with('mensagem_telefone', 'Ordem de Calibração  Salva com sucesso.');
     } else {
       return redirect()->to('/mensagem')->with('mensagem', [
         'mensagem' => 'Erro ao salvar a Ordem de calibração.',
@@ -73,10 +73,10 @@ class Oscalibracao extends BaseController
     $oscalibracaoModel = new OscalibracaoModel();
 
     if ($oscalibracaoModel->where('fk_equipamento', $fk_equipamento)->delete($idOs)) {
-      return redirect()->to("/equipamento/ordem/{$fk_equipamento}")->with('mensagem_telefone', 'Ordem de Calibracao excluida com sucesso.');
+      return redirect()->to("/equipamento/ordem/{$fk_equipamento}")->with('mensagem_telefone', 'Ordem de Calibração excluída com Sucesso.');
     } else {
       return redirect()->to('/mensagem')->with('mensagem', [
-        'mensagem' => 'Erro ao excluir a os de calibracao.',
+        'mensagem' => 'Erro ao excluir a os de calibração.',
         'tipo' => 'danger'
       ]);
     }
