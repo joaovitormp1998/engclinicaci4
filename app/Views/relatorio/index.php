@@ -52,9 +52,9 @@
     <!-- Content Header (Page header) -->
     <div class="content-header">
         <div class="container-fluid">
-            <div class="row mb-2">
+            <div class="row mb-3">
                 <div class="col-sm-6">
-                    <h1 class="m-0 text-dark" align="right">Cadastro de Equipamentos</h1>
+                    <h1 class="m-0 text-dark" align="left">Cadastro de Equipamentos</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -66,92 +66,79 @@
         </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
-    <div class="card-body">
-        <div class="mx-auto col-sm-8">
-            <div class="form-row">
-                <div class="col">
-                    <label for="id">Id</label>
-                    <select name="id" id="id" class="form-control">
+    <section class="content">
+        <div class="container-fluid">
+            <div class="card-body">
+                <div class="col-12">
+                    <div class="form-row">
+                        <div class="form-group col-md-2">
+                            <label for="id">Id</label>
+                            <select name="id" id="id" class="form-control">
 
-                        <option value="">Selecione </option>
-                        <?php
-                        include("conexao.php");
-                        $sql = "SELECT DISTINCT id  FROM equipamento";
-                        $resultadoT = mysqli_query($mysqli, $sql);
-                        while ($row = mysqli_fetch_assoc($resultadoT)) { ?>
-                            <option value="<?= $row['id']; ?>"><?= $row['id']; ?></option><?php
-                                                                                        }
-                                                                                            ?>
-                    </select>
-                </div>
-                <div class="col">
-                    <label for="categorias_id">Setor</label>
-                    <select name="setor" id="setor" class="form-control">
+                                <option value="">Selecione </option>
+                                <?php
+                                include("conexao.php");
+                                $sql = "SELECT DISTINCT id  FROM equipamento";
+                                $resultadoT = mysqli_query($mysqli, $sql);
+                                while ($row = mysqli_fetch_assoc($resultadoT)) { ?>
+                                    <option value="<?= $row['id']; ?>"><?= $row['id']; ?></option><?php
+                                                                                                }
+                                                                                                    ?>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="categorias_id">Setor</label>
+                            <select name="setor" id="setor" class="form-control">
 
-                        <option value="">Selecione o Setor </option>
-                        <?php
-                        include("conexao.php");
-                        $sql = "SELECT DISTINCT setor  FROM equipamento";
-                        $resultadoT = mysqli_query($mysqli, $sql);
-                        while ($row = mysqli_fetch_assoc($resultadoT)) { ?>
-                            <option value="<?= $row['setor']; ?>"><?= $row['setor']; ?></option><?php
-                                                                                            }
-                                                                                                ?>
-                    </select>
-                    <input type="button" class="btn btn-outline-secondary" value="Buscar">
-                    </input>
+                                <option value="">Selecione o Setor </option>
+                                <?php
+                                include("conexao.php");
+                                $sql = "SELECT DISTINCT setor  FROM equipamento";
+                                $resultadoT = mysqli_query($mysqli, $sql);
+                                while ($row = mysqli_fetch_assoc($resultadoT)) { ?>
+                                    <option value="<?= $row['setor']; ?>"><?= $row['setor']; ?></option><?php
+                                                                                                    }
+                                                                                                        ?>
+                            </select>
+
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="categorias_id">Ano</label>
+
+                            <select name="ano" id="ano" class="form-control">
+                                <option value="">Selecione o Ano</option>
+                                <option value="">2021 </option>
+                                <option value="">2020 </option>
+                                <option value="">2019 </option>
+                                <option value="">2018 </option>
+                                <option value="">Todos os Anos</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="tiposdemanutencao">Tipo de manutenção</label>
+                            <select name="tipoos" id="tipo" class="form-control">
+                                <option value="">Selecione o Tipo de OS</option>
+                                <option value="">OS Manutenção Preventiva </option>
+                                <option value="">OS Manutenção Corretiva </option>
+                                <option value="">OS Instalação </option>
+                                <option value="">OS Treinamento </option>
+                                <option value="">OS Calibração </option>
+                                <option value="">OS Inspeção</option>
+                                <option value="">Todas as OS</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="tiposdemanutencao">&nbsp;</label>
+                            <input type="button" class="form-control btn btn-outline-secondary" value="Buscar">
+                            </input>
+                        </div>
+                    </div>
+
                 </div>
 
-                <div class="col">
-                    <label for="categorias_id">Ano</label>
-
-                    <select name="ano" id="ano" class="form-control">
-                        <option value="">Selecione o Ano</option>
-                        <option value="">2021 </option>
-                        <option value="">2020 </option>
-                        <option value="">2019 </option>
-                        <option value="">2018 </option>
-                        <option value="">Todos os Anos</option>
-                    </select>
-                </div>
-                <div class="col">
-                    <label for="tiposdemanutencao">Tipo de manutenção</label>
-                    <select name="tipoos" id="tipo" class="form-control">
-                        <option value="">Selecione o Tipo de OS</option>
-                        <option value="">OS Manutenção Preventiva </option>
-                        <option value="">OS Manutenção Corretiva </option>
-                        <option value="">OS Instalação </option>
-                        <option value="">OS Treinamento </option>
-                        <option value="">OS Calibração </option>
-                        <option value="">OS Inspeção</option>
-                        <option value="">Todas as OS</option>
-                    </select>
-                    <br>
-                </div>
             </div>
+
         </div>
-    </div>
-    <div class="container">
-        <table>
-            <?php
-            include("conexao.php");
-            $sql = "SELECT * FROM `os_preventiva` JOIN equipamento ON fk_equipamento=id WHERE dataProxima < CURRENT_DATE ";
-            $resultadoT = mysqli_query($mysqli, $sql);
-            $qtd_equipamentos = mysqli_num_rows($resultadoT);
-            $row = $resultadoT->fetch_array(MYSQLI_ASSOC);
-            ?>
-            <tr>
-                <th>Date</th>
-                <td>12 February</td>
-            </tr>
-            <tr>
-                <th>Event</th>
-                <td>Waltz with Strauss</td>
-            </tr>
-            <tr>
-                <th>Venue</th>
-                <td>Main Hall</td>
-            </tr>
-        </table>
-    </div>
+    </section>
 </div>

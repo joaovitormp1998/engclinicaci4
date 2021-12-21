@@ -41,7 +41,7 @@ $sql_query = $mysqli->query("SELECT * FROM arquivos") or die($mysqli->error);
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0 text-dark" align="right">  Cadastro de Usuarios</h1>
+                    <h1 class="m-0 text-dark" align="left"> Cadastro de Usuarios</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -116,9 +116,7 @@ $sql_query = $mysqli->query("SELECT * FROM arquivos") or die($mysqli->error);
 
     <section class="content">
         <div class="container-fluid">
-
             <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#modalCadastroUsuario"><i class="fas fa-plus"></i>
-
             </button></br>
             </br>
             <script>
@@ -129,7 +127,7 @@ $sql_query = $mysqli->query("SELECT * FROM arquivos") or die($mysqli->error);
                     return true;
                 }
             </script>
-            <table id="tablita"class="table table-striped">
+            <table id="tablita" class="table table-striped">
                 <thead>
                     <tr>
                         <th align="center">ID</th>
@@ -150,7 +148,7 @@ $sql_query = $mysqli->query("SELECT * FROM arquivos") or die($mysqli->error);
                             <td align="center"><?= $usuario['admin'] ?></td>
                             <td align="justify"><?= $usuario['email'] ?></td>
                             <td align="center"><a href="<?= base_url($_base . 'edit/') ?>/<?= $usuario['id'] ?>" class="btn-editar" data-id="<?= $usuario['id'] ?>"><i class="far fa-edit"></i></a>
-                            &nbsp;&nbsp;    <a href="<?= base_url($_base . 'delete/') ?>/<?= $usuario['id'] ?>" onclick='return confirma();' class="btn-excluir" data-id="<?= $usuario['id'] ?>"><i class="far fa-trash-alt"></i></a>
+                                &nbsp;&nbsp; <a href="<?= base_url($_base . 'delete/') ?>/<?= $usuario['id'] ?>" onclick='return confirma();' class="btn-excluir" data-id="<?= $usuario['id'] ?>"><i class="far fa-trash-alt"></i></a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -158,8 +156,6 @@ $sql_query = $mysqli->query("SELECT * FROM arquivos") or die($mysqli->error);
             </table>
         </div>
     </section>
-
-
 </div>
 
 <div class="modal" id="modalCadastroUsuario" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
