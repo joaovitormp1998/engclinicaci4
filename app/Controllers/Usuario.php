@@ -9,6 +9,7 @@ use CodeIgniter\HTTP\Files\UploadedFile;
 class Usuario extends BaseController
 {
     private $usuarioModel;
+    private $_base = '/usuario';
 
     public function __construct()
     {
@@ -22,12 +23,13 @@ class Usuario extends BaseController
     public function index()
     {
 
-        $usuarioModel = new UsuarioModel();
+        $dados = [
+            '_base' => $this->_base,
+            'usuarios' => $this->usuarioModel->findAll()
+        ];
 
         echo view('common/cabecalho');
-        echo view('usuario/index', [
-            'usuarios' => $usuarioModel->paginate(10),
-        ]);
+        echo view('usuario/index', $dados);
         echo view('common/rodape');
     }
 
@@ -99,6 +101,48 @@ class Usuario extends BaseController
             ];
 
             echo view('usuario/index', $dados);
+        }
+    }
+
+    public function create()
+    {
+        // echo '<pre>';
+        // print_r($_POST);
+        // print_r($_FILES);
+
+        $validationRule = [
+            'foto' => [
+                'label' => 'Image File',
+                'rules' => 'uploaded[foto]'
+                    . '|is_image[foto]'
+                    . '|mime_in[foto,image/jpg,image/jpeg,image/gif,image/png,image/webp]'
+                    . '|max_size[foto,100]'
+                    . '|max_dims[foto,1024,768]',
+            ],
+        ];
+        if (! $this->validate($validationRule)) {
+            $data = ['errors' => $this->validator->getErrors()];
+
+           mDebug($data);
+        }
+
+        $img = $this->request->getFile('foto');
+        // mDebug($img);
+        if (! $img->hasMoved()) {
+            $filepath = FCPATH  . 'uploads/' . $img->store();
+
+            // mDebug($filepath);
+            $data = ['uploaded_flleinfo' => new \CodeIgniter\Files\File($filepath)];
+            mDebug($data);
+
+
+            // return view('upload_success', $data);
+        } else {
+            $data = ['errors' => 'The file has already been moved.'];
+
+            print_r($data);
+
+            // return view('upload_form', $data);
         }
     }
 }

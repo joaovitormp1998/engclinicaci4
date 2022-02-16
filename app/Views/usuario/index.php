@@ -1,39 +1,3 @@
-<?php
-$_base = "localhost:8080/usuario/";
-//    $_base="https://www.softeng.com.br/usuario/";
-include("conexao.php");
-include './config.php';
-$nome_arq = filter_input(INPUT_POST, 'nome_arq', FILTER_SANITIZE_STRING);
-$slug = filter_input(INPUT_POST, 'slug', FILTER_SANITIZE_STRING);
-$url = URL . $slug;
-if (isset($_FILES['arquivo'])) {
-    $arquivo = $_FILES['arquivo'];
-
-    if ($arquivo['error'])
-        die("Falha ao Enviar arquivo");
-
-    if ($arquivo['size'] > 5242880)
-        die("Arquivo muito Pesado favor inserir menor que 5 Mb");
-
-    $pasta = "assets/img/";
-    $nomeDoArquivo = $arquivo['name'];
-    $novoNomeDoArquivo = uniqid();
-    $extensao = strtolower(pathinfo($nomeDoArquivo, PATHINFO_EXTENSION));
-
-    if ($extensao != "jpg" && $extensao != 'png') {
-        die("Tipo de arquivo não aceito ! Tipos;jpg,png");
-    }
-    $path = $pasta . $novoNomeDoArquivo . "." . $extensao;
-    $deu_certo = move_uploaded_file($arquivo["tmp_name"], $path);
-    if ($deu_certo) {
-        $mysqli->query("INSERT INTO arquivos (nome, path, nome_arq ) values('$nomeDoArquivo','$path','$nome_arq')") or die($mysqli->error);
-
-        echo "<p>&nbsp;&nbsp;&nbsp;Arquivo enviado com sucesso </p>";
-    } else
-        echo "Deu falha no Envio";
-}
-$sql_query = $mysqli->query("SELECT * FROM arquivos") or die($mysqli->error);
-?>
 
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -147,8 +111,8 @@ $sql_query = $mysqli->query("SELECT * FROM arquivos") or die($mysqli->error);
                             <td align="justify"><?= $usuario['nome'] ?></td>
                             <td align="center"><?= $usuario['admin'] ?></td>
                             <td align="justify"><?= $usuario['email'] ?></td>
-                            <td align="center"><a href="<?= base_url($_base . 'edit/') ?>/<?= $usuario['id'] ?>" class="btn-editar" data-id="<?= $usuario['id'] ?>"><i class="far fa-edit"></i></a>
-                                &nbsp;&nbsp; <a href="<?= base_url($_base . 'delete/') ?>/<?= $usuario['id'] ?>" onclick='return confirma();' class="btn-excluir" data-id="<?= $usuario['id'] ?>"><i class="far fa-trash-alt"></i></a>
+                            <td align="center"><a href="<?= base_url($_base.'/edit') ?>/<?= $usuario['id'] ?>" class="btn-editar" data-id="<?= $usuario['id'] ?>"><i class="far fa-edit"></i></a>
+                                &nbsp;&nbsp; <a href="<?= base_url($_base.'/delete') ?>/<?= $usuario['id'] ?>" onclick='return confirma();' class="btn-excluir" data-id="<?= $usuario['id'] ?>"><i class="far fa-trash-alt"></i></a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -168,7 +132,7 @@ $sql_query = $mysqli->query("SELECT * FROM arquivos") or die($mysqli->error);
                 </button>
             </div>
             <div class="modal-body">
-                <form id="formCadastroUsuario" action="<?= base_url('usuario/store') ?>" method="post" enctype="multipart/form-data">
+                <form id="formCadastroUsuario" action="<?= base_url('usuario/create') ?>" method="post" enctype="multipart/form-data">
                     <input id="uid" type="hidden" name="uid" value="">
                     <div class="row">
 

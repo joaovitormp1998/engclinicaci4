@@ -10,6 +10,8 @@ class Login extends BaseController
 {
 	public function index()
 	{
+		// print_r(password_hash('teste123', PASSWORD_DEFAULT));
+		// die;
 		return view('login/login');
 	}
 
