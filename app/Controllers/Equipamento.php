@@ -177,4 +177,13 @@ class Equipamento extends BaseController
             ]);
         }
     }
+
+    public function ordemUnica($id = null) 
+    {
+        if ($id) {
+            
+        } else {
+            echo json_encode(['error' => 'Invalid id']);
+        }
+    }
 }
