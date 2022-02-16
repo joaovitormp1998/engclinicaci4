@@ -106,7 +106,7 @@
                     <?php foreach ($usuarios as $usuario) : ?>
                         <tr>
                             <td align="justify"><?= $usuario['id'] ?></td>
-                            <td align="justify"><img src="<?= base_url('assets/img/') ?>/<?= $usuario['foto'] ?>" width="50px" height="50px"></td>
+                            <td align="justify"><img src="<?= base_url('uploads') ?>/<?= $usuario['foto'] ?>" width="50px" height="50px"></td>
 
                             <td align="justify"><?= $usuario['nome'] ?></td>
                             <td align="center"><?= $usuario['admin'] ?></td>

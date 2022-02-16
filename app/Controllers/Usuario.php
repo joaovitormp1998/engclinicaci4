@@ -22,7 +22,6 @@ class Usuario extends BaseController
      */
     public function index()
     {
-
         $dados = [
             '_base' => $this->_base,
             'usuarios' => $this->usuarioModel->findAll()
@@ -109,15 +108,15 @@ class Usuario extends BaseController
         // echo '<pre>';
         // print_r($_POST);
         // print_r($_FILES);
-
+        $post = $this->request->getPost();
         $validationRule = [
             'foto' => [
                 'label' => 'Image File',
                 'rules' => 'uploaded[foto]'
                     . '|is_image[foto]'
                     . '|mime_in[foto,image/jpg,image/jpeg,image/gif,image/png,image/webp]'
-                    . '|max_size[foto,100]'
-                    . '|max_dims[foto,1024,768]',
+                    . '|max_size[foto,10000]',
+                    // . '|max_dims[foto,1024,768]',
             ],
         ];
         if (! $this->validate($validationRule)) {
@@ -127,14 +126,24 @@ class Usuario extends BaseController
         }
 
         $img = $this->request->getFile('foto');
-        // mDebug($img);
-        if (! $img->hasMoved()) {
-            $filepath = FCPATH  . 'uploads/' . $img->store();
+        $filepath = FCPATH  . 'uploads/';
+        $nomeImagem = $img->getRandomName();
+        if ($img->move($filepath,$nomeImagem)) {
+            // $filepathold = WRITEPATH . 'uploads/' . $img->store();
+            
 
-            // mDebug($filepath);
-            $data = ['uploaded_flleinfo' => new \CodeIgniter\Files\File($filepath)];
-            mDebug($data);
-
+            // mDebug($filepathold);
+            $post['foto'] = $nomeImagem;
+           
+            if ($this->usuarioModel->save($post)) {
+                return redirect()->to('/usuario/')->with('mensagem', 'Dados cadastrados com sucesso.');
+            } else {
+                $dados = [
+                    'erros' => $this->usuarioModel->errors()
+                ];
+    
+                mDebug($dados);
+            }
 
             // return view('upload_success', $data);
         } else {
