@@ -69,14 +69,20 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?= base_url('equipamento') ?>" class="nav-link">
+                                    <a href="<?= base_url('setor') ?>" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Equipamento</p>
+                                        <p>Setor</p>
                                     </a>
                                 </li>
 
                             </ul>
                         </li>
+                        
+                        <li  class="nav-item has-treeview">
+                                    <a href="<?= base_url('equipamento') ?>" class="nav-link">
+                                    <i class="fas fa-toolbox mav-icon"></i>                                        <p>Equipamento</p>
+                                    </a>
+                                </li>
                         <li class="nav-item has-treeview">
                             <a href="<?= base_url('/contato') ?>" class="nav-link">
                                 <i class="far fa-user"></i>

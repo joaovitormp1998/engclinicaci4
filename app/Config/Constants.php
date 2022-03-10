@@ -77,3 +77,5 @@ defined('EXIT__AUTO_MIN')      || define('EXIT__AUTO_MIN', 9); // lowest automat
 defined('EXIT__AUTO_MAX')      || define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
 
 defined('SALT')                || define('SALT', '^qmCkY1YYQ&eQs$fcP%Z5Y85@jA4Nu'); // highest automatically-assigned error code
+defined('URLQRCODE')           || define('URLQRCODE', 'https://localhost:8081/equipamento/');
+defined('URLIMG')              || define('URLIMG', 'http://localhost:8081/assets/');

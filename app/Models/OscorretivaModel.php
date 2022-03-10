@@ -7,16 +7,18 @@ use CodeIgniter\Model;
 class OscorretivaModel extends Model
 {
     protected $DBGroup              = 'default';
-    protected $table                = 'os_corretiva';
-    protected $primaryKey           = 'idOs';
+    protected $table                = 'ordem-servico';
+    protected $primaryKey           = 'id';
     protected $useAutoIncrement     = true;
     protected $insertID             = 0;
     protected $returnType           = 'array';
     protected $useSoftDeletes       = false;
     protected $protectFields        = true;
     protected $allowedFields        = [
-        'idOs',
-        'funcionario',
+        'id',
+        'data_preventiva',
+        'data_proxima',
+        'funcionario',	
         'falha',
         'defeito',
         'solucao',
@@ -24,14 +26,15 @@ class OscorretivaModel extends Model
         'resolvido',
         'agente',
         'tecnico',
-        'dataEntrada',
-        'horaEntrada',
-        'dataSaida',
-        'horaSaida',
-        'material',
+        'data_entrada',
+        'hora_entrada',
+        'data_saida',
+        'hora_saida',
         'imagem',
-        'fk_equipamento'
-    ];
+        'fk_equipamento',
+        'fk_ordem_servico_tipo',
+        'fk_usuario'
+  ];
 
     // Dates
     protected $useTimestamps        = false;

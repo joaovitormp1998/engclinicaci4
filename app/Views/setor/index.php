@@ -1,16 +1,15 @@
 
 <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
     <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0 text-dark" align="left"> Cadastro de Usuarios</h1>
+                    <h1 class="m-0 text-dark" align="left"> Cadastro de Setor</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Usuario</li>
+                        <li class="breadcrumb-item active">Setores</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -75,9 +74,6 @@
 
         }
     </style>
-
-
-
     <section class="content">
         <div class="container-fluid">
             <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#modalCadastroUsuario"><i class="fas fa-plus"></i>
@@ -91,26 +87,23 @@
                     return true;
                 }
             </script>
-            <table id="tablita" class="table table-striped">
+            <table id="tablita" name="tablita" class="table table-striped">
                 <thead>
                     <tr>
-                        <th align="center">ID</th>
-                        <th>Foto</th>
-                        <th>Nome</th>
-                        <th>Nivel</th>
-                        <th>Email</th>
-                        <th>Ações</th>
+                        <th align="left">ID</th>
+                        <th align="left">Nome</th>
+                        <th align="left">
+                            Ações
+                        </th>
+                        
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($usuarios as $usuario) : ?>
+                    <?php foreach ($setores as $usuario) : ?>
                         <tr>
-                            <td align="justify"><?= $usuario['id'] ?></td>
-                            <td align="justify"><img src="<?= base_url('uploads') ?>/<?= $usuario['foto'] ?>" width="50px" height="50px"></td>  
-                            <td align="justify"><?= $usuario['nome'] ?></td>
-                            <td align="center"><?= $usuario['nivel'] ?></td>
-                            <td align="justify"><?= $usuario['email'] ?></td>
-                            <td align="center"><a href="<?= base_url($_base.'/edit') ?>/<?= $usuario['id'] ?>" class="btn-editar" data-toggle="modal" data-target="#modalEditarUsuario" data-id="<?= $usuario['id'] ?>"><i class="far fa-edit"></i></a>
+                            <td align="left"><?= $usuario['id'] ?></td>
+                            <td align="left"><?= $usuario['nome'] ?></td>
+                            <td align="left"><a href="<?= base_url($_base.'/edit') ?>/<?= $usuario['id'] ?>" class="btn-editar" data-toggle="modal" data-target="#modalEditarUsuario" data-id="<?= $usuario['id'] ?>"><i class="far fa-edit"></i></a>
                                 &nbsp;&nbsp; <a href="<?= base_url($_base.'/delete') ?>/<?= $usuario['id'] ?>" onclick='return confirma();' class="btn-excluir" data-id="<?= $usuario['id'] ?>"><i class="far fa-trash-alt"></i></a>
                             </td>
                         </tr>
@@ -131,40 +124,16 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form id="formCadastroUsuario" action="<?= base_url('usuario/create') ?>" method="post" enctype="multipart/form-data">
+                <form id="formCadastroUsuario" action="<?= base_url('setor/create') ?>" method="post" enctype="multipart/form-data">
                     <input id="uid" type="hidden" name="uid" value="">
                     <div class="row">
-
                         <div class="form-group col-6 col-sm-6">
-                            <label for="nome">Nome Completo:</label>
+                            <label for="nome">Nome </label>
                             <input type="text" class="form-control form-control-sm" id="nome" placeholder="Nome" name="nome" required>
                         </div>
-                        <div class="form-group col-6 col-sm-6">
-                            <label for="foto">Foto:</label>
-                            <input type="file" class="form-control form-control-sm" id="foto" name="foto">
+                        <div>
+                            <input type="hidden" name="fk_usuario" value="<?php echo session()->id ?>">
                         </div>
-                        <div class="form-group col-8 col-sm-6">
-                            <label for="email">E-mail:</label>
-                            <input type="text" class="form-control form-control-sm" id="email" placeholder="email" name="email" required>
-                        </div>
-                        <div class="form-group col-6 col-sm-6">
-                            <label for="senha">Senha:</label>
-                            <input type="password" class="form-control form-control-sm" id="senha" placeholder="Senha" name="senha" required>
-                        </div>
-                        <div class="form-group col-6 col-sm-6">
-                            <label for="repita_senha">Repita sua senha:</label>
-                            <input type="password" class="form-control form-control-sm" id="repita_senha" name="repita_senha" required>
-                        </div>
-                        <div class="form-group col-6 col-sm-6">
-                            <label for="nivel">Nível:</label>
-                            <select class="form-control form-control-sm" id="nivel" placeholder="Nível" name="nivel" required>
-                                <option selected>Selecione</option>
-                                <option value="A">Administrador</option>
-                                <option value="F">Funcionario</option>
-                            </select>
-                        </div>
-
-
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -191,34 +160,10 @@
                     <div class="row">
 
                         <div class="form-group col-6 col-sm-6">
-                            <label for="nome">Nome Completo:</label>
+                            <label for="nome">Nome:</label>
                             <input type="text" class="form-control form-control-sm"  value="<?php echo isset($dadosUsuario) ? $dadosUsuario['nome'] : '' ?>"id="nome" placeholder="Nome" name="nome" required>
                         </div>
-                        <div class="form-group col-6 col-sm-6">
-                            <label for="foto">Foto:</label>
-                            <input type="file" class="form-control form-control-sm" id="foto" name="foto" value="<?php echo isset($dadosUsuario) ? $dadosUsuario['foto'] : '' ?>">
-                        </div>
-                        <div class="form-group col-8 col-sm-6">
-                            <label for="email">E-mail:</label>
-                            <input type="text" class="form-control form-control-sm" id="email" placeholder="email" name="email" value="<?php echo isset($dadosUsuario) ? $dadosUsuario['email'] : '' ?>"required>
-                        </div>
-                        <div class="form-group col-6 col-sm-6">
-                            <label for="senha">Senha:</label>
-                            <input type="password" class="form-control form-control-sm" id="senha" placeholder="Senha" name="senha" required>
-                        </div>
-                        <div class="form-group col-6 col-sm-6">
-                            <label for="repita_senha">Repita sua senha:</label>
-                            <input type="password" class="form-control form-control-sm" id="repita_senha" name="repita_senha" required>
-                        </div>
-                        <div class="form-group col-6 col-sm-6">
-                            <label for="nivel">Nível:</label>
-                            <select class="form-control form-control-sm" value="<?php echo isset($dadosUsuario) ? $dadosUsuario['nivel'] : '' ?>" id="nivel" placeholder="Nível" name="nivel" required>
-                                <option selected>Selecione</option>
-                                <option value="A">Administrador</option>
-                                <option value="F">Funcionario</option>
-                            </select>
-                        </div>
-
+                       
 
                     </div>
                     <div class="modal-footer">
@@ -237,9 +182,6 @@
 
 <div class="modal fade" id="modalExcluirUsuario" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
-
-        <!-- <div class="modal" id="modalExcluirusuario" tabindex="-1"> -->
-        <!-- <div class="modal-dialog"> -->
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Excluir</h5>

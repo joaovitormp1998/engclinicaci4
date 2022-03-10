@@ -51,7 +51,7 @@
 									$datapreventiva = strtotime($hoje);
 									$datafinal = strtotime('+7 day', $datapreventiva);
 									$datecerta = date('Y-m-d', $datafinal);
-									$sql = "SELECT * FROM `os_preventiva` JOIN equipamento ON fk_equipamento=id WHERE dataProxima = '$datecerta'";
+									$sql = "SELECT * FROM `ordem-servico` JOIN equipamento ON fk_equipamento WHERE data_proxima = '$datecerta'";
 									$resultadoT = mysqli_query($mysqli, $sql);
 									$qtd7days = mysqli_num_rows($resultadoT);
 									echo $qtd7days;
@@ -73,7 +73,7 @@
 							<h3>
 								<?php
 								include("conexao.php");
-								$sql = "SELECT * FROM `os_preventiva`JOIN equipamento ON fk_equipamento=id WHERE dataProxima < CURRENT_DATE";
+								$sql = "SELECT * FROM `ordem-servico` JOIN equipamento ON fk_equipamento WHERE data_proxima < CURRENT_DATE";
 								$resultadoT = mysqli_query($mysqli, $sql);
 								$qtd_equipamentos = mysqli_num_rows($resultadoT);
 								echo $qtd_equipamentos;

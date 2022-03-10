@@ -63,19 +63,45 @@ class Ospreventiva extends BaseController
     public function store()
     {
         $post = $this->request->getPost();
+        $validationRule = [
+            'imagem' => [
+                'label' => 'Image File',
+                'rules' => 'uploaded[imagem]'
+                    . '|is_image[imagem]'
+                    . '|mime_in[imagem,image/jpg,image/jpeg,image/gif,image/png,image/webp]'
+                    . '|max_size[imagem,10000]',
+                    // . '|max_dims[imagem,1024,768]',
+            ],
+        ];
+        if (! $this->validate($validationRule)) {
+            $data = ['errors' => $this->validator->getErrors()];
 
-        $ospreventivaModel = new OspreventivaModel();
-
-        if ($ospreventivaModel->save($post)) {
-            return redirect()->to("/equipamento/ordem/{$post['fk_equipamento']}")->with('mensagem_telefone', 'Ordem inserida com sucesso.');
-        } else {
-            return redirect()->to('/mensagem')->with('mensagem', [
-                'mensagem' => 'Erro ao salvar o telefone.',
-                'tipo' => 'danger'
-            ]);
+           mDebug($data);
         }
-    }
+        $img = $this->request->getFile('imagem');
+        $filepath = FCPATH  . '/fotoos';
+        $nomeImagem = $img->getRandomName();
+        if ($img->move($filepath,$nomeImagem)) {
+            // $filepathold = WRITEPATH . 'uploads/' . $img->store();
+            // mDebug($filepathold);
+            $post['imagem'] = $nomeImagem;
+           
+            $ospreventivaModel = new OspreventivaModel();
+            if ($ospreventivaModel->save($post)) {
+                return redirect()->to("/equipamento/ordem/{$post['fk_equipamento']}")->with('mensagem_telefone', 'Ordem inserida com sucesso.');
+            } else {
+                $dados = [
+                    'erros' => $this->ospreventivaModel->errors()
+                ];
+                mDebug($dados);
+            }
+        
+        } else {    
+            $data = ['errors' => 'The file has already been moved.'];
 
+            print_r($data);
+        }
+    }   
     /**
      * Exclui um telefone do cliente.
      *

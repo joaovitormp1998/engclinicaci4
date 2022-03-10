@@ -10,6 +10,7 @@ use App\Models\OscorretivaModel;
 use App\Models\OstreinamentoModel;
 use App\Models\OsinspecaoModel;
 use App\Models\OscalibracaoModel;
+use App\Models\SetorModel;
 
 class Equipamento extends BaseController
 {
@@ -20,14 +21,15 @@ class Equipamento extends BaseController
      *
      * @return void
      */
-    public function index()
+    public function index($id= False)
     {
-
+        $setorModel = new SetorModel();
         $equipamentoModel = new EquipamentoModel();
 
         echo view('common/cabecalho');
         echo view('equipamento/equipamento', [
             'equipamentos' => $equipamentoModel->paginate(1000),
+            'setor'=>$setorModel->findAll()
         ]);
         echo view('common/rodape');
     }
@@ -56,7 +58,6 @@ class Equipamento extends BaseController
         $post = $this->request->getPost();
 
         $equipamentoModel = new EquipamentoModel();
-
         if ($equipamentoModel->save($post)) {
             if (!empty($post['id'])) {
                 return redirect()->to('/mensagem')->with('mensagem', [

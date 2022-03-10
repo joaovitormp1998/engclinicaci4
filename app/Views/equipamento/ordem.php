@@ -236,8 +236,12 @@ include("conexao.php");
                   </thead>
                   <tbody>
                     <?php foreach ($ospreventivasEquipamento as $ospreventivaEquipamento) : ?>
-                      <th><?php echo  date_format(new DateTime($ospreventivaEquipamento['dataPreventiva']), 'd/m/Y '); ?></th>
-                      <th><a href="<?php echo base_url("tiposdeordem/delete/{$ospreventivaEquipamento['idOs']}/{$dadosEquipamento['id']}") ?>" onclick="return confirma()" class="btn-excluir" title="Excluir Resgistro de OS"><i class="far fa-trash-alt"></i></a>
+                      <th><?php echo  date_format(new DateTime($ospreventivaEquipamento['data_preventiva']), 'd/m/Y '); ?></th>
+                      
+                      <th>
+                        <?php $fotoos = $ospreventivaEquipamento['imagem'] ?>
+                        <a href="<?= base_url('fotoos/')."/".$fotoos ?>" title="Exibir Foto da Ordem de Serviço"><i class="fas fa-image"></i></a>
+                        <a href="<?php echo base_url("tiposdeordem/delete/{$ospreventivaEquipamento['id']}/{$dadosEquipamento['id']}") ?>" onclick="return confirma()" class="btn-excluir" title="Excluir Resgistro de OS"><i class="far fa-trash-alt"></i></a>
                         <button type="button" class="btn btn-ligth" data-toggle="modal" data-target="#modalExemplo">
                           <i class="fas fa-eye"></i>
                         </button>
@@ -456,18 +460,18 @@ include("conexao.php");
           </button>
         </div>
         <div class="modal-body">
-          <form id="formCadastroEquipamento" action="<?= base_url('ospreventiva/store') ?>" method="post">
+          <form id="formCadastroEquipamento" action="<?= base_url('ospreventiva/store') ?>" method="post" enctype="multipart/form-data">
             <input id="uid" type="hidden" name="uid" value="">
 
             </hr>
             <div class="row">
               <div class="form-group col-6 col-sm-6">
                 <label for="dataPreventiva">Data Preventiva:</label>
-                <input type="date" class="form-control form-control-sm" id="dataPreventiva" name="dataPreventiva" required>
+                <input type="date" class="form-control form-control-sm" id="data_preventiva" name="data_preventiva" required>
               </div>
               <div class="form-group col-8 col-sm-6">
                 <label for="dataProxima">Data Proxima Manutenção:</label>
-                <input type="date" class="form-control form-control-sm" id="dataProxima" name="dataProxima" required>
+                <input type="date" class="form-control form-control-sm" id="data_proxima" name="data_proxima" required>
               </div>
               <div class="form-group col-8 col-sm-6">
                 <label for="funcionario">Funcionario Solicitante:</label>
@@ -475,11 +479,11 @@ include("conexao.php");
               </div>
               <div class="form-group col-8 col-sm-6">
                 <label for="falha">Falha Apresentada:</label>
-                <input type="text" class="form-control form-control-sm" id="falha" placeholder="falha Apresentada" name="falha">
+                <input type="text" class="form-control form-control-sm" id="falha" placeholder="Falha Apresentada" name="falha">
               </div>
               <div class="form-group col-8 col-sm-6">
                 <label for="defeito">descricao do defeito:</label>
-                <input type="text" class="form-control form-control-sm" id="defeito" placeholder="defeito" name="defeito">
+                <input type="text" class="form-control form-control-sm" id="defeito" placeholder="Defeito" name="defeito">
               </div>
               <div class="form-group col-8 col-sm-6">
                 <label for="solucao">descricao da Solução:</label>
@@ -491,7 +495,7 @@ include("conexao.php");
               </div>
               <div class="form-group col-8 col-sm-6">
                 <label for="resolvido">Problema Resolvido:</label>
-                <input type="text" class="form-control form-control-sm" id="resolvido" placeholder="sim ou nao" name="resolvido">
+                <input type="text" class="form-control form-control-sm" id="resolvido" placeholder="Sim ou Não?" name="resolvido">
               </div>
               <div class="form-group col-8 col-sm-6">
                 <label for="agente">Agente:</label>
@@ -503,19 +507,19 @@ include("conexao.php");
               </div>
               <div class="form-group col-8 col-sm-6">
                 <label for="dataEntrada">Data Entrada:</label>
-                <input type="date" class="form-control form-control-sm" id="dataEntrada" name="dataEntrada">
+                <input type="date" class="form-control form-control-sm" id="dataEntrada" name="data_entrada">
               </div>
               <div class="form-group col-8 col-sm-6">
                 <label for="horaEntrada">Hora Entrada:</label>
-                <input type="time" class="form-control form-control-sm" id="horaEntrada" placeholder="Hora de entrada" name="horaEntrada">
+                <input type="time" class="form-control form-control-sm" id="horaEntrada" placeholder="Hora de entrada" name="hora_entrada">
               </div>
               <div class="form-group col-8 col-sm-6">
                 <label for="dataSaida">Data Saida:</label>
-                <input type="date" class="form-control form-control-sm" id="dataSaida" placeholder="Data Saida" name="dataSaida">
+                <input type="date" class="form-control form-control-sm" id="dataSaida" placeholder="Data Saida" name="data_saida">
               </div>
               <div class="form-group col-8 col-sm-6">
                 <label for="horaSaida">Hora Saida:</label>
-                <input type="time" class="form-control form-control-sm" id="horaSaida" placeholder="Hora Saida" name="horaSaida">
+                <input type="time" class="form-control form-control-sm" id="horaSaida" placeholder="Hora Saida" name="hora_saida">
               </div>
               <div class="form-group col-8 col-sm-6">
                 <label for="material">Material utilizado:</label>
@@ -526,7 +530,12 @@ include("conexao.php");
                 <label for="imagem">Foto da OS assinada</label>
                 <input type="file" name="imagem" id="imagem"></input>
               </div>
-
+              <div>
+                <input type="hidden" name="fk_usuario" value="<?php echo session()->id ?>">
+              </div>
+              <div>
+                <input type="hidden" name="fk_ordem_servico_tipo" value="1">
+              </div>
             </div>
             <div class="modal-footer">
               <input type="hidden" name="fk_equipamento" value="<?php echo $fk_equipamento = $dadosEquipamento['id'] ?>"></input>
@@ -607,7 +616,12 @@ include("conexao.php");
                 <label for="material">Material utilizado:</label>
                 <input type="text" class="form-control form-control-sm" id="material" placeholder="Material" name="material">
               </div>
-
+              <div>
+                <input type="hidden" name="fk_usuario" value="<?php echo session()->id ?>">
+              </div>
+              <div>
+                <input type="hidden" name="fk_ordem_servico_tipo" value="2">
+              </div>
               <div>
                 <label for="imagem">Foto da OS assinada</label>
                 <input type="file" name="imagem" id="imagem"></input>
@@ -693,7 +707,12 @@ include("conexao.php");
                 <label for="material">Material utilizado:</label>
                 <input type="text" class="form-control form-control-sm" id="material" placeholder="Material" name="material">
               </div>
-
+              <div>
+                <input type="hidden" name="fk_usuario" value="<?php echo session()->id ?>">
+              </div>
+              <div>
+                <input type="hidden" name="fk_ordem_servico_tipo" value="4">
+              </div>
               <div>
                 <label for="imagem">Foto da OS assinada</label>
                 <input type="file" name="imagem" id="imagem"></input>
@@ -779,7 +798,12 @@ include("conexao.php");
                 <label for="material">Material utilizado:</label>
                 <input type="text" class="form-control form-control-sm" id="material" placeholder="Material" name="material">
               </div>
-
+              <div>
+                <input type="hidden" name="fk_usuario" value="<?php echo session()->id ?>">
+              </div>
+              <div>
+                <input type="hidden" name="fk_ordem_servico_tipo" value="3">
+              </div>
               <div>
                 <label for="imagem">Foto da OS assinada</label>
                 <input type="file" name="imagem" id="imagem"></input>
@@ -865,7 +889,12 @@ include("conexao.php");
                 <label for="material">Material utilizado:</label>
                 <input type="text" class="form-control form-control-sm" id="material" placeholder="Material" name="material">
               </div>
-
+              <div>
+                <input type="hidden" name="fk_usuario" value="<?php echo session()->id ?>">
+              </div>
+              <div>
+                <input type="hidden" name="fk_ordem_servico_tipo" value="6">
+              </div>
               <div>
                 <label for="imagem">Foto da OS assinada</label>
                 <input type="file" name="imagem" id="imagem"></input>
@@ -951,7 +980,12 @@ include("conexao.php");
                 <label for="material">Material utilizado:</label>
                 <input type="text" class="form-control form-control-sm" id="material" placeholder="Material" name="material">
               </div>
-
+              <div>
+                <input type="hidden" name="fk_usuario" value="<?php echo session()->id ?>">
+              </div>
+              <div>
+                <input type="hidden" name="fk_ordem_servico_tipo" value="5">
+              </div>
               <div>
                 <label for="imagem">Foto da OS assinada</label>
                 <input type="file" name="imagem" id="imagem"></input>
@@ -984,18 +1018,19 @@ include("conexao.php");
           <div class="row">
             <div class="col md-8">
               <?php foreach ($ospreventivasEquipamento as $os) : ?>
-                <p class="text-muted text-sm"><b>Data Preventiva: </b> <?php echo date_format(new DateTime($os['dataPreventiva']), 'd/m/Y '); ?> </p>
-                <p class="text-muted text-sm"><b>Data Proxima: </b> <?php echo date_format(new DateTime($os['dataProxima']), 'd/m/Y '); ?></p>
+                <p class="text-muted text-sm"><b>Data Preventiva: </b> <?php echo date_format(new DateTime($os['data_preventiva']), 'd/m/Y '); ?> </p>
+                <p class="text-muted text-sm"><b>Data Proxima: </b> <?php echo date_format(new DateTime($os['data_proxima']), 'd/m/Y '); ?></p>
                 <p class="text-muted text-sm"><b>Técnico Responsável: </b><?php echo $os['tecnico']; ?></p>
-                <p class="text-muted text-sm"><b>Data Entrada: </b> <?php echo date_format(new DateTime($os['dataEntrada']), 'd/m/Y '); ?></p>
-                <p class="text-muted text-sm"><b>Hora Entrada: </b> <?php echo $os['horaEntrada']; ?></p>
-                <p class="text-muted text-sm"><b>Data Saida: </b> <?php echo date_format(new DateTime($os['dataSaida']), 'd/m/Y '); ?></p>
-                <p class="text-muted text-sm"><b>Hora Saida: </b> <?php echo $os['horaSaida']; ?></p>
+                <p class="text-muted text-sm"><b>Data Entrada: </b> <?php echo date_format(new DateTime($os['data_entrada']), 'd/m/Y '); ?></p>
+                <p class="text-muted text-sm"><b>Hora Entrada: </b> <?php echo $os['hora_entrada']; ?></p>
+                <p class="text-muted text-sm"><b>Data Saida: </b> <?php echo date_format(new DateTime($os['data_saida']), 'd/m/Y '); ?></p>
+                <p class="text-muted text-sm"><b>Hora Saida: </b> <?php echo $os['hora_saida']; ?></p>
               <?php endforeach; ?>
             </div>
             <div class="col md-4">
               <label>Foto da OS</label>
-              <img src="<?= base_url('assets/img/ospadrao.jpeg') ?>" width="150px" height="150px"></img>
+              <?php $fotoos = $os['imagem'] ?>
+              <img src="<?= base_url('fotoos/')."/".$fotoos ?>" width="150px" height="150px"></img>
             </div>
           </div>
           <div class="modal-footer">
@@ -1020,15 +1055,16 @@ include("conexao.php");
             <div class="col md-8">
               <?php foreach ($osinstalacoesEquipamento as $os) : ?>
                 <p class="text-muted text-sm"><b>Técnico Responsável: </b><?php echo $os['tecnico']; ?></p>
-                <p class="text-muted text-sm"><b>Data Entrada: </b> <?php echo date_format(new DateTime($os['dataEntrada']), 'd/m/Y '); ?></p>
-                <p class="text-muted text-sm"><b>Hora Entrada: </b> <?php echo $os['horaEntrada']; ?></p>
-                <p class="text-muted text-sm"><b>Data Saida: </b> <?php echo date_format(new DateTime($os['dataSaida']), 'd/m/Y '); ?></p>
-                <p class="text-muted text-sm"><b>Hora Saida: </b> <?php echo $os['horaSaida']; ?></p>
+                <p class="text-muted text-sm"><b>Data Entrada: </b> <?php echo date_format(new DateTime($os['data_entrada']), 'd/m/Y '); ?></p>
+                <p class="text-muted text-sm"><b>Hora Entrada: </b> <?php echo $os['hora_entrada']; ?></p>
+                <p class="text-muted text-sm"><b>Data Saida: </b> <?php echo date_format(new DateTime($os['data_saida']), 'd/m/Y '); ?></p>
+                <p class="text-muted text-sm"><b>Hora Saida: </b> <?php echo $os['hora_saida']; ?></p>
               <?php endforeach; ?>
             </div>
             <div class="col md-4">
               <label>Foto da OS</label>
-              <img src="<?= base_url('assets/img/ospadrao.jpeg') ?>" width="150px" height="150px"></img>
+              <?php $fotoos = $os['imagem'] ?>
+              <img src="<?= base_url('fotoos/')."/".$fotoos ?>" width="150px" height="150px"></img>
             </div>
           </div>
 
@@ -1056,15 +1092,16 @@ include("conexao.php");
             <div class="col md-8">
               <?php foreach ($oscorretivasEquipamento as $os) : ?>
                 <p class="text-muted text-sm"><b>Técnico Responsável: </b><?php echo $os['tecnico']; ?></p>
-                <p class="text-muted text-sm"><b>Data Entrada: </b> <?php echo date_format(new DateTime($os['dataEntrada']), 'd/m/Y '); ?></p>
-                <p class="text-muted text-sm"><b>Hora Entrada: </b> <?php echo $os['horaEntrada']; ?></p>
-                <p class="text-muted text-sm"><b>Data Saida: </b> <?php echo date_format(new DateTime($os['dataSaida']), 'd/m/Y '); ?></p>
-                <p class="text-muted text-sm"><b>Hora Saida: </b> <?php echo $os['horaSaida']; ?></p>
+                <p class="text-muted text-sm"><b>Data Entrada: </b> <?php echo date_format(new DateTime($os['data_entrada']), 'd/m/Y '); ?></p>
+                <p class="text-muted text-sm"><b>Hora Entrada: </b> <?php echo $os['hora_entrada']; ?></p>
+                <p class="text-muted text-sm"><b>Data Saida: </b> <?php echo date_format(new DateTime($os['data_saida']), 'd/m/Y '); ?></p>
+                <p class="text-muted text-sm"><b>Hora Saida: </b> <?php echo $os['hora_saida']; ?></p>
               <?php endforeach; ?>
             </div>
             <div class="col md-4">
               <label>Foto da OS</label>
-              <img src="<?= base_url('assets/img/ospadrao.jpeg') ?>" width="150px" height="150px"></img>
+              <?php $fotoos = $os['imagem'] ?>
+              <img src="<?= base_url('fotoos/')."/".$fotoos ?>" width="150px" height="150px"></img>
             </div>
           </div>
 
@@ -1092,15 +1129,16 @@ include("conexao.php");
             <div class="col md-8">
               <?php foreach ($oscalibracoesEquipamento as $os) : ?>
                 <p class="text-muted text-sm"><b>Técnico Responsável: </b><?php echo $os['tecnico']; ?></p>
-                <p class="text-muted text-sm"><b>Data Entrada: </b> <?php echo date_format(new DateTime($os['dataEntrada']), 'd/m/Y '); ?></p>
-                <p class="text-muted text-sm"><b>Hora Entrada: </b> <?php echo $os['horaEntrada']; ?></p>
-                <p class="text-muted text-sm"><b>Data Saida: </b> <?php echo date_format(new DateTime($os['dataSaida']), 'd/m/Y '); ?></p>
-                <p class="text-muted text-sm"><b>Hora Saida: </b> <?php echo $os['horaSaida']; ?></p>
+                <p class="text-muted text-sm"><b>Data Entrada: </b> <?php echo date_format(new DateTime($os['data_entrada']), 'd/m/Y '); ?></p>
+                <p class="text-muted text-sm"><b>Hora Entrada: </b> <?php echo $os['hora_entrada']; ?></p>
+                <p class="text-muted text-sm"><b>Data Saida: </b> <?php echo date_format(new DateTime($os['data_saida']), 'd/m/Y '); ?></p>
+                <p class="text-muted text-sm"><b>Hora Saida: </b> <?php echo $os['hora_saida']; ?></p>
               <?php endforeach; ?>
             </div>
             <div class="col md-4">
               <label>Foto da OS</label>
-              <img src="<?= base_url('assets/img/ospadrao.jpeg') ?>" width="150px" height="150px"></img>
+              <?php $fotoos = $os['imagem'] ?>
+              <img src="<?= base_url('fotoos/')."/".$fotoos ?>" width="150px" height="150px"></img>
             </div>
           </div>
 
@@ -1128,15 +1166,16 @@ include("conexao.php");
             <div class="col md-8">
               <?php foreach ($ostreinamentosEquipamento as $os) : ?>
                 <p class="text-muted text-sm"><b>Técnico Responsável: </b><?php echo $os['tecnico']; ?></p>
-                <p class="text-muted text-sm"><b>Data Entrada: </b> <?php echo date_format(new DateTime($os['dataEntrada']), 'd/m/Y '); ?></p>
-                <p class="text-muted text-sm"><b>Hora Entrada: </b> <?php echo $os['horaEntrada']; ?></p>
-                <p class="text-muted text-sm"><b>Data Saida: </b> <?php echo date_format(new DateTime($os['dataSaida']), 'd/m/Y '); ?></p>
-                <p class="text-muted text-sm"><b>Hora Saida: </b> <?php echo $os['horaSaida']; ?></p>
+                <p class="text-muted text-sm"><b>Data Entrada: </b> <?php echo date_format(new DateTime($os['data_entrada']), 'd/m/Y '); ?></p>
+                <p class="text-muted text-sm"><b>Hora Entrada: </b> <?php echo $os['hora_entrada']; ?></p>
+                <p class="text-muted text-sm"><b>Data Saida: </b> <?php echo date_format(new DateTime($os['data_saida']), 'd/m/Y '); ?></p>
+                <p class="text-muted text-sm"><b>Hora Saida: </b> <?php echo $os['hora_saida']; ?></p>
               <?php endforeach; ?>
             </div>
             <div class="col md-4">
               <label>Foto da OS</label>
-              <img src="<?= base_url('assets/img/ospadrao.jpeg') ?>" width="150px" height="150px"></img>
+              <?php $fotoos = $os['imagem'] ?>
+              <img src="<?= base_url('fotoos/')."/".$fotoos ?>" width="150px" height="150px"></img>
             </div>
           </div>
 
@@ -1164,15 +1203,16 @@ include("conexao.php");
             <div class="col md-8">
               <?php foreach ($osinspecoesEquipamento as $os) : ?>
                 <p class="text-muted text-sm"><b>Técnico Responsável: </b><?php echo $os['tecnico']; ?></p>
-                <p class="text-muted text-sm"><b>Data Entrada: </b> <?php echo date_format(new DateTime($os['dataEntrada']), 'd/m/Y '); ?></p>
-                <p class="text-muted text-sm"><b>Hora Entrada: </b> <?php echo $os['horaEntrada']; ?></p>
-                <p class="text-muted text-sm"><b>Data Saida: </b> <?php echo date_format(new DateTime($os['dataSaida']), 'd/m/Y '); ?></p>
-                <p class="text-muted text-sm"><b>Hora Saida: </b> <?php echo $os['horaSaida']; ?></p>
+                <p class="text-muted text-sm"><b>Data Entrada: </b> <?php echo date_format(new DateTime($os['data_entrada']), 'd/m/Y '); ?></p>
+                <p class="text-muted text-sm"><b>Hora Entrada: </b> <?php echo $os['hora_entrada']; ?></p>
+                <p class="text-muted text-sm"><b>Data Saida: </b> <?php echo date_format(new DateTime($os['data_saida']), 'd/m/Y '); ?></p>
+                <p class="text-muted text-sm"><b>Hora Saida: </b> <?php echo $os['hora_saida']; ?></p>
               <?php endforeach; ?>
             </div>
             <div class="col md-4">
               <label>Foto da OS</label>
-              <img src="<?= base_url('assets/img/ospadrao.jpeg') ?>" width="150px" height="150px"></img>
+              <?php $fotoos = $os['imagem'] ?>
+              <img src="<?= base_url('fotoos/')."/".$fotoos ?>" width="150px" height="150px"></img>
             </div>
           </div>
 

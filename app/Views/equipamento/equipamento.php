@@ -1,9 +1,5 @@
 <?php
 
-include './config.php';
-include("conexao.php");
-
-
 use chillerlan\QRCode\{
     QRCode,
     QROptions
@@ -13,10 +9,8 @@ use chillerlan\QRCode\{
 foreach ($equipamentos as $equipamento) :
 
 endforeach;
-$_base = "http://localhost:8080/equipamento/";
-// Em caso de rodar em produção alterar linha abaixo
-// $_base="http://www.softeng.com.br/equipamento/";
-$url = base_url($_base . 'ordem/' . $equipamento['id']);
+
+$url = base_url(URLQRCODE. 'ordem/' . $equipamento['id']);
 
 $options = new QROptions([
     'version' => 5,
@@ -33,60 +27,52 @@ $qrcode->render($url, 'assets/imgqrcode/' . $nome_img);
 
 
 <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
     <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <h1 class="m-0 text-dark" >Cadastro de Equipamentos</h1>
-                </div><!-- /.col -->
+                </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="/home">Home</a></li>
                         <li class="breadcrumb-item active">Equipamentos</li>
                     </ol>
-                </div><!-- /.col -->
-            </div><!-- /.row -->
-        </div><!-- /.container-fluid -->
+                </div>
+            </div>
+        </div>
     </div>
-    <!-- /.content-header -->
-
-    <!-- Main content -->
-
 
     <style>
         .btn-editar:link {
             color: green;
-            text-decoration: none
+            text-decoration: none;
         }
 
         .btn-excluir:link {
             color: red;
-            text-decoration: none
+            text-decoration: none;
         }
-
-        .modal-header {
+         .modal-header {
             background-color: #008080;
 
         }
-
         .modal-title {
             text-align: center;
-            color: whitesmoke
+            color: whitesmoke;
         }
 
         .close {
             color: whitesmoke;
-            text-decoration: none
+            text-decoration: none;
         }
 
         .modal-content {
-            border-color: #008080;
-        }
+            border-color: #08080;
+         }
     </style>
 
-    <section class="content">
-        <div class="container-fluid">
+    <section class="content">        <div class="container-fluid">
             <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#modalCadastroequipamento"><i class="fas fa-plus"></i>
             </button>
             <script>
@@ -103,7 +89,6 @@ $qrcode->render($url, 'assets/imgqrcode/' . $nome_img);
                         <th>ID</th>
                         <th>Nome</th>
                         <th>Marca</th>
-                        <th>Modelo</th>
                         <th>Setor</th>
                         <th>Criticidade</th>
                         <th>Qr Code</th>
@@ -114,14 +99,13 @@ $qrcode->render($url, 'assets/imgqrcode/' . $nome_img);
                     <?php foreach ($equipamentos as $equipamento) : ?>
                         <tr>
                             <td align="center"><?= $equipamento['id'] ?></td>
-                            <td align="justify"><a href="<?= base_url($_base . 'ordem/' . $equipamento['id']) ?>"><?= $equipamento['nome'] ?></td>
+                            <td align="justify"><a href="<?= base_url(URLQRCODE . 'ordem/' . $equipamento['id']) ?>"><?= $equipamento['nome'] ?></td>
                             <td align="justify"><?= $equipamento['marca'] ?></td>
-                            <td align="justify"><?= $equipamento['modelo'] ?></td>
-                            <td align="center"><?= $equipamento['setor'] ?></td>
+                            <td align="center"><?= $equipamento['fk_setor'] ?></td>
                             <td align="center"><?= $equipamento['criticidade'] ?></td>
-                            <td align="center"><?php echo "<img src='" . URL . "imgqrcode/" .  $equipamento['id'] . ".svg' width='100'><br><hr>"; ?></td>
-                            <td><a href="<?= base_url($_base . 'edit/' . $equipamento['id']) ?>" class="btn-editar" data-id="<?= $equipamento['id'] ?>"><i class="far fa-edit"></i></a>
-                              &nbsp;&nbsp;  <a href="<?= base_url($_base . 'delete/' . $equipamento['id']) ?>" class="btn-excluir" data-id="<?= $equipamento['id'] ?>" onclick="return confirma();"><i class="far fa-trash-alt"></i></a>
+                            <td align="center"><?php echo "<img src='" . URLIMG . "imgqrcode/" .  $equipamento['id'] . ".svg' width='100'><br><hr>"; ?></td>
+                            <td><a href="<?= base_url(URLQRCODE . 'edit/' . $equipamento['id']) ?>" class="btn-editar" data-id="<?= $equipamento['id'] ?>"><i class="far fa-edit"></i></a>
+                              &nbsp;&nbsp;  <a href="<?= base_url(URLQRCODE . 'delete/' . $equipamento['id']) ?>" class="btn-excluir" data-id="<?= $equipamento['id'] ?>" onclick="return confirma();"><i class="far fa-trash-alt"></i></a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -159,12 +143,8 @@ $qrcode->render($url, 'assets/imgqrcode/' . $nome_img);
                         <input type="text" value="<?php echo isset($dadosEquipamento) ? $dadosEquipamento['marca'] : '' ?>" class="form-control form-control-sm" id="marca" placeholder="Marca" name="marca" required>
                     </div>
                     <div class="form-group col-8 col-sm-6">
-                        <label for="modelo">Modelo :</label>
-                        <input type="text" value="<?php echo isset($dadosEquipamento) ? $dadosEquipamento['modelo'] : '' ?>" class="form-control form-control-sm" id="modelo" placeholder="Modelo" name="modelo">
-                    </div>
-                    <div class="form-group col-8 col-sm-6">
-                        <label for="numeroSerie">Número de Serie:</label>
-                        <input type="text" value="<?php echo isset($dadosEquipamento) ? $dadosEquipamento['numeroSerie'] : '' ?>" class="form-control form-control-sm" id="numeroSerie" placeholder="Numero de Serie" name="numeroSerie">
+                        <label for="numero_serie">Número de Serie:</label>
+                        <input type="text" value="<?php echo isset($dadosEquipamento) ? $dadosEquipamento['numero_serie'] : '' ?>" class="form-control form-control-sm" id="numero_serie" placeholder="Numero de Serie" name="numero_serie">
                     </div>
                     <div class="form-group col-8 col-sm-6">
                         <label for="patrimonio">Patrimonio:</label>
@@ -188,7 +168,17 @@ $qrcode->render($url, 'assets/imgqrcode/' . $nome_img);
                     </div>
                     <div class="form-group col-8 col-sm-6">
                         <label for="setor">Setor:</label>
-                        <input type="text" value="<?php echo isset($dadosEquipamento) ? $dadosEquipamento['setor'] : '' ?>" class="form-control form-control-sm" id="setor" placeholder="Setor" name="setor">
+                        <select name="fk_setor" class="form-control form-control-sm" required>
+                        <option>Selecione</option>
+                                <?php
+                                include("conexao.php");
+                                $sql = "SELECT DISTINCT id,nome  FROM setor";
+                                $resultadoT = mysqli_query($mysqli, $sql);
+                                while ($row = mysqli_fetch_assoc($resultadoT)) { ?>
+                                    <option value="<?= $row['id']; ?>"><?= $row['nome']; ?></option><?php
+                                                                                                    }
+                                                                                                        ?>
+                        </select>
                     </div>
                     <div class="form-group col-8 col-sm-6">
                         <label for="unidade">Unidade:</label>
@@ -218,7 +208,10 @@ $qrcode->render($url, 'assets/imgqrcode/' . $nome_img);
                         <label for="periodicidade">Periodicidade:</label>
                         <input type="text" value="<?php echo isset($dadosEquipamento) ? $dadosEquipamento['periodicidade'] : '' ?>" class="form-control form-control-sm" id="periodicidade" placeholder="Periodicidade" name="periodicidade">
                     </div>
-                    <div> <input type="hidden" id="nome_img_qr" name="nome_img_qr" value="<?= isset($dadosEquipamento) ? $dadosEquipamento['id'] : '' ?>.svg">
+                    <div>
+                        <input type="hidden" name="fk_usuario" value="<?php echo session()->id ?>">
+                    </div>
+                    <div> <input type="hidden" id="nome_img_qr" name="nome_img_qr" value="<?=$nome_img ?>">
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -234,29 +227,6 @@ $qrcode->render($url, 'assets/imgqrcode/' . $nome_img);
         </div>
     </div>
 </div>
-
-<div class="modal fade" id="modalExcluirEquipamento" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Excluir</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <form action="<?= base_url('equipamento/excluir') ?>" id="formExcluirequipamento" method="post">
-                <div class="modal-body">
-                    <p>Deseja realmente excluir esse registro?</p>
-                    <input type="hidden" id="uidExcluir" name="uid" value="">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                    <button type="submit" class="btn btn-info">Excluir</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-
 <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js ">
 </script>
 <script>

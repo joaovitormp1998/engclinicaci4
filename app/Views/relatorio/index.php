@@ -90,13 +90,13 @@
                             <label for="categorias_id">Setor</label>
                             <select name="setor" id="setor" class="form-control">
 
-                                <option value="">Selecione o Setor </option>
+                                <option value="">Selecione o Modelo </option>
                                 <?php
                                 include("conexao.php");
-                                $sql = "SELECT DISTINCT setor  FROM equipamento";
+                                $sql = "SELECT DISTINCT marca  FROM equipamento";
                                 $resultadoT = mysqli_query($mysqli, $sql);
                                 while ($row = mysqli_fetch_assoc($resultadoT)) { ?>
-                                    <option value="<?= $row['setor']; ?>"><?= $row['setor']; ?></option><?php
+                                    <option value="<?= $row['marca']; ?>"><?= $row['marca']; ?></option><?php
                                                                                                     }
                                                                                                         ?>
                             </select>
