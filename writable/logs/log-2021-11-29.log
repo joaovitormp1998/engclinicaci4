@@ -1,0 +1,550 @@
+CRITICAL - 2021-11-29 17:12:08 --> Table 'engclinica.usuarios' doesn't exist
+#0 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Database\MySQLi\Connection.php(331): mysqli->query('SELECT *\nFROM `...')
+#1 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Database\BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Database\BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Database\BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Model.php(506): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\app\Models\UsuarioModel.php(25): CodeIgniter\Model->first()
+#6 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\app\Controllers\Login.php(21): App\Models\UsuarioModel->getByEmail('hackernet55@hot...')
+#7 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(918): App\Controllers\Login->signIn()
+#8 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#9 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#11 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#12 {main}
+CRITICAL - 2021-11-29 17:18:10 --> Unable to connect to the database.
+#0 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Database\BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Model.php(506): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\app\Models\UsuarioModel.php(25): CodeIgniter\Model->first()
+#4 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\app\Controllers\Login.php(21): App\Models\UsuarioModel->getByEmail('joaovitormonsor...')
+#5 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(918): App\Controllers\Login->signIn()
+#6 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#7 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#10 {main}
+CRITICAL - 2021-11-29 17:18:15 --> Unable to connect to the database.
+#0 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Database\BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Model.php(506): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\app\Models\UsuarioModel.php(25): CodeIgniter\Model->first()
+#4 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\app\Controllers\Login.php(21): App\Models\UsuarioModel->getByEmail('joaovitormonsor...')
+#5 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(918): App\Controllers\Login->signIn()
+#6 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#7 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#10 {main}
+CRITICAL - 2021-11-29 17:20:30 --> Unable to connect to the database.
+#0 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Database\BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Model.php(506): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\app\Models\UsuarioModel.php(25): CodeIgniter\Model->first()
+#4 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\app\Controllers\Login.php(21): App\Models\UsuarioModel->getByEmail('joaovitormonsor...')
+#5 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(918): App\Controllers\Login->signIn()
+#6 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#7 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#10 {main}
+CRITICAL - 2021-11-29 17:20:34 --> Unable to connect to the database.
+#0 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Database\BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Model.php(506): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\app\Models\UsuarioModel.php(25): CodeIgniter\Model->first()
+#4 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\app\Controllers\Login.php(21): App\Models\UsuarioModel->getByEmail('joaovitormonsor...')
+#5 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(918): App\Controllers\Login->signIn()
+#6 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#7 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#10 {main}
+CRITICAL - 2021-11-29 17:20:57 --> Unable to connect to the database.
+#0 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Database\BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Model.php(506): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\app\Models\UsuarioModel.php(25): CodeIgniter\Model->first()
+#4 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\app\Controllers\Login.php(21): App\Models\UsuarioModel->getByEmail('joaovitormonsor...')
+#5 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(918): App\Controllers\Login->signIn()
+#6 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#7 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#10 {main}
+CRITICAL - 2021-11-29 17:22:16 --> Unable to connect to the database.
+#0 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Database\BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Model.php(506): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\app\Models\UsuarioModel.php(25): CodeIgniter\Model->first()
+#4 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\app\Controllers\Login.php(21): App\Models\UsuarioModel->getByEmail('joaovitormonsor...')
+#5 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(918): App\Controllers\Login->signIn()
+#6 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#7 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#10 {main}
+CRITICAL - 2021-11-29 17:23:00 --> Unable to connect to the database.
+#0 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Database\BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Model.php(506): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\app\Models\UsuarioModel.php(25): CodeIgniter\Model->first()
+#4 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\app\Controllers\Login.php(21): App\Models\UsuarioModel->getByEmail('joaovitormonsor...')
+#5 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(918): App\Controllers\Login->signIn()
+#6 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#7 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#10 {main}
+CRITICAL - 2021-11-29 17:23:35 --> Unable to connect to the database.
+#0 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Database\BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Model.php(506): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\app\Models\UsuarioModel.php(25): CodeIgniter\Model->first()
+#4 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\app\Controllers\Login.php(21): App\Models\UsuarioModel->getByEmail('joaovitormonsor...')
+#5 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(918): App\Controllers\Login->signIn()
+#6 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#7 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#10 {main}
+CRITICAL - 2021-11-29 17:23:49 --> Unable to connect to the database.
+#0 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Database\BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Model.php(506): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\app\Models\UsuarioModel.php(25): CodeIgniter\Model->first()
+#4 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\app\Controllers\Login.php(21): App\Models\UsuarioModel->getByEmail('joaovitormonsor...')
+#5 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(918): App\Controllers\Login->signIn()
+#6 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#7 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#10 {main}
+CRITICAL - 2021-11-29 17:24:46 --> Table 'engclinica.usuarios' doesn't exist
+#0 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Database\MySQLi\Connection.php(331): mysqli->query('SELECT *\nFROM `...')
+#1 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Database\BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Database\BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Database\BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Model.php(506): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\app\Models\UsuarioModel.php(25): CodeIgniter\Model->first()
+#6 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\app\Controllers\Login.php(21): App\Models\UsuarioModel->getByEmail('joaovitormonsor...')
+#7 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(918): App\Controllers\Login->signIn()
+#8 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#9 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#11 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#12 {main}
+CRITICAL - 2021-11-29 18:54:35 --> Call to a member function load() on null
+#0 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(918): App\Controllers\Language->index()
+#1 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Language))
+#2 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#4 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#5 {main}
+CRITICAL - 2021-11-29 18:54:52 --> Call to a member function load() on null
+#0 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(918): App\Controllers\Language->index()
+#1 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Language))
+#2 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#4 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#5 {main}
+CRITICAL - 2021-11-29 18:56:28 --> Call to a member function load() on null
+#0 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(918): App\Controllers\Language->index()
+#1 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Language))
+#2 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#4 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#5 {main}
+CRITICAL - 2021-11-29 18:56:31 --> Call to a member function load() on null
+#0 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(918): App\Controllers\Language->index()
+#1 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Language))
+#2 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#4 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#5 {main}
+CRITICAL - 2021-11-29 18:57:56 --> Undefined property: App\Controllers\Language::$lang
+#0 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\app\Controllers\Language.php(9): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\Users\\Jo\xC3\xA3o ...', 9, Array)
+#1 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(918): App\Controllers\Language->index()
+#2 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Language))
+#3 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#6 {main}
+CRITICAL - 2021-11-29 19:01:49 --> syntax error, unexpected '(', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$'
+#0 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Router\Router.php(195): CodeIgniter\Router\Router->autoRoute('Language')
+#1 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(793): CodeIgniter\Router\Router->handle('Language')
+#2 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(364): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#6 {main}
+CRITICAL - 2021-11-29 19:44:46 --> Invalid file: forgot_password_view.php
+#0 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('forgot_password...')
+#1 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Common.php(1119): CodeIgniter\View\View->render('forgot_password...', Array, true)
+#2 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\app\Controllers\Login.php(49): view('forgot_password...', Array)
+#3 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(918): App\Controllers\Login->forgot_password()
+#4 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#5 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#7 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#8 {main}
+CRITICAL - 2021-11-29 20:04:37 --> syntax error, unexpected '}'
+#0 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Router\Router.php(195): CodeIgniter\Router\Router->autoRoute('login/forgot_pa...')
+#1 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(793): CodeIgniter\Router\Router->handle('login/forgot_pa...')
+#2 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(364): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#6 {main}
+CRITICAL - 2021-11-29 20:05:23 --> ve}}memail is not a valid rule.
+#0 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Validation\Validation.php(333): CodeIgniter\Validation\Exceptions\ValidationException::forRuleNotFound('ve}}m\x7Femail')
+#1 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Validation\Validation.php(189): CodeIgniter\Validation\Validation->processRules('email', 'Email', NULL, Array, Array)
+#2 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Controller.php(219): CodeIgniter\Validation\Validation->run()
+#3 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\app\Controllers\Login.php(58): CodeIgniter\Controller->validate(Array)
+#4 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(918): App\Controllers\Login->forgot_password()
+#5 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#6 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#9 {main}
+CRITICAL - 2021-11-29 20:05:36 --> ve}}memail is not a valid rule.
+#0 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Validation\Validation.php(333): CodeIgniter\Validation\Exceptions\ValidationException::forRuleNotFound('ve}}m\x7Femail')
+#1 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Validation\Validation.php(189): CodeIgniter\Validation\Validation->processRules('email', 'Email', NULL, Array, Array)
+#2 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Controller.php(219): CodeIgniter\Validation\Validation->run()
+#3 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\app\Controllers\Login.php(58): CodeIgniter\Controller->validate(Array)
+#4 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(918): App\Controllers\Login->forgot_password()
+#5 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#6 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#9 {main}
+CRITICAL - 2021-11-29 20:07:01 --> ve}}memail is not a valid rule.
+#0 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Validation\Validation.php(333): CodeIgniter\Validation\Exceptions\ValidationException::forRuleNotFound('ve}}m\x7Femail')
+#1 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Validation\Validation.php(189): CodeIgniter\Validation\Validation->processRules('email', 'Email', NULL, Array, Array)
+#2 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Controller.php(219): CodeIgniter\Validation\Validation->run()
+#3 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\app\Controllers\Login.php(58): CodeIgniter\Controller->validate(Array)
+#4 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(918): App\Controllers\Login->forgot_password()
+#5 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#6 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#9 {main}
+CRITICAL - 2021-11-29 20:07:19 --> ve}}memail is not a valid rule.
+#0 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Validation\Validation.php(333): CodeIgniter\Validation\Exceptions\ValidationException::forRuleNotFound('ve}}m\x7Femail')
+#1 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Validation\Validation.php(189): CodeIgniter\Validation\Validation->processRules('email', 'Email', NULL, Array, Array)
+#2 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Controller.php(219): CodeIgniter\Validation\Validation->run()
+#3 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\app\Controllers\Login.php(58): CodeIgniter\Controller->validate(Array)
+#4 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(918): App\Controllers\Login->forgot_password()
+#5 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#6 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#9 {main}
+CRITICAL - 2021-11-29 20:07:31 --> ve}}memail is not a valid rule.
+#0 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Validation\Validation.php(333): CodeIgniter\Validation\Exceptions\ValidationException::forRuleNotFound('ve}}m\x7Femail')
+#1 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Validation\Validation.php(189): CodeIgniter\Validation\Validation->processRules('email', 'Email', NULL, Array, Array)
+#2 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Controller.php(219): CodeIgniter\Validation\Validation->run()
+#3 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\app\Controllers\Login.php(58): CodeIgniter\Controller->validate(Array)
+#4 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(918): App\Controllers\Login->forgot_password()
+#5 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#6 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#9 {main}
+CRITICAL - 2021-11-29 20:07:42 --> ve}}memail is not a valid rule.
+#0 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Validation\Validation.php(333): CodeIgniter\Validation\Exceptions\ValidationException::forRuleNotFound('ve}}m\x7Femail')
+#1 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Validation\Validation.php(189): CodeIgniter\Validation\Validation->processRules('email', 'Email', NULL, Array, Array)
+#2 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Controller.php(219): CodeIgniter\Validation\Validation->run()
+#3 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\app\Controllers\Login.php(58): CodeIgniter\Controller->validate(Array)
+#4 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(918): App\Controllers\Login->forgot_password()
+#5 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#6 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#9 {main}
+CRITICAL - 2021-11-29 20:25:20 --> ve}}memail is not a valid rule.
+#0 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Validation\Validation.php(333): CodeIgniter\Validation\Exceptions\ValidationException::forRuleNotFound('ve}}m\x7Femail')
+#1 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Validation\Validation.php(189): CodeIgniter\Validation\Validation->processRules('email', 'Email', NULL, Array, Array)
+#2 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Controller.php(219): CodeIgniter\Validation\Validation->run()
+#3 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\app\Controllers\Login.php(58): CodeIgniter\Controller->validate(Array)
+#4 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(918): App\Controllers\Login->forgot_password()
+#5 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#6 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#9 {main}
+CRITICAL - 2021-11-29 21:13:08 --> Call to a member function post() on null
+#0 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(918): App\Controllers\Login->forgot_password()
+#1 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#2 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#4 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#5 {main}
+CRITICAL - 2021-11-29 21:16:39 --> Undefined property: App\Controllers\Login::$input
+#0 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\app\Controllers\Login.php(45): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\Users\\Jo\xC3\xA3o ...', 45, Array)
+#1 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(918): App\Controllers\Login->forgot_password()
+#2 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#3 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#6 {main}
+CRITICAL - 2021-11-29 21:16:55 --> Undefined property: App\Controllers\Login::$input
+#0 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\app\Controllers\Login.php(45): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\Users\\Jo\xC3\xA3o ...', 45, Array)
+#1 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(918): App\Controllers\Login->forgot_password()
+#2 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#3 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#6 {main}
+CRITICAL - 2021-11-29 21:17:30 --> Undefined property: App\Controllers\Login::$input
+#0 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\app\Controllers\Login.php(45): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\Users\\Jo\xC3\xA3o ...', 45, Array)
+#1 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(918): App\Controllers\Login->forgot_password()
+#2 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#3 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#6 {main}
+CRITICAL - 2021-11-29 21:19:47 --> Undefined property: App\Controllers\Login::$input
+#0 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\app\Controllers\Login.php(45): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\Users\\Jo\xC3\xA3o ...', 45, Array)
+#1 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(918): App\Controllers\Login->forgot_password()
+#2 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#3 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#6 {main}
+CRITICAL - 2021-11-29 21:19:53 --> syntax error, unexpected end of file, expecting function (T_FUNCTION) or const (T_CONST)
+#0 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Router\Router.php(195): CodeIgniter\Router\Router->autoRoute('login/forgot_pa...')
+#1 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(793): CodeIgniter\Router\Router->handle('login/forgot_pa...')
+#2 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(364): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#6 {main}
+CRITICAL - 2021-11-29 21:21:02 --> Undefined property: App\Controllers\Login::$input
+#0 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\app\Controllers\Login.php(46): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\Users\\Jo\xC3\xA3o ...', 46, Array)
+#1 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(918): App\Controllers\Login->forgot_password()
+#2 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#3 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\João Vitor\Downloads\tela_login-master\tela_login-master\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#6 {main}
+CRITICAL - 2021-11-29 23:28:51 --> Undefined variable: dadosEquipamento
+#0 C:\Users\João Vitor\Downloads\hello\app\Views\ordem.php(42): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\Users\\Jo\xC3\xA3o ...', 42, Array)
+#1 C:\Users\João Vitor\Downloads\hello\system\View\View.php(246): include('C:\\Users\\Jo\xC3\xA3o ...')
+#2 C:\Users\João Vitor\Downloads\hello\system\Common.php(1119): CodeIgniter\View\View->render('ordem', Array, true)
+#3 C:\Users\João Vitor\Downloads\hello\app\Controllers\Ospreventiva.php(41): view('ordem', Array)
+#4 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(918): App\Controllers\Ospreventiva->create('97')
+#5 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Ospreventiva))
+#6 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\Users\João Vitor\Downloads\hello\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 C:\Users\João Vitor\Downloads\hello\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#9 {main}
+CRITICAL - 2021-11-29 23:38:38 --> Undefined variable: dadosEquipamento
+#0 C:\Users\João Vitor\Downloads\hello\app\Views\ordem.php(42): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\Users\\Jo\xC3\xA3o ...', 42, Array)
+#1 C:\Users\João Vitor\Downloads\hello\system\View\View.php(246): include('C:\\Users\\Jo\xC3\xA3o ...')
+#2 C:\Users\João Vitor\Downloads\hello\system\Common.php(1119): CodeIgniter\View\View->render('ordem', Array, true)
+#3 C:\Users\João Vitor\Downloads\hello\app\Controllers\Ospreventiva.php(41): view('ordem', Array)
+#4 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(918): App\Controllers\Ospreventiva->create('1')
+#5 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Ospreventiva))
+#6 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\Users\João Vitor\Downloads\hello\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 C:\Users\João Vitor\Downloads\hello\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#9 {main}
+CRITICAL - 2021-11-29 23:38:52 --> Undefined variable: dadosEquipamento
+#0 C:\Users\João Vitor\Downloads\hello\app\Views\ordem.php(42): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\Users\\Jo\xC3\xA3o ...', 42, Array)
+#1 C:\Users\João Vitor\Downloads\hello\system\View\View.php(246): include('C:\\Users\\Jo\xC3\xA3o ...')
+#2 C:\Users\João Vitor\Downloads\hello\system\Common.php(1119): CodeIgniter\View\View->render('ordem', Array, true)
+#3 C:\Users\João Vitor\Downloads\hello\app\Controllers\Ospreventiva.php(41): view('ordem', Array)
+#4 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(918): App\Controllers\Ospreventiva->create('1')
+#5 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Ospreventiva))
+#6 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\Users\João Vitor\Downloads\hello\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 C:\Users\João Vitor\Downloads\hello\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#9 {main}
+CRITICAL - 2021-11-29 23:45:22 --> Undefined variable: dadosEquipamento
+#0 C:\Users\João Vitor\Downloads\hello\app\Views\ordem.php(42): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\Users\\Jo\xC3\xA3o ...', 42, Array)
+#1 C:\Users\João Vitor\Downloads\hello\system\View\View.php(246): include('C:\\Users\\Jo\xC3\xA3o ...')
+#2 C:\Users\João Vitor\Downloads\hello\system\Common.php(1119): CodeIgniter\View\View->render('ordem', Array, true)
+#3 C:\Users\João Vitor\Downloads\hello\app\Controllers\Ospreventiva.php(41): view('ordem', Array)
+#4 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(918): App\Controllers\Ospreventiva->create('1')
+#5 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Ospreventiva))
+#6 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\Users\João Vitor\Downloads\hello\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 C:\Users\João Vitor\Downloads\hello\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#9 {main}
+CRITICAL - 2021-11-29 23:47:15 --> Trying to access array offset on value of type null
+#0 C:\Users\João Vitor\Downloads\hello\app\Controllers\Equipamento.php(138): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\Users\\Jo\xC3\xA3o ...', 138, Array)
+#1 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(918): App\Controllers\Equipamento->ordem('96')
+#2 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipamento))
+#3 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\João Vitor\Downloads\hello\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\João Vitor\Downloads\hello\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#6 {main}
+CRITICAL - 2021-11-29 23:48:00 --> Trying to access array offset on value of type null
+#0 C:\Users\João Vitor\Downloads\hello\app\Controllers\Equipamento.php(138): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\Users\\Jo\xC3\xA3o ...', 138, Array)
+#1 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(918): App\Controllers\Equipamento->ordem('96')
+#2 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipamento))
+#3 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\João Vitor\Downloads\hello\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\João Vitor\Downloads\hello\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#6 {main}
+CRITICAL - 2021-11-29 23:49:59 --> Trying to access array offset on value of type null
+#0 C:\Users\João Vitor\Downloads\hello\app\Controllers\Equipamento.php(138): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\Users\\Jo\xC3\xA3o ...', 138, Array)
+#1 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(918): App\Controllers\Equipamento->ordem('96')
+#2 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipamento))
+#3 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\João Vitor\Downloads\hello\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\João Vitor\Downloads\hello\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#6 {main}
+CRITICAL - 2021-11-29 23:50:08 --> Trying to access array offset on value of type null
+#0 C:\Users\João Vitor\Downloads\hello\app\Controllers\Equipamento.php(138): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\Users\\Jo\xC3\xA3o ...', 138, Array)
+#1 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(918): App\Controllers\Equipamento->ordem('96')
+#2 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipamento))
+#3 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\João Vitor\Downloads\hello\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\João Vitor\Downloads\hello\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#6 {main}
+CRITICAL - 2021-11-29 23:50:13 --> syntax error, unexpected 'return' (T_RETURN)
+#0 C:\Users\João Vitor\Downloads\hello\system\Router\Router.php(195): CodeIgniter\Router\Router->autoRoute('equipamento/ord...')
+#1 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(793): CodeIgniter\Router\Router->handle('equipamento/ord...')
+#2 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(364): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\João Vitor\Downloads\hello\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\João Vitor\Downloads\hello\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#6 {main}
+CRITICAL - 2021-11-29 23:51:01 --> syntax error, unexpected 'return' (T_RETURN)
+#0 C:\Users\João Vitor\Downloads\hello\system\Router\Router.php(195): CodeIgniter\Router\Router->autoRoute('equipamento/ord...')
+#1 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(793): CodeIgniter\Router\Router->handle('equipamento/ord...')
+#2 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(364): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\João Vitor\Downloads\hello\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\João Vitor\Downloads\hello\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#6 {main}
+CRITICAL - 2021-11-29 23:51:44 --> syntax error, unexpected 'return' (T_RETURN)
+#0 C:\Users\João Vitor\Downloads\hello\system\Router\Router.php(195): CodeIgniter\Router\Router->autoRoute('equipamento/ord...')
+#1 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(793): CodeIgniter\Router\Router->handle('equipamento/ord...')
+#2 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(364): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\João Vitor\Downloads\hello\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\João Vitor\Downloads\hello\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#6 {main}
+CRITICAL - 2021-11-29 23:51:59 --> syntax error, unexpected 'return' (T_RETURN)
+#0 C:\Users\João Vitor\Downloads\hello\system\Router\Router.php(195): CodeIgniter\Router\Router->autoRoute('equipamento/ord...')
+#1 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(793): CodeIgniter\Router\Router->handle('equipamento/ord...')
+#2 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(364): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\João Vitor\Downloads\hello\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\João Vitor\Downloads\hello\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#6 {main}
+CRITICAL - 2021-11-29 23:52:03 --> syntax error, unexpected 'return' (T_RETURN)
+#0 C:\Users\João Vitor\Downloads\hello\system\Router\Router.php(195): CodeIgniter\Router\Router->autoRoute('equipamento/ord...')
+#1 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(793): CodeIgniter\Router\Router->handle('equipamento/ord...')
+#2 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(364): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\João Vitor\Downloads\hello\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\João Vitor\Downloads\hello\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#6 {main}
+CRITICAL - 2021-11-29 23:52:13 --> Trying to access array offset on value of type null
+#0 C:\Users\João Vitor\Downloads\hello\app\Controllers\Equipamento.php(138): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\Users\\Jo\xC3\xA3o ...', 138, Array)
+#1 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(918): App\Controllers\Equipamento->ordem('96')
+#2 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipamento))
+#3 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\João Vitor\Downloads\hello\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\João Vitor\Downloads\hello\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#6 {main}
+CRITICAL - 2021-11-29 23:52:44 --> Trying to access array offset on value of type null
+#0 C:\Users\João Vitor\Downloads\hello\app\Controllers\Equipamento.php(138): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\Users\\Jo\xC3\xA3o ...', 138, Array)
+#1 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(918): App\Controllers\Equipamento->ordem('96')
+#2 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipamento))
+#3 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\João Vitor\Downloads\hello\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\João Vitor\Downloads\hello\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#6 {main}
+CRITICAL - 2021-11-29 23:53:13 --> Trying to access array offset on value of type null
+#0 C:\Users\João Vitor\Downloads\hello\app\Controllers\Equipamento.php(138): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\Users\\Jo\xC3\xA3o ...', 138, Array)
+#1 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(918): App\Controllers\Equipamento->ordem('96')
+#2 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipamento))
+#3 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\João Vitor\Downloads\hello\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\João Vitor\Downloads\hello\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#6 {main}
+CRITICAL - 2021-11-29 23:53:27 --> Trying to access array offset on value of type null
+#0 C:\Users\João Vitor\Downloads\hello\app\Controllers\Equipamento.php(138): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\Users\\Jo\xC3\xA3o ...', 138, Array)
+#1 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(918): App\Controllers\Equipamento->ordem('96')
+#2 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipamento))
+#3 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\João Vitor\Downloads\hello\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\João Vitor\Downloads\hello\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#6 {main}
+CRITICAL - 2021-11-29 23:53:55 --> Trying to access array offset on value of type null
+#0 C:\Users\João Vitor\Downloads\hello\app\Controllers\Equipamento.php(138): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\Users\\Jo\xC3\xA3o ...', 138, Array)
+#1 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(918): App\Controllers\Equipamento->ordem('96')
+#2 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipamento))
+#3 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\João Vitor\Downloads\hello\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\João Vitor\Downloads\hello\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#6 {main}
+CRITICAL - 2021-11-29 23:54:49 --> Trying to access array offset on value of type null
+#0 C:\Users\João Vitor\Downloads\hello\app\Controllers\Equipamento.php(138): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\Users\\Jo\xC3\xA3o ...', 138, Array)
+#1 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(918): App\Controllers\Equipamento->ordem('96')
+#2 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipamento))
+#3 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\João Vitor\Downloads\hello\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\João Vitor\Downloads\hello\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#6 {main}
+CRITICAL - 2021-11-29 23:56:53 --> Trying to access array offset on value of type null
+#0 C:\Users\João Vitor\Downloads\hello\app\Controllers\Equipamento.php(138): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\Users\\Jo\xC3\xA3o ...', 138, Array)
+#1 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(918): App\Controllers\Equipamento->ordem('96')
+#2 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipamento))
+#3 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\João Vitor\Downloads\hello\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\João Vitor\Downloads\hello\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#6 {main}
+CRITICAL - 2021-11-29 23:57:01 --> syntax error, unexpected '{', expecting '('
+#0 C:\Users\João Vitor\Downloads\hello\system\Router\Router.php(195): CodeIgniter\Router\Router->autoRoute('equipamento/ord...')
+#1 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(793): CodeIgniter\Router\Router->handle('equipamento/ord...')
+#2 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(364): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\João Vitor\Downloads\hello\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\João Vitor\Downloads\hello\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#6 {main}
+CRITICAL - 2021-11-29 23:57:36 --> Trying to access array offset on value of type null
+#0 C:\Users\João Vitor\Downloads\hello\app\Controllers\Equipamento.php(138): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\Users\\Jo\xC3\xA3o ...', 138, Array)
+#1 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(918): App\Controllers\Equipamento->ordem('96')
+#2 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipamento))
+#3 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\João Vitor\Downloads\hello\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\João Vitor\Downloads\hello\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#6 {main}
+CRITICAL - 2021-11-29 23:57:49 --> Trying to access array offset on value of type null
+#0 C:\Users\João Vitor\Downloads\hello\app\Controllers\Equipamento.php(138): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\Users\\Jo\xC3\xA3o ...', 138, Array)
+#1 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(918): App\Controllers\Equipamento->ordem('96')
+#2 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipamento))
+#3 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\João Vitor\Downloads\hello\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\João Vitor\Downloads\hello\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#6 {main}
+CRITICAL - 2021-11-29 23:58:04 --> Trying to access array offset on value of type null
+#0 C:\Users\João Vitor\Downloads\hello\app\Controllers\Equipamento.php(138): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\Users\\Jo\xC3\xA3o ...', 138, Array)
+#1 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(918): App\Controllers\Equipamento->ordem('96')
+#2 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipamento))
+#3 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\João Vitor\Downloads\hello\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\João Vitor\Downloads\hello\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#6 {main}
+CRITICAL - 2021-11-29 23:58:05 --> Trying to access array offset on value of type null
+#0 C:\Users\João Vitor\Downloads\hello\app\Controllers\Equipamento.php(138): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\Users\\Jo\xC3\xA3o ...', 138, Array)
+#1 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(918): App\Controllers\Equipamento->ordem('96')
+#2 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipamento))
+#3 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\João Vitor\Downloads\hello\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\João Vitor\Downloads\hello\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#6 {main}
+CRITICAL - 2021-11-29 23:59:51 --> syntax error, unexpected '$ospreventivasEquipamento' (T_VARIABLE)
+#0 C:\Users\João Vitor\Downloads\hello\system\Router\Router.php(195): CodeIgniter\Router\Router->autoRoute('equipamento/ord...')
+#1 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(793): CodeIgniter\Router\Router->handle('equipamento/ord...')
+#2 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(364): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 C:\Users\João Vitor\Downloads\hello\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\João Vitor\Downloads\hello\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\João Vitor\Downloads\hello\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#6 {main}

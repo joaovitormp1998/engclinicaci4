@@ -1,0 +1,64 @@
+CRITICAL - 2021-09-21 08:13:39 --> Call to undefined method App\Models\ClienteModel::insertID
+#0 C:\xampp\htdocs\crud_basicao\app\Controllers\Cliente.php(48): CodeIgniter\Model->__call('insertID', Array)
+#1 C:\xampp\htdocs\crud_basicao\system\CodeIgniter.php(802): App\Controllers\Cliente->store()
+#2 C:\xampp\htdocs\crud_basicao\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cliente))
+#3 C:\xampp\htdocs\crud_basicao\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\crud_basicao\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\crud_basicao\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2021-09-21 11:44:04 --> Call to undefined method App\Models\ClienteModel::insertID
+#0 C:\xampp\htdocs\crud_basicao\app\Controllers\Cliente.php(48): CodeIgniter\Model->__call('insertID', Array)
+#1 C:\xampp\htdocs\crud_basicao\system\CodeIgniter.php(802): App\Controllers\Cliente->store()
+#2 C:\xampp\htdocs\crud_basicao\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cliente))
+#3 C:\xampp\htdocs\crud_basicao\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\crud_basicao\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\crud_basicao\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2021-09-21 12:15:30 --> Undefined variable: telefonesCliente
+#0 C:\xampp\htdocs\crud_basicao\app\Views\form.php(41): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 41, Array)
+#1 C:\xampp\htdocs\crud_basicao\system\View\View.php(214): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\crud_basicao\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\crud_basicao\system\Common.php(1092): CodeIgniter\View\View->render('form', Array, true)
+#4 C:\xampp\htdocs\crud_basicao\app\Controllers\Cliente.php(32): view('form')
+#5 C:\xampp\htdocs\crud_basicao\system\CodeIgniter.php(802): App\Controllers\Cliente->create()
+#6 C:\xampp\htdocs\crud_basicao\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cliente))
+#7 C:\xampp\htdocs\crud_basicao\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\crud_basicao\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\crud_basicao\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2021-09-21 12:15:52 --> Undefined variable: telefonesCliente
+#0 C:\xampp\htdocs\crud_basicao\app\Views\form.php(41): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 41, Array)
+#1 C:\xampp\htdocs\crud_basicao\system\View\View.php(214): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\crud_basicao\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\crud_basicao\system\Common.php(1092): CodeIgniter\View\View->render('form', Array, true)
+#4 C:\xampp\htdocs\crud_basicao\app\Controllers\Cliente.php(32): view('form')
+#5 C:\xampp\htdocs\crud_basicao\system\CodeIgniter.php(802): App\Controllers\Cliente->create()
+#6 C:\xampp\htdocs\crud_basicao\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cliente))
+#7 C:\xampp\htdocs\crud_basicao\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\crud_basicao\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\crud_basicao\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2021-09-21 12:16:42 --> Undefined variable: telefonesCliente
+#0 C:\xampp\htdocs\crud_basicao\app\Views\form.php(41): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 41, Array)
+#1 C:\xampp\htdocs\crud_basicao\system\View\View.php(214): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\crud_basicao\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\crud_basicao\system\Common.php(1092): CodeIgniter\View\View->render('form', Array, true)
+#4 C:\xampp\htdocs\crud_basicao\app\Controllers\Cliente.php(32): view('form')
+#5 C:\xampp\htdocs\crud_basicao\system\CodeIgniter.php(802): App\Controllers\Cliente->create()
+#6 C:\xampp\htdocs\crud_basicao\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cliente))
+#7 C:\xampp\htdocs\crud_basicao\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\crud_basicao\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\crud_basicao\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2021-09-21 12:22:51 --> Undefined variable: titulo
+#0 C:\xampp\htdocs\crud_basicao\app\Views\form.php(13): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 13, Array)
+#1 C:\xampp\htdocs\crud_basicao\system\View\View.php(214): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\crud_basicao\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\crud_basicao\system\Common.php(1092): CodeIgniter\View\View->render('form', Array, true)
+#4 C:\xampp\htdocs\crud_basicao\app\Controllers\Cliente.php(91): view('form', Array)
+#5 C:\xampp\htdocs\crud_basicao\system\CodeIgniter.php(802): App\Controllers\Cliente->edit('1')
+#6 C:\xampp\htdocs\crud_basicao\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cliente))
+#7 C:\xampp\htdocs\crud_basicao\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\crud_basicao\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\crud_basicao\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#10 {main}

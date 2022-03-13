@@ -1,0 +1,16 @@
+CRITICAL - 2022-02-06 14:10:51 --> Undefined property: CodeIgniter\Database\MySQLi\Result::$getResultArray
+#0 C:\Users\João Vitor\Documents\engclinicaci4\app\Models\BokuModel.php(5): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\Users\\Jo\xC3\xA3o ...', 5, Array)
+#1 C:\Users\João Vitor\Documents\engclinicaci4\app\Controllers\Relatorio.php(18): App\Models\BokuModel->AllData()
+#2 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(918): App\Controllers\Relatorio->index()
+#3 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Relatorio))
+#4 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\Users\João Vitor\Documents\engclinicaci4\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#6 C:\Users\João Vitor\Documents\engclinicaci4\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#7 {main}
+CRITICAL - 2022-02-06 14:47:20 --> Class 'Dompdf\Dompdf' not found
+#0 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(918): App\Controllers\Relatorio->printpdf()
+#1 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Relatorio))
+#2 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\Users\João Vitor\Documents\engclinicaci4\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#4 C:\Users\João Vitor\Documents\engclinicaci4\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#5 {main}

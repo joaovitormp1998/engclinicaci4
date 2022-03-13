@@ -1,0 +1,66 @@
+CRITICAL - 2022-02-05 10:49:58 --> Undefined variable: _base
+#0 C:\Users\João Vitor\Documents\engclinicaci4\app\Views\usuario\index.php(123): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\Users\\Jo\xC3\xA3o ...', 123, Array)
+#1 C:\Users\João Vitor\Documents\engclinicaci4\system\View\View.php(246): include('C:\\Users\\Jo\xC3\xA3o ...')
+#2 C:\Users\João Vitor\Documents\engclinicaci4\system\Common.php(1119): CodeIgniter\View\View->render('usuario/index', Array, true)
+#3 C:\Users\João Vitor\Documents\engclinicaci4\app\Controllers\Usuario.php(30): view('usuario/index', Array)
+#4 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(918): App\Controllers\Usuario->index()
+#5 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuario))
+#6 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\Users\João Vitor\Documents\engclinicaci4\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 C:\Users\João Vitor\Documents\engclinicaci4\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#9 {main}
+CRITICAL - 2022-02-05 11:51:53 --> Access to undeclared static property: Kint\Kint::$depth_limit
+#0 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(186): CodeIgniter\CodeIgniter->initializeKint()
+#1 C:\Users\João Vitor\Documents\engclinicaci4\system\bootstrap.php(146): CodeIgniter\CodeIgniter->initialize()
+#2 C:\Users\João Vitor\Documents\engclinicaci4\spark(45): require('C:\\Users\\Jo\xC3\xA3o ...')
+#3 {main}
+CRITICAL - 2022-02-05 11:51:56 --> Access to undeclared static property: Kint\Kint::$depth_limit
+#0 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(186): CodeIgniter\CodeIgniter->initializeKint()
+#1 C:\Users\João Vitor\Documents\engclinicaci4\system\bootstrap.php(146): CodeIgniter\CodeIgniter->initialize()
+#2 C:\Users\João Vitor\Documents\engclinicaci4\spark(45): require('C:\\Users\\Jo\xC3\xA3o ...')
+#3 {main}
+CRITICAL - 2022-02-05 11:52:02 --> Access to undeclared static property: Kint\Kint::$depth_limit
+#0 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(186): CodeIgniter\CodeIgniter->initializeKint()
+#1 C:\Users\João Vitor\Documents\engclinicaci4\system\bootstrap.php(146): CodeIgniter\CodeIgniter->initialize()
+#2 C:\Users\João Vitor\Documents\engclinicaci4\spark(45): require('C:\\Users\\Jo\xC3\xA3o ...')
+#3 {main}
+ERROR - 2022-02-05 11:53:35 --> Error connecting to the database: Access denied for user ''@'localhost' (using password: NO)
+CRITICAL - 2022-02-05 11:53:35 --> Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user ''@'localhost' (using password: NO)
+#0 C:\Users\João Vitor\Documents\engclinicaci4\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\Users\João Vitor\Documents\engclinicaci4\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\Users\João Vitor\Documents\engclinicaci4\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\Users\João Vitor\Documents\engclinicaci4\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#4 C:\Users\João Vitor\Documents\engclinicaci4\app\Models\UsuarioModel.php(68): CodeIgniter\BaseModel->first()
+#5 C:\Users\João Vitor\Documents\engclinicaci4\app\Controllers\Login.php(23): App\Models\UsuarioModel->getByEmail('joaovitormonsor...')
+#6 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(825): App\Controllers\Login->signIn()
+#7 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#8 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\Users\João Vitor\Documents\engclinicaci4\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 C:\Users\João Vitor\Documents\engclinicaci4\system\Commands\Server\rewrite.php(43): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#11 {main}
+CRITICAL - 2022-02-05 12:18:33 --> Undefined index: 
+#0 C:\Users\João Vitor\Documents\engclinicaci4\system\HTTP\URI.php(290): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\Users\\Jo\xC3\xA3o ...', 290, Array)
+#1 C:\Users\João Vitor\Documents\engclinicaci4\system\HTTP\URI.php(1047): CodeIgniter\HTTP\URI->getAuthority()
+#2 C:\Users\João Vitor\Documents\engclinicaci4\system\Helpers\url_helper.php(128): CodeIgniter\HTTP\URI->resolveRelativeURI('localhost:8080/...')
+#3 C:\Users\João Vitor\Documents\engclinicaci4\app\Views\usuario\index.php(150): base_url('localhost:8080/...')
+#4 C:\Users\João Vitor\Documents\engclinicaci4\system\View\View.php(246): include('C:\\Users\\Jo\xC3\xA3o ...')
+#5 C:\Users\João Vitor\Documents\engclinicaci4\system\Common.php(1119): CodeIgniter\View\View->render('usuario/index', Array, true)
+#6 C:\Users\João Vitor\Documents\engclinicaci4\app\Controllers\Usuario.php(29): view('usuario/index', Array)
+#7 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(918): App\Controllers\Usuario->index()
+#8 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuario))
+#9 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\Users\João Vitor\Documents\engclinicaci4\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#11 C:\Users\João Vitor\Documents\engclinicaci4\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#12 {main}
+CRITICAL - 2022-02-05 12:20:10 --> Invalid argument supplied for foreach()
+#0 C:\Users\João Vitor\Documents\engclinicaci4\app\Views\usuario\index.php(142): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Invalid argumen...', 'C:\\Users\\Jo\xC3\xA3o ...', 142, Array)
+#1 C:\Users\João Vitor\Documents\engclinicaci4\system\View\View.php(246): include('C:\\Users\\Jo\xC3\xA3o ...')
+#2 C:\Users\João Vitor\Documents\engclinicaci4\system\Common.php(1119): CodeIgniter\View\View->render('usuario/index', Array, true)
+#3 C:\Users\João Vitor\Documents\engclinicaci4\app\Controllers\Usuario.php(101): view('usuario/index', Array)
+#4 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(918): App\Controllers\Usuario->store()
+#5 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuario))
+#6 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\Users\João Vitor\Documents\engclinicaci4\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 C:\Users\João Vitor\Documents\engclinicaci4\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#9 {main}

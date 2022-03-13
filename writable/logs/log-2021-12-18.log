@@ -1,0 +1,190 @@
+CRITICAL - 2021-12-18 07:12:18 --> Undefined index: 
+#0 C:\Users\João Vitor\Documents\engclinicaci4\system\HTTP\URI.php(290): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\Users\\Jo\xC3\xA3o ...', 290, Array)
+#1 C:\Users\João Vitor\Documents\engclinicaci4\system\HTTP\URI.php(1047): CodeIgniter\HTTP\URI->getAuthority()
+#2 C:\Users\João Vitor\Documents\engclinicaci4\system\Helpers\url_helper.php(128): CodeIgniter\HTTP\URI->resolveRelativeURI('http://localhos...')
+#3 C:\Users\João Vitor\Documents\engclinicaci4\app\Views\equipamento\equipamento.php(19): base_url('http://localhos...')
+#4 C:\Users\João Vitor\Documents\engclinicaci4\system\View\View.php(246): include('C:\\Users\\Jo\xC3\xA3o ...')
+#5 C:\Users\João Vitor\Documents\engclinicaci4\system\Common.php(1119): CodeIgniter\View\View->render('equipamento/equ...', Array, true)
+#6 C:\Users\João Vitor\Documents\engclinicaci4\app\Controllers\Equipamento.php(25): view('equipamento/equ...', Array)
+#7 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(918): App\Controllers\Equipamento->index()
+#8 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipamento))
+#9 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\Users\João Vitor\Documents\engclinicaci4\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#11 C:\Users\João Vitor\Documents\engclinicaci4\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#12 {main}
+CRITICAL - 2021-12-18 07:25:43 --> Invalid file: ospreventivaa.php
+#0 C:\Users\João Vitor\Documents\engclinicaci4\system\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('ospreventivaa.p...')
+#1 C:\Users\João Vitor\Documents\engclinicaci4\system\Common.php(1119): CodeIgniter\View\View->render('ospreventivaa', Array, true)
+#2 C:\Users\João Vitor\Documents\engclinicaci4\app\Controllers\Ospreventiva.php(40): view('ospreventivaa', Array)
+#3 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(918): App\Controllers\Ospreventiva->ospreventivaa()
+#4 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Ospreventiva))
+#5 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\Users\João Vitor\Documents\engclinicaci4\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#7 C:\Users\João Vitor\Documents\engclinicaci4\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#8 {main}
+CRITICAL - 2021-12-18 07:55:03 --> Too few arguments to function App\Controllers\Equipamento::ordem(), 0 passed in C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php on line 918 and exactly 1 expected
+#0 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(918): App\Controllers\Equipamento->ordem()
+#1 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipamento))
+#2 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\Users\João Vitor\Documents\engclinicaci4\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#4 C:\Users\João Vitor\Documents\engclinicaci4\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#5 {main}
+CRITICAL - 2021-12-18 12:03:02 --> Call to a member function isValid() on null
+#0 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(918): App\Controllers\Usuario->store()
+#1 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuario))
+#2 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\Users\João Vitor\Documents\engclinicaci4\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#4 C:\Users\João Vitor\Documents\engclinicaci4\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#5 {main}
+CRITICAL - 2021-12-18 12:03:44 --> Call to a member function isValid() on null
+#0 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(918): App\Controllers\Usuario->store()
+#1 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuario))
+#2 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\Users\João Vitor\Documents\engclinicaci4\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#4 C:\Users\João Vitor\Documents\engclinicaci4\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#5 {main}
+CRITICAL - 2021-12-18 12:08:43 --> Call to a member function getRandomName() on null
+#0 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(918): App\Controllers\Usuario->store()
+#1 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuario))
+#2 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\Users\João Vitor\Documents\engclinicaci4\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#4 C:\Users\João Vitor\Documents\engclinicaci4\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#5 {main}
+CRITICAL - 2021-12-18 12:10:11 --> Call to a member function getRandomName() on null
+#0 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(918): App\Controllers\Usuario->store()
+#1 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuario))
+#2 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\Users\João Vitor\Documents\engclinicaci4\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#4 C:\Users\João Vitor\Documents\engclinicaci4\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#5 {main}
+CRITICAL - 2021-12-18 12:10:13 --> Call to a member function getRandomName() on null
+#0 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(918): App\Controllers\Usuario->store()
+#1 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuario))
+#2 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\Users\João Vitor\Documents\engclinicaci4\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#4 C:\Users\João Vitor\Documents\engclinicaci4\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#5 {main}
+CRITICAL - 2021-12-18 12:10:37 --> Call to a member function getRandomName() on null
+#0 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(918): App\Controllers\Usuario->store()
+#1 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuario))
+#2 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\Users\João Vitor\Documents\engclinicaci4\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#4 C:\Users\João Vitor\Documents\engclinicaci4\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#5 {main}
+CRITICAL - 2021-12-18 12:11:53 --> Call to a member function getRandomName() on null
+#0 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(918): App\Controllers\Usuario->store()
+#1 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuario))
+#2 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\Users\João Vitor\Documents\engclinicaci4\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#4 C:\Users\João Vitor\Documents\engclinicaci4\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#5 {main}
+CRITICAL - 2021-12-18 12:12:26 --> Call to a member function getRandomName() on null
+#0 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(918): App\Controllers\Usuario->store()
+#1 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuario))
+#2 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\Users\João Vitor\Documents\engclinicaci4\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#4 C:\Users\João Vitor\Documents\engclinicaci4\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#5 {main}
+CRITICAL - 2021-12-18 12:13:59 --> Undefined index: 
+#0 C:\Users\João Vitor\Documents\engclinicaci4\system\HTTP\URI.php(290): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\Users\\Jo\xC3\xA3o ...', 290, Array)
+#1 C:\Users\João Vitor\Documents\engclinicaci4\system\HTTP\URI.php(1047): CodeIgniter\HTTP\URI->getAuthority()
+#2 C:\Users\João Vitor\Documents\engclinicaci4\system\Helpers\url_helper.php(128): CodeIgniter\HTTP\URI->resolveRelativeURI('localhost:8080/...')
+#3 C:\Users\João Vitor\Documents\engclinicaci4\app\Views\usuario\index.php(154): base_url('localhost:8080/...')
+#4 C:\Users\João Vitor\Documents\engclinicaci4\system\View\View.php(246): include('C:\\Users\\Jo\xC3\xA3o ...')
+#5 C:\Users\João Vitor\Documents\engclinicaci4\system\Common.php(1119): CodeIgniter\View\View->render('usuario/index', Array, true)
+#6 C:\Users\João Vitor\Documents\engclinicaci4\app\Controllers\Usuario.php(29): view('usuario/index', Array)
+#7 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(918): App\Controllers\Usuario->index()
+#8 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuario))
+#9 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\Users\João Vitor\Documents\engclinicaci4\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#11 C:\Users\João Vitor\Documents\engclinicaci4\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#12 {main}
+CRITICAL - 2021-12-18 13:18:10 --> Argument 1 passed to CodeIgniter\Files\File::__construct() must be of the type string, null given, called in C:\Users\João Vitor\Documents\engclinicaci4\app\Controllers\Usuario.php on line 8
+#0 C:\Users\João Vitor\Documents\engclinicaci4\app\Controllers\Usuario.php(8): CodeIgniter\Files\File->__construct(NULL)
+#1 C:\Users\João Vitor\Documents\engclinicaci4\system\Router\Router.php(583): include_once('C:\\Users\\Jo\xC3\xA3o ...')
+#2 C:\Users\João Vitor\Documents\engclinicaci4\system\Router\Router.php(195): CodeIgniter\Router\Router->autoRoute('usuario')
+#3 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(793): CodeIgniter\Router\Router->handle('usuario')
+#4 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(364): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#5 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\Users\João Vitor\Documents\engclinicaci4\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#7 C:\Users\João Vitor\Documents\engclinicaci4\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#8 {main}
+CRITICAL - 2021-12-18 13:23:00 --> Call to a member function getRandomName() on null
+#0 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(918): App\Controllers\Usuario->store()
+#1 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuario))
+#2 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\Users\João Vitor\Documents\engclinicaci4\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#4 C:\Users\João Vitor\Documents\engclinicaci4\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#5 {main}
+CRITICAL - 2021-12-18 13:25:54 --> Call to a member function move() on null
+#0 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(918): App\Controllers\Usuario->store()
+#1 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuario))
+#2 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\Users\João Vitor\Documents\engclinicaci4\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#4 C:\Users\João Vitor\Documents\engclinicaci4\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#5 {main}
+CRITICAL - 2021-12-18 13:26:46 --> Call to a member function move() on null
+#0 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(918): App\Controllers\Usuario->store()
+#1 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuario))
+#2 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\Users\João Vitor\Documents\engclinicaci4\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#4 C:\Users\João Vitor\Documents\engclinicaci4\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#5 {main}
+CRITICAL - 2021-12-18 13:27:45 --> Call to a member function move() on null
+#0 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(918): App\Controllers\Usuario->store()
+#1 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuario))
+#2 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\Users\João Vitor\Documents\engclinicaci4\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#4 C:\Users\João Vitor\Documents\engclinicaci4\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#5 {main}
+CRITICAL - 2021-12-18 13:28:02 --> Call to a member function move() on null
+#0 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(918): App\Controllers\Usuario->store()
+#1 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuario))
+#2 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\Users\João Vitor\Documents\engclinicaci4\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#4 C:\Users\João Vitor\Documents\engclinicaci4\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#5 {main}
+CRITICAL - 2021-12-18 13:46:41 --> Invalid argument supplied for foreach()
+#0 C:\Users\João Vitor\Documents\engclinicaci4\app\Views\usuario\index.php(146): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Invalid argumen...', 'C:\\Users\\Jo\xC3\xA3o ...', 146, Array)
+#1 C:\Users\João Vitor\Documents\engclinicaci4\system\View\View.php(246): include('C:\\Users\\Jo\xC3\xA3o ...')
+#2 C:\Users\João Vitor\Documents\engclinicaci4\system\Common.php(1119): CodeIgniter\View\View->render('usuario/index', Array, true)
+#3 C:\Users\João Vitor\Documents\engclinicaci4\app\Controllers\Usuario.php(101): view('usuario/index', Array)
+#4 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(918): App\Controllers\Usuario->store()
+#5 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuario))
+#6 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\Users\João Vitor\Documents\engclinicaci4\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 C:\Users\João Vitor\Documents\engclinicaci4\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#9 {main}
+CRITICAL - 2021-12-18 14:08:51 --> Call to a member function do_upload() on null
+#0 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(918): App\Controllers\Usuario->store()
+#1 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuario))
+#2 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\Users\João Vitor\Documents\engclinicaci4\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#4 C:\Users\João Vitor\Documents\engclinicaci4\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#5 {main}
+CRITICAL - 2021-12-18 14:09:25 --> Call to a member function library() on null
+#0 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(918): App\Controllers\Usuario->store()
+#1 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuario))
+#2 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\Users\João Vitor\Documents\engclinicaci4\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#4 C:\Users\João Vitor\Documents\engclinicaci4\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#5 {main}
+CRITICAL - 2021-12-18 14:27:02 --> syntax error, unexpected end of file
+#0 C:\Users\João Vitor\Documents\engclinicaci4\system\Common.php(1119): CodeIgniter\View\View->render('relatorio/index', Array, true)
+#1 C:\Users\João Vitor\Documents\engclinicaci4\app\Controllers\Relatorio.php(21): view('relatorio/index')
+#2 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(918): App\Controllers\Relatorio->index()
+#3 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Relatorio))
+#4 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\Users\João Vitor\Documents\engclinicaci4\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#6 C:\Users\João Vitor\Documents\engclinicaci4\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#7 {main}
+CRITICAL - 2021-12-18 18:15:08 --> Invalid file: ordem.php
+#0 C:\Users\João Vitor\Documents\engclinicaci4\system\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('ordem.php')
+#1 C:\Users\João Vitor\Documents\engclinicaci4\system\Common.php(1119): CodeIgniter\View\View->render('ordem', Array, true)
+#2 C:\Users\João Vitor\Documents\engclinicaci4\app\Controllers\Tiposdeordem.php(64): view('ordem', Array)
+#3 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(918): App\Controllers\Tiposdeordem->create('1')
+#4 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Tiposdeordem))
+#5 C:\Users\João Vitor\Documents\engclinicaci4\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\Users\João Vitor\Documents\engclinicaci4\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#7 C:\Users\João Vitor\Documents\engclinicaci4\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#8 {main}
