@@ -7,14 +7,26 @@ use CodeIgniter\Model;
 class EquipamentoModel extends Model
 {
     protected $table = 'equipamento';
+    protected $fk_usuario;
+    protected $fk_setor;
     protected $allowedFields = [
-        'nome', 'marca', 'modelo', 'numeroSerie', 'patrimonio', 'criticidade', 'tag', 'siconv', 'localizacao', 'setor', 'unidade',
+        'nome',
+        'marca',  
+        'numero_serie', 
+        'patrimonio', 
+        'criticidade', 
+        'tag', 
+        'sincov', 
+        'localizacao',
         'fornecedor',
-        'dataAquisicao',
-        'dataFabricacao',
-        'numeroPasta',
-        'numeroCertificado',
-        'periodicidade',
-        'nome_img_qr'
+        'unidade',
+        'data_aquisicao',
+        'data_fabricacao',
+        'numero_pasta',
+        'numero_certificado',
+        'periocidade',
+        'img_qrcode',
+        'fk_setor',
+        'fk_usuario'
     ];
 }

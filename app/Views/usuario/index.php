@@ -76,14 +76,7 @@
         }
     </style>
 
-
-
-    <section class="content">
-        <div class="container-fluid">
-            <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#modalCadastroUsuario"><i class="fas fa-plus"></i>
-            </button></br>
-            </br>
-            <script>
+<script>
                 function confirma() {
                     if (!confirm("Deseja excluir este registros?")) {
                         return false;
@@ -91,6 +84,13 @@
                     return true;
                 }
             </script>
+
+    <section class="content">
+        <div class="container-fluid">
+            <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#modalCadastroUsuario"><i class="fas fa-plus"></i>
+            </button></br>
+            </br>
+
             <table id="tablita" class="table table-striped">
                 <thead>
                     <tr>
@@ -106,13 +106,12 @@
                     <?php foreach ($usuarios as $usuario) : ?>
                         <tr>
                             <td align="justify"><?= $usuario['id'] ?></td>
-                            <td align="justify"><img src="<?= base_url('uploads') ?>/<?= $usuario['foto'] ?>" width="50px" height="50px"></td>
-
+                            <td align="justify"><img src="<?= base_url('uploads') ?>/<?= $usuario['foto'] ?>" width="50px" height="50px"></td>  
                             <td align="justify"><?= $usuario['nome'] ?></td>
-                            <td align="center"><?= $usuario['admin'] ?></td>
+                            <td align="center"><?= $usuario['nivel'] ?></td>
                             <td align="justify"><?= $usuario['email'] ?></td>
-                            <td align="center"><a href="<?= base_url($_base.'/edit') ?>/<?= $usuario['id'] ?>" class="btn-editar" data-id="<?= $usuario['id'] ?>"><i class="far fa-edit"></i></a>
-                                &nbsp;&nbsp; <a href="<?= base_url($_base.'/delete') ?>/<?= $usuario['id'] ?>" onclick='return confirma();' class="btn-excluir" data-id="<?= $usuario['id'] ?>"><i class="far fa-trash-alt"></i></a>
+                            <td align="center"><a href="<?= base_url('/usuario/edit') ?>/<?= $usuario['id'] ?>" class="btn-editar" id="btn-editar"data-id="<?= $usuario['id'] ?>"><i class="far fa-edit"></i></a>
+                                &nbsp;&nbsp; <a href="<?= base_url('/delete') ?>/<?= $usuario['id'] ?>" onclick='return confirma();' class="btn-excluir" data-id="<?= $usuario['id'] ?>"><i class="far fa-trash-alt"></i></a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -132,13 +131,13 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form id="formCadastroUsuario" action="<?= base_url('usuario/create') ?>" method="post" enctype="multipart/form-data">
+                <form id="formCadastroUsuario" action="<?= base_url('usuario/store') ?>" method="post" enctype="multipart/form-data">
                     <input id="uid" type="hidden" name="uid" value="">
                     <div class="row">
 
                         <div class="form-group col-6 col-sm-6">
                             <label for="nome">Nome Completo:</label>
-                            <input type="text" class="form-control form-control-sm" id="nome" placeholder="Nome" name="nome" required>
+                            <input type="text" class="form-control form-control-sm"  value="<?php echo isset($dadosUsuario) ? $dadosUsuario['nome'] : '' ?>"id="nome" placeholder="Nome" name="nome" required>
                         </div>
                         <div class="form-group col-6 col-sm-6">
                             <label for="foto">Foto:</label>
@@ -157,11 +156,11 @@
                             <input type="password" class="form-control form-control-sm" id="repita_senha" name="repita_senha" required>
                         </div>
                         <div class="form-group col-6 col-sm-6">
-                            <label for="ativo">Ativo:</label>
-                            <select class="form-control form-control-sm" id="ativo" placeholder="Ativo" name="ativo" required>
+                            <label for="nivel">Nível:</label>
+                            <select class="form-control form-control-sm" id="nivel" placeholder="Nível" name="nivel" required>
                                 <option selected>Selecione</option>
-                                <option value="1">Sim</option>
-                                <option value="0">Não</option>
+                                <option value="A">Administrador</option>
+                                <option value="F">Funcionario</option>
                             </select>
                         </div>
 
@@ -176,15 +175,9 @@
         </div>
     </div>
 
-
-
 </div>
-
 <div class="modal fade" id="modalExcluirUsuario" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
-
-        <!-- <div class="modal" id="modalExcluirusuario" tabindex="-1"> -->
-        <!-- <div class="modal-dialog"> -->
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Excluir</h5>
@@ -203,16 +196,4 @@
         </div>
     </div>
 </div>
-
-<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js ">
-</script>
-<script>
-    $(document).ready(function() {
-        $('#tablita').DataTable({
-            dom: 'Bftip',
-            buttons: [
-                'pdfHtml5',
-            ]
-        });
-    });
-</script>
+</div>

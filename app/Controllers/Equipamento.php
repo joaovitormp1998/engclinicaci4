@@ -4,12 +4,8 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\EquipamentoModel;
-use App\Models\OspreventivaModel;
-use App\Models\OsinstalacaoModel;
-use App\Models\OscorretivaModel;
-use App\Models\OstreinamentoModel;
-use App\Models\OsinspecaoModel;
-use App\Models\OscalibracaoModel;
+use App\Models\OrdemModel;
+use App\Models\SetorModel;
 
 class Equipamento extends BaseController
 {
@@ -20,16 +16,18 @@ class Equipamento extends BaseController
      *
      * @return void
      */
-    public function index()
+    public function index($id= False)
     {
-
+        $setorModel = new SetorModel();
         $equipamentoModel = new EquipamentoModel();
 
         echo view('common/cabecalho');
         echo view('equipamento/equipamento', [
             'equipamentos' => $equipamentoModel->paginate(1000),
         ]);
-        echo view('common/rodape');
+        $js['js']=view('equipamento/js/main');
+        echo view('common/rodape',$js);
+            
     }
     /**
      * Chama a view de cadastro de equipamentos
@@ -54,27 +52,19 @@ class Equipamento extends BaseController
     public function store()
     {
         $post = $this->request->getPost();
-
+        $id=$post['uid'];
         $equipamentoModel = new EquipamentoModel();
 
-        if ($equipamentoModel->save($post)) {
-            if (!empty($post['id'])) {
-                return redirect()->to('/mensagem')->with('mensagem', [
-                    'mensagem' => 'Dados salvos com sucesso.',
-                    'tipo' => 'success'
-                ]);
-            }
-            return redirect()->to("/equipamento")->with('mensagem', [
-                'mensagem' => 'Dados salvos com sucesso',
-                'tipo' => 'success'
-            ]);
-        } else {
-            return redirect()->to('/mensagem')->with('mensagem', [
-                'mensagem' => 'Erro ao salvar os dados.',
-                'tipo' => 'danger'
-            ]);
+        if(!empty($id)) {
+            $equipamentoModel->update($id,$post);
+        
+        } else{
+            $equipamentoModel->save($post) ;
+      
         }
+        return redirect()->to('/equipamento');
     }
+        
 
     /**
      * Chama a view de edição com o equipamento carregado
@@ -86,7 +76,7 @@ class Equipamento extends BaseController
     {
 
         $equipamentoModel = new EquipamentoModel();
-        $ospreventivaModel = new OspreventivaModel();
+        $ospreventivaModel = new OrdemModel();
 
 
         $dadosEquipamento = $equipamentoModel->find($id);
@@ -100,14 +90,7 @@ class Equipamento extends BaseController
 
         $ospreventivasEquipamento = $ospreventivaModel->getByIdEquipamento($dadosEquipamento['id']);
         $equipamentos = $equipamentoModel->findAll();
-        echo view('common/cabecalho');
-        echo view('form_equipamento', [
-            'titulo' => 'Edição de Equipamento',
-            'ospreventivasEquipamento' => $ospreventivasEquipamento,
-            'equipamentos' => $equipamentos,
-            'dadosEquipamento' => $dadosEquipamento
-        ]);
-        echo view('common/footer');
+         echo json_encode($dadosEquipamento);
     }
 
     /**
@@ -136,34 +119,19 @@ class Equipamento extends BaseController
 
     public function ordem($id)
     {
+        
         $equipamentoModel = new EquipamentoModel();
-        $ospreventivaModel = new OspreventivaModel();
-        $osinstalacaoModel = new OsinstalacaoModel();
-        $oscorretivaModel = new OscorretivaModel();
-
-
-        $ostreinamentoModel = new OstreinamentoModel();
-        $osinspecaoModel = new OsinspecaoModel();
-        $oscalibracaoModel = new OscalibracaoModel();
-
+        $ospreventivaModel = new OrdemModel();
         $dadosEquipamento = $equipamentoModel->find($id);
-
-        $ospreventivasEquipamento = $ospreventivaModel->getByIdEquipamento($dadosEquipamento['id']);
-        $osinstalacoesEquipamento = $osinstalacaoModel->getByIdEquipamento($dadosEquipamento['id']);
-        $oscorretivasEquipamento = $oscorretivaModel->getByIdEquipamento($dadosEquipamento['id']);
-        $osinspecoesEquipamento = $osinspecaoModel->getByIdEquipamento($dadosEquipamento['id']);
-        $ostreinamentosEquipamento = $ostreinamentoModel->getByIdEquipamento($dadosEquipamento['id']);
-        $oscalibracoesEquipamento = $oscalibracaoModel->getByIdEquipamento($dadosEquipamento['id']);
-
-        echo view('common/cabecalho');
+          echo view('common/cabecalho');
         echo view('equipamento/ordem', [
             'titulo' => 'Dados de Equipamento',
-            'ospreventivasEquipamento' => $ospreventivasEquipamento,
-            'osinstalacoesEquipamento' => $osinstalacoesEquipamento,
-            'oscorretivasEquipamento' => $oscorretivasEquipamento,
-            'osinspecoesEquipamento' => $osinspecoesEquipamento,
-            'ostreinamentosEquipamento' => $ostreinamentosEquipamento,
-            'oscalibracoesEquipamento' => $oscalibracoesEquipamento,
+            'osPreventivas' => $ospreventivaModel->where(['fk_ordem_servico_tipo'=>1])->findAll(),
+            'osCorretivas' => $ospreventivaModel->where(['fk_ordem_servico_tipo'=>3])->findAll(),
+            'osInstalacoes' => $ospreventivaModel->where(['fk_ordem_servico_tipo'=>2])->findAll(),
+            'osCalibracao' => $ospreventivaModel->where(['fk_ordem_servico_tipo'=>5])->findAll(),
+            'osInspecao' => $ospreventivaModel->where(['fk_ordem_servico_tipo'=>6])->findAll(),
+            'osTreinamento' => $ospreventivaModel->where(['fk_ordem_servico_tipo'=>4])->findAll(),
 
             'dadosEquipamento' => $dadosEquipamento
 

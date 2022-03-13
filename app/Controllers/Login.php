@@ -27,6 +27,8 @@ class Login extends BaseController
 			$hashUsuario = $dadosUsuario['senha'];
 			if (password_verify($password, $hashUsuario)) {
 				session()->set('isLoggedIn', true);
+				
+				session()->set('id', $dadosUsuario['id']);
 				session()->set('nome', $dadosUsuario['nome']);
 				session()->set('foto', $dadosUsuario['foto']);
 				return redirect()->to(base_url());

@@ -6,15 +6,15 @@ use CodeIgniter\Model;
 
 class UsuarioModel extends Model
 {
-    protected $table = 'usuarios';
+    protected $table = 'usuario';
     protected $primaryKey = 'id';
     protected $allowedFields = [
         'nome',
         'foto',
         'email',
-        'senha'
+        'senha',
+        'nivel'
     ];
-
     protected $beforeInsert = ['hashPassword'];
     protected $validationRules = [
         'nome' => [

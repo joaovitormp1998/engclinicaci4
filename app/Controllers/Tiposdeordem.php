@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\EquipamentoModel;
-use App\Models\OspreventivaModel;
+use App\Models\OrdemModel;
 
 class Tiposdeordem extends BaseController
 {
@@ -21,7 +21,7 @@ class Tiposdeordem extends BaseController
     public function index()
     {
 
-        $ospreventivaModel = new OspreventivaModel();
+        $ospreventivaModel = new OrdemModel();
 
         echo view('common/cabecalho');
         echo view('tiposdeordem/ospreventiva', [
@@ -33,7 +33,7 @@ class Tiposdeordem extends BaseController
     public function ospreventiva()
     {
 
-        $ospreventivaModel = new OspreventivaModel();
+        $ospreventivaModel = new OrdemModel();
 
         echo view('common/cabecalho');
         echo view('tiposdeordem/ospreventiva', [
@@ -44,7 +44,7 @@ class Tiposdeordem extends BaseController
     public function ospreventivaa()
     {
 
-        $ospreventivaModel = new OspreventivaModel();
+        $ospreventivaModel = new OrdemModel();
 
         echo view('common/cabecalho');
         echo view('tiposdeordem/ospreventivaa', [
@@ -75,7 +75,7 @@ class Tiposdeordem extends BaseController
     {
         $post = $this->request->getPost();
 
-        $ospreventivaModel = new OspreventivaModel();
+        $ospreventivaModel = new OrdemModel();
 
         if ($ospreventivaModel->save($post)) {
             return redirect()->to("/equipamento/ordem/{$post['fk_equipamento']}")->with('mensagem_telefone', 'Ordem inserida com sucesso.');
@@ -97,7 +97,7 @@ class Tiposdeordem extends BaseController
     public function delete($idOs, $fk_equipamento)
     {
 
-        $ospreventivaModel = new OspreventivaModel();
+        $ospreventivaModel = new OrdemModel();
 
         if ($ospreventivaModel->where('fk_equipamento', $fk_equipamento)->delete($idOs)) {
             return redirect()->to("/equipamento/ordem/{$fk_equipamento}")->with('mensagem_telefone', 'Ordem exluida com sucesso.');
