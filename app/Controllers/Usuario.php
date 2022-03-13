@@ -20,16 +20,18 @@ class Usuario extends BaseController
      *
      * @return void
      */
-    public function index()
+    public function index($id=False)
     {
-        $dados = [
-            '_base' => $this->_base,
-            'usuarios' => $this->usuarioModel->findAll()
-        ];
-
+     
+        $usuarioModel = New UsuarioModel();
+     
         echo view('common/cabecalho');
-        echo view('usuario/index', $dados);
-        echo view('common/rodape');
+        echo view('usuario/index', [  
+            'usuarios' => $usuarioModel->paginate(1000),
+        ]);
+     
+        $js['js']=view('usuario/js/main');
+        echo view('common/rodape',$js);
     }
 
     public function edit($id)
@@ -40,20 +42,12 @@ class Usuario extends BaseController
         $dadosUsuario = $usuarioModel->find($id);
 
         if (is_null($dadosUsuario)) {
-            return redirect()->to('/usuario/{$id}')->with('mensagem', [
-                'mensagem' => 'Erro - Usuario não encontrado',
+            return redirect()->to('/mensagem')->with('mensagem', [
+                'mensagem' => 'Erro - equipamento não encontrado',
                 'tipo' => 'danger'
             ]);
         }
-
-        $usuarios = $usuarioModel->findAll();
-        echo view('common/cabecalho');
-        echo view('usuario/form_usuario', [
-            'titulo' => 'Edição de Usuario',
-            'usuarios' => $usuarios,
-            'dadosUsuario' => $dadosUsuario
-        ]);
-        echo view('common/footer');
+         echo json_encode($dadosUsuario);
     }
 
     /**
@@ -81,6 +75,7 @@ class Usuario extends BaseController
     }
     public function store()
     {
+        $id=$post['uid'];
         
         $post = $this->request->getPost();
 

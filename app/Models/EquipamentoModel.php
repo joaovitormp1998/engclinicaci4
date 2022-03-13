@@ -10,8 +10,16 @@ class EquipamentoModel extends Model
     protected $fk_usuario;
     protected $fk_setor;
     protected $allowedFields = [
-        'nome', 'marca',  'numero_serie', 'patrimonio', 'criticidade', 'tag', 'sincov', 'localizacao',
+        'nome',
+        'marca',  
+        'numero_serie', 
+        'patrimonio', 
+        'criticidade', 
+        'tag', 
+        'sincov', 
+        'localizacao',
         'fornecedor',
+        'unidade',
         'data_aquisicao',
         'data_fabricacao',
         'numero_pasta',

@@ -4,7 +4,7 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class OscorretivaModel extends Model
+class OrdemModel extends Model
 {
     protected $DBGroup              = 'default';
     protected $table                = 'ordem-servico';
@@ -34,7 +34,7 @@ class OscorretivaModel extends Model
         'fk_equipamento',
         'fk_ordem_servico_tipo',
         'fk_usuario'
-  ];
+    ];
 
     // Dates
     protected $useTimestamps        = false;

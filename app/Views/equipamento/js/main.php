@@ -2,10 +2,12 @@ $(document).ready(function () {
 	$("#tb-estagiario").DataTable();
 	reponsive=true
 });
-$(".btn-editar").on("click", function () {
+$(".btn-editar").on("click", function (e) {
+	e.preventDefault();
 	const id = $(this).data("id");
 	const urlAcao = $(this).attr("href");
-
+console.log(id);
+console.log(urlAcao);
 	$.ajax({
 		url: urlAcao,
 		data: {
@@ -20,24 +22,24 @@ $(".btn-editar").on("click", function () {
 			$("#formCadastroEquipamento #uid").val(response.id);
 			$("#formCadastroEquipamento #marca").val(response.marca);
 			$("#formCadastroEquipamento #modelo").val(response.modelo);
-			$("#formCadastroEquipamento #numeroSerie").val(response.numeroSerie);
+			$("#formCadastroEquipamento #numero_serie").val(response.numero_serie);
 			$("#formCadastroEquipamento #patrimonio").val(response.patrimonio);
 			$("#formCadastroEquipamento #criticidade").val(response.criticidade);
 			$("#formCadastroEquipamento #tag").val(response.tag);
-			$("#formCadastroEquipamento #siconv").val(response.siconv);
+			$("#formCadastroEquipamento #sincov").val(response.sincov);
 			$("#formCadastroEquipamento #localizacao").val(response.localizacao);
-			$("#formCadastroEquipamento #setor").val(response.setor);
+			$("#formCadastroEquipamento #fk_setor").val(response.fk_setor);
 			$("#formCadastroEquipamento #unidade").val(response.unidade);
 			$("#formCadastroEquipamento #fornecedor").val(response.fornecedor);
-			$("#formCadastroEquipamento #dataAquisicao").val(response.dataAquisicao);
-			$("#formCadastroEquipamento #dataFabricacao").val(
-				response.dataFabricacao
+			$("#formCadastroEquipamento #data_aquisicao").val(response.data_aquisicao);
+			$("#formCadastroEquipamento #data_fabricacao").val(
+				response.data_fabricacao
 			);
-			$("#formCadastroEquipamento #numeroPasta").val(response.numeroPasta);
-			$("#formCadastroEquipamento #numeroCertificado").val(
-				response.numeroCertificado
+			$("#formCadastroEquipamento #numero_pasta").val(response.numero_pasta);
+			$("#formCadastroEquipamento #numero_certificado").val(
+				response.numero_certificado
 			);
-			$("#formCadastroEquipamento #periodicidade").val(response.periodicidade);
+			$("#formCadastroEquipamento #periocidade").val(response.periocidade);
 			$("#formCadastroEquipamento #nome_img_qr").val(response.nome_img_qr);
 			$("#modalCadastroEquipamento").modal("show");
 		},

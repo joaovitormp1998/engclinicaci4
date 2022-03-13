@@ -1,29 +1,30 @@
-$(document).ready( function () {
-    $('#tb-usuario').DataTable();
-    
-} );
+$(document).ready(function () {
+	$("#tb-estagiario").DataTable();
+	reponsive=true
+});
 $('.btn-editar').on('click',function () {
-    const id = $(this).data('id');
-    const urlAcao = $(this).attr("href");
-    
-    $.ajax({
-        url: urlAcao,
-        data: {
-            uid : id
-        },
+    e.preventDefault();
+	const id = $(this).data("id");
+	const urlAcao = $(this).attr("href");
+console.log(id);
+console.log(urlAcao);
+	$.ajax({
+		url: urlAcao,
+		data: {
+			uid: id,
+		},
         dataType: "json",
         method: "POST",
         beforeSend: function () {},
         success: function (response) {
            
           console.log(response);
-          $('#formCadastroUsuario #nome').val(response.nome);
-          $('#formCadastroUsuario #uid').val(response.id);
-          $('#formCadastroUsuario #login').val(response.login);
-          $('#formCadastroUsuario #senha').val(response.senha);
-          $('#formCadastroUsuario #ativo').val(response.ativo);
-          $('#formCadastroUsuario #nivel').val(response.nivel);
-          $('#modalCadastroUsuario').modal('show');
+          $("#formCadastroUsuario #nome").val(response.nome);
+          $("#formCadastroUsuario #uid").val(response.id);
+          $("#formCadastroUsuario #email").val(response.email);
+          $("#formCadastroUsuario #senha").val(response.senha);
+          $("#formCadastroUsuario #nivel").val(response.nivel);
+          $("#modalCadastroUsuario").modal("show");
         },
         error: function (response) {
             try {

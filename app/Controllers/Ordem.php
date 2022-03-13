@@ -4,9 +4,9 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\EquipamentoModel;
-use App\Models\OspreventivaModel;
+use App\Models\OrdemModel;
 
-class Ospreventiva extends BaseController
+class Ordem extends BaseController
 {
     /**
      * Chama o form de cadastro de telefone
@@ -21,11 +21,16 @@ class Ospreventiva extends BaseController
     public function index()
     {
 
-        $ospreventivaModel = new OspreventivaModel();
+        $ospreventivaModel = new OrdemModel();
 
         echo view('common/cabecalho');
-        echo view('ospreventiva', [
-            'ospreventivas' => $ospreventivaModel->paginate(100),
+        echo view('ordem', [
+            'osPreventivas' => $ospreventivaModel->find(['fk_ordem_servico_tipo'=>1]),
+            'osCorretivas' => $ospreventivaModel->find(['fk_ordem_servico_tipo'=>3]),
+            'osInstalacoes' => $ospreventivaModel->find(['fk_ordem_servico_tipo'=>2]),
+            'osCalibracao' => $ospreventivaModel->find(['fk_ordem_servico_tipo'=>5]),
+            'osInspecao' => $ospreventivaModel->find(['fk_ordem_servico_tipo'=>6]),
+            'osTreinamento' => $ospreventivaModel->find(['fk_ordem_servico_tipo'=>4]),
         ]);
         echo view('common/footer');
     }
@@ -86,7 +91,7 @@ class Ospreventiva extends BaseController
             // mDebug($filepathold);
             $post['imagem'] = $nomeImagem;
            
-            $ospreventivaModel = new OspreventivaModel();
+            $ospreventivaModel = new OrdemModel();
             if ($ospreventivaModel->save($post)) {
                 return redirect()->to("/equipamento/ordem/{$post['fk_equipamento']}")->with('mensagem_telefone', 'Ordem inserida com sucesso.');
             } else {
@@ -112,7 +117,7 @@ class Ospreventiva extends BaseController
     public function delete($idOs, $fk_equipamento)
     {
 
-        $ospreventivaModel = new OspreventivaModel();
+        $ospreventivaModel = new OrdemModel();
 
         if ($ospreventivaModel->where('fk_equipamento', $fk_equipamento)->delete($idOs)) {
             return redirect()->to("/equipamento/ordem/{$fk_equipamento}")->with('mensagem_telefone', 'OS preventiva excluída com sucesso.');
