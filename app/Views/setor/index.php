@@ -77,15 +77,8 @@
         <div class="container-fluid">
             <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#modalCadastroSetor"><i class="fas fa-plus"></i>
             </button></br>
-            </br>
-            <script>
-                function confirma() {
-                    if (!confirm("Deseja excluir este registros?")) {
-                        return false;
-                    }
-                    return true;
-                }
-            </script>
+
+
             <table id="tablita" name="tablita" class="table table-striped">
                 <thead>
                     <tr>
@@ -102,8 +95,8 @@
                         <tr>
                             <td align="left"><?= $setor['id'] ?></td>
                             <td align="left"><?= $setor['nome'] ?></td>
-                            <td align="left"><a href="<?= base_url($_base . '/setor/edit') ?>/<?= $setor['id'] ?>" class="btn-editar" data-toggle="modal" data-id="<?= $setor['id'] ?>"><i class="far fa-edit"></i></a>
-                                &nbsp;&nbsp; <a href="<?= base_url($_base . '/delete') ?>/<?= $setor['id'] ?>" onclick='return confirma();' class="btn-excluir" data-id="<?= $setor['id'] ?>"><i class="far fa-trash-alt"></i></a>
+                            <td align="left"><a href="<?= base_url('/setor/edit') ?>/<?= $setor['id'] ?>" class="btn-editar" data-id="<?= $setor['id'] ?>"><i class="far fa-edit"></i></a>
+                                &nbsp;&nbsp; <a href="<?= base_url('/setor/delete') ?>/<?= $setor['id'] ?>" class="btn-excluir" data-id="<?= $setor['id'] ?>"><i class="far fa-trash-alt"></i></a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -142,38 +135,32 @@
             </div>
         </div>
     </div>
+</div>
 
 
-    <div class="modal fade" id="modalExcluirUsuario" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Excluir</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <form action="<?= base_url('setor/deletar') ?>" id="formExcluirSetor" method="post">
-                    <div class="modal-body">
-                        <p>deseja realmente excluir esse registro?</p>
-                        <input type="hidden" id="uidExcluir" name="uid" value="">
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-danger">Excluir</button>
-                    </div>
-                </form>
+<div class="modal fade" id="modalExcluirSetor" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Excluir</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
+            <div class="modal-body">
+                <form id="formExcluirSetor" method="get">
+                    <input id="uid" type="hidden" name="id" value="">
+                    Deseja realmente excluir esse Setor
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                <button type="submit" class="btn btn-primary">Excluir</button>
+            </div>
+
+            </form>
+
         </div>
     </div>
 </div>
-<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js ">
-</script>
-<script>
-    $(document).ready(function() {
-        $('#tablita').DataTable({
-            dom: 'Bftip',
-            buttons: [
-                'pdfHtml5',
-            ]
-        });
-    });
-</script>
+</div>

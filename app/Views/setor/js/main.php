@@ -35,6 +35,10 @@ $(".btn-excluir").on("click", function (e) {
 e.preventDefault();
 
 
-$("#formExcluirSetor #uidExcluir").val(id);
+const id = $(this).data("id");
+const urlAcao = $(this).attr("href");
+console.log(id);
+console.log(urlAcao);
+$("#formExcluirSetor").attr('action', urlAcao);
 $("#modalExcluirSetor").modal("show");
 });
