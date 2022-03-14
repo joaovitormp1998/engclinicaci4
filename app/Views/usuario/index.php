@@ -1,4 +1,3 @@
-
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="content-header">
@@ -76,14 +75,6 @@
         }
     </style>
 
-<script>
-                function confirma() {
-                    if (!confirm("Deseja excluir este registros?")) {
-                        return false;
-                    }
-                    return true;
-                }
-            </script>
 
     <section class="content">
         <div class="container-fluid">
@@ -106,12 +97,12 @@
                     <?php foreach ($usuarios as $usuario) : ?>
                         <tr>
                             <td align="justify"><?= $usuario['id'] ?></td>
-                            <td align="justify"><img src="<?= base_url('uploads') ?>/<?= $usuario['foto'] ?>" width="50px" height="50px"></td>  
+                            <td align="justify"><img src="<?= base_url('uploads') ?>/<?= $usuario['foto'] ?>" width="50px" height="50px"></td>
                             <td align="justify"><?= $usuario['nome'] ?></td>
                             <td align="center"><?= $usuario['nivel'] ?></td>
                             <td align="justify"><?= $usuario['email'] ?></td>
-                            <td align="center"><a href="<?= base_url('/usuario/edit') ?>/<?= $usuario['id'] ?>" class="btn-editar" id="btn-editar"data-id="<?= $usuario['id'] ?>"><i class="far fa-edit"></i></a>
-                                &nbsp;&nbsp; <a href="<?= base_url('/delete') ?>/<?= $usuario['id'] ?>" onclick='return confirma();' class="btn-excluir" data-id="<?= $usuario['id'] ?>"><i class="far fa-trash-alt"></i></a>
+                            <td align="center"><a href="<?= base_url('/usuario/edit') ?>/<?= $usuario['id'] ?>" class="btn-editar" data-id="<?= $usuario['id'] ?>"><i class="far fa-edit"></i></a>
+                                &nbsp;&nbsp; <a href="<?= base_url('/usuario/delete') ?>/<?= $usuario['id'] ?>" class="btn-excluir" data-id="<?= $usuario['id'] ?>"><i class="far fa-trash-alt"></i></a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -131,29 +122,29 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form id="formCadastroUsuario" action="<?= base_url('usuario/store') ?>" method="post" enctype="multipart/form-data">
+                <form id="formCadastroUsuario" action="<?= base_url('usuario/create') ?>" method="post" enctype="multipart/form-data">
                     <input id="uid" type="hidden" name="uid" value="">
                     <div class="row">
 
                         <div class="form-group col-6 col-sm-6">
                             <label for="nome">Nome Completo:</label>
-                            <input type="text" class="form-control form-control-sm"  value="<?php echo isset($dadosUsuario) ? $dadosUsuario['nome'] : '' ?>"id="nome" placeholder="Nome" name="nome" required>
+                            <input type="text" class="form-control form-control-sm" value="<?php echo isset($dadosUsuario) ? $dadosUsuario['nome'] : '' ?>" id="nome" placeholder="Nome" name="nome" required>
                         </div>
                         <div class="form-group col-6 col-sm-6">
                             <label for="foto">Foto:</label>
-                            <input type="file" class="form-control form-control-sm" id="foto" name="foto">
+                            <input type="file" class="form-control form-control-sm" value="<?php echo isset($dadosUsuario) ? $dadosUsuario['foto'] : '' ?>" id="foto" name="foto" required>
                         </div>
                         <div class="form-group col-8 col-sm-6">
                             <label for="email">E-mail:</label>
-                            <input type="text" class="form-control form-control-sm" id="email" placeholder="email" name="email" required>
+                            <input type="text" class="form-control form-control-sm" value="<?php echo isset($dadosUsuario) ? $dadosUsuario['email'] : '' ?>" id="email" placeholder="email" name="email" required>
                         </div>
                         <div class="form-group col-6 col-sm-6">
                             <label for="senha">Senha:</label>
-                            <input type="password" class="form-control form-control-sm" id="senha" placeholder="Senha" name="senha" required>
+                            <input type="password" class="form-control form-control-sm" value="<?php echo isset($dadosUsuario) ? $dadosUsuario['senha'] : '' ?>" id="senha" placeholder="Senha" name="senha" required>
                         </div>
                         <div class="form-group col-6 col-sm-6">
                             <label for="repita_senha">Repita sua senha:</label>
-                            <input type="password" class="form-control form-control-sm" id="repita_senha" name="repita_senha" required>
+                            <input type="password" class="form-control form-control-sm" value="<?php echo isset($dadosUsuario) ? $dadosUsuario['senha'] : '' ?>" id="repita_senha" name="repita_senha" required>
                         </div>
                         <div class="form-group col-6 col-sm-6">
                             <label for="nivel">Nível:</label>
@@ -176,23 +167,45 @@
     </div>
 
 </div>
-<div class="modal fade" id="modalExcluirUsuario" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="modal fade" id="modalExcluirUsuario" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Excluir</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <h5 class="modal-title" id="exampleModalLabel">Excluir</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
-            <form action="<?= base_url('usuario/deletar') ?>" id="formExcluirUsuario" method="post">
-                <div class="modal-body">
-                    <p>deseja realmente excluir esse registro?</p>
-                    <input type="hidden" id="uidExcluir" name="uid" value="">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-danger">Excluir</button>
-                </div>
+
+            <div class="modal-body">
+
+
+                <form action="<?= base_url('usuario/delete/') ?>" id="formExcluirUsuario" method="post">
+                    <input id="uid" type="hidden" name="id" value="">
+                    Deseja realmente excluir esse Usuario:
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                <button type="submit" class="btn btn-primary">Excluir</button>
+            </div>
+
             </form>
+
         </div>
     </div>
 </div>

@@ -7,9 +7,9 @@ use CodeIgniter\Model;
 class SetorModel extends Model
 {
     protected $table = 'setor';
-    protected $fk_usuario ;
-    
+    protected $fk_usuario;
+
     protected $allowedFields = [
-        'id', 'nome','fk_usuario'
+        'nome', 'fk_usuario'
     ];
 }

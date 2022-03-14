@@ -1,0 +1,58 @@
+CRITICAL - 2021-11-26 07:53:05 --> Undefined variable: equipamentos
+#0 C:\xampp\htdocs\hello\app\Views\equipamento.php(8): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 8, Array)
+#1 C:\xampp\htdocs\hello\system\View\View.php(214): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\hello\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\hello\system\Common.php(1092): CodeIgniter\View\View->render('equipamento', Array, true)
+#4 C:\xampp\htdocs\hello\app\Controllers\Equipamento.php(24): view('equipamento')
+#5 C:\xampp\htdocs\hello\system\CodeIgniter.php(802): App\Controllers\Equipamento->index()
+#6 C:\xampp\htdocs\hello\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipamento))
+#7 C:\xampp\htdocs\hello\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\hello\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\hello\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2021-11-26 07:53:33 --> Undefined variable: equipamentos
+#0 C:\xampp\htdocs\hello\app\Views\equipamento.php(8): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 8, Array)
+#1 C:\xampp\htdocs\hello\system\View\View.php(214): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\hello\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\hello\system\Common.php(1092): CodeIgniter\View\View->render('equipamento', Array, true)
+#4 C:\xampp\htdocs\hello\app\Controllers\Equipamento.php(24): view('equipamento')
+#5 C:\xampp\htdocs\hello\system\CodeIgniter.php(802): App\Controllers\Equipamento->index()
+#6 C:\xampp\htdocs\hello\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipamento))
+#7 C:\xampp\htdocs\hello\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\hello\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\hello\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2021-11-26 10:24:37 --> syntax error, unexpected '<'
+#0 C:\xampp\htdocs\hello\system\View\View.php(217): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#1 C:\xampp\htdocs\hello\system\Common.php(1092): CodeIgniter\View\View->render('equipamento', Array, true)
+#2 C:\xampp\htdocs\hello\app\Controllers\Equipamento.php(25): view('equipamento', Array)
+#3 C:\xampp\htdocs\hello\system\CodeIgniter.php(802): App\Controllers\Equipamento->index()
+#4 C:\xampp\htdocs\hello\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipamento))
+#5 C:\xampp\htdocs\hello\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\hello\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\hello\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2021-11-26 10:42:19 --> Undefined property: App\Controllers\Equipamento::$input
+#0 C:\xampp\htdocs\hello\app\Controllers\Equipamento.php(37): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 37, Array)
+#1 C:\xampp\htdocs\hello\system\CodeIgniter.php(802): App\Controllers\Equipamento->getDados('2')
+#2 C:\xampp\htdocs\hello\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipamento))
+#3 C:\xampp\htdocs\hello\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\hello\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\hello\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2021-11-26 10:42:42 --> Undefined property: App\Controllers\Equipamento::$input
+#0 C:\xampp\htdocs\hello\app\Controllers\Equipamento.php(37): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 37, Array)
+#1 C:\xampp\htdocs\hello\system\CodeIgniter.php(802): App\Controllers\Equipamento->getDados('1')
+#2 C:\xampp\htdocs\hello\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipamento))
+#3 C:\xampp\htdocs\hello\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\hello\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\hello\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2021-11-26 10:45:14 --> Undefined property: App\Controllers\Equipamento::$Model
+#0 C:\xampp\htdocs\hello\app\Controllers\Equipamento.php(41): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 41, Array)
+#1 C:\xampp\htdocs\hello\system\CodeIgniter.php(802): App\Controllers\Equipamento->getDados('1')
+#2 C:\xampp\htdocs\hello\system\CodeIgniter.php(399): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Equipamento))
+#3 C:\xampp\htdocs\hello\system\CodeIgniter.php(317): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\hello\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\hello\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#6 {main}

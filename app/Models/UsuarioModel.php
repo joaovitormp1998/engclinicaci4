@@ -40,7 +40,7 @@ class UsuarioModel extends Model
      * @param [type] $data
      * @return void
      */
-    
+
     protected function hashPassword($data)
     {
         if (!$data['data']['senha']) {

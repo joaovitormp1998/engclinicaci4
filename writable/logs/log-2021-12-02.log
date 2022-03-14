@@ -1,0 +1,8 @@
+CRITICAL - 2021-12-02 12:00:29 --> syntax error, unexpected '->' (T_OBJECT_OPERATOR)
+#0 C:\Users\João Vitor\Documents\hello\system\Router\Router.php(195): CodeIgniter\Router\Router->autoRoute('usuario')
+#1 C:\Users\João Vitor\Documents\hello\system\CodeIgniter.php(793): CodeIgniter\Router\Router->handle('usuario')
+#2 C:\Users\João Vitor\Documents\hello\system\CodeIgniter.php(364): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 C:\Users\João Vitor\Documents\hello\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\João Vitor\Documents\hello\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\João Vitor\Documents\hello\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
+#6 {main}
