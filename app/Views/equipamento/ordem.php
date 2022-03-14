@@ -182,7 +182,7 @@ include("conexao.php");
                   <a href="javascript:;" class="btn btn-sm btn-success" disabled> <i class="fas fa-user"></i>O.S Preventiva</a>
                 <?php endif; ?>
                 <?php if (isset($dadosEquipamento['id'])) : ?>
-                  <?php if (count($osPreventivas) > 0)  : ?>
+                  <?php if (count($osPreventivas) > 0) : ?>
                     <section class="grid grid-template-rows-1" id="botoesdeos">
                       <div class="item"><a href="<?php echo base_url("ordem/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modalCadastroPreventiva"> <i class="fas fa-user"></i> O.S Preventiva</a></div>
                       <div class="item"><a href="<?php echo base_url("ordem/create/{$dadosEquipamento['id']}") ?>" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modalCadastroInstalacao"> <i class="fas fa-user"></i> O.S Instalação</a></div>
@@ -236,13 +236,13 @@ include("conexao.php");
                   <tbody>
                     <?php foreach ($osPreventivas as $ospreventivaEquipamento) : ?>
                       <th><?php echo  date_format(new DateTime($ospreventivaEquipamento['data_preventiva']), 'd/m/Y '); ?></th>
-                      
+
                       <th>
                         <?php $fotoos = $ospreventivaEquipamento['imagem'] ?>
-                        <a href="<?= base_url('fotoos/')."/".$fotoos ?>" title="Exibir Foto da Ordem de Serviço"><i class="fas fa-image"></i></a>
+                        <a href="<?= base_url('fotoos/') . "/" . $fotoos ?>" title="Exibir Foto da Ordem de Serviço"><i class="fas fa-image"></i></a>
                         <a href="<?php echo base_url("tiposdeordem/delete/{$ospreventivaEquipamento['id']}/{$dadosEquipamento['id']}") ?>" onclick="return confirma()" class="btn-excluir" title="Excluir Resgistro de OS"><i class="far fa-trash-alt"></i></a>
-                        <a href="#" id="btn-light"class="btn-ligth" data-toggle="modal" data-target="#modalExemplo"><i class="fas fa-eye"></i>
-                    </a>
+                        <a href="#" id="btn-light" class="btn-ligth" data-toggle="modal" data-target="#modalExemplo"><i class="fas fa-eye"></i>
+                        </a>
                       </th>
                   </tbody>
                 <?php endforeach; ?>
@@ -254,14 +254,14 @@ include("conexao.php");
             </div>
             <!-- /.card-body -->
           </div>
-           <!-- Inicio card Treinamento -->
-           <div class="card card-info">
+          <!-- Inicio card Treinamento -->
+          <div class="card card-info">
             <div class="card-header">
               <h3 class="card-title">Historico O.S Treinamento</h3>
 
               <div class="card-tools">
-              <button type="button" class="btn btn-tool" onclick="return displayFalse5();"><i class="fas fa-minus"></i></button>
-              <button type="button" class="btn btn-tool" data-card-widget="collapse" onclick="return display5();"><i class="fas fa-plus"></i></button>
+                <button type="button" class="btn btn-tool" onclick="return displayFalse5();"><i class="fas fa-minus"></i></button>
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" onclick="return display5();"><i class="fas fa-plus"></i></button>
               </div>
             </div>
             <div class="card-body1" id="card-body5">
@@ -276,12 +276,13 @@ include("conexao.php");
                   <tbody>
                     <?php foreach ($osTreinamento as $ostreinamentoEquipamento) : ?>
                       <th><?php echo  date_format(new DateTime($ostreinamentoEquipamento['data_entrada']), 'd/m/Y '); ?></th>
-                      <th>                        
-                        <a href="<?= base_url('fotoos/')."/".$fotoos ?>" title="Exibir Foto da Ordem de Serviço"><i class="fas fa-image"></i></a>
+                      <th>
+                        <?php $fotoos = $ostreinamentoEquipamento['imagem'] ?>
+                        <a href="<?= base_url('fotoos/') . "/" . $fotoos ?>" title="Exibir Foto da Ordem de Serviço"><i class="fas fa-image"></i></a>
                         <a href="<?php echo base_url("tiposdeordem/delete/{$ostreinamentoEquipamento['id']}/{$dadosEquipamento['id']}") ?>" onclick="return confirma()" class="btn-excluir" title="Excluir Resgistro de OS"><i class="far fa-trash-alt"></i></a>
-                        <a href="#" id="btn-light"class="btn-ligth"data-toggle="modal" data-target="#modalExemplo5">
+                        <a href="#" id="btn-light" class="btn-ligth" data-toggle="modal" data-target="#modalExemplo5">
                           <i class="fas fa-eye"></i>
-                        </button>
+                          </button>
                       </th>
                   </tbody>
                 <?php endforeach; ?>
@@ -294,13 +295,13 @@ include("conexao.php");
             <!-- /.card-body -->
           </div>
           <!-- Inicio card Inspeção -->
-            <div class="card card-info">
+          <div class="card card-info">
             <div class="card-header">
               <h3 class="card-title">Historico O.S Inspeção</h3>
 
               <div class="card-tools">
-              <button type="button" class="btn btn-tool" onclick="return displayFalse4();"><i class="fas fa-minus"></i></button>
-              <button type="button" class="btn btn-tool" data-card-widget="collapse" onclick="return display4();"><i class="fas fa-plus"></i></button>
+                <button type="button" class="btn btn-tool" onclick="return displayFalse4();"><i class="fas fa-minus"></i></button>
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" onclick="return display4();"><i class="fas fa-plus"></i></button>
               </div>
             </div>
             <div class="card-body1" id="card-body4">
@@ -316,11 +317,12 @@ include("conexao.php");
                     <?php foreach ($osInspecao as $osinspecaoEquipamento) : ?>
                       <th><?php echo  date_format(new DateTime($osinspecaoEquipamento['data_entrada']), 'd/m/Y '); ?></th>
                       <th>
-                      <a href="<?= base_url('fotoos/')."/".$fotoos ?>" title="Exibir Foto da Ordem de Serviço"><i class="fas fa-image"></i></a>  
-                      <a href="<?php echo base_url("tiposdeordem/delete/{$osinspecaoEquipamento['id']}/{$dadosEquipamento['id']}") ?>" onclick="return confirma()" class="btn-excluir" title="Excluir Registro de OS"><i class="far fa-trash-alt"></i></a>
-                      <a  href="#" id="btn-light"class="btn-ligth"data-toggle="modal" data-target="#modalExemplo6" title="Visualizar Registro de OS">
+                        <?php $fotoos = $osinspecaoEquipamento['imagem'] ?>
+                        <a href="<?= base_url('fotoos/') . "/" . $fotoos ?>" title="Exibir Foto da Ordem de Serviço"><i class="fas fa-image"></i></a>
+                        <a href="<?php echo base_url("tiposdeordem/delete/{$osinspecaoEquipamento['id']}/{$dadosEquipamento['id']}") ?>" onclick="return confirma()" class="btn-excluir" title="Excluir Registro de OS"><i class="far fa-trash-alt"></i></a>
+                        <a href="#" id="btn-light" class="btn-ligth" data-toggle="modal" data-target="#modalExemplo6" title="Visualizar Registro de OS">
                           <i class="fas fa-eye"></i>
-                    </a>
+                        </a>
                       </th>
                   </tbody>
                 <?php endforeach; ?>
@@ -332,7 +334,7 @@ include("conexao.php");
             </div>
 
           </div>
-         
+
         </div>
         <div class="col-md-4 ">
           <!-- Inicio card corretiva -->
@@ -341,7 +343,7 @@ include("conexao.php");
               <h3 class="card-title">Historico O.S Corretiva</h3>
 
               <div class="card-tools">
-                                <button type="button" class="btn btn-tool" onclick="return displayFalse2();"><i class="fas fa-minus"></i></button>
+                <button type="button" class="btn btn-tool" onclick="return displayFalse2();"><i class="fas fa-minus"></i></button>
 
                 <button type="button" class="btn btn-tool" data-card-widget="collapse" onclick="return display2();"><i class="fas fa-plus"></i></button>
               </div>
@@ -358,12 +360,13 @@ include("conexao.php");
                   <tbody>
                     <?php foreach ($osCorretivas as $oscorretivaEquipamento) : ?>
                       <th><?php echo  date_format(new DateTime($oscorretivaEquipamento['data_entrada']), 'd/m/Y '); ?></th>
-                      <th> 
-                        <a href="<?= base_url('fotoos/')."/".$fotoos ?>" title="Exibir Foto da Ordem de Serviço"><i class="fas fa-image"></i></a>
+                      <th>
+                        <?php $fotoos = $oscorretivaEquipamento['imagem'] ?>
+                        <a href="<?= base_url('fotoos/') . "/" . $fotoos ?>" title="Exibir Foto da Ordem de Serviço"><i class="fas fa-image"></i></a>
                         <a href="<?php echo base_url("tiposdeordem/delete/{$oscorretivaEquipamento['id']}/{$dadosEquipamento['id']}") ?>" onclick="return confirma()" class="btn-excluir" title="Excluir Resgistro de OS"><i class="far fa-trash-alt"></i></a>
-                        <a href="#" id="btn-light"class="btn-ligth" class="btn btn-ligth" data-toggle="modal" data-target="#modalExemplo3">
+                        <a href="#" id="btn-light" class="btn-ligth" class="btn btn-ligth" data-toggle="modal" data-target="#modalExemplo3">
                           <i class="fas fa-eye"></i>
-                    </a>
+                        </a>
                       </th>
                   </tbody>
                 <?php endforeach; ?>
@@ -379,10 +382,10 @@ include("conexao.php");
             <div class="card-header">
               <h3 class="card-title">Historico O.S Instalação</h3>
               <div class="card-tools">
-              <button type="button" class="btn btn-tool" onclick="return displayFalse3();"><i class="fas fa-minus"></i></button>  
-              <button type="button" class="btn btn-tool" data-card-widget="collapse" onclick="return display3();"><i class="fas fa-plus"></i></button>
+                <button type="button" class="btn btn-tool" onclick="return displayFalse3();"><i class="fas fa-minus"></i></button>
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" onclick="return display3();"><i class="fas fa-plus"></i></button>
 
-                
+
               </div>
             </div>
             <div class="card-body1" id="card-body3">
@@ -398,11 +401,13 @@ include("conexao.php");
                     <?php foreach ($osInstalacoes as $osinstalacaoEquipamento) : ?>
                       <th><?php echo  date_format(new DateTime($osinstalacaoEquipamento['data_entrada']), 'd/m/Y '); ?></th>
                       <th>
-                        <a href="<?= base_url('fotoos/')."/".$fotoos ?>" title="Exibir Foto da Ordem de Serviço"><i class="fas fa-image"></i></a>
+                        <?php $fotoos = $osinstalacaoEquipamento['imagem'] ?>
+
+                        <a href="<?= base_url('fotoos/') . "/" . $fotoos ?>" title="Exibir Foto da Ordem de Serviço"><i class="fas fa-image"></i></a>
                         <a href="<?php echo base_url("tiposdeordem/delete/{$osinstalacaoEquipamento['id']}/{$dadosEquipamento['id']}") ?>" onclick="return confirma()" class="btn-excluir" title="Excluir Resgistro de OS"><i class="far fa-trash-alt"></i></a>
-                        <a  href="#" id="btn-light"class="btn-ligth" class="btn btn-ligth" data-toggle="modal" data-target="#modalExemplo2">
+                        <a href="#" id="btn-light" class="btn-ligth" class="btn btn-ligth" data-toggle="modal" data-target="#modalExemplo2">
                           <i class="fas fa-eye"></i>
-                    </a>
+                        </a>
                       </th>
                   </tbody>
                 <?php endforeach; ?>
@@ -413,15 +418,15 @@ include("conexao.php");
               </div>
             </div>
           </div>
-        
+
           <!-- Inicio card Calibração -->
           <div class="card card-info">
             <div class="card-header">
               <h3 class="card-title">Historico O.S Calibração </h3>
 
               <div class="card-tools">
-              <button type="button" class="btn btn-tool" onclick="return displayFalse6();"><i class="fas fa-minus"></i></button>
-              <button type="button" class="btn btn-tool" data-card-widget="collapse" onclick="return display6();"><i class="fas fa-plus"></i></button>
+                <button type="button" class="btn btn-tool" onclick="return displayFalse6();"><i class="fas fa-minus"></i></button>
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" onclick="return display6();"><i class="fas fa-plus"></i></button>
               </div>
             </div>
             <div class="card-body1" id="card-body6">
@@ -437,11 +442,12 @@ include("conexao.php");
                     <?php foreach ($osCalibracao as $oscalibracaoEquipamento) : ?>
                       <th><?php echo  date_format(new DateTime($oscalibracaoEquipamento['data_entrada']), 'd/m/Y '); ?></th>
                       <th>
-                      <a href="<?= base_url('fotoos/')."/".$fotoos ?>" title="Exibir Foto da Ordem de Serviço"><i class="fas fa-image"></i></a>    
-                      <a href="<?php echo base_url("tiposdeordem/delete/{$oscalibracaoEquipamento['id']}/{$dadosEquipamento['id']}") ?>" onclick="return confirma()" class="btn-excluir" title="Excluir Registro de OS"><i class="far fa-trash-alt"></i></a>
-                      <a href="#" id="btn-light"class="btn-ligth" data-toggle="modal" data-target="#modalExemplo4" title="Visualizar Registro de OS">
+                        <?php $fotoos =  $oscalibracaoEquipamento['imagem'] ?>
+                        <a href="<?= base_url('fotoos/') . "/" . $fotoos ?>" title="Exibir Foto da Ordem de Serviço"><i class="fas fa-image"></i></a>
+                        <a href="<?php echo base_url("tiposdeordem/delete/{$oscalibracaoEquipamento['id']}/{$dadosEquipamento['id']}") ?>" onclick="return confirma()" class="btn-excluir" title="Excluir Registro de OS"><i class="far fa-trash-alt"></i></a>
+                        <a href="#" id="btn-light" class="btn-ligth" data-toggle="modal" data-target="#modalExemplo4" title="Visualizar Registro de OS">
                           <i class="fas fa-eye"></i>
-                        </button>
+                          </button>
                       </th>
                   </tbody>
                 <?php endforeach; ?>
@@ -567,7 +573,7 @@ include("conexao.php");
           </button>
         </div>
         <div class="modal-body">
-          <form id="formCadastroEquipamento" action="<?= base_url('ordem/store') ?>" method="post"  enctype="multipart/form-data">
+          <form id="formCadastroEquipamento" action="<?= base_url('ordem/store') ?>" method="post" enctype="multipart/form-data">
             <input id="uid" type="hidden" name="uid" value="">
 
             </hr>
@@ -657,7 +663,7 @@ include("conexao.php");
           </button>
         </div>
         <div class="modal-body">
-        <form id="formCadastroEquipamento" action="<?= base_url('ordem/store') ?>" method="post"  enctype="multipart/form-data">
+          <form id="formCadastroEquipamento" action="<?= base_url('ordem/store') ?>" method="post" enctype="multipart/form-data">
             <input id="uid" type="hidden" name="uid" value="">
 
             </hr>
@@ -748,7 +754,7 @@ include("conexao.php");
           </button>
         </div>
         <div class="modal-body">
-        <form id="formCadastroEquipamento" action="<?= base_url('ordem/store') ?>" method="post"  enctype="multipart/form-data">
+          <form id="formCadastroEquipamento" action="<?= base_url('ordem/store') ?>" method="post" enctype="multipart/form-data">
             <input id="uid" type="hidden" name="uid" value="">
 
             </hr>
@@ -839,7 +845,7 @@ include("conexao.php");
           </button>
         </div>
         <div class="modal-body">
-        <form id="formCadastroEquipamento" action="<?= base_url('ordem/store') ?>" method="post"  enctype="multipart/form-data">
+          <form id="formCadastroEquipamento" action="<?= base_url('ordem/store') ?>" method="post" enctype="multipart/form-data">
             <input id="uid" type="hidden" name="uid" value="">
 
             </hr>
@@ -930,7 +936,7 @@ include("conexao.php");
           </button>
         </div>
         <div class="modal-body">
-        <form id="formCadastroEquipamento" action="<?= base_url('ordem/store') ?>" method="post"  enctype="multipart/form-data">
+          <form id="formCadastroEquipamento" action="<?= base_url('ordem/store') ?>" method="post" enctype="multipart/form-data">
             <input id="uid" type="hidden" name="uid" value="">
 
             </hr>
@@ -1037,7 +1043,7 @@ include("conexao.php");
             <div class="col md-4">
               <label>Foto da OS</label>
               <?php $fotoos = $os['imagem'] ?>
-              <img src="<?= base_url('fotoos/')."/".$fotoos ?>" width="150px" height="150px"></img>
+              <img src="<?= base_url('fotoos/') . "/" . $fotoos ?>" width="150px" height="150px"></img>
             </div>
           </div>
           <div class="modal-footer">
@@ -1071,7 +1077,7 @@ include("conexao.php");
             <div class="col md-4">
               <label>Foto da OS</label>
               <?php $fotoos = $os['imagem'] ?>
-              <img src="<?= base_url('fotoos/')."/".$fotoos ?>" width="150px" height="150px"></img>
+              <img src="<?= base_url('fotoos/') . "/" . $fotoos ?>" width="150px" height="150px"></img>
             </div>
           </div>
 
@@ -1108,7 +1114,7 @@ include("conexao.php");
             <div class="col md-4">
               <label>Foto da OS</label>
               <?php $fotoos = $os['imagem'] ?>
-              <img src="<?= base_url('fotoos/')."/".$fotoos ?>" width="150px" height="150px"></img>
+              <img src="<?= base_url('fotoos/') . "/" . $fotoos ?>" width="150px" height="150px"></img>
             </div>
           </div>
 
@@ -1145,7 +1151,7 @@ include("conexao.php");
             <div class="col md-4">
               <label>Foto da OS</label>
               <?php $fotoos = $os['imagem'] ?>
-              <img src="<?= base_url('fotoos/')."/".$fotoos ?>" width="150px" height="150px"></img>
+              <img src="<?= base_url('fotoos/') . "/" . $fotoos ?>" width="150px" height="150px"></img>
             </div>
           </div>
 
@@ -1182,7 +1188,7 @@ include("conexao.php");
             <div class="col md-4">
               <label>Foto da OS</label>
               <?php $fotoos = $os['imagem'] ?>
-              <img src="<?= base_url('fotoos/')."/".$fotoos ?>" width="150px" height="150px"></img>
+              <img src="<?= base_url('fotoos/') . "/" . $fotoos ?>" width="150px" height="150px"></img>
             </div>
           </div>
 
@@ -1219,7 +1225,7 @@ include("conexao.php");
             <div class="col md-4">
               <label>Foto da OS</label>
               <?php $fotoos = $os['imagem'] ?>
-              <img src="<?= base_url('fotoos/')."/".$fotoos ?>" width="150px" height="150px"></img>
+              <img src="<?= base_url('fotoos/') . "/" . $fotoos ?>" width="150px" height="150px"></img>
             </div>
           </div>
 

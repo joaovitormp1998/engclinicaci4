@@ -725,3 +725,126 @@ CRITICAL - 2022-03-13 15:21:55 --> The target table vw_equipamento_setor of the 
 #10 C:\Users\João Vitor\Documents\engclinicaci4\public\index.php(45): CodeIgniter\CodeIgniter->run()
 #11 C:\Users\João Vitor\Documents\engclinicaci4\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Jo\xC3\xA3o ...')
 #12 {main}
+CRITICAL - 2022-03-13 17:13:42 --> Invalid argument supplied for foreach()
+#0 C:\Users\Diego\engclinicaci4\app\Views\usuario\index.php(105): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Invalid argumen...', 'C:\\Users\\Diego\\...', 105, Array)
+#1 C:\Users\Diego\engclinicaci4\system\View\View.php(246): include('C:\\Users\\Diego\\...')
+#2 C:\Users\Diego\engclinicaci4\system\Common.php(1119): CodeIgniter\View\View->render('usuario/index', Array, true)
+#3 C:\Users\Diego\engclinicaci4\app\Controllers\Usuario.php(31): view('usuario/index', Array)
+#4 C:\Users\Diego\engclinicaci4\system\CodeIgniter.php(918): App\Controllers\Usuario->index()
+#5 C:\Users\Diego\engclinicaci4\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuario))
+#6 C:\Users\Diego\engclinicaci4\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\Users\Diego\engclinicaci4\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 C:\Users\Diego\engclinicaci4\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Diego\\...')
+#9 {main}
+CRITICAL - 2022-03-13 17:23:14 --> Invalid argument supplied for foreach()
+#0 C:\Users\Diego\engclinicaci4\app\Views\usuario\index.php(105): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Invalid argumen...', 'C:\\Users\\Diego\\...', 105, Array)
+#1 C:\Users\Diego\engclinicaci4\system\View\View.php(246): include('C:\\Users\\Diego\\...')
+#2 C:\Users\Diego\engclinicaci4\system\Common.php(1119): CodeIgniter\View\View->render('usuario/index', Array, true)
+#3 C:\Users\Diego\engclinicaci4\app\Controllers\Usuario.php(98): view('usuario/index', Array)
+#4 C:\Users\Diego\engclinicaci4\system\CodeIgniter.php(918): App\Controllers\Usuario->store()
+#5 C:\Users\Diego\engclinicaci4\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuario))
+#6 C:\Users\Diego\engclinicaci4\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\Users\Diego\engclinicaci4\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 C:\Users\Diego\engclinicaci4\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Diego\\...')
+#9 {main}
+CRITICAL - 2022-03-13 17:23:44 --> Invalid argument supplied for foreach()
+#0 C:\Users\Diego\engclinicaci4\app\Views\usuario\index.php(105): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Invalid argumen...', 'C:\\Users\\Diego\\...', 105, Array)
+#1 C:\Users\Diego\engclinicaci4\system\View\View.php(246): include('C:\\Users\\Diego\\...')
+#2 C:\Users\Diego\engclinicaci4\system\Common.php(1119): CodeIgniter\View\View->render('usuario/index', Array, true)
+#3 C:\Users\Diego\engclinicaci4\app\Controllers\Usuario.php(98): view('usuario/index', Array)
+#4 C:\Users\Diego\engclinicaci4\system\CodeIgniter.php(918): App\Controllers\Usuario->store()
+#5 C:\Users\Diego\engclinicaci4\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuario))
+#6 C:\Users\Diego\engclinicaci4\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\Users\Diego\engclinicaci4\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 C:\Users\Diego\engclinicaci4\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Diego\\...')
+#9 {main}
+CRITICAL - 2022-03-13 17:25:08 --> Invalid argument supplied for foreach()
+#0 C:\Users\Diego\engclinicaci4\app\Views\usuario\index.php(105): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Invalid argumen...', 'C:\\Users\\Diego\\...', 105, Array)
+#1 C:\Users\Diego\engclinicaci4\system\View\View.php(246): include('C:\\Users\\Diego\\...')
+#2 C:\Users\Diego\engclinicaci4\system\Common.php(1119): CodeIgniter\View\View->render('usuario/index', Array, true)
+#3 C:\Users\Diego\engclinicaci4\app\Controllers\Usuario.php(98): view('usuario/index', Array)
+#4 C:\Users\Diego\engclinicaci4\system\CodeIgniter.php(918): App\Controllers\Usuario->store()
+#5 C:\Users\Diego\engclinicaci4\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuario))
+#6 C:\Users\Diego\engclinicaci4\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\Users\Diego\engclinicaci4\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 C:\Users\Diego\engclinicaci4\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Diego\\...')
+#9 {main}
+CRITICAL - 2022-03-13 18:02:07 --> syntax error, unexpected ')', expecting variable (T_VARIABLE)
+#0 C:\Users\Diego\engclinicaci4\system\Router\Router.php(195): CodeIgniter\Router\Router->autoRoute('usuario/edit/1')
+#1 C:\Users\Diego\engclinicaci4\system\CodeIgniter.php(793): CodeIgniter\Router\Router->handle('usuario/edit/1')
+#2 C:\Users\Diego\engclinicaci4\system\CodeIgniter.php(364): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 C:\Users\Diego\engclinicaci4\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\Diego\engclinicaci4\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\Diego\engclinicaci4\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Diego\\...')
+#6 {main}
+CRITICAL - 2022-03-13 18:40:15 --> The original file is not a valid file.
+#0 C:\Users\Diego\engclinicaci4\system\HTTP\Files\UploadedFile.php(172): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidFile()
+#1 C:\Users\Diego\engclinicaci4\app\Controllers\Usuario.php(101): CodeIgniter\HTTP\Files\UploadedFile->move('C:\\Users\\Diego\\...', '1647214815_df81...')
+#2 C:\Users\Diego\engclinicaci4\system\CodeIgniter.php(918): App\Controllers\Usuario->create()
+#3 C:\Users\Diego\engclinicaci4\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuario))
+#4 C:\Users\Diego\engclinicaci4\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\Users\Diego\engclinicaci4\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#6 C:\Users\Diego\engclinicaci4\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Diego\\...')
+#7 {main}
+CRITICAL - 2022-03-13 18:41:47 --> The original file is not a valid file.
+#0 C:\Users\Diego\engclinicaci4\system\HTTP\Files\UploadedFile.php(172): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidFile()
+#1 C:\Users\Diego\engclinicaci4\app\Controllers\Usuario.php(101): CodeIgniter\HTTP\Files\UploadedFile->move('C:\\Users\\Diego\\...', '1647214907_af00...')
+#2 C:\Users\Diego\engclinicaci4\system\CodeIgniter.php(918): App\Controllers\Usuario->create()
+#3 C:\Users\Diego\engclinicaci4\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuario))
+#4 C:\Users\Diego\engclinicaci4\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\Users\Diego\engclinicaci4\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#6 C:\Users\Diego\engclinicaci4\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Diego\\...')
+#7 {main}
+CRITICAL - 2022-03-13 19:07:44 --> The original file is not a valid file.
+#0 C:\Users\Diego\engclinicaci4\system\HTTP\Files\UploadedFile.php(172): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidFile()
+#1 C:\Users\Diego\engclinicaci4\app\Controllers\Usuario.php(111): CodeIgniter\HTTP\Files\UploadedFile->move('C:\\Users\\Diego\\...', '1647216464_f19e...')
+#2 C:\Users\Diego\engclinicaci4\system\CodeIgniter.php(918): App\Controllers\Usuario->create()
+#3 C:\Users\Diego\engclinicaci4\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuario))
+#4 C:\Users\Diego\engclinicaci4\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\Users\Diego\engclinicaci4\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#6 C:\Users\Diego\engclinicaci4\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Diego\\...')
+#7 {main}
+CRITICAL - 2022-03-13 19:18:08 --> The original file is not a valid file.
+#0 C:\Users\Diego\engclinicaci4\system\HTTP\Files\UploadedFile.php(172): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidFile()
+#1 C:\Users\Diego\engclinicaci4\app\Controllers\Usuario.php(109): CodeIgniter\HTTP\Files\UploadedFile->move('C:\\Users\\Diego\\...', '1647217088_5cc6...')
+#2 C:\Users\Diego\engclinicaci4\system\CodeIgniter.php(918): App\Controllers\Usuario->create()
+#3 C:\Users\Diego\engclinicaci4\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuario))
+#4 C:\Users\Diego\engclinicaci4\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\Users\Diego\engclinicaci4\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#6 C:\Users\Diego\engclinicaci4\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Diego\\...')
+#7 {main}
+CRITICAL - 2022-03-13 19:28:20 --> Too few arguments to function App\Controllers\Usuario::delete(), 0 passed in C:\Users\Diego\engclinicaci4\system\CodeIgniter.php on line 918 and exactly 1 expected
+#0 C:\Users\Diego\engclinicaci4\system\CodeIgniter.php(918): App\Controllers\Usuario->delete()
+#1 C:\Users\Diego\engclinicaci4\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuario))
+#2 C:\Users\Diego\engclinicaci4\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\Users\Diego\engclinicaci4\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#4 C:\Users\Diego\engclinicaci4\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Diego\\...')
+#5 {main}
+CRITICAL - 2022-03-13 19:28:32 --> Too few arguments to function App\Controllers\Usuario::delete(), 0 passed in C:\Users\Diego\engclinicaci4\system\CodeIgniter.php on line 918 and exactly 1 expected
+#0 C:\Users\Diego\engclinicaci4\system\CodeIgniter.php(918): App\Controllers\Usuario->delete()
+#1 C:\Users\Diego\engclinicaci4\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuario))
+#2 C:\Users\Diego\engclinicaci4\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\Users\Diego\engclinicaci4\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#4 C:\Users\Diego\engclinicaci4\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Diego\\...')
+#5 {main}
+CRITICAL - 2022-03-13 19:28:44 --> Too few arguments to function App\Controllers\Usuario::delete(), 0 passed in C:\Users\Diego\engclinicaci4\system\CodeIgniter.php on line 918 and exactly 1 expected
+#0 C:\Users\Diego\engclinicaci4\system\CodeIgniter.php(918): App\Controllers\Usuario->delete()
+#1 C:\Users\Diego\engclinicaci4\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuario))
+#2 C:\Users\Diego\engclinicaci4\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\Users\Diego\engclinicaci4\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#4 C:\Users\Diego\engclinicaci4\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Diego\\...')
+#5 {main}
+CRITICAL - 2022-03-13 19:29:38 --> Too few arguments to function App\Controllers\Usuario::delete(), 0 passed in C:\Users\Diego\engclinicaci4\system\CodeIgniter.php on line 918 and exactly 1 expected
+#0 C:\Users\Diego\engclinicaci4\system\CodeIgniter.php(918): App\Controllers\Usuario->delete()
+#1 C:\Users\Diego\engclinicaci4\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuario))
+#2 C:\Users\Diego\engclinicaci4\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\Users\Diego\engclinicaci4\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#4 C:\Users\Diego\engclinicaci4\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Diego\\...')
+#5 {main}
+CRITICAL - 2022-03-13 19:37:21 --> Too few arguments to function App\Controllers\Usuario::delete(), 0 passed in C:\Users\Diego\engclinicaci4\system\CodeIgniter.php on line 918 and exactly 1 expected
+#0 C:\Users\Diego\engclinicaci4\system\CodeIgniter.php(918): App\Controllers\Usuario->delete()
+#1 C:\Users\Diego\engclinicaci4\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuario))
+#2 C:\Users\Diego\engclinicaci4\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\Users\Diego\engclinicaci4\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#4 C:\Users\Diego\engclinicaci4\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\Diego\\...')
+#5 {main}

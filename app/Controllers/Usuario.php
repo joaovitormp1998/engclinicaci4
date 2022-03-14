@@ -6,6 +6,7 @@ use App\Models\BannerModel;
 use App\Models\CategoriaModel;
 use App\Models\UsuarioModel;
 use CodeIgniter\HTTP\Files\UploadedFile;
+
 class Usuario extends BaseController
 {
     private $usuarioModel;
@@ -20,18 +21,20 @@ class Usuario extends BaseController
      *
      * @return void
      */
-    public function index($id=False)
+    public function index($id = False)
     {
-     
-        $usuarioModel = New UsuarioModel();
-     
+
+        $usuarioModel = new UsuarioModel();
+
+
         echo view('common/cabecalho');
-        echo view('usuario/index', [  
+        echo view('usuario/index', [
             'usuarios' => $usuarioModel->paginate(1000),
+            'usuarioId' => $usuarioModel->find($id)
         ]);
-     
-        $js['js']=view('usuario/js/main');
-        echo view('common/rodape',$js);
+
+        $js['js'] = view('usuario/js/main');
+        echo view('common/rodape', $js);
     }
 
     public function edit($id)
@@ -47,7 +50,7 @@ class Usuario extends BaseController
                 'tipo' => 'danger'
             ]);
         }
-         echo json_encode($dadosUsuario);
+        echo json_encode($dadosUsuario);
     }
 
     /**
@@ -59,7 +62,15 @@ class Usuario extends BaseController
     public function delete($id)
     {
 
+
         $usuarioModel = new UsuarioModel();
+        $dadosUsuario = $usuarioModel->find($id);
+        if (is_null($dadosUsuario)) {
+            return redirect()->to('/mensagem')->with('mensagem', [
+                'mensagem' => 'Erro - equipamento não encontrado',
+                'tipo' => 'danger'
+            ]);
+        }
 
         if ($usuarioModel->delete($id)) {
             return redirect()->to('/usuario')->with('mensagem', [
@@ -70,31 +81,8 @@ class Usuario extends BaseController
             return redirect()->to('/mensagem')->with('mensagem', [
                 'mensagem' => 'Falha na tentativa de Exclusão de Usuario.',
                 'tipo' => 'danger'
+
             ]);
-        }
-    }
-    public function store()
-    {
-        $id=$post['uid'];
-        
-        $post = $this->request->getPost();
-
-        if ($imagefile = $this->request->getFiles()) {
-            foreach($imagefile['foto'] as $img) {
-                if ($img->isValid() && ! $img->hasMoved()) {
-                    $newName = $img->getRandomName();
-                    $img->move(base_url('assets/img/'), $newName);
-                }
-            }
-        }
-        if ($this->usuarioModel->save($post)) {
-            return redirect()->to('/usuario/')->with('mensagem', 'Dados cadastrados com sucesso.');
-        } else {
-            $dados = [
-                'erros' => $this->usuarioModel->errors()
-            ];
-
-            echo view('usuario/index', $dados);
         }
     }
 
@@ -111,35 +99,38 @@ class Usuario extends BaseController
                     . '|is_image[foto]'
                     . '|mime_in[foto,image/jpg,image/jpeg,image/gif,image/png,image/webp]'
                     . '|max_size[foto,10000]',
-                    // . '|max_dims[foto,1024,768]',
+                // . '|max_dims[foto,1024,768]',
             ],
         ];
-        if (! $this->validate($validationRule)) {
-            $data = ['errors' => $this->validator->getErrors()];
 
-           mDebug($data);
+        $id = $post['uid'];
+        $equipamentoModel = new UsuarioModel();
+
+
+
+        if (!$this->validate($validationRule)) {
+            $data = ['errors' => $this->validator->getErrors()];
         }
 
         $img = $this->request->getFile('foto');
         $filepath = FCPATH  . 'uploads/';
         $nomeImagem = $img->getRandomName();
-        if ($img->move($filepath,$nomeImagem)) {
+
+
+        if ($img->move($filepath, $nomeImagem)) {
             // $filepathold = WRITEPATH . 'uploads/' . $img->store();
-            
+
 
             // mDebug($filepathold);
             $post['foto'] = $nomeImagem;
-           
-            if ($this->usuarioModel->save($post)) {
-                return redirect()->to('/usuario/')->with('mensagem', 'Dados cadastrados com sucesso.');
+
+            if (!empty($id)) {
+                $equipamentoModel->update($id, $post);
             } else {
-                $dados = [
-                    'erros' => $this->usuarioModel->errors()
-                ];
-    
-                mDebug($dados);
+                $this->usuarioModel->save($post);
             }
 
+            return redirect()->to('/usuario');
             // return view('upload_success', $data);
         } else {
             $data = ['errors' => 'The file has already been moved.'];
