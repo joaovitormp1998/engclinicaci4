@@ -25,12 +25,12 @@ class Ordem extends BaseController
 
         echo view('common/cabecalho');
         echo view('ordem', [
-            'osPreventivas' => $ospreventivaModel->find(['fk_ordem_servico_tipo'=>1]),
-            'osCorretivas' => $ospreventivaModel->find(['fk_ordem_servico_tipo'=>3]),
-            'osInstalacoes' => $ospreventivaModel->find(['fk_ordem_servico_tipo'=>2]),
-            'osCalibracao' => $ospreventivaModel->find(['fk_ordem_servico_tipo'=>5]),
-            'osInspecao' => $ospreventivaModel->find(['fk_ordem_servico_tipo'=>6]),
-            'osTreinamento' => $ospreventivaModel->find(['fk_ordem_servico_tipo'=>4]),
+            'osPreventivas' => $ospreventivaModel->find(['fk_ordem_servico_tipo' => 1]),
+            'osCorretivas' => $ospreventivaModel->find(['fk_ordem_servico_tipo' => 3]),
+            'osInstalacoes' => $ospreventivaModel->find(['fk_ordem_servico_tipo' => 2]),
+            'osCalibracao' => $ospreventivaModel->find(['fk_ordem_servico_tipo' => 5]),
+            'osInspecao' => $ospreventivaModel->find(['fk_ordem_servico_tipo' => 6]),
+            'osTreinamento' => $ospreventivaModel->find(['fk_ordem_servico_tipo' => 4]),
         ]);
         echo view('common/footer');
     }
@@ -38,7 +38,7 @@ class Ordem extends BaseController
     public function ospreventivaa()
     {
 
-        $ospreventivaModel = new OspreventivaModel();
+        $ospreventivaModel = new OrdemModel();
 
         echo view('common/cabecalho');
         echo view('ospreventivaa', [
@@ -75,22 +75,22 @@ class Ordem extends BaseController
                     . '|is_image[imagem]'
                     . '|mime_in[imagem,image/jpg,image/jpeg,image/gif,image/png,image/webp]'
                     . '|max_size[imagem,10000]',
-                    // . '|max_dims[imagem,1024,768]',
+                // . '|max_dims[imagem,1024,768]',
             ],
         ];
-        if (! $this->validate($validationRule)) {
+        if (!$this->validate($validationRule)) {
             $data = ['errors' => $this->validator->getErrors()];
 
-           mDebug($data);
+            mDebug($data);
         }
         $img = $this->request->getFile('imagem');
         $filepath = FCPATH  . '/fotoos';
         $nomeImagem = $img->getRandomName();
-        if ($img->move($filepath,$nomeImagem)) {
+        if ($img->move($filepath, $nomeImagem)) {
             // $filepathold = WRITEPATH . 'uploads/' . $img->store();
             // mDebug($filepathold);
             $post['imagem'] = $nomeImagem;
-           
+
             $ospreventivaModel = new OrdemModel();
             if ($ospreventivaModel->save($post)) {
                 return redirect()->to("/equipamento/ordem/{$post['fk_equipamento']}")->with('mensagem_telefone', 'Ordem inserida com sucesso.');
@@ -100,13 +100,12 @@ class Ordem extends BaseController
                 ];
                 mDebug($dados);
             }
-        
-        } else {    
+        } else {
             $data = ['errors' => 'The file has already been moved.'];
 
             print_r($data);
         }
-    }   
+    }
     /**
      * Exclui um telefone do cliente.
      *

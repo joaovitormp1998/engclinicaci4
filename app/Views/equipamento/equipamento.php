@@ -76,16 +76,8 @@ $qrcode->render($url, 'assets/imgqrcode/' . $nome_img);
 
     <section class="content">
         <div class="container-fluid">
-            <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#modalCadastroequipamento"><i class="fas fa-plus"></i>
+            <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#modalCadastroEquipamento"><i class="fas fa-plus"></i>
             </button>
-            <script>
-                function confirma() {
-                    if (!confirm("Deseja excluir este registros?")) {
-                        return false;
-                    }
-                    return true;
-                }
-            </script>
             <table id="tablita" class="table table-striped">
                 <thead>
                     <tr>
@@ -117,8 +109,6 @@ $qrcode->render($url, 'assets/imgqrcode/' . $nome_img);
             </table>
         </div>
     </section>
-
-
 </div>
 
 <div class="modal fade" id="modalCadastroEquipamento" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -132,7 +122,7 @@ $qrcode->render($url, 'assets/imgqrcode/' . $nome_img);
             </div>
             <div class="modal-body">
 
-                <form id="formCadastroEquipamento" action="<?= base_url('equipamento/create') ?>" method="post">
+                <form id="formCadastroEquipamento" action="<?= base_url('equipamento/store') ?>" method="post">
                     <input id="uid" type="hidden" name="uid" value="">
                     <h4>Dados do Equipamento</h4>
                     </hr>
@@ -230,27 +220,26 @@ $qrcode->render($url, 'assets/imgqrcode/' . $nome_img);
         </div>
     </div>
 </div>
-<div class="modal fade" id="modalExcluirEquipaemento" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modalExcluirEquipamento" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <input id="uid" />
-            <div class="modal-body">Deseja realmente excluir?<span id="uid"></span></div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                <a class="btn btn-primary" href="../home/login/0">Sim</a>
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Excluir</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
+            <div class="modal-body">
+                <form id="formExcluirEquipamento" method="get">
+                    <input id="uid" type="hidden" name="id" value="">
+                    Deseja realmente excluir esse Setor
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                <button type="submit" class="btn btn-primary">Excluir</button>
+            </div>
+            </form>
         </div>
     </div>
 </div>
-<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js ">
-</script>
-<script>
-    $(document).ready(function() {
-        $('#tablita').DataTable({
-            dom: 'Bftip',
-            buttons: [
-                'pdfHtml5',
-            ]
-        });
-    });
-</script>
+</div>

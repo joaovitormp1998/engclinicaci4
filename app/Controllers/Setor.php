@@ -64,4 +64,30 @@ class Setor extends BaseController
         }
         echo json_encode($dadosSetor);
     }
+    public function delete($id)
+    {
+
+
+        $setorModel = new SetorModel();
+        $dadosSetor = $setorModel->find($id);
+        if (is_null($dadosSetor)) {
+            return redirect()->to('/mensagem')->with('mensagem', [
+                'mensagem' => 'Erro - equipamento não encontrado',
+                'tipo' => 'danger'
+            ]);
+        }
+
+        if ($setorModel->delete($id)) {
+            return redirect()->to('/setor')->with('mensagem', [
+                'mensagem' => 'Usuario excluído com sucesso!',
+                'tipo' => 'info'
+            ]);
+        } else {
+            return redirect()->to('/mensagem')->with('mensagem', [
+                'mensagem' => 'Falha na tentativa de Exclusão de Usuario.',
+                'tipo' => 'danger'
+
+            ]);
+        }
+    }
 }

@@ -47,6 +47,6 @@ const id = $(this).data("id");
 const urlAcao = $(this).attr("href");
 console.log(id);
 console.log(urlAcao);
-$("#formExcluirUsuario #uidExcluir").val(id);
+$("#formExcluirUsuario").attr('action', urlAcao);
 $("#modalExcluirUsuario").modal("show");
 });

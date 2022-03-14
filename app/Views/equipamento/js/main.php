@@ -60,8 +60,11 @@ return false;
 $(".btn-excluir").on("click", function (e) {
 e.preventDefault();
 
+
 const id = $(this).data("id");
 const urlAcao = $(this).attr("href");
-$("#formExcluirEquipamento #uidExcluir").val(id);
+console.log(id);
+console.log(urlAcao);
+$("#formExcluirEquipamento").attr('action', urlAcao);
 $("#modalExcluirEquipamento").modal("show");
 });

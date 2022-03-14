@@ -194,9 +194,9 @@
             <div class="modal-body">
 
 
-                <form action="<?= base_url('usuario/delete/') ?>" id="formExcluirUsuario" method="post">
+                <form id="formExcluirUsuario" method="get">
                     <input id="uid" type="hidden" name="id" value="">
-                    Deseja realmente excluir esse Usuario:
+                    Deseja realmente excluir esse Usuario
             </div>
 
             <div class="modal-footer">
