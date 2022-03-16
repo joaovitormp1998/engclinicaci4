@@ -281,8 +281,8 @@ include("conexao.php");
                       <th>
                         <?php $fotoos = $ostreinamentoEquipamento['imagem'] ?>
                         <a href="<?= base_url('fotoos/') . "/" . $fotoos ?>" title="Exibir Foto da Ordem de Serviço"><i class="fas fa-image"></i></a>
-                        <a href="<?php echo base_url("tiposdeordem/delete/{$ostreinamentoEquipamento['id']}/{$dadosEquipamento['id']}") ?>" onclick="return confirma()" class="btn-excluir" title="Excluir Resgistro de OS"><i class="far fa-trash-alt"></i></a>
-                        <a href="#" id="btn-light" class="btn-ligth" data-toggle="modal" data-target="#modalExemplo5">
+                        <a href="<?php echo base_url("tiposdeordem/delete/{$ostreinamentoEquipamento['id']}/{$dadosEquipamento['id']}") ?>" data-id="<?= $ostreinamentoEquipamento['id'] ?>" class="btn-excluir" title="Excluir Resgistro de OS"><i class="far fa-trash-alt"></i></a>
+                        <a class="btn-ligth mostra-os" data-os="<?= $ostreinamentoEquipamento['id'] ?>" data-equipamento="<?= $dadosEquipamento['id'] ?>" data-tipo="<?= $ostreinamentoEquipamento['fk_ordem_servico_tipo'] ?>"><i class="fas fa-eye"></i>
                           <i class="fas fa-eye"></i>
                           </button>
                       </th>
@@ -321,8 +321,8 @@ include("conexao.php");
                       <th>
                         <?php $fotoos = $osinspecaoEquipamento['imagem'] ?>
                         <a href="<?= base_url('fotoos/') . "/" . $fotoos ?>" title="Exibir Foto da Ordem de Serviço"><i class="fas fa-image"></i></a>
-                        <a href="<?php echo base_url("tiposdeordem/delete/{$osinspecaoEquipamento['id']}/{$dadosEquipamento['id']}") ?>" onclick="return confirma()" class="btn-excluir" title="Excluir Registro de OS"><i class="far fa-trash-alt"></i></a>
-                        <a href="#" id="btn-light" class="btn-ligth" data-toggle="modal" data-target="#modalExemplo6" title="Visualizar Registro de OS">
+                        <a href="<?php echo base_url("tiposdeordem/delete/{$osinspecaoEquipamento['id']}/{$dadosEquipamento['id']}") ?>" data-id="<?= $osinspecaoEquipamento['id'] ?>" class="btn-excluir" title="Excluir Resgistro de OS"><i class="far fa-trash-alt"></i></a>
+                        <a class="btn-ligth mostra-os" data-os="<?= $osinspecaoEquipamento['id'] ?>" data-equipamento="<?= $dadosEquipamento['id'] ?>" data-tipo="<?= $osinspecaoEquipamento['fk_ordem_servico_tipo'] ?>"><i class="fas fa-eye"></i>
                           <i class="fas fa-eye"></i>
                         </a>
                       </th>
@@ -365,9 +365,9 @@ include("conexao.php");
                       <th>
                         <?php $fotoos = $oscorretivaEquipamento['imagem'] ?>
                         <a href="<?= base_url('fotoos/') . "/" . $fotoos ?>" title="Exibir Foto da Ordem de Serviço"><i class="fas fa-image"></i></a>
-                        <a href="<?php echo base_url("tiposdeordem/delete/{$oscorretivaEquipamento['id']}/{$dadosEquipamento['id']}") ?>" onclick="return confirma()" class="btn-excluir" title="Excluir Resgistro de OS"><i class="far fa-trash-alt"></i></a>
-                        <a href="#" id="btn-light" class="btn-ligth" class="btn btn-ligth" data-toggle="modal" data-target="#modalExemplo3">
-                          <i class="fas fa-eye"></i>
+                        <a href="<?php echo base_url("tiposdeordem/delete/{$oscorretivaEquipamento['id']}/{$dadosEquipamento['id']}") ?>" data-id="<?= $oscorretivaEquipamento['id'] ?>" class="btn-excluir" title="Excluir Resgistro de OS"><i class="far fa-trash-alt"></i></a>
+                        <a class="btn-ligth mostra-os" data-os="<?= $oscorretivaEquipamento['id'] ?>" data-equipamento="<?= $dadosEquipamento['id'] ?>" data-tipo="<?= $oscorretivaEquipamento['fk_ordem_servico_tipo'] ?>"><i class="fas fa-eye"></i>
+                      
                         </a>
                       </th>
                   </tbody>
@@ -406,9 +406,8 @@ include("conexao.php");
                         <?php $fotoos = $osinstalacaoEquipamento['imagem'] ?>
 
                         <a href="<?= base_url('fotoos/') . "/" . $fotoos ?>" title="Exibir Foto da Ordem de Serviço"><i class="fas fa-image"></i></a>
-                        <a href="<?php echo base_url("tiposdeordem/delete/{$osinstalacaoEquipamento['id']}/{$dadosEquipamento['id']}") ?>" onclick="return confirma()" class="btn-excluir" title="Excluir Resgistro de OS"><i class="far fa-trash-alt"></i></a>
-                        <a href="#" id="btn-light" class="btn-ligth" class="btn btn-ligth" data-toggle="modal" data-target="#modalExemplo2">
-                          <i class="fas fa-eye"></i>
+                        <a href="<?php echo base_url("tiposdeordem/delete/{$osinstalacaoEquipamento['id']}/{$dadosEquipamento['id']}") ?>" data-id="<?= $osinstalacaoEquipamento['id'] ?>" class="btn-excluir" title="Excluir Resgistro de OS"><i class="far fa-trash-alt"></i></a>
+                        <a class="btn-ligth mostra-os" data-os="<?= $osinstalacaoEquipamento['id'] ?>" data-equipamento="<?= $dadosEquipamento['id'] ?>" data-tipo="<?= $osinstalacaoEquipamento['fk_ordem_servico_tipo'] ?>"><i class="fas fa-eye"></i>
                         </a>
                       </th>
                   </tbody>
@@ -446,10 +445,9 @@ include("conexao.php");
                       <th>
                         <?php $fotoos =  $oscalibracaoEquipamento['imagem'] ?>
                         <a href="<?= base_url('fotoos/') . "/" . $fotoos ?>" title="Exibir Foto da Ordem de Serviço"><i class="fas fa-image"></i></a>
-                        <a href="<?php echo base_url("tiposdeordem/delete/{$oscalibracaoEquipamento['id']}/{$dadosEquipamento['id']}") ?>" onclick="return confirma()" class="btn-excluir" title="Excluir Registro de OS"><i class="far fa-trash-alt"></i></a>
-                        <a href="#" id="btn-light" class="btn-ligth" data-toggle="modal" data-target="#modalExemplo4" title="Visualizar Registro de OS">
-                          <i class="fas fa-eye"></i>
-                          </button>
+                        <a href="<?php echo base_url("tiposdeordem/delete/{$oscalibracaoEquipamento['id']}/{$dadosEquipamento['id']}") ?>" data-id="<?= $oscalibracaoEquipamento['id'] ?>" class="btn-excluir" title="Excluir Resgistro de OS"><i class="far fa-trash-alt"></i></a>
+                        <a class="btn-ligth mostra-os" data-os="<?= $oscalibracaoEquipamento['id'] ?>" data-equipamento="<?= $dadosEquipamento['id'] ?>" data-tipo="<?= $oscalibracaoEquipamento['fk_ordem_servico_tipo'] ?>"><i class="fas fa-eye"></i>
+                    </a>
                       </th>
                   </tbody>
                 <?php endforeach; ?>
@@ -1051,11 +1049,11 @@ include("conexao.php");
         </div>
         <form action="" id="formExcluirOrdemServico">
         <div class="modal-body">
-<h3>Deseja realmente excluir a os <span class="modal-excluir-span"></span></h3>
+        <p>Deseja realmente excluir a Ordem de Serviço <span class="modal-excluir-span"></span>?</p>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-            <button type="submit" class="btn btn-sucess">Confirmar</button>
+            <button type="submit" class="btn btn btn-danger">Excluir</button>
           </div>
           </form>
       </div>
