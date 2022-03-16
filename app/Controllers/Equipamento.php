@@ -125,12 +125,12 @@ class Equipamento extends BaseController
         echo view('common/cabecalho');
         echo view('equipamento/ordem', [
             'titulo' => 'Dados de Equipamento',
-            'osPreventivas' => $ospreventivaModel->where(['fk_ordem_servico_tipo' => 1])->findAll(),
-            'osCorretivas' => $ospreventivaModel->where(['fk_ordem_servico_tipo' => 3])->findAll(),
-            'osInstalacoes' => $ospreventivaModel->where(['fk_ordem_servico_tipo' => 2])->findAll(),
-            'osCalibracao' => $ospreventivaModel->where(['fk_ordem_servico_tipo' => 5])->findAll(),
-            'osInspecao' => $ospreventivaModel->where(['fk_ordem_servico_tipo' => 6])->findAll(),
-            'osTreinamento' => $ospreventivaModel->where(['fk_ordem_servico_tipo' => 4])->findAll(),
+            'osPreventivas' => $ospreventivaModel->where(['fk_equipamento'=>$id,'fk_ordem_servico_tipo' => 1])->findAll(),
+            'osCorretivas' => $ospreventivaModel->where(['fk_equipamento'=>$id,'fk_ordem_servico_tipo' => 3])->findAll(),
+            'osInstalacoes' => $ospreventivaModel->where(['fk_equipamento'=>$id,'fk_ordem_servico_tipo' => 2])->findAll(),
+            'osCalibracao' => $ospreventivaModel->where(['fk_equipamento'=>$id,'fk_ordem_servico_tipo' => 5])->findAll(),
+            'osInspecao' => $ospreventivaModel->where(['fk_equipamento'=>$id,'fk_ordem_servico_tipo' => 6])->findAll(),
+            'osTreinamento' => $ospreventivaModel->where(['fk_equipamento'=>$id,'fk_ordem_servico_tipo' => 4])->findAll(),
 
             'dadosEquipamento' => $dadosEquipamento
 

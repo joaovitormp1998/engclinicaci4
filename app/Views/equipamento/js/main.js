@@ -62,7 +62,11 @@ $(".btn-editar").on("click", function (e) {
 $(".btn-excluir").on("click", function (e) {
   e.preventDefault();
   const id = $(this).data("id");
+  const nome = $(this).data("nome");
   const urlAcao = $(this).attr("href");
+  $("#formExcluirEquipamento .modal-excluir-span").text(id);
+  $("#formExcluirEquipamento").attr("action", urlAcao);
+  $("#modalExcluirEquipamento").modal("show");
   $("#formExcluirOrdemServico .modal-excluir-span").text(id);
   $("#formExcluirOrdemServico").attr("action", urlAcao);
   $("#modalExcluirOrdemServico").modal("show");

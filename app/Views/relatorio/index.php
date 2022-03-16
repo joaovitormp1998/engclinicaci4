@@ -134,7 +134,14 @@
                             </input>
                         </div>
                     </div>
-
+                    <?php
+                                include("conexao.php");
+                                $sql = "SELECT os.id AS ORDEM, DATE_FORMAT(e.data_fabricacao, "%Y") AS ano, e.nome, os.tecnico FROM `ordem-servico` os LEFT JOIN `ordem-servico-tipo` ost ON ( os.fk_ordem_servico_tipo = ost.id)LEFT JOIN equipamento e ON (os.fk_equipamento = e.id)";
+                                $resultadoT = mysqli_query($mysqli, $sql);
+                                while ($row = mysqli_fetch_assoc($resultadoT)) { ?>
+                                    <option value="<?= $row['marca']; ?>"><?= $row['marca']; ?></option><?php
+                                                                                                    }
+                                                                                                        ?>
                 </div>
 
             </div>

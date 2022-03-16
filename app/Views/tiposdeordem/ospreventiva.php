@@ -49,7 +49,7 @@
                     $datapreventiva = strtotime($hoje);
                     $datafinal = strtotime('+7 day', $datapreventiva);
                     $datecerta = date('Y-m-d', $datafinal);
-                    $sql = "SELECT * FROM `os_preventiva` JOIN equipamento ON fk_equipamento=id WHERE dataProxima = '$datecerta'";
+                    $sql = "SELECT * FROM `ordem-servico` JOIN equipamento ON fk_equipamento=id WHERE dataProxima = '$datecerta'";
                     $resultadoT = mysqli_query($mysqli, $sql);
                     $row = $resultadoT->fetch_array(MYSQLI_ASSOC);
 
