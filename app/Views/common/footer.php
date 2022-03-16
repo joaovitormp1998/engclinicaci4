@@ -1,23 +1,23 @@
 <!-- jQuery -->
-<script src="<?= base_url('assets/plugins/jquery/jquery.min.js') ?>"></script>
-<!-- jQuery UI 1.11.4 -->
+<!-- <script src="//base_url('assets/plugins/jquery/jquery.min.js') ?>"></script> -->
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script src="<?= base_url('assets/plugins/jquery-ui/jquery-ui.min.js') ?>"></script>
+<!-- jQuery UI 1.11.4 -->
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
   $.widget.bridge('uibutton', $.ui.button)
 </script>
 <!-- Bootstrap 4 -->
-<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/fixedheader/3.1.6/js/dataTables.fixedHeader.min.js"></script>
 <script src="<?= base_url('assets/plugins/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
 <!-- ChartJS -->
 <script src="<?= base_url('assets/plugins/chart.js/Chart.min.js') ?>"></script>
 <!-- Sparkline -->
-<script src="<?= base_url('assets/plugins/sparklines/sparkline.js') ?>"></script>
+<!-- <script src="<?= base_url('assets/plugins/sparklines/sparkline.js') ?>"></script> -->
 <!-- JQVMap -->
-<script src="<?= base_url('assets/plugins/jqvmap/jquery.vmap.min.js') ?>"></script>
-<script src="<?= base_url('assets/plugins/jqvmap/maps/jquery.vmap.usa.js') ?>"></script>
+<!-- <script src="<?= base_url('assets/plugins/jqvmap/jquery.vmap.min.js') ?>"></script>
+<script src="<?= base_url('assets/plugins/jqvmap/maps/jquery.vmap.usa.js') ?>"></script> -->
 <!-- jQuery Knob Chart -->
 <script src="<?= base_url('assets/plugins/jquery-knob/jquery.knob.min.js') ?>"></script>
 <!-- daterangepicker -->
@@ -39,9 +39,7 @@
 <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
 <!-- mascaras -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
-
-<script src="C:\xampp\htdocs\engclinica\assets\dist\js\form.js"></script>
-<script src="C:\xampp\htdocs\engclinica\assets\dist\js\demo.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script> -->
 <script type="text/javascript">
   $(document).ready(function() {
     var $campoCpf = $("#cpf");

@@ -20,12 +20,12 @@ class Equipamento extends BaseController
     {
         $setorModel = new SetorModel();
         $equipamentoModel = new EquipamentoModel();
-
+        $view = \Config\Services::renderer();
         echo view('common/cabecalho');
         echo view('equipamento/equipamento', [
             'equipamentos' => $equipamentoModel->paginate(1000),
         ]);
-        $js['js'] = view('equipamento/js/main');
+        $js['js'] = $view->render('equipamento/js/main.js');
         echo view('common/rodape', $js);
     }
     /**
@@ -119,6 +119,8 @@ class Equipamento extends BaseController
 
         $equipamentoModel = new EquipamentoModel();
         $ospreventivaModel = new OrdemModel();
+        $view = \Config\Services::renderer();
+
         $dadosEquipamento = $equipamentoModel->find($id);
         echo view('common/cabecalho');
         echo view('equipamento/ordem', [
@@ -132,8 +134,9 @@ class Equipamento extends BaseController
 
             'dadosEquipamento' => $dadosEquipamento
 
-        ]);
-        echo view('common/rodape');
+    ]);
+        $js['js'] = $view->render('equipamento/js/main.js');
+        echo view('common/rodape', $js);
 
         if (is_null($dadosEquipamento)) {
             return redirect()->to('/mensagem')->with('mensagem', [
@@ -143,11 +146,15 @@ class Equipamento extends BaseController
         }
     }
 
-    public function ordemUnica($id = null)
+    public function consultarOrdem()
     {
-        if ($id) {
-        } else {
-            echo json_encode(['error' => 'Invalid id']);
-        }
+        $idTipoOrdem = $this->request->getPost('idTipo');
+        $idOrdem = $this->request->getPost('uid');
+        
+
+        $ospreventivaModel = new OrdemModel();
+        $dados = $ospreventivaModel->where(['id' => $idOrdem,'fk_ordem_servico_tipo' => $idTipoOrdem])->findAll();
+
+        echo json_encode($dados[0]);
     }
 }
