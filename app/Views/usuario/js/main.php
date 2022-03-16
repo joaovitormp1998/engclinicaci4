@@ -22,7 +22,6 @@ $("#formCadastroUsuario #nome").val(response.nome);
 $("#formCadastroUsuario #uid").val(response.id);
 $("#formCadastroUsuario #email").val(response.email);
 $("#formCadastroUsuario #nivel").val(response.nivel);
-$("#formCadastroUsuario #senha").val(response.senha);
 
 $("#modalCadastroUsuario").modal("show");
 },

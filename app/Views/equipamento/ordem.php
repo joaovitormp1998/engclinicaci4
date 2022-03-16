@@ -241,7 +241,8 @@ include("conexao.php");
                         <?php $fotoos = $ospreventivaEquipamento['imagem'] ?>
                         <a href="<?= base_url('fotoos/') . "/" . $fotoos ?>" title="Exibir Foto da Ordem de Serviço"><i class="fas fa-image"></i></a>
                         <a href="<?php echo base_url("tiposdeordem/delete/{$ospreventivaEquipamento['id']}/{$dadosEquipamento['id']}") ?>" onclick="return confirma()" class="btn-excluir" title="Excluir Resgistro de OS"><i class="far fa-trash-alt"></i></a>
-                        <a href="#" id="btn-light" class="btn-ligth" data-toggle="modal" data-target="#modalExemplo"><i class="fas fa-eye"></i>
+                        
+                        <a href="#"  class="btn-ligth"  data-id="<?=$ospreventivaEquipamento['id']?>"><i class="fas fa-eye"></i>
                         </a>
                       </th>
                   </tbody>

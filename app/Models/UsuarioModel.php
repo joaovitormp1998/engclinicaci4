@@ -16,6 +16,7 @@ class UsuarioModel extends Model
         'nivel'
     ];
     protected $beforeInsert = ['hashPassword'];
+    protected $beforeUpdate = ['hashPassword'];
     protected $validationRules = [
         'nome' => [
             'label' => 'Nome',

@@ -8,16 +8,8 @@ use Dompdf\Dompdf;
 
 class Relatorio extends BaseController
 {
-    public function __construct()
-    {
-        $this->BokuModel = new BokuModel();
-    }
     public function index()
     {
-        $data = [
-            'boku' => $this->BokuModel->AllData(),
-        ];
-
         echo view('common/cabecalho');
         echo view('relatorio/index');
 
