@@ -67,40 +67,50 @@
     </div>
     <!-- /.content-header -->
     <section class="content">
+    <form action="<?= base_url('relatorio/')?>" method="POST">
         <div class="container-fluid">
             <div class="card-body">
                 <div class="col-12">
                     <div class="form-row">
                         <div class="form-group col-md-2">
-                            <label for="id">Id</label>
-                            <select name="id" id="id" class="form-control">
-
-                                <option value="">Selecione </option>
-                                <?php
-                                include("conexao.php");
-                                $sql = "SELECT DISTINCT id  FROM equipamento";
-                                $resultadoT = mysqli_query($mysqli, $sql);
-                                while ($row = mysqli_fetch_assoc($resultadoT)) { ?>
-                                    <option value="<?= $row['id']; ?>"><?= $row['id']; ?></option><?php
-                                                                                                }
-                                                                                                    ?>
-                            </select>
-                        </div>
-                        <div class="form-group col-md-2">
                             <label for="categorias_id">Setor</label>
                             <select name="setor" id="setor" class="form-control">
 
                                 <option value="">Selecione o Modelo </option>
-                                <?php
-                                include("conexao.php");
-                                $sql = "SELECT DISTINCT marca  FROM equipamento";
-                                $resultadoT = mysqli_query($mysqli, $sql);
-                                while ($row = mysqli_fetch_assoc($resultadoT)) { ?>
-                                    <option value="<?= $row['marca']; ?>"><?= $row['marca']; ?></option><?php
-                                                                                                    }
-                                                                                                        ?>
+                                <?php foreach ($setor as $setores) : ?>
+                                    <option value="<?=$setores['id']?>"><?=$setores['nome']?></option>
+                                    
+                    <?php endforeach; ?>
                             </select>
 
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="tiposdemanutencao">Tipo de Ordem de Serviço</label>
+                            <select name="tipoos" id="tipo" class="form-control">
+                                <option value="">Selecione o Tipo de OS</option>
+                                <?php
+                                include("conexao.php");
+                                $sql = "SELECT * FROM `ordem-servico-tipo` ";
+                                $resultadoT = mysqli_query($mysqli, $sql);
+                                while ($row = mysqli_fetch_assoc($resultadoT)) { ?>
+                                    <option value="<?= $row['id']; ?>"><?= $row['nome']; ?></option><?php
+                                                                                                }
+                                                                                                    ?>
+                                <option value="">Todas as OS</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="id">Nome</label>
+                            <select name="id" id="id" class="form-control">
+
+                                <option value="">Selecione </option>
+                          
+                                <?php foreach ($equipamento as $equipamentos) : ?>
+                                    <option value="<?=$equipamentos['id']?>"><?=$equipamentos['id']?> - <?=$equipamentos['nome']?></option>
+                                    
+                    <?php endforeach; ?>
+                            </select>
                         </div>
 
                         <div class="form-group col-md-2">
@@ -108,44 +118,48 @@
 
                             <select name="ano" id="ano" class="form-control">
                                 <option value="">Selecione o Ano</option>
-                                <option value="">2021 </option>
-                                <option value="">2020 </option>
-                                <option value="">2019 </option>
-                                <option value="">2018 </option>
+                                <?php
+                                include("conexao.php");
+                                $sql = "SELECT DISTINCT ano FROM `vw_equipamento_relatorio`
+                                ";
+                                $resultadoT = mysqli_query($mysqli, $sql);
+                                while ($row = mysqli_fetch_assoc($resultadoT)) { ?>
+                                    <option value="<?= $row['ano']; ?>"><?= $row['ano']; ?></option><?php
+                                                                                                                        }
+                                                                                                                            ?>
+                           
                                 <option value="">Todos os Anos</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-md-3">
-                            <label for="tiposdemanutencao">Tipo de manutenção</label>
-                            <select name="tipoos" id="tipo" class="form-control">
-                                <option value="">Selecione o Tipo de OS</option>
-                                <option value="">OS Manutenção Preventiva </option>
-                                <option value="">OS Manutenção Corretiva </option>
-                                <option value="">OS Instalação </option>
-                                <option value="">OS Treinamento </option>
-                                <option value="">OS Calibração </option>
-                                <option value="">OS Inspeção</option>
-                                <option value="">Todas as OS</option>
                             </select>
                         </div>
                         <div class="form-group col-md-2">
                             <label for="tiposdemanutencao">&nbsp;</label>
-                            <input type="button" class="form-control btn btn-outline-secondary" value="Buscar">
-                            </input>
+                            <button type="submit" class="form-control btn btn-outline-secondary"  >Buscar
+                            </button>
                         </div>
                     </div>
-                    <?php
-                                include("conexao.php");
-                                $sql = "SELECT os.id AS ORDEM, DATE_FORMAT(e.data_fabricacao, "%Y") AS ano, e.nome, os.tecnico FROM `ordem-servico` os LEFT JOIN `ordem-servico-tipo` ost ON ( os.fk_ordem_servico_tipo = ost.id)LEFT JOIN equipamento e ON (os.fk_equipamento = e.id)";
-                                $resultadoT = mysqli_query($mysqli, $sql);
-                                while ($row = mysqli_fetch_assoc($resultadoT)) { ?>
-                                    <option value="<?= $row['marca']; ?>"><?= $row['marca']; ?></option><?php
-                                                                                                    }
-                                                                                                        ?>
                 </div>
+                                                                                                                    </form>
+                <table>
+                    <?php foreach ($relatorio as $relatorios) : ?>
+                <tr><td>Nome do Equipamento: <?= $relatorios['nome'] ?></td></tr>
+                        <tr><td>Marca :<?= $relatorios['marca'] ?></td</tr>
+                        <tr><td>Modelo :<?= $relatorios['modelo'] ?></td></tr>
+                        <tr><td>Data de Fabricação :<?=  date_format(new Datetime($relatorios['data_fabricacao']), 'd/m/Y ');?></td></tr>
+                        <tr><td>Setor :<?= $relatorios['nome_setor'] ?></td></tr>
+                        <tr><td>Ordem Id :<?= $relatorios['ordem_id'] ?></td></tr>
+                        <tr><td>Data Realizada :<?= date_format(new Datetime($relatorios['data_realizada']), 'd/m/Y '); ?></td></tr>
+                        <tr><td>Data Proxima :<?= date_format(new Datetime($relatorios['data_proxima']), 'd/m/Y '); ?></td></tr>
+                        <tr><td>Técnico  :<?= $relatorios['tecnico'] ?></td></tr>
+                        <tr><td>Funcionario Solicitante :<?= $relatorios['funcionario'] ?></td></tr>
+                        <tr><td>Material Utilizado :<?= $relatorios['material'] ?></td></tr>
+                        <tr><td>Data Entrada :<?= date_format(new Datetime($relatorios['data_entrada']), 'd/m/Y  H:i:s '); ?></td></tr>
+                        <tr><td>Data Saida :<?= date_format(new Datetime($relatorios['data_saida']), 'd/m/Y  H:i:s ');  ?></td></tr>
+                    
+                        <?php endforeach ; ?>
+                           
+                </table>
 
             </div>
-
         </div>
     </section>
 </div>

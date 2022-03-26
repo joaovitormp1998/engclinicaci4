@@ -30,6 +30,7 @@ class Login extends BaseController
 				
 				session()->set('id', $dadosUsuario['id']);
 				session()->set('nome', $dadosUsuario['nome']);
+				session()->set('nivel', $dadosUsuario['nivel']);
 				session()->set('foto', $dadosUsuario['foto']);
 				return redirect()->to(base_url());
 			} else {

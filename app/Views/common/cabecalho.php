@@ -47,13 +47,10 @@
                         <a href="#" class="d-block"><?php echo session()->nome ?></a>
                     </div>
                 </div>
-
-                <!-- Sidebar Menu -->
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                        <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
                         <li class="nav-item has-treeview">
+                            <?php if (session()->nivel !='F') { ?>
                             <a href="#" class="nav-link">
                                 <i class="fas fa-plus"></i>
                                 <p>
@@ -76,21 +73,21 @@
                                 </li>
 
                             </ul>
+                        <?php };?>
                         </li>
                         
                         <li  class="nav-item has-treeview">
                                     <a href="<?= base_url('equipamento') ?>" class="nav-link">
-                                    <i class="fas fa-toolbox mav-icon"></i>                                        <p>Equipamento</p>
+                                    <i class="fas fa-toolbox mav-icon"></i>
+                                    <p>Equipamento</p>
                                     </a>
                                 </li>
                         <li class="nav-item has-treeview">
                             <a href="<?= base_url('/contato') ?>" class="nav-link">
-                                <i class="far fa-user"></i>
-                                <p>
-                                    Contato
-                                </p>
-                            </a>
-                        </li>
+                                    <i class="far fa-user"></i>
+                                    <p>Contato</p>
+                                    </a>
+                            </li>
                         <li class="nav-item has-treeview">
                             <a href="<?= base_url('busca') ?>" class="nav-link">
                                 <i class="fas fa-search"></i>
@@ -117,3 +114,5 @@
             </div>
             <!-- /.sidebar -->
         </aside>
+        <script>
+        </script>

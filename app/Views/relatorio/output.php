@@ -1,124 +1,66 @@
-<style>
-    .container {
-        width: 100%;
-    }
+<table>
+                    <?php
+                    include("conexao.php");
+                    $sql = "SELECT e.id AS equipamento_id,
+                os.id AS ordem_id,
+                DATE_FORMAT(e.data_fabricacao, \"%Y\") AS ano,
+                e.nome AS nome,
+                e.marca AS marca,
+                e.modelo AS modelo,
+                e.data_fabricacao AS data_fabricacao,
+                e.nome_setor AS nome_setor,
+                e.unidade AS unidade,
+                e.criticidade AS criticidade,
+                os.tecnico AS tecnico,
+                os.data_preventiva AS data_realizada,
+                os.data_proxima AS data_proxima,
+                os.tecnico AS tecnico,
+                os.funcionario AS funcionario,
+                os.material AS material,
+                CONCAT(
+                    os.data_entrada,
+                    ' ',
+                    os.hora_entrada
+                ) AS data_entrada,
+                CONCAT(os.data_saida,' ', os.hora_saida) AS data_saida ";
+                    $sql .= "FROM `ordem-servico` os ";
+                    $sql .= "LEFT JOIN `ordem-servico-tipo` ost ON (
+                    os.fk_ordem_servico_tipo = ost.id
+                ) ";
+                    $sql .= "LEFT JOIN vw_equipamento_setor e ON (os.fk_equipamento = e.id )";
+                    $sql .= "WHERE DATE_FORMAT(os.data_entrada, \"%Y\") = '2000';";
+                    $resultadoT = mysqli_query($mysqli, $sql);
+                    $qtd_equipamentos = mysqli_num_rows($resultadoT);
+                    $row = $resultadoT->fetch_all(MYSQLI_ASSOC);
+                    
+                    
+                    ?> 
+                    
+                    <tr><td>Nome : <?= $row[0]['nome'] ?></td></tr>
+                        <tr><td>Marca :<?= $row[0]['marca'] ?></td</tr>
+                        <tr><td>Modelo :<?= $row[0]['modelo'] ?></td></tr>
+                        <tr><td>Data de Fabricação :<?=  date_format(new Datetime($row[0]['data_fabricacao']), 'd/m/Y ');?></td></tr>
+                        <tr><td>Setor :<?= $row[0]['nome_setor'] ?></td></tr>
+                      
+                    </table>/<br>
+                    <table> 
+                        <tr><td>Ordem Id :<?= $row[1]['ordem_id'] ?></td></tr>
+                        <tr><td>Data Realizada :<?= date_format(new Datetime($row[1]['data_realizada']), 'd/m/Y '); ?></td></tr>
+                        <tr><td>Data Proxima :<?= date_format(new Datetime($row[1]['data_proxima']), 'd/m/Y '); ?></td></tr>
+                        <tr><td>Técnico  :<?= $row['tecnico'] ?></td></tr>
+                        <tr><td>Funcionario Solicitante :<?= $row[1]['funcionario'] ?></td></tr>
+                        <tr><td>Material Utilizado :<?= $row[1]['material'] ?></td></tr>
+                        <tr><td>Data Entrada :<?= date_format(new Datetime($row['data_entrada']), 'd/m/Y  H:i:s '); ?></td></tr>
+                        <tr><td>Data Saida :<?= date_format(new Datetime($row['data_saida']), 'd/m/Y  H:i:s ');  ?></td></tr>
 
-    h1 {
-        background-color: #ccc;
-        margin: 0;
-        padding: 10px;
-        text-align: center;
-    }
-
-    p {
-        margin: 0;
-        text-align: center;
-        background-color: #ccc;
-        padding-bottom: 10px;
-    }
-
-    table {
-        width: 100%;
-        border-collapse: collapse;
-    }
-
-    tr th {
-        padding: 15px;
-        color: #fff;
-        background-color: #555;
-        border-right: 1px solid;
-    }
-
-    tr th:last-child {
-        border-right: none;
-    }
-
-    table,
-    tr,
-    td {
-        border: 1px solid;
-        padding: 10px;
-
-    }
-
-    .text-success {
-        color: forestgreen;
-    }
-
-    .text-danger {
-        color: red;
-    }
-
-    .nome-categoria {
-        font-weight: bolder;
-        background-color: #ccc;
-    }
-
-    .text-right {
-        text-align: right;
-    }
-
-    .text-center {
-        text-align: center
-    }
-</style>
-
-<div class="container">
-    <h1>Relatório de Lançamentos</h1>
-    <p><small>Gerado em: <?php echo date("d/m/Y H:i:s") ?></small></p>
-    <table>
-        <thead>
-            <tr class="bg-dark text-white">
-                <th style="width: 100px">Descrição</th>
-                <th>Data</th>
-                <th>Tipo</th>
-                <th>Consolidado?</th>
-                <th>Notificar?</th>
-                <th style="width: 100px">Valor</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($categorias as $categoria) : ?>
-                <tr>
-                    <td colspan="6" class="nome-categoria"><?php echo $categoria['descricao'] ?></td>
-                </tr>
-                <?php foreach ($categoria['lancamentos'] as $lancamento) : ?>
-                    <tr>
-                        <td><?php echo $lancamento['descricao'] ?></td>
-                        <td><?php echo toDataBR($lancamento['data']) ?></td>
-                        <td><?php echo $lancamento['tipo'] == 'r' ? 'Receita' : 'Despesa' ?></td>
-                        <td><?php echo $lancamento['consolidado'] == 1 ? 'Sim' : 'Não' ?></td>
-                        <td><?php echo $lancamento['notificar_por_email'] == '1' ? 'Sim' : 'Não' ?></td>
-                        <td>R$ <?php echo number_format($lancamento['valor'], 2, ',', '.') ?></td>
-                    </tr>
-                <?php endforeach; ?>
-                <tr>
-                    <td colspan="5" class="text-right">Subtotal:</td>
-                    <td colspan="1">R$ <?php echo isset($categoria['totalPorCategoria']) ? number_format($categoria['totalPorCategoria'], 2, ',', '.') : '' ?></td>
-                </tr>
-
-            <?php endforeach; ?>
-            <?php if (empty($search)) : ?>
-                <tr>
-                    <td colspan="6" class="text-center">Totalizador</td>
-                </tr>
-                <tr>
-                    <td colspan="5" class="text-success text-right">Total de Receitas (A):</td>
-                    <td colspan="1" class="text-success">R$ <?php echo number_format($totalReceitas, 2, ',', '.'); ?></td>
-                </tr>
-                <tr>
-                    <td colspan="5" class="text-danger text-right">Total de Despesas (B):</td>
-                    <td colspan="1" class="text-danger">R$ <?php echo number_format($totalDespesas, 2, ',', '.'); ?></td>
-                </tr>
-                <tr>
-                    <td colspan="5" class="text-right">Saldo (A - B):</td>
-                    <?php if ($saldo > 0) : ?>
-                        <td colspan="1" class="text-success font-weight-bold">R$ <?php echo number_format($saldo, 2, ',', '.'); ?></td>
-                    <?php else : ?>
-                        <td colspan="1" class="text-danger font-weight-bold">R$ <?php echo number_format($saldo, 2, ',', '.') ?></td>
-                    <?php endif; ?>
-                </tr>
-            <?php endif; ?>
-        </tbody>
-    </table>
-</div>
+                        </table>
+                        <br>                       <table>
+                        <tr><td>Ordem Id :<?= $row[1]['ordem_id'] ?></td></tr>
+                        <tr><td>Data Realizada :<?= date_format(new Datetime($row[1]['data_realizada']), 'd/m/Y '); ?></td></tr>
+                        <tr><td>Data Proxima :<?= date_format(new Datetime($row[1]['data_proxima']), 'd/m/Y '); ?></td></tr>
+                        <tr><td>Técnico  :<?= $row['tecnico'] ?></td></tr>
+                        <tr><td>Funcionario Solicitante :<?= $row[1]['funcionario'] ?></td></tr>
+                        <tr><td>Material Utilizado :<?= $row[1]['material'] ?></td></tr>
+                        <tr><td>Data Entrada :<?= date_format(new Datetime($row[1]['data_entrada']), 'd/m/Y  H:i:s '); ?></td></tr>
+                        <tr><td>Data Saida :<?= date_format(new Datetime($row[1]['data_saida']), 'd/m/Y  H:i:s ');  ?></td></tr>
+                        </table>

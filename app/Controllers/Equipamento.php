@@ -133,7 +133,6 @@ class Equipamento extends BaseController
             'osTreinamento' => $ospreventivaModel->where(['fk_equipamento'=>$id,'fk_ordem_servico_tipo' => 4])->findAll(),
 
             'dadosEquipamento' => $dadosEquipamento
-
     ]);
         $js['js'] = $view->render('equipamento/js/main.js');
         echo view('common/rodape', $js);
