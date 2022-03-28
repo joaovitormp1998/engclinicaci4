@@ -46,7 +46,7 @@
         <tbody>
           <h3><?php
               include("conexao.php");
-              $sql = "SELECT * FROM `os_preventiva` JOIN equipamento ON fk_equipamento=id WHERE dataProxima < CURRENT_DATE ";
+              $sql = "SELECT * FROM `ordem-servico` JOIN equipamento ON fk_equipamento WHERE data_proxima < CURRENT_DATE ";
               $resultadoT = mysqli_query($mysqli, $sql);
               $qtd_equipamentos = mysqli_num_rows($resultadoT);
               $row = $resultadoT->fetch_array(MYSQLI_ASSOC);
@@ -67,8 +67,8 @@
               <tr>
                 <td><?= $row['id'];  ?></td>
                 <td><a href="<?= base_url($_base . 'equipamento/ordem/' . $equipamento['id']) ?>"><?= $equipamento['nome']; ?></a></td>
-                <td><?= date_format(new Datetime($equipamento['dataPreventiva']), 'd/m/Y '); ?></td>
-                <td><?= date_format(new Datetime($equipamento['dataProxima']), 'd/m/Y '); ?></td>
+                <td><?= date_format(new Datetime($equipamento['data_preventiva']), 'd/m/Y '); ?></td>
+                <td><?= date_format(new Datetime($equipamento['data_proxima']), 'd/m/Y '); ?></td>
 
 
               </tr>

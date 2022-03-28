@@ -26,6 +26,7 @@ class Usuario extends BaseController
 
         $usuarioModel = new UsuarioModel();
 
+        if (session()->nivel !="F"){
 
         echo view('common/cabecalho');
         echo view('usuario/index', [
@@ -35,7 +36,13 @@ class Usuario extends BaseController
 
         $js['js'] = view('usuario/js/main');
         echo view('common/rodape', $js);
-    }
+    }else{
+        echo view('common/cabecalho');
+        echo view('home/index');
+        echo view('common/rodape');
+        }
+
+}
 
     public function edit($id)
     {

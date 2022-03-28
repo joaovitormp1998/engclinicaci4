@@ -23,6 +23,7 @@ class Setor extends BaseController
     {
 
         $setorModel = new SetorModel();
+        if (session()->nivel !="F"){
 
         echo view('common/cabecalho');
         echo view('setor/index', [
@@ -31,6 +32,11 @@ class Setor extends BaseController
 
         $js['js'] = view('setor/js/main');
         echo view('common/rodape', $js);
+    }else{
+        echo view('common/cabecalho');
+        echo view('home/index');
+        echo view('common/rodape');
+        }
     }
     public function create()
     {

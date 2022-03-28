@@ -96,11 +96,11 @@ $qrcode->render($url, 'assets/imgqrcode/' . $nome_img);
                             <td align="center"><?= $equipamento['id'] ?></td>
                             <td align="justify"><a href="<?= base_url(URLQRCODE . 'ordem/' . $equipamento['id']) ?>"><?= $equipamento['nome'] ?></td>
                             <td align="justify"><?= $equipamento['marca'] ?></td>
-                            <td align="center"><?= $equipamento['fk_setor'] ?></td>
+                            <td align="center"><?= $equipamento['nome_setor'] ?></td>
                             <td align="center"><?= $equipamento['criticidade'] ?></td>
                             <td align="center"><?php echo "<img src='" . URLIMG . "imgqrcode/" .  $equipamento['id'] . ".svg' width='100'><br><hr>"; ?></td>
                             <td><a href="<?= base_url(URLQRCODE . 'edit/' . $equipamento['id']) ?>" class="btn-editar" data-id="<?= $equipamento['id'] ?>"><i class="far fa-edit"></i></a>
-                                &nbsp;&nbsp; <a href="<?= base_url(URLQRCODE . 'delete/' . $equipamento['id']) ?>" class="btn-excluir" data-id="<?= $equipamento['id'] ?>" onclick="return confirma();"><i class="far fa-trash-alt"></i></a>
+                                &nbsp;&nbsp; <a href="<?= base_url(URLQRCODE . 'delete/' . $equipamento['id']) ?>" class="btn-excluir" data-id="<?= $equipamento['id'] ?>"><i class="far fa-trash-alt"></i></a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -232,11 +232,11 @@ $qrcode->render($url, 'assets/imgqrcode/' . $nome_img);
             <div class="modal-body">
                 <form id="formExcluirEquipamento" method="get">
                     <input id="uid" type="hidden" name="id" value="">
-                    Deseja realmente excluir esse Equipamento ?
+                    Deseja realmente excluir esse Equipamento : <span class="modal-excluir-span" id="modal-excluir-span"></span> ?
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                <button type="submit" class="btn btn-primary">Excluir</button>
+                <button type="submit" class="btn btn-danger">Excluir</button>
             </div>
             </form>
         </div>

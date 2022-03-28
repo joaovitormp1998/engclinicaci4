@@ -83,8 +83,8 @@ include("conexao.php");
                         <tr>
                             <td><?= $equipamento['id'] ?></td>
                             <td><a href="<?= base_url($_base . 'ordem/' . $equipamento['id']) ?>"><?= $equipamento['nome'] ?></td>
-                            <td><?= $equipamento['setor'] ?></td>
-                            <td><?= $equipamento['numeroSerie'] ?></td>
+                            <td><?= $equipamento['nome_setor'] ?></td>
+                            <td><?= $equipamento['numero_serie'] ?></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
