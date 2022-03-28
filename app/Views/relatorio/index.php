@@ -54,7 +54,7 @@
         <div class="container-fluid">
             <div class="row mb-3">
                 <div class="col-sm-6">
-                    <h1 class="m-0 text-dark" align="left">Cadastro de Equipamentos</h1>
+                    <h1 class="m-0 text-dark" align="left">Relatorio de Os de Equipamentos</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -134,27 +134,54 @@
                         <div class="form-group col-md-2">
                             <label for="tiposdemanutencao">&nbsp;</label>
                             <button type="submit" class="form-control btn btn-outline-secondary"  >Buscar
-                            </button>
+                            </button></form>
+                            <form action="<?= base_url('relatorio/printpdf')?>" method="POST">
+                            <button type="submit"class="btn btn-outline-secondary" ><i class="far fa-file-pdf"></i>
+
+                            </button></form>
                         </div>
                     </div>
                 </div>
                                                                                                                     </form>
-                <table>
-                    <?php foreach ($relatorio as $relatorios) : ?>
-                <tr><td>Nome do Equipamento: <?= $relatorios['nome'] ?></td></tr>
-                        <tr><td>Marca :<?= $relatorios['marca'] ?></td</tr>
-                        <tr><td>Modelo :<?= $relatorios['modelo'] ?></td></tr>
-                        <tr><td>Data de Fabricação :<?=  date_format(new Datetime($relatorios['data_fabricacao']), 'd/m/Y ');?></td></tr>
-                        <tr><td>Setor :<?= $relatorios['nome_setor'] ?></td></tr>
-                        <tr><td>Ordem Id :<?= $relatorios['ordem_id'] ?></td></tr>
-                        <tr><td>Data Realizada :<?= date_format(new Datetime($relatorios['data_realizada']), 'd/m/Y '); ?></td></tr>
-                        <tr><td>Data Proxima :<?= date_format(new Datetime($relatorios['data_proxima']), 'd/m/Y '); ?></td></tr>
-                        <tr><td>Técnico  :<?= $relatorios['tecnico'] ?></td></tr>
-                        <tr><td>Funcionario Solicitante :<?= $relatorios['funcionario'] ?></td></tr>
-                        <tr><td>Material Utilizado :<?= $relatorios['material'] ?></td></tr>
-                        <tr><td>Data Entrada :<?= date_format(new Datetime($relatorios['data_entrada']), 'd/m/Y  H:i:s '); ?></td></tr>
-                        <tr><td>Data Saida :<?= date_format(new Datetime($relatorios['data_saida']), 'd/m/Y  H:i:s ');  ?></td></tr>
+                <table class="table">
+                        <thead class="thead-dark">
+
+                        <th>Nome</th>
+                        <th>Marca</th>
+                        <th>Modelo</th>
+                        <th class="col">Data de Fabricação</th>
+                        <th>Setor</th>
+                        <th>Ordem</th>
+                        <th class="col">Data Realizada</th>
+                        <th class="col">Data Proxima</th>
+                        <th>Técnico</th>
+                        <th class="col">Funcionario Solicitante</th>
+                        <th class="col">Data Entrada:</th>
+                        <th class="col">Data Saida</th>
+                        <th class="col">Material Utilizado</th>
+                        </thead>
+                        <tr>
+                        <?php foreach ($relatorio as $relatorios) : ?>
+
+                        <td><?= $relatorios['nome'] ?></td>
+                        <td><?= $relatorios['marca'] ?></td>
+                        <td><?= $relatorios['modelo'] ?></td>
+                        <td><?=  date_format(new Datetime($relatorios['data_fabricacao']), 'd/m/Y ');?></td>
+                        <td><?= $relatorios['nome_setor'] ?></td>
+                        <td><?= $relatorios['nome_tipo_os'] ?></td>
+                        <td><?= date_format(new Datetime($relatorios['data_realizada']), 'd/m/Y '); ?></td>
+                        <td><?= date_format(new Datetime($relatorios['data_proxima']), 'd/m/Y '); ?></td>
+                        <td>
+                         <?php if ($relatorios['tecnico'] !="") ?>   
+                         <?= $relatorios['tecnico'] ?>
+
+                        </td>
+                        <td><?= $relatorios['funcionario'] ?></td>
+                        <td><?= date_format(new Datetime($relatorios['data_entrada']), 'd/m/Y  H:i:s '); ?></td>
+                        <td><?= date_format(new Datetime($relatorios['data_saida']), 'd/m/Y  H:i:s ');  ?></td>
+                        <td><?= $relatorios['material'] ?></td>
                     
+                </tr>
                         <?php endforeach ; ?>
                            
                 </table>

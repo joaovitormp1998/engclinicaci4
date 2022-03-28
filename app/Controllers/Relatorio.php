@@ -38,7 +38,6 @@ class Relatorio extends BaseController
             'relatorio'=>$teste
             ,
        ];
-
         echo view('common/cabecalho');
         echo view('relatorio/index',$dados);
 
