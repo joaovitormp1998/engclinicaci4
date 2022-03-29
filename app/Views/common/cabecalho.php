@@ -9,6 +9,11 @@
         .m-0 {
             color: #00997D !important;
         }
+        .center{
+            margin-left: 20%;
+            text-justify: center;
+            color: #f2f2f2;
+        }
     </style>
     <div class="wrapper">
 
@@ -31,7 +36,7 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-4" id="barradolado">
             <a href="<?= base_url('home') ?>" class="brand-link">
                 <img src="<?= base_url('') ?>" alt="" class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">SISCONTROLE</span>
+                <span class="center">SISCONTROLE</span>
             </a>
 
             <!-- Sidebar -->

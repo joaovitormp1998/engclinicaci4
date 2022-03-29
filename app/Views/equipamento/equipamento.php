@@ -48,6 +48,11 @@ $qrcode->render($url, 'assets/imgqrcode/' . $nome_img);
             color: green;
             text-decoration: none;
         }
+        .nome-equipamento{
+            color: black;
+            text-decoration: none;
+           
+        }
 
         .btn-excluir:link {
             color: red;
@@ -94,13 +99,14 @@ $qrcode->render($url, 'assets/imgqrcode/' . $nome_img);
                     <?php foreach ($equipamentos as $equipamento) : ?>
                         <tr>
                             <td align="center"><?= $equipamento['id'] ?></td>
-                            <td align="justify"><a href="<?= base_url(URLQRCODE . 'ordem/' . $equipamento['id']) ?>"><?= $equipamento['nome'] ?></td>
+                            <td align="justify"><a class="nome-equipamento" href="<?= base_url(URLQRCODE . 'ordem/' . $equipamento['id']) ?>"><?= $equipamento['nome'] ?></td>
                             <td align="justify"><?= $equipamento['marca'] ?></td>
                             <td align="center"><?= $equipamento['nome_setor'] ?></td>
                             <td align="center"><?= $equipamento['criticidade'] ?></td>
                             <td align="center"><?php echo "<img src='" . URLIMG . "imgqrcode/" .  $equipamento['id'] . ".svg' width='100'><br><hr>"; ?></td>
-                            <td><a href="<?= base_url(URLQRCODE . 'edit/' . $equipamento['id']) ?>" class="btn-editar" data-id="<?= $equipamento['id'] ?>"><i class="far fa-edit"></i></a>
-                                &nbsp;&nbsp; <a href="<?= base_url(URLQRCODE . 'delete/' . $equipamento['id']) ?>" class="btn-excluir" data-id="<?= $equipamento['id'] ?>"><i class="far fa-trash-alt"></i></a>
+                            <td><a href="<?= base_url(URLQRCODE . 'edit/' . $equipamento['id']) ?>" class="btn-editar" data-id="<?= $equipamento['id'] ?>"title="Editar dados do equipamento"><i class="far fa-edit"></i></a>
+                                &nbsp;&nbsp; 
+                                <a href="<?= base_url(URLQRCODE . 'delete/' . $equipamento['id']) ?>" class="btn-excluir" data-id="<?= $equipamento['id'] ?>" title="Excluir dados do equipamento"><i class="far fa-trash-alt"></i></a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

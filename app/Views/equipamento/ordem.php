@@ -12,7 +12,10 @@ include("conexao.php");
   ul {
     list-style: none;
   }
-
+  .btn-img {
+    color: darkblue;
+    text-decoration: none;
+  }
   .btn-ligth:link {
     color: green;
     text-decoration: none;
@@ -241,9 +244,9 @@ include("conexao.php");
 
                       <th>
                         <?php $fotoos = $ospreventivaEquipamento['imagem'] ?>
-                        <a href="<?= base_url('fotoos/') . "/" . $fotoos ?>" title="Exibir Foto da Ordem de Serviço"><i class="fas fa-image"></i></a>
+                        <a href="<?= base_url('fotoos/') . "/" . $fotoos ?>" class="btn-img" title="Exibir Foto da Ordem de Serviço" ><i class="fas fa-image"></i></a>
                         <a href="<?php echo base_url("tiposdeordem/delete/{$ospreventivaEquipamento['id']}/{$dadosEquipamento['id']}") ?>" data-id="<?= $ospreventivaEquipamento['id'] ?>" class="btn-excluir" title="Excluir Resgistro de OS"><i class="far fa-trash-alt"></i></a>
-                        <a class="btn-ligth mostra-os" data-os="<?= $ospreventivaEquipamento['id'] ?>" data-equipamento="<?= $dadosEquipamento['id'] ?>" data-tipo="<?= $ospreventivaEquipamento['fk_ordem_servico_tipo'] ?>"><i class="fas fa-eye"></i>
+                        <a href="#" class="btn-ligth mostra-os" data-os="<?= $ospreventivaEquipamento['id'] ?>" data-equipamento="<?= $dadosEquipamento['id'] ?>" data-tipo="<?= $ospreventivaEquipamento['fk_ordem_servico_tipo'] ?>" title="Vizualizar Ordem de Serviço"><i class="fas fa-eye"></i>
                         </a>
                       </th>
                   </tbody>
@@ -280,11 +283,11 @@ include("conexao.php");
                       <th><?php echo  date_format(new DateTime($ostreinamentoEquipamento['data_entrada']), 'd/m/Y '); ?></th>
                       <th>
                         <?php $fotoos = $ostreinamentoEquipamento['imagem'] ?>
-                        <a href="<?= base_url('fotoos/') . "/" . $fotoos ?>" title="Exibir Foto da Ordem de Serviço"><i class="fas fa-image"></i></a>
+                        <a href="<?= base_url('fotoos/') . "/" . $fotoos ?>" class="btn-img" title="Exibir Foto da Ordem de Serviço"><i class="fas fa-image"></i></a>
                         <a href="<?php echo base_url("tiposdeordem/delete/{$ostreinamentoEquipamento['id']}/{$dadosEquipamento['id']}") ?>" data-id="<?= $ostreinamentoEquipamento['id'] ?>" class="btn-excluir" title="Excluir Resgistro de OS"><i class="far fa-trash-alt"></i></a>
-                        <a class="btn-ligth mostra-os" data-os="<?= $ostreinamentoEquipamento['id'] ?>" data-equipamento="<?= $dadosEquipamento['id'] ?>" data-tipo="<?= $ostreinamentoEquipamento['fk_ordem_servico_tipo'] ?>"><i class="fas fa-eye"></i>
-                          <i class="fas fa-eye"></i>
-                          </button>
+                        <a href="#" class="btn-ligth mostra-os" data-os="<?= $ostreinamentoEquipamento['id'] ?>" data-equipamento="<?= $dadosEquipamento['id'] ?>" data-tipo="<?= $ostreinamentoEquipamento['fk_ordem_servico_tipo'] ?>" title="Vizualizar Ordem de Serviço"><i class="fas fa-eye"></i></a>
+                      
+                       
                       </th>
                   </tbody>
                 <?php endforeach; ?>
@@ -320,11 +323,9 @@ include("conexao.php");
                       <th><?php echo  date_format(new DateTime($osinspecaoEquipamento['data_entrada']), 'd/m/Y '); ?></th>
                       <th>
                         <?php $fotoos = $osinspecaoEquipamento['imagem'] ?>
-                        <a href="<?= base_url('fotoos/') . "/" . $fotoos ?>" title="Exibir Foto da Ordem de Serviço"><i class="fas fa-image"></i></a>
+                        <a href="<?= base_url('fotoos/') . "/" . $fotoos ?>" class="btn-img" title="Exibir Foto da Ordem de Serviço"><i class="fas fa-image"></i></a>
                         <a href="<?php echo base_url("tiposdeordem/delete/{$osinspecaoEquipamento['id']}/{$dadosEquipamento['id']}") ?>" data-id="<?= $osinspecaoEquipamento['id'] ?>" class="btn-excluir" title="Excluir Resgistro de OS"><i class="far fa-trash-alt"></i></a>
-                        <a class="btn-ligth mostra-os" data-os="<?= $osinspecaoEquipamento['id'] ?>" data-equipamento="<?= $dadosEquipamento['id'] ?>" data-tipo="<?= $osinspecaoEquipamento['fk_ordem_servico_tipo'] ?>"><i class="fas fa-eye"></i>
-                          <i class="fas fa-eye"></i>
-                        </a>
+                        <a href="#"class="btn-ligth mostra-os" data-os="<?= $osinspecaoEquipamento['id'] ?>" data-equipamento="<?= $dadosEquipamento['id'] ?>" data-tipo="<?= $osinspecaoEquipamento['fk_ordem_servico_tipo'] ?>" title="Vizualizar Ordem de Serviço"><i class="fas fa-eye"></i></a>
                       </th>
                   </tbody>
                 <?php endforeach; ?>
@@ -364,9 +365,9 @@ include("conexao.php");
                       <th><?php echo  date_format(new DateTime($oscorretivaEquipamento['data_entrada']), 'd/m/Y '); ?></th>
                       <th>
                         <?php $fotoos = $oscorretivaEquipamento['imagem'] ?>
-                        <a href="<?= base_url('fotoos/') . "/" . $fotoos ?>" title="Exibir Foto da Ordem de Serviço"><i class="fas fa-image"></i></a>
+                        <a href="<?= base_url('fotoos/') . "/" . $fotoos ?>" class="btn-img" title="Exibir Foto da Ordem de Serviço"><i class="fas fa-image"></i></a>
                         <a href="<?php echo base_url("tiposdeordem/delete/{$oscorretivaEquipamento['id']}/{$dadosEquipamento['id']}") ?>" data-id="<?= $oscorretivaEquipamento['id'] ?>" class="btn-excluir" title="Excluir Resgistro de OS"><i class="far fa-trash-alt"></i></a>
-                        <a class="btn-ligth mostra-os" data-os="<?= $oscorretivaEquipamento['id'] ?>" data-equipamento="<?= $dadosEquipamento['id'] ?>" data-tipo="<?= $oscorretivaEquipamento['fk_ordem_servico_tipo'] ?>"><i class="fas fa-eye"></i>
+                        <a href="#" class="btn-ligth mostra-os" data-os="<?= $oscorretivaEquipamento['id'] ?>" data-equipamento="<?= $dadosEquipamento['id'] ?>" data-tipo="<?= $oscorretivaEquipamento['fk_ordem_servico_tipo'] ?>" title="Vizualizar Ordem de Serviço"><i class="fas fa-eye"></i>
                       
                         </a>
                       </th>
@@ -405,9 +406,9 @@ include("conexao.php");
                       <th>
                         <?php $fotoos = $osinstalacaoEquipamento['imagem'] ?>
 
-                        <a href="<?= base_url('fotoos/') . "/" . $fotoos ?>" title="Exibir Foto da Ordem de Serviço"><i class="fas fa-image"></i></a>
+                        <a href="<?= base_url('fotoos/') . "/" . $fotoos ?>" class="btn-img" title="Exibir Foto da Ordem de Serviço"><i class="fas fa-image"></i></a>
                         <a href="<?php echo base_url("tiposdeordem/delete/{$osinstalacaoEquipamento['id']}/{$dadosEquipamento['id']}") ?>" data-id="<?= $osinstalacaoEquipamento['id'] ?>" class="btn-excluir" title="Excluir Resgistro de OS"><i class="far fa-trash-alt"></i></a>
-                        <a class="btn-ligth mostra-os" data-os="<?= $osinstalacaoEquipamento['id'] ?>" data-equipamento="<?= $dadosEquipamento['id'] ?>" data-tipo="<?= $osinstalacaoEquipamento['fk_ordem_servico_tipo'] ?>"><i class="fas fa-eye"></i>
+                        <a href="#" class="btn-ligth mostra-os" data-os="<?= $osinstalacaoEquipamento['id'] ?>" data-equipamento="<?= $dadosEquipamento['id'] ?>" data-tipo="<?= $osinstalacaoEquipamento['fk_ordem_servico_tipo'] ?>" title="Vizualizar Ordem de Serviço"><i class="fas fa-eye"></i>
                         </a>
                       </th>
                   </tbody>
@@ -444,10 +445,9 @@ include("conexao.php");
                       <th><?php echo  date_format(new DateTime($oscalibracaoEquipamento['data_entrada']), 'd/m/Y '); ?></th>
                       <th>
                         <?php $fotoos =  $oscalibracaoEquipamento['imagem'] ?>
-                        <a href="<?= base_url('fotoos/') . "/" . $fotoos ?>" title="Exibir Foto da Ordem de Serviço"><i class="fas fa-image"></i></a>
+                        <a href="<?= base_url('fotoos/') . "/" . $fotoos ?>" class="btn-img" title="Exibir Foto da Ordem de Serviço"><i class="fas fa-image"></i></a>
                         <a href="<?php echo base_url("tiposdeordem/delete/{$oscalibracaoEquipamento['id']}/{$dadosEquipamento['id']}") ?>" data-id="<?= $oscalibracaoEquipamento['id'] ?>" class="btn-excluir" title="Excluir Resgistro de OS"><i class="far fa-trash-alt"></i></a>
-                        <a class="btn-ligth mostra-os" data-os="<?= $oscalibracaoEquipamento['id'] ?>" data-equipamento="<?= $dadosEquipamento['id'] ?>" data-tipo="<?= $oscalibracaoEquipamento['fk_ordem_servico_tipo'] ?>"><i class="fas fa-eye"></i>
-                    </a>
+                        <a href="#" class="btn-ligth mostra-os" data-os="<?= $oscalibracaoEquipamento['id'] ?>" data-equipamento="<?= $dadosEquipamento['id'] ?>" data-tipo="<?= $oscalibracaoEquipamento['fk_ordem_servico_tipo'] ?>" title="Vizualizar Ordem de Serviço"><i class="fas fa-eye"></i></a>
                       </th>
                   </tbody>
                 <?php endforeach; ?>

@@ -20,14 +20,14 @@
 
     <!-- Main content -->
     <style>
-        .btn-editar:link {
+        .btn-editar {
             color: green;
-            text-decoration: none
+            text-decoration: none;
         }
 
-        .btn-excluir:link {
+        .btn-excluir {
             color: red;
-            text-decoration: none
+            text-decoration: none;
         }
 
         .modal-header {
@@ -101,8 +101,8 @@
                             <td align="justify"><?= $usuario['nome'] ?></td>
                             <td align="center"><?= $usuario['nivel'] ?></td>
                             <td align="justify"><?= $usuario['email'] ?></td>
-                            <td align="center"><a href="<?= base_url('/usuario/edit') ?>/<?= $usuario['id'] ?>" class="btn-editar" data-id="<?= $usuario['id'] ?>"><i class="far fa-edit"></i></a>
-                                &nbsp;&nbsp; <a href="<?= base_url('/usuario/delete') ?>/<?= $usuario['id'] ?>" class="btn-excluir" data-id="<?= $usuario['id'] ?>"><i class="far fa-trash-alt"></i></a>
+                            <td align="center"><a href="<?= base_url('/usuario/edit') ?>/<?= $usuario['id'] ?>" data-id="<?= $usuario['id'] ?>"  class="btn-editar" title="Editar Usuario"><i class="far fa-edit"></i></a>
+                                &nbsp;&nbsp; <a href="<?= base_url('/usuario/delete') ?>/<?= $usuario['id'] ?>" data-id="<?= $usuario['id'] ?>" class="btn-excluir" title="Excluir Usuario"><i class="far fa-trash-alt"></i></a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -201,7 +201,7 @@
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                <button type="submit" class="btn btn-primary">Excluir</button>
+                <button type="submit" class="btn btn-danger">Excluir</button>
             </div>
 
             </form>

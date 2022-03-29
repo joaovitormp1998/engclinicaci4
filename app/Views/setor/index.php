@@ -95,8 +95,8 @@
                         <tr>
                             <td align="left"><?= $setor['id'] ?></td>
                             <td align="left"><?= $setor['nome'] ?></td>
-                            <td align="left"><a href="<?= base_url('/setor/edit') ?>/<?= $setor['id'] ?>" class="btn-editar" data-id="<?= $setor['id'] ?>"><i class="far fa-edit"></i></a>
-                                &nbsp;&nbsp; <a href="<?= base_url('/setor/delete') ?>/<?= $setor['id'] ?>" class="btn-excluir" data-id="<?= $setor['id'] ?>"><i class="far fa-trash-alt"></i></a>
+                            <td align="left"><a href="<?= base_url('/setor/edit') ?>/<?= $setor['id'] ?>" class="btn-editar" data-id="<?= $setor['id'] ?>" title="Editar Setor"><i class="far fa-edit"></i></a>
+                                &nbsp;&nbsp; <a href="<?= base_url('/setor/delete') ?>/<?= $setor['id'] ?>" class="btn-excluir" data-id="<?= $setor['id'] ?>"title="Excluir Setor"><i class="far fa-trash-alt"></i></a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -155,7 +155,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                <button type="submit" class="btn btn-primary">Excluir</button>
+                <button type="submit" class="btn btn-danger">Excluir</button>
             </div>
 
             </form>
