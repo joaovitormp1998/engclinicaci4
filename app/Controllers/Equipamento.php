@@ -23,7 +23,7 @@ class Equipamento extends BaseController
         $view = \Config\Services::renderer();
         echo view('common/cabecalho');
         echo view('equipamento/equipamento', [
-            'equipamentos' => $equipamentoModel->paginate(1000),
+            'equipamentos' => $equipamentoModel->getAll(),
         ]);
         $js['js'] = $view->render('equipamento/js/main.js');
         echo view('common/rodape', $js);
@@ -125,15 +125,15 @@ class Equipamento extends BaseController
         echo view('common/cabecalho');
         echo view('equipamento/ordem', [
             'titulo' => 'Dados de Equipamento',
-            'osPreventivas' => $ospreventivaModel->where(['fk_equipamento'=>$id,'fk_ordem_servico_tipo' => 1])->findAll(),
-            'osCorretivas' => $ospreventivaModel->where(['fk_equipamento'=>$id,'fk_ordem_servico_tipo' => 3])->findAll(),
-            'osInstalacoes' => $ospreventivaModel->where(['fk_equipamento'=>$id,'fk_ordem_servico_tipo' => 2])->findAll(),
-            'osCalibracao' => $ospreventivaModel->where(['fk_equipamento'=>$id,'fk_ordem_servico_tipo' => 5])->findAll(),
-            'osInspecao' => $ospreventivaModel->where(['fk_equipamento'=>$id,'fk_ordem_servico_tipo' => 6])->findAll(),
-            'osTreinamento' => $ospreventivaModel->where(['fk_equipamento'=>$id,'fk_ordem_servico_tipo' => 4])->findAll(),
+            'osPreventivas' => $ospreventivaModel->where(['fk_equipamento' => $id, 'fk_ordem_servico_tipo' => 1])->findAll(),
+            'osCorretivas' => $ospreventivaModel->where(['fk_equipamento' => $id, 'fk_ordem_servico_tipo' => 3])->findAll(),
+            'osInstalacoes' => $ospreventivaModel->where(['fk_equipamento' => $id, 'fk_ordem_servico_tipo' => 2])->findAll(),
+            'osCalibracao' => $ospreventivaModel->where(['fk_equipamento' => $id, 'fk_ordem_servico_tipo' => 5])->findAll(),
+            'osInspecao' => $ospreventivaModel->where(['fk_equipamento' => $id, 'fk_ordem_servico_tipo' => 6])->findAll(),
+            'osTreinamento' => $ospreventivaModel->where(['fk_equipamento' => $id, 'fk_ordem_servico_tipo' => 4])->findAll(),
 
             'dadosEquipamento' => $dadosEquipamento
-    ]);
+        ]);
         $js['js'] = $view->render('equipamento/js/main.js');
         echo view('common/rodape', $js);
 
@@ -149,10 +149,10 @@ class Equipamento extends BaseController
     {
         $idTipoOrdem = $this->request->getPost('idTipo');
         $idOrdem = $this->request->getPost('uid');
-        
+
 
         $ospreventivaModel = new OrdemModel();
-        $dados = $ospreventivaModel->where(['id' => $idOrdem,'fk_ordem_servico_tipo' => $idTipoOrdem])->findAll();
+        $dados = $ospreventivaModel->where(['id' => $idOrdem, 'fk_ordem_servico_tipo' => $idTipoOrdem])->findAll();
 
         echo json_encode($dados[0]);
     }

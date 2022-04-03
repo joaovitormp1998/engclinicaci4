@@ -11,12 +11,12 @@ class EquipamentoModel extends Model
     protected $fk_setor;
     protected $allowedFields = [
         'nome',
-        'marca',  
-        'numero_serie', 
-        'patrimonio', 
-        'criticidade', 
-        'tag', 
-        'sincov', 
+        'marca',
+        'numero_serie',
+        'patrimonio',
+        'criticidade',
+        'tag',
+        'sincov',
         'localizacao',
         'fornecedor',
         'unidade',
@@ -29,4 +29,16 @@ class EquipamentoModel extends Model
         'fk_setor',
         'fk_usuario'
     ];
+    public function getAll($filtro = [], $fields = '*', $limit = 0, $offset = 0)
+    {
+        $db = \Config\Database::connect();
+        $database = $db->table('vw_equipamento_setor');
+        $database->select($fields)
+            ->where($filtro)
+            ->orderBy('id');
+        if ($limit != 0 || $offset != 0) {
+            $database->limit($limit, $offset);
+        }
+        return $database->get()->getResultArray();
+    }
 }

@@ -1,42 +1,23 @@
-<table class="table">
-                        <thead class="thead-dark">
+<?php $c = 0;
+foreach ($relatorio as $relatorios) :
+        if (count($relatorios['os']) > 0) : ?>
+                <h3> <?= $relatorios['nome'] . " QTD OS: " . count($relatorios['os']) ?> </h3>
+                <?php foreach ($relatorios['os'] as $os) : ?>
+                        <div>
+                                <?= $os['nome'] == $relatorios['nome'] ? "OS: " . $os['id'] : "Equipamento: " . $os['nome'] ?><br>
+                                Modelo: <?= $os['modelo'] ?><br>
+                                Dta Fabricação: <?= date_format(new Datetime($os['data_fabricacao']), 'd/m/Y '); ?><br>
+                                <?= $os['nome_setor'] ?><br>
+                                <?= $os['nome_tipo_os'] ?><br>
+                                <?= date_format(new Datetime($os['data_realizada']), 'd/m/Y '); ?><br>
+                                <?= date_format(new Datetime($os['data_proxima']), 'd/m/Y '); ?><br>
+                                <?= $os['tecnico'] ?><br>
+                                <?= $os['funcionario'] ?><br>
+                                <?= date_format(new Datetime($os['data_entrada']), 'd/m/Y  H:i:s '); ?><br>
+                                <?= date_format(new Datetime($os['data_saida']), 'd/m/Y  H:i:s ');  ?><br>
+                                <?= $os['material'] ?><br>
+                                <div>
+                                <?php endforeach; ?>
 
-                        <th>Nome</th>
-                        <th>Marca</th>
-                        <th>Modelo</th>
-                        <th class="col">Data de Fabricação</th>
-                        <th>Setor</th>
-                        <th>Ordem</th>
-                        <th class="col">Data Realizada</th>
-                        <th class="col">Data Proxima</th>
-                        <th>Técnico</th>
-                        <th class="col">Funcionario Solicitante</th>
-                        <th class="col">Data Entrada:</th>
-                        <th class="col">Data Saida</th>
-                        <th class="col">Material Utilizado</th>
-                        </thead>
-                        <tr>
-                        <?php foreach ($relatorio as $relatorios) : ?>
-
-                        <td><?= $relatorios['nome'] ?></td>
-                        <td><?= $relatorios['marca'] ?></td>
-                        <td><?= $relatorios['modelo'] ?></td>
-                        <td><?=  date_format(new Datetime($relatorios['data_fabricacao']), 'd/m/Y ');?></td>
-                        <td><?= $relatorios['nome_setor'] ?></td>
-                        <td><?= $relatorios['nome_tipo_os'] ?></td>
-                        <td><?= date_format(new Datetime($relatorios['data_realizada']), 'd/m/Y '); ?></td>
-                        <td><?= date_format(new Datetime($relatorios['data_proxima']), 'd/m/Y '); ?></td>
-                        <td>
-                         <?php if ($relatorios['tecnico'] !="") ?>   
-                         <?= $relatorios['tecnico'] ?>
-
-                        </td>
-                        <td><?= $relatorios['funcionario'] ?></td>
-                        <td><?= date_format(new Datetime($relatorios['data_entrada']), 'd/m/Y  H:i:s '); ?></td>
-                        <td><?= date_format(new Datetime($relatorios['data_saida']), 'd/m/Y  H:i:s ');  ?></td>
-                        <td><?= $relatorios['material'] ?></td>
-                    
-                </tr>
-                        <?php endforeach ; ?>
-                           
-                </table>
+                        <?php endif; ?>
+                <?php endforeach; ?>

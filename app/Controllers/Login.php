@@ -8,10 +8,13 @@ use CodeIgniter\HTTP\RequestInterface;
 
 class Login extends BaseController
 {
-	public function index()
+	public function index($tela = null)
 	{
-		// print_r(password_hash('teste123', PASSWORD_DEFAULT));
-		// die;
+
+		// $this->signOut();
+		// $tela = base64_encode("http://localhost:8081/relatorio");
+		// mDebug($tela);
+		session()->set("telaAnterior", $tela);
 		return view('login/login');
 	}
 
@@ -27,11 +30,12 @@ class Login extends BaseController
 			$hashUsuario = $dadosUsuario['senha'];
 			if (password_verify($password, $hashUsuario)) {
 				session()->set('isLoggedIn', true);
-				
+
 				session()->set('id', $dadosUsuario['id']);
 				session()->set('nome', $dadosUsuario['nome']);
 				session()->set('nivel', $dadosUsuario['nivel']);
 				session()->set('foto', $dadosUsuario['foto']);
+				// mDebug(session()->get());
 				return redirect()->to(base_url());
 			} else {
 				session()->setFlashData('msg', 'Usuário ou Senha incorretos');

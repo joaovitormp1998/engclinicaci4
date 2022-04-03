@@ -67,126 +67,143 @@
     </div>
     <!-- /.content-header -->
     <section class="content">
-    <form action="<?= base_url('relatorio/')?>" method="POST">
-        <div class="container-fluid">
-            <div class="card-body">
-                <div class="col-12">
-                    <div class="form-row">
-                        <div class="form-group col-md-2">
-                            <label for="categorias_id">Setor</label>
-                            <select name="setor" id="setor" class="form-control">
+        <form action="<?= base_url('relatorio/') ?>" method="POST">
+            <div class="container-fluid">
+                <div class="card-body">
+                    <div class="col-12">
+                        <div class="form-row">
+                            <div class="form-group col-md-2">
+                                <label for="categorias_id">Setor</label>
+                                <select name="setor" id="setor" class="form-control">
 
-                                <option value="">Selecione o Modelo </option>
-                                <?php foreach ($setor as $setores) : ?>
-                                    <option value="<?=$setores['id']?>"><?=$setores['nome']?></option>
-                                    
-                    <?php endforeach; ?>
-                            </select>
+                                    <option value="">Selecione o Modelo </option>
+                                    <?php foreach ($setor as $setores) : ?>
+                                        <option value="<?= $setores['id'] ?>"><?= $setores['nome'] ?></option>
 
-                        </div>
-                        <div class="form-group col-md-3">
-                            <label for="tiposdemanutencao">Tipo de Ordem de Serviço</label>
-                            <select name="tipoos" id="tipo" class="form-control">
-                                <option value="">Selecione o Tipo de OS</option>
-                                <?php
-                                include("conexao.php");
-                                $sql = "SELECT * FROM `ordem-servico-tipo` ";
-                                $resultadoT = mysqli_query($mysqli, $sql);
-                                while ($row = mysqli_fetch_assoc($resultadoT)) { ?>
-                                    <option value="<?= $row['id']; ?>"><?= $row['nome']; ?></option><?php
-                                                                                                }
-                                                                                                    ?>
-                                <option value="">Todas as OS</option>
-                            </select>
-                        </div>
+                                    <?php endforeach; ?>
+                                </select>
 
-                        <div class="form-group col-md-2">
-                            <label for="id">Nome</label>
-                            <select name="id" id="id" class="form-control">
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="tiposdemanutencao">Tipo de Ordem de Serviço</label>
+                                <select name="tipoos" id="tipo" class="form-control">
+                                    <option value="">Selecione o Tipo de OS</option>
+                                    <?php
+                                    include("conexao.php");
+                                    $sql = "SELECT * FROM `ordem-servico-tipo` ";
+                                    $resultadoT = mysqli_query($mysqli, $sql);
+                                    while ($row = mysqli_fetch_assoc($resultadoT)) { ?>
+                                        <option value="<?= $row['id']; ?>"><?= $row['nome']; ?></option><?php
+                                                                                                    }
+                                                                                                        ?>
+                                    <option value="">Todas as OS</option>
+                                </select>
+                            </div>
 
-                                <option value="">Selecione </option>
-                          
-                                <?php foreach ($equipamento as $equipamentos) : ?>
-                                    <option value="<?=$equipamentos['id']?>"><?=$equipamentos['id']?> - <?=$equipamentos['nome']?></option>
-                                    
-                    <?php endforeach; ?>
-                            </select>
-                        </div>
+                            <div class="form-group col-md-2">
+                                <label for="id">Nome</label>
+                                <select name="id" id="id" class="form-control">
 
-                        <div class="form-group col-md-2">
-                            <label for="categorias_id">Ano</label>
+                                    <option value="">Selecione </option>
 
-                            <select name="ano" id="ano" class="form-control">
-                                <option value="">Selecione o Ano</option>
-                                <?php
-                                include("conexao.php");
-                                $sql = "SELECT DISTINCT ano FROM `vw_equipamento_relatorio`
+                                    <?php foreach ($equipamento as $equipamentos) : ?>
+                                        <option value="<?= $equipamentos['id'] ?>"><?= $equipamentos['id'] ?> - <?= $equipamentos['nome'] ?></option>
+
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+
+                            <div class="form-group col-md-2">
+                                <label for="categorias_id">Ano</label>
+
+                                <select name="ano" id="ano" class="form-control">
+                                    <option value="">Selecione o Ano</option>
+                                    <?php
+                                    include("conexao.php");
+                                    $sql = "SELECT DISTINCT ano FROM `vw_equipamento_relatorio`
                                 ";
-                                $resultadoT = mysqli_query($mysqli, $sql);
-                                while ($row = mysqli_fetch_assoc($resultadoT)) { ?>
-                                    <option value="<?= $row['ano']; ?>"><?= $row['ano']; ?></option><?php
-                                                                                                                        }
-                                                                                                                            ?>
-                           
-                                <option value="">Todos os Anos</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-md-2">
-                            <label for="tiposdemanutencao">&nbsp;</label>
-                            <button type="submit" class="form-control btn btn-outline-secondary"  >Buscar
-                            </button></form>
-                            <form action="<?= base_url('relatorio/printpdf')?>" method="POST">
-                            <button type="submit"class="btn btn-outline-secondary" ><i class="far fa-file-pdf"></i>
+                                    $resultadoT = mysqli_query($mysqli, $sql);
+                                    while ($row = mysqli_fetch_assoc($resultadoT)) { ?>
+                                        <option value="<?= $row['ano']; ?>"><?= $row['ano']; ?></option><?php
+                                                                                                    }
+                                                                                                        ?>
 
-                            </button></form>
-                        </div>
-                    </div>
-                </div>
-                                                                                                                    </form>
-                <table class="table">
-                        <thead class="thead-dark">
+                                    <option value="">Todos os Anos</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-2">
+                                <label for="categorias_id">Tipo de Busca</label>
 
-                        <th>Nome</th>
-                        <th>Marca</th>
-                        <th>Modelo</th>
-                        <th class="col">Data de Fabricação</th>
-                        <th>Setor</th>
-                        <th>Ordem</th>
-                        <th class="col">Data Realizada</th>
-                        <th class="col">Data Proxima</th>
-                        <th>Técnico</th>
-                        <th class="col">Funcionario Solicitante</th>
-                        <th class="col">Data Entrada:</th>
-                        <th class="col">Data Saida</th>
-                        <th class="col">Material Utilizado</th>
-                        </thead>
-                        <tr>
-                        <?php foreach ($relatorio as $relatorios) : ?>
+                                <select name="tipo_busca" id="tipo_busca" class="form-control">
+                                    <option value="equipamento">Por equipamento</option>
+                                    <option value="os">Por O.S</option>
 
-                        <td><?= $relatorios['nome'] ?></td>
-                        <td><?= $relatorios['marca'] ?></td>
-                        <td><?= $relatorios['modelo'] ?></td>
-                        <td><?=  date_format(new Datetime($relatorios['data_fabricacao']), 'd/m/Y ');?></td>
-                        <td><?= $relatorios['nome_setor'] ?></td>
-                        <td><?= $relatorios['nome_tipo_os'] ?></td>
-                        <td><?= date_format(new Datetime($relatorios['data_realizada']), 'd/m/Y '); ?></td>
-                        <td><?= date_format(new Datetime($relatorios['data_proxima']), 'd/m/Y '); ?></td>
-                        <td>
-                         <?php if ($relatorios['tecnico'] !="") ?>   
-                         <?= $relatorios['tecnico'] ?>
 
-                        </td>
-                        <td><?= $relatorios['funcionario'] ?></td>
-                        <td><?= date_format(new Datetime($relatorios['data_entrada']), 'd/m/Y  H:i:s '); ?></td>
-                        <td><?= date_format(new Datetime($relatorios['data_saida']), 'd/m/Y  H:i:s ');  ?></td>
-                        <td><?= $relatorios['material'] ?></td>
-                    
-                </tr>
-                        <?php endforeach ; ?>
-                           
-                </table>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-2">
+                                <label for="tiposdemanutencao">&nbsp;</label>
+                                <button type="submit" class="form-control btn btn-outline-secondary">Buscar
+                                </button>
+        </form>
+        <form action="<?= base_url('relatorio/printpdf') ?>" method="POST">
+            <button type="submit" class="btn btn-outline-secondary"><i class="far fa-file-pdf"></i>
 
-            </div>
-        </div>
-    </section>
+            </button>
+        </form>
+</div>
+</div>
+</div>
+</form>
+
+<?php //mDebug($relatorio);
+foreach ($relatorio as $relatorios) : ?>
+
+    <h3> <?= $relatorios['nome'] ?> </h3>
+    <table class="table">
+        <thead class="thead-dark">
+
+            <th>Nome</th>
+            <th>Marca</th>
+            <th>Modelo</th>
+            <th class="col">Data de Fabricação</th>
+            <th>Setor</th>
+            <th>Ordem</th>
+            <th class="col">Data Realizada</th>
+            <th class="col">Data Proxima</th>
+            <th>Técnico</th>
+            <th class="col">Funcionario Solicitante</th>
+            <th class="col">Data Entrada:</th>
+            <th class="col">Data Saida</th>
+            <th class="col">Material Utilizado</th>
+        </thead>
+        <?php foreach ($relatorios['os'] as $os) : ?>
+            <tr>
+                <td><?= $os['nome'] ?></td>
+                <td><?= $os['modelo'] ?></td>
+                <td><?= date_format(new Datetime($os['data_fabricacao']), 'd/m/Y '); ?></td>
+                <td><?= $os['nome_setor'] ?></td>
+                <td><?= $os['nome_tipo_os'] ?></td>
+                <td><?= date_format(new Datetime($os['data_realizada']), 'd/m/Y '); ?></td>
+                <td><?= date_format(new Datetime($os['data_proxima']), 'd/m/Y '); ?></td>
+                <td>
+                    <?php if ($os['tecnico'] != "") ?>
+                    <?= $os['tecnico'] ?>
+
+                </td>
+                <td><?= $os['funcionario'] ?></td>
+                <td><?= date_format(new Datetime($os['data_entrada']), 'd/m/Y  H:i:s '); ?></td>
+                <td><?= date_format(new Datetime($os['data_saida']), 'd/m/Y  H:i:s ');  ?></td>
+                <td><?= $os['material'] ?></td>
+
+            </tr>
+
+        <?php endforeach; ?>
+    </table>
+<?php endforeach; ?>
+
+
+</div>
+</div>
+</section>
 </div>

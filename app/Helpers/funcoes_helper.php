@@ -264,8 +264,8 @@ if (!function_exists('geraCripto')) {
      */
     function geraCripto($texto)
     {
-        $ci   = &get_instance();
-        $item = $ci->encryption->encrypt(SALT . $texto);
+        $encrypter = \Config\Services::encrypter();
+        $item = $encrypter->encrypt(SALT . $texto);
         if ($texto) {
             return strtr($item, array('+' => '.', '=' => '-', '/' => '~'));
         } else {
@@ -1483,15 +1483,15 @@ if (!function_exists('nivel_acesso')) {
             // if (in_array($ci->router->method, $metodoAjax)) {
             //     return TRUE;
             // }
-           
+
             switch ($verificaNivel) {
                 case 'A': //Proprietario
                     $response = TRUE;
                     break;
                 case 'T': //Operador (CADASTRO e LANÇAMENTO)
                     if ((strpos($local, 'atleta-dados') === false) && (strpos($local, 'painel') === false) && (strpos($local, 'video') === false)) {
-                     
-                    // if ($local != 'video' && $local != 'painel' && $local != 'atleta-dados') {
+
+                        // if ($local != 'video' && $local != 'painel' && $local != 'atleta-dados') {
                         if (!$retorno) {
                             setFlashdata('Você não tem permissão para acessar esse módulo!', 'warning');
                             redirect('painel');
