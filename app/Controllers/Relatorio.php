@@ -13,7 +13,7 @@ class Relatorio extends BaseController
 {
     public function index()
     {
-        mDebug($_SERVER);
+
         $array = [];
         $setor = new SetorModel();
         $equipamento = new EquipamentoModel();

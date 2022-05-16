@@ -54,7 +54,7 @@
         <div class="container-fluid">
             <div class="row mb-3">
                 <div class="col-sm-6">
-                    <h1 class="m-0 text-dark" align="left">Relatorio de Os de Equipamentos</h1>
+                    <h1 class="m-0 text-dark" align="left">Relatorio Os Equipamentos</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -99,7 +99,6 @@
                                     <option value="">Todas as OS</option>
                                 </select>
                             </div>
-
                             <div class="form-group col-md-2">
                                 <label for="id">Nome</label>
                                 <select name="id" id="id" class="form-control">
@@ -112,7 +111,6 @@
                                     <?php endforeach; ?>
                                 </select>
                             </div>
-
                             <div class="form-group col-md-2">
                                 <label for="categorias_id">Ano</label>
 
@@ -141,69 +139,80 @@
 
                                 </select>
                             </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-row">
                             <div class="form-group col-md-2">
-                                <label for="tiposdemanutencao">&nbsp;</label>
-                                <button type="submit" class="form-control btn btn-outline-secondary">Buscar
+
+                                <button type="submit" class="form-control btn btn-outline-secondary"><i class="fas fa-eye"></i>
+                                    Visualizar
                                 </button>
+                            </div>
         </form>
-        <form action="<?= base_url('relatorio/printpdf') ?>" method="POST">
-            <button type="submit" class="btn btn-outline-secondary"><i class="far fa-file-pdf"></i>
-
-            </button>
-        </form>
+        <div class="form-group col-md-2">
+            <form action="<?= base_url('relatorio/printpdf') ?>" method="POST">
+                <button type="submit" class=" form-control btn btn-outline-secondary"><i class="far fa-file-pdf"></i>
+                    Gerar relatorio
+                </button>
+            </form>
+        </div>
 </div>
 </div>
-</div>
-</form>
-
-<?php //mDebug($relatorio);
-foreach ($relatorio as $relatorios) : ?>
-
-    <h3> <?= $relatorios['nome'] ?> </h3>
-    <table class="table">
-        <thead class="thead-dark">
-
-            <th>Nome</th>
-            <th>Marca</th>
-            <th>Modelo</th>
-            <th class="col">Data de Fabricação</th>
-            <th>Setor</th>
-            <th>Ordem</th>
-            <th class="col">Data Realizada</th>
-            <th class="col">Data Proxima</th>
-            <th>Técnico</th>
-            <th class="col">Funcionario Solicitante</th>
-            <th class="col">Data Entrada:</th>
-            <th class="col">Data Saida</th>
-            <th class="col">Material Utilizado</th>
-        </thead>
-        <?php foreach ($relatorios['os'] as $os) : ?>
-            <tr>
-                <td><?= $os['nome'] ?></td>
-                <td><?= $os['modelo'] ?></td>
-                <td><?= date_format(new Datetime($os['data_fabricacao']), 'd/m/Y '); ?></td>
-                <td><?= $os['nome_setor'] ?></td>
-                <td><?= $os['nome_tipo_os'] ?></td>
-                <td><?= date_format(new Datetime($os['data_realizada']), 'd/m/Y '); ?></td>
-                <td><?= date_format(new Datetime($os['data_proxima']), 'd/m/Y '); ?></td>
-                <td>
-                    <?php if ($os['tecnico'] != "") ?>
-                    <?= $os['tecnico'] ?>
-
-                </td>
-                <td><?= $os['funcionario'] ?></td>
-                <td><?= date_format(new Datetime($os['data_entrada']), 'd/m/Y  H:i:s '); ?></td>
-                <td><?= date_format(new Datetime($os['data_saida']), 'd/m/Y  H:i:s ');  ?></td>
-                <td><?= $os['material'] ?></td>
-
-            </tr>
-
-        <?php endforeach; ?>
-    </table>
-<?php endforeach; ?>
 
 
+<div class="container col-sm-11">
+    <?php //mDebug($relatorio);
+    $c = 0;
+    foreach ($relatorio as $relatorios) :
+        if (count($relatorios['os']) > 0) : ?>
+            <h3><b><?= $relatorios['nome'] . " Quantidade OS: " . count($relatorios['os']) ?> </b></h3>
+            <?php foreach ($relatorios['os'] as $os) : ?>
+                <div>
+                    <hr>
+                    <b><?= $os['nome'] == $relatorios['nome'] ? "OS: " . $os['id'] : "Equipamento: " . $os['nome'] ?></b><br>
+                    <hr>
+                    <b>Modelo: </b> <?= $os['modelo'] ?><br>
+                    <hr>
+                    <b>Data Fabricação: </b> <?= date_format(new Datetime($os['data_fabricacao']), 'd/m/Y '); ?><br>
+                    <hr>
+                    <b>Nome Setor: </b><?= $os['nome_setor'] ?><br>
+                    <hr>
+                    <b>Tipo de Os: </b><?= $os['nome_tipo_os'] ?><br>
+                    <hr>
+                    <b>Data Realizada: </b><?= date_format(new Datetime($os['data_realizada']), 'd/m/Y '); ?><br>
+                    <hr>
+                    <b>Data Proxima: </b><?= date_format(new Datetime($os['data_proxima']), 'd/m/Y '); ?><br>
+                    <hr>
+                    <b>Tecnico: </b><?= $os['tecnico'] ?><br>
+                    <hr>
+                    <b>Funcionario: </b><?= $os['funcionario'] ?><br>
+                    <hr>
+                    <b>Data Hora Entrada: </b><?= date_format(new Datetime($os['data_entrada']), 'd/m/Y  H:i:s '); ?><br>
+                    <hr>
+                    <b>Data Hora Saida: </b><?= date_format(new Datetime($os['data_saida']), 'd/m/Y  H:i:s ');  ?><br>
+                    <hr>
+                    <b>Material: </b><?= $os['material'] ?><br>
+                    <hr>
+                    <div>
+                    <?php endforeach; ?>
+
+                <?php endif; ?>
+            <?php endforeach; ?>
+
+
+                    </div>
+                </div>
+                </section>
 </div>
 </div>
-</section>
-</div>
+<style>
+    .container {
+        margin-left: 0.6%;
+        padding: 2% 2% 2% 2%;
+        border: solid;
+        background-color: #fff;
+
+
+    }
+</style>
