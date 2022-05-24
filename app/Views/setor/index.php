@@ -44,12 +44,7 @@
             text-decoration: none
         }
 
-        .modal-content {
-            overflow: auto;
-            /*habilita o overflow no corpo da modal*/
 
-            border-color: #008080;
-        }
 
         @media screen and (max-width: 600px) {
             .um {
@@ -60,16 +55,7 @@
                 display: inline-block;
             }
 
-            .modal {
-                width: 50%;
-                /* Full width */
-                overflow: auto;
-                /* Enable scroll if needed */
-                /* Sit on top */
-                left: 13;
-                top: 0;
 
-            }
 
         }
     </style>
@@ -78,35 +64,36 @@
             <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#modalCadastroSetor"><i class="fas fa-plus"></i>
             </button></br>
 
-
-            <table id="tablita" name="tablita" class="table table-striped">
-                <thead>
-                    <tr>
-                        <th align="left">ID</th>
-                        <th align="left">Nome</th>
-                        <th align="left">
-                            Ações
-                        </th>
-
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($setor as $setor) : ?>
+            <div class="table-responsive">
+                <table id="tablita" name="tablita" class="table table-striped">
+                    <thead>
                         <tr>
-                            <td align="left"><?= $setor['id'] ?></td>
-                            <td align="left"><?= $setor['nome'] ?></td>
-                            <td align="left"><a href="<?= base_url('/setor/edit') ?>/<?= $setor['id'] ?>" class="btn-editar" data-id="<?= $setor['id'] ?>" title="Editar Setor"><i class="far fa-edit"></i></a>
-                                &nbsp;&nbsp; <a href="<?= base_url('/setor/delete') ?>/<?= $setor['id'] ?>" class="btn-excluir" data-id="<?= $setor['id'] ?>"title="Excluir Setor"><i class="far fa-trash-alt"></i></a>
-                            </td>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>
+                                Ações
+                            </th>
+
                         </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($setor as $setor) : ?>
+                            <tr>
+                                <td><?= $setor['id'] ?></td>
+                                <td><?= $setor['nome'] ?></td>
+                                <td><a href="<?= base_url('/setor/edit') ?>/<?= $setor['id'] ?>" class="btn-editar" data-id="<?= $setor['id'] ?>" title="Editar Setor"><i class="far fa-edit"></i></a>
+                                    &nbsp;&nbsp; <a href="<?= base_url('/setor/delete') ?>/<?= $setor['id'] ?>" class="btn-excluir" data-id="<?= $setor['id'] ?>" title="Excluir Setor"><i class="far fa-trash-alt"></i></a>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </section>
 </div>
 
-<div class="modal" id="modalCadastroSetor" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="modalCadastroSetor" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog " role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -119,7 +106,7 @@
                 <form id="formCadastroSetor" action="<?= base_url('setor/create') ?>" method="post">
                     <input id="uid" type="hidden" name="uid" value="">
                     <div class="row">
-                        <div class="form-group col-6 col-sm-6">
+                        <div class="form-group col-12 col-sm-12">
                             <label for="nome">Nome:</label>
                             <input type="text" class="form-control form-control-sm" value="<?php echo isset($dadosSetor) ? $dadosSetor['nome'] : ''; ?>" id="nome" placeholder="Nome" name="nome" required>
                         </div>

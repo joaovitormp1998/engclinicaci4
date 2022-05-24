@@ -45,12 +45,7 @@
             text-decoration: none
         }
 
-        .modal-content {
-            overflow: auto;
-            /*habilita o overflow no corpo da modal*/
 
-            border-color: #008080;
-        }
 
         @media screen and (max-width: 600px) {
             .um {
@@ -61,16 +56,7 @@
                 display: inline-block;
             }
 
-            .modal {
-                width: 50%;
-                /* Full width */
-                overflow: auto;
-                /* Enable scroll if needed */
-                /* Sit on top */
-                left: 13;
-                top: 0;
 
-            }
 
         }
     </style>
@@ -81,38 +67,39 @@
             <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#modalCadastroUsuario"><i class="fas fa-plus"></i>
             </button></br>
             </br>
-
-            <table id="tablita" class="table table-striped">
-                <thead>
-                    <tr>
-                        <th align="center">ID</th>
-                        <th>Foto</th>
-                        <th>Nome</th>
-                        <th>Nivel</th>
-                        <th>Email</th>
-                        <th>Ações</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($usuarios as $usuario) : ?>
+            <div class="table-responsive">
+                <table id="tablita" class="table table-striped">
+                    <thead>
                         <tr>
-                            <td align="justify"><?= $usuario['id'] ?></td>
-                            <td align="justify"><img src="<?= base_url('uploads') ?>/<?= $usuario['foto'] ?>" width="50px" height="50px"></td>
-                            <td align="justify"><?= $usuario['nome'] ?></td>
-                            <td align="center"><?= $usuario['nivel'] ?></td>
-                            <td align="justify"><?= $usuario['email'] ?></td>
-                            <td align="center"><a href="<?= base_url('/usuario/edit') ?>/<?= $usuario['id'] ?>" data-id="<?= $usuario['id'] ?>"  class="btn-editar" title="Editar Usuario"><i class="far fa-edit"></i></a>
-                                &nbsp;&nbsp; <a href="<?= base_url('/usuario/delete') ?>/<?= $usuario['id'] ?>" data-id="<?= $usuario['id'] ?>" class="btn-excluir" title="Excluir Usuario"><i class="far fa-trash-alt"></i></a>
-                            </td>
+                            <th>ID</th>
+                            <th>Foto</th>
+                            <th>Nome</th>
+                            <th>Nivel</th>
+                            <th>Email</th>
+                            <th>Ações</th>
                         </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($usuarios as $usuario) : ?>
+                            <tr>
+                                <td><?= $usuario['id'] ?></td>
+                                <td><img src="<?= base_url('uploads') ?>/<?= $usuario['foto'] ?>" width="50px" height="50px"></td>
+                                <td><?= $usuario['nome'] ?></td>
+                                <td><?= $usuario['nivel'] ?></td>
+                                <td><?= $usuario['email'] ?></td>
+                                <td><a href="<?= base_url('/usuario/edit') ?>/<?= $usuario['id'] ?>" data-id="<?= $usuario['id'] ?>" class="btn-editar" title="Editar Usuario"><i class="far fa-edit"></i></a>
+                                    &nbsp;&nbsp; <a href="<?= base_url('/usuario/delete') ?>/<?= $usuario['id'] ?>" data-id="<?= $usuario['id'] ?>" class="btn-excluir" title="Excluir Usuario"><i class="far fa-trash-alt"></i></a>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </section>
 </div>
 
-<div class="modal" id="modalCadastroUsuario" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="modalCadastroUsuario" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog " role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -134,7 +121,7 @@
                             <label for="foto">Foto:</label>
                             <input type="file" class="form-control form-control-sm" value="<?php echo isset($dadosUsuario) ? $dadosUsuario['foto'] : '' ?>" id="foto" name="foto" required>
                         </div>
-                        <div class="form-group col-8 col-sm-6">
+                        <div class="form-group col-6 col-sm-6">
                             <label for="email">E-mail:</label>
                             <input type="text" class="form-control form-control-sm" value="<?php echo isset($dadosUsuario) ? $dadosUsuario['email'] : '' ?>" id="email" placeholder="email" name="email" required>
                         </div>
