@@ -12,10 +12,12 @@ include("conexao.php");
   ul {
     list-style: none;
   }
+
   .btn-img {
     color: darkblue;
     text-decoration: none;
   }
+
   .btn-ligth:link {
     color: green;
     text-decoration: none;
@@ -60,6 +62,11 @@ include("conexao.php");
 
   .card-body1 {
     display: none;
+
+  }
+
+  .label {
+    font-size: 14px;
   }
 </style>
 <div class="content-wrapper">
@@ -244,7 +251,7 @@ include("conexao.php");
 
                       <th>
                         <?php $fotoos = $ospreventivaEquipamento['imagem'] ?>
-                        <a href="<?= base_url('fotoos/') . "/" . $fotoos ?>" class="btn-img" title="Exibir Foto da Ordem de Serviço" ><i class="fas fa-image"></i></a>
+                        <a href="<?= base_url('fotoos/') . "/" . $fotoos ?>" class="btn-img" title="Exibir Foto da Ordem de Serviço"><i class="fas fa-image"></i></a>
                         <a href="<?php echo base_url("tiposdeordem/delete/{$ospreventivaEquipamento['id']}/{$dadosEquipamento['id']}") ?>" data-id="<?= $ospreventivaEquipamento['id'] ?>" class="btn-excluir" title="Excluir Resgistro de OS"><i class="far fa-trash-alt"></i></a>
                         <a href="#" class="btn-ligth mostra-os" data-os="<?= $ospreventivaEquipamento['id'] ?>" data-equipamento="<?= $dadosEquipamento['id'] ?>" data-tipo="<?= $ospreventivaEquipamento['fk_ordem_servico_tipo'] ?>" title="Vizualizar Ordem de Serviço"><i class="fas fa-eye"></i>
                         </a>
@@ -286,8 +293,8 @@ include("conexao.php");
                         <a href="<?= base_url('fotoos/') . "/" . $fotoos ?>" class="btn-img" title="Exibir Foto da Ordem de Serviço"><i class="fas fa-image"></i></a>
                         <a href="<?php echo base_url("tiposdeordem/delete/{$ostreinamentoEquipamento['id']}/{$dadosEquipamento['id']}") ?>" data-id="<?= $ostreinamentoEquipamento['id'] ?>" class="btn-excluir" title="Excluir Resgistro de OS"><i class="far fa-trash-alt"></i></a>
                         <a href="#" class="btn-ligth mostra-os" data-os="<?= $ostreinamentoEquipamento['id'] ?>" data-equipamento="<?= $dadosEquipamento['id'] ?>" data-tipo="<?= $ostreinamentoEquipamento['fk_ordem_servico_tipo'] ?>" title="Vizualizar Ordem de Serviço"><i class="fas fa-eye"></i></a>
-                      
-                       
+
+
                       </th>
                   </tbody>
                 <?php endforeach; ?>
@@ -325,7 +332,7 @@ include("conexao.php");
                         <?php $fotoos = $osinspecaoEquipamento['imagem'] ?>
                         <a href="<?= base_url('fotoos/') . "/" . $fotoos ?>" class="btn-img" title="Exibir Foto da Ordem de Serviço"><i class="fas fa-image"></i></a>
                         <a href="<?php echo base_url("tiposdeordem/delete/{$osinspecaoEquipamento['id']}/{$dadosEquipamento['id']}") ?>" data-id="<?= $osinspecaoEquipamento['id'] ?>" class="btn-excluir" title="Excluir Resgistro de OS"><i class="far fa-trash-alt"></i></a>
-                        <a href="#"class="btn-ligth mostra-os" data-os="<?= $osinspecaoEquipamento['id'] ?>" data-equipamento="<?= $dadosEquipamento['id'] ?>" data-tipo="<?= $osinspecaoEquipamento['fk_ordem_servico_tipo'] ?>" title="Vizualizar Ordem de Serviço"><i class="fas fa-eye"></i></a>
+                        <a href="#" class="btn-ligth mostra-os" data-os="<?= $osinspecaoEquipamento['id'] ?>" data-equipamento="<?= $dadosEquipamento['id'] ?>" data-tipo="<?= $osinspecaoEquipamento['fk_ordem_servico_tipo'] ?>" title="Vizualizar Ordem de Serviço"><i class="fas fa-eye"></i></a>
                       </th>
                   </tbody>
                 <?php endforeach; ?>
@@ -367,8 +374,8 @@ include("conexao.php");
                         <?php $fotoos = $oscorretivaEquipamento['imagem'] ?>
                         <a href="<?= base_url('fotoos/') . "/" . $fotoos ?>" class="btn-img" title="Exibir Foto da Ordem de Serviço"><i class="fas fa-image"></i></a>
                         <a href="<?php echo base_url("tiposdeordem/delete/{$oscorretivaEquipamento['id']}/{$dadosEquipamento['id']}") ?>" data-id="<?= $oscorretivaEquipamento['id'] ?>" class="btn-excluir" title="Excluir Resgistro de OS"><i class="far fa-trash-alt"></i></a>
-                        <a href="#" class="btn-ligth mostra-os" data-os="<?= $oscorretivaEquipamento['id'] ?>" data-equipamento="<?= $dadosEquipamento['id'] ?>" data-tipo="<?= $oscorretivaEquipamento['fk_ordem_servico_tipo'] ?>" title="Vizualizar Ordem de Serviço"><i class="fas fa-eye"></i>
-                      
+                        <a href="#" class="btn-ligth mostra-os" data-os="<?= $oscorretivaEquipamento['id'] ?>" data-equipamento="<?= $dadosEquipamento['id'] ?>" data-tipo="<?= $oscorretivaEquipamento['fk_ordem_servico_tipo'] ?>" title="Visualizar Ordem de Serviço"><i class="fas fa-eye"></i>
+
                         </a>
                       </th>
                   </tbody>
@@ -479,69 +486,64 @@ include("conexao.php");
 
             </hr>
             <div class="row">
-              <div class="form-group col-6 col-sm-6">
-                <label for="dataPreventiva">Data Preventiva:</label>
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="dataPreventiva">Data Preventiva:</label>
                 <input type="date" class="form-control form-control-sm" id="data_preventiva" name="data_preventiva" required>
               </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="dataProxima">Data Proxima Manutenção:</label>
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="dataProxima">Data Proxima Manutenção:</label>
                 <input type="date" class="form-control form-control-sm" id="data_proxima" name="data_proxima" required>
               </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="funcionario">Funcionario Solicitante:</label>
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="funcionario">Funcionario solicitante:</label>
                 <input type="text" class="form-control form-control-sm" id="funcionario" placeholder="Funcionario Solicitante" name="funcionario">
               </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="falha">Falha Apresentada:</label>
-                <input type="text" class="form-control form-control-sm" id="falha" placeholder="Falha Apresentada" name="falha">
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="falha">Descrição do serviço solicitado:</label>
+                <input type="text" class="form-control form-control-sm" id="falha" placeholder="Descrição do serviço solicitado" name="falha">
               </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="defeito">descricao do defeito:</label>
-                <input type="text" class="form-control form-control-sm" id="defeito" placeholder="Defeito" name="defeito">
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="defeito">Descrição da ocorrência:</label>
+                <input type="text" class="form-control form-control-sm" id="defeito" placeholder="Descrição da ocorrência" name="defeito">
               </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="solucao">descricao da Solução:</label>
-                <input type="text" class="form-control form-control-sm" id="solucao" placeholder="Solução" name="solucao">
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="solucao">Descrição do serviço realizado:</label>
+                <input type="text" class="form-control form-control-sm" id="solucao" placeholder="Descrição do serviço realizado" name="solucao">
               </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="causa">Causa do defeito:</label>
-                <input type="text" class="form-control form-control-sm" id="causa" placeholder="Causa" name="causa">
-              </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="resolvido">Problema Resolvido:</label>
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="resolvido">Problema Resolvido:</label>
                 <input type="text" class="form-control form-control-sm" id="resolvido" placeholder="Sim ou Não?" name="resolvido">
               </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="agente">Agente:</label>
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="agente">Agente:</label>
                 <input type="text" class="form-control form-control-sm" id="agente" placeholder="Agente" name="agente">
               </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="tecnico">Tecnico:</label>
-                <input type="text" class="form-control form-control-sm" id="tecnico" placeholder="Tecnico" name="tecnico">
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="tecnico">Técnico:</label>
+                <input type="text" class="form-control form-control-sm" id="tecnico" placeholder="Técnico" name="tecnico">
               </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="dataEntrada">Data Entrada:</label>
-                <input type="date" class="form-control form-control-sm" id="dataEntrada" name="data_entrada">
-              </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="horaEntrada">Hora Entrada:</label>
-                <input type="time" class="form-control form-control-sm" id="horaEntrada" placeholder="Hora de entrada" name="hora_entrada">
-              </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="dataSaida">Data Saida:</label>
-                <input type="date" class="form-control form-control-sm" id="dataSaida" placeholder="Data Saida" name="data_saida">
-              </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="horaSaida">Hora Saida:</label>
-                <input type="time" class="form-control form-control-sm" id="horaSaida" placeholder="Hora Saida" name="hora_saida">
-              </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="material">Material utilizado:</label>
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="material">Material utilizado:</label>
                 <input type="text" class="form-control form-control-sm" id="material" placeholder="Material" name="material">
               </div>
-
-              <div>
-                <label for="imagem">Foto da OS assinada</label>
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="dataEntrada">Data Entrada:</label>
+                <input type="date" class="form-control form-control-sm" id="dataEntrada" name="data_entrada">
+              </div>
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="horaEntrada">Hora Entrada:</label>
+                <input type="time" class="form-control form-control-sm" id="horaEntrada" placeholder="Hora de entrada" name="hora_entrada">
+              </div>
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="dataSaida">Data Saida:</label>
+                <input type="date" class="form-control form-control-sm" id="dataSaida" placeholder="Data Saida" name="data_saida">
+              </div>
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="horaSaida">Hora Saida:</label>
+                <input type="time" class="form-control form-control-sm" id="horaSaida" placeholder="Hora Saida" name="hora_saida">
+              </div>
+              <div class="form-group col-12 col-sm-12">
+                <label class="label" for="imagem">Foto da OS assinada</label>
                 <input type="file" name="imagem" id="imagem"></input>
               </div>
               <div>
@@ -578,57 +580,57 @@ include("conexao.php");
 
             </hr>
             <div class="row">
-              <div class="form-group col-8 col-sm-6">
-                <label for="funcionario">Funcionario Solicitante:</label>
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="funcionario">Funcionario solicitante:</label>
                 <input type="text" class="form-control form-control-sm" id="funcionario" placeholder="Funcionario Solicitante" name="funcionario">
               </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="falha">Falha Apresentada:</label>
-                <input type="text" class="form-control form-control-sm" id="falha" placeholder="falha Apresentada" name="falha">
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="falha">Descrição do serviço solicitado:</label>
+                <input type="text" class="form-control form-control-sm" id="falha" placeholder="Descrição do serviço solicitado" name="falha">
               </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="defeito">descricao do defeito:</label>
-                <input type="text" class="form-control form-control-sm" id="defeito" placeholder="defeito" name="defeito">
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="defeito">Descrição da ocorrência:</label>
+                <input type="text" class="form-control form-control-sm" id="defeito" placeholder="Descrição da ocorrência" name="defeito">
               </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="solucao">descricao da Solução:</label>
-                <input type="text" class="form-control form-control-sm" id="solucao" placeholder="Solução" name="solucao">
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="solucao">Descrição do serviço realizado:</label>
+                <input type="text" class="form-control form-control-sm" id="solucao" placeholder="Descrição do serviço realizado" name="solucao">
               </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="causa">Causa do defeito:</label>
-                <input type="text" class="form-control form-control-sm" id="causa" placeholder="Causa" name="causa">
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="resolvido">Problema Resolvido:</label>
+                <input type="text" class="form-control form-control-sm" id="resolvido" placeholder="Sim ou Não?" name="resolvido">
               </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="resolvido">Problema Resolvido:</label>
-                <input type="text" class="form-control form-control-sm" id="resolvido" placeholder="sim ou nao" name="resolvido">
-              </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="agente">Agente:</label>
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="agente">Agente:</label>
                 <input type="text" class="form-control form-control-sm" id="agente" placeholder="Agente" name="agente">
               </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="tecnico">Tecnico:</label>
-                <input type="text" class="form-control form-control-sm" id="tecnico" placeholder="Tecnico" name="tecnico">
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="tecnico">Tecnico:</label>
+                <input type="text" class="form-control form-control-sm" id="tecnico" placeholder="Técnico" name="tecnico">
               </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="dataEntrada">Data Entrada:</label>
-                <input type="date" class="form-control form-control-sm" id="data_entrada" name="data_entrada">
-              </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="horaEntrada">Hora Entrada:</label>
-                <input type="time" class="form-control form-control-sm" id="hora_entrada" placeholder="Hora de entrada" name="hora_entrada">
-              </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="dataSaida">Data Saida:</label>
-                <input type="date" class="form-control form-control-sm" id="data_saida" placeholder="Data Saida" name="data_saida">
-              </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="horaSaida">Hora Saida:</label>
-                <input type="time" class="form-control form-control-sm" id="hora_saida" placeholder="Hora Saida" name="hora_saida">
-              </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="material">Material utilizado:</label>
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="material">Material utilizado:</label>
                 <input type="text" class="form-control form-control-sm" id="material" placeholder="Material" name="material">
+              </div>
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="dataEntrada">Data Entrada:</label>
+                <input type="date" class="form-control form-control-sm" id="dataEntrada" name="data_entrada">
+              </div>
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="horaEntrada">Hora Entrada:</label>
+                <input type="time" class="form-control form-control-sm" id="horaEntrada" placeholder="Hora de entrada" name="hora_entrada">
+              </div>
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="dataSaida">Data Saida:</label>
+                <input type="date" class="form-control form-control-sm" id="dataSaida" placeholder="Data Saida" name="data_saida">
+              </div>
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="horaSaida">Hora Saida:</label>
+                <input type="time" class="form-control form-control-sm" id="horaSaida" placeholder="Hora Saida" name="hora_saida">
+              </div>
+              <div class="form-group col-12 col-sm-12">
+                <label class="label" for="imagem">Foto da OS assinada</label>
+                <input type="file" name="imagem" id="imagem"></input>
               </div>
               <div>
                 <input type="hidden" name="fk_usuario" value="<?php echo session()->id ?>">
@@ -636,10 +638,7 @@ include("conexao.php");
               <div>
                 <input type="hidden" name="fk_ordem_servico_tipo" value="2">
               </div>
-              <div>
-                <label for="imagem">Foto da OS assinada</label>
-                <input type="file" name="imagem" id="imagem"></input>
-              </div>
+
             </div>
             <div class="modal-footer">
               <input type="hidden" name="fk_equipamento" value="<?php echo $fk_equipamento = $dadosEquipamento['id'] ?>"></input>
@@ -668,57 +667,57 @@ include("conexao.php");
 
             </hr>
             <div class="row">
-              <div class="form-group col-8 col-sm-6">
-                <label for="funcionario">Funcionario Solicitante:</label>
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="funcionario">Funcionario solicitante:</label>
                 <input type="text" class="form-control form-control-sm" id="funcionario" placeholder="Funcionario Solicitante" name="funcionario">
               </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="falha">Falha Apresentada:</label>
-                <input type="text" class="form-control form-control-sm" id="falha" placeholder="falha Apresentada" name="falha">
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="falha">Descrição do serviço solicitado:</label>
+                <input type="text" class="form-control form-control-sm" id="falha" placeholder="Descrição do serviço solicitado" name="falha">
               </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="defeito">descricao do defeito:</label>
-                <input type="text" class="form-control form-control-sm" id="defeito" placeholder="defeito" name="defeito">
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="defeito">Descrição da ocorrência:</label>
+                <input type="text" class="form-control form-control-sm" id="defeito" placeholder="Descrição da ocorrência" name="defeito">
               </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="solucao">descricao da Solução:</label>
-                <input type="text" class="form-control form-control-sm" id="solucao" placeholder="Solução" name="solucao">
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="solucao">Descrição do serviço realizado:</label>
+                <input type="text" class="form-control form-control-sm" id="solucao" placeholder="Descrição do serviço realizado" name="solucao">
               </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="causa">Causa do defeito:</label>
-                <input type="text" class="form-control form-control-sm" id="causa" placeholder="Causa" name="causa">
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="resolvido">Problema Resolvido:</label>
+                <input type="text" class="form-control form-control-sm" id="resolvido" placeholder="Sim ou Não?" name="resolvido">
               </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="resolvido">Problema Resolvido:</label>
-                <input type="text" class="form-control form-control-sm" id="resolvido" placeholder="sim ou nao" name="resolvido">
-              </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="agente">Agente:</label>
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="agente">Agente:</label>
                 <input type="text" class="form-control form-control-sm" id="agente" placeholder="Agente" name="agente">
               </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="tecnico">Tecnico:</label>
-                <input type="text" class="form-control form-control-sm" id="tecnico" placeholder="Tecnico" name="tecnico">
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="tecnico">Técnico:</label>
+                <input type="text" class="form-control form-control-sm" id="tecnico" placeholder="Técnico" name="tecnico">
               </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="dataEntrada">Data Entrada:</label>
-                <input type="date" class="form-control form-control-sm" id="data_entrada" name="data_entrada">
-              </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="horaEntrada">Hora Entrada:</label>
-                <input type="time" class="form-control form-control-sm" id="hora_entrada" placeholder="Hora de entrada" name="hora_entrada">
-              </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="dataSaida">Data Saida:</label>
-                <input type="date" class="form-control form-control-sm" id="data_saida" placeholder="Data Saida" name="data_saida">
-              </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="horaSaida">Hora Saida:</label>
-                <input type="time" class="form-control form-control-sm" id="hora_saida" placeholder="Hora Saida" name="hora_saida">
-              </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="material">Material utilizado:</label>
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="material">Material utilizado:</label>
                 <input type="text" class="form-control form-control-sm" id="material" placeholder="Material" name="material">
+              </div>
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="dataEntrada">Data Entrada:</label>
+                <input type="date" class="form-control form-control-sm" id="dataEntrada" name="data_entrada">
+              </div>
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="horaEntrada">Hora Entrada:</label>
+                <input type="time" class="form-control form-control-sm" id="horaEntrada" placeholder="Hora de entrada" name="hora_entrada">
+              </div>
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="dataSaida">Data Saida:</label>
+                <input type="date" class="form-control form-control-sm" id="dataSaida" placeholder="Data Saida" name="data_saida">
+              </div>
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="horaSaida">Hora Saida:</label>
+                <input type="time" class="form-control form-control-sm" id="horaSaida" placeholder="Hora Saida" name="hora_saida">
+              </div>
+              <div class="form-group col-12 col-sm-12">
+                <label class="label" for="imagem">Foto da OS assinada</label>
+                <input type="file" name="imagem" id="imagem"></input>
               </div>
               <div>
                 <input type="hidden" name="fk_usuario" value="<?php echo session()->id ?>">
@@ -726,11 +725,6 @@ include("conexao.php");
               <div>
                 <input type="hidden" name="fk_ordem_servico_tipo" value="4">
               </div>
-              <div>
-                <label for="imagem">Foto da OS assinada</label>
-                <input type="file" name="imagem" id="imagem"></input>
-              </div>
-
             </div>
             <div class="modal-footer">
               <input type="hidden" name="fk_equipamento" value="<?php echo $fk_equipamento = $dadosEquipamento['id'] ?>"></input>
@@ -759,67 +753,63 @@ include("conexao.php");
 
             </hr>
             <div class="row">
-              <div class="form-group col-8 col-sm-6">
-                <label for="funcionario">Funcionario Solicitante:</label>
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="funcionario">Funcionario solicitante:</label>
                 <input type="text" class="form-control form-control-sm" id="funcionario" placeholder="Funcionario Solicitante" name="funcionario">
               </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="falha">Falha Apresentada:</label>
-                <input type="text" class="form-control form-control-sm" id="falha" placeholder="falha Apresentada" name="falha">
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="falha">Descrição do serviço solicitado:</label>
+                <input type="text" class="form-control form-control-sm" id="falha" placeholder="Descrição do serviço solicitado" name="falha">
               </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="defeito">descricao do defeito:</label>
-                <input type="text" class="form-control form-control-sm" id="defeito" placeholder="defeito" name="defeito">
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="defeito">Descrição da ocorrência:</label>
+                <input type="text" class="form-control form-control-sm" id="defeito" placeholder="Descrição da ocorrência" name="defeito">
               </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="solucao">descricao da Solução:</label>
-                <input type="text" class="form-control form-control-sm" id="solucao" placeholder="Solução" name="solucao">
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="solucao">Descrição do serviço realizado:</label>
+                <input type="text" class="form-control form-control-sm" id="solucao" placeholder="Descrição do serviço realizado" name="solucao">
               </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="causa">Causa do defeito:</label>
-                <input type="text" class="form-control form-control-sm" id="causa" placeholder="Causa" name="causa">
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="resolvido">Problema Resolvido:</label>
+                <input type="text" class="form-control form-control-sm" id="resolvido" placeholder="Sim ou Não?" name="resolvido">
               </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="resolvido">Problema Resolvido:</label>
-                <input type="text" class="form-control form-control-sm" id="resolvido" placeholder="sim ou nao" name="resolvido">
-              </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="agente">Agente:</label>
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="agente">Agente:</label>
                 <input type="text" class="form-control form-control-sm" id="agente" placeholder="Agente" name="agente">
               </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="tecnico">Tecnico:</label>
-                <input type="text" class="form-control form-control-sm" id="tecnico" placeholder="Tecnico" name="tecnico">
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="tecnico">Técnico:</label>
+                <input type="text" class="form-control form-control-sm" id="tecnico" placeholder="Técnico" name="tecnico">
               </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="dataEntrada">Data Entrada:</label>
-                <input type="date" class="form-control form-control-sm" id="data_entrada" name="data_entrada">
-              </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="horaEntrada">Hora Entrada:</label>
-                <input type="time" class="form-control form-control-sm" id="hora_entrada" placeholder="Hora de entrada" name="hora_entrada">
-              </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="dataSaida">Data Saida:</label>
-                <input type="date" class="form-control form-control-sm" id="data_saida" placeholder="Data Saida" name="data_saida">
-              </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="horaSaida">Hora Saida:</label>
-                <input type="time" class="form-control form-control-sm" id="hora_saida" placeholder="Hora Saida" name="hora_saida">
-              </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="material">Material utilizado:</label>
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="material">Material utilizado:</label>
                 <input type="text" class="form-control form-control-sm" id="material" placeholder="Material" name="material">
+              </div>
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="dataEntrada">Data Entrada:</label>
+                <input type="date" class="form-control form-control-sm" id="dataEntrada" name="data_entrada">
+              </div>
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="horaEntrada">Hora Entrada:</label>
+                <input type="time" class="form-control form-control-sm" id="horaEntrada" placeholder="Hora de entrada" name="hora_entrada">
+              </div>
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="dataSaida">Data Saida:</label>
+                <input type="date" class="form-control form-control-sm" id="dataSaida" placeholder="Data Saida" name="data_saida">
+              </div>
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="horaSaida">Hora Saida:</label>
+                <input type="time" class="form-control form-control-sm" id="horaSaida" placeholder="Hora Saida" name="hora_saida">
+              </div>
+              <div class="form-group col-12 col-sm-12">
+                <label class="label" for="imagem">Foto da OS assinada</label>
+                <input type="file" name="imagem" id="imagem"></input>
               </div>
               <div>
                 <input type="hidden" name="fk_usuario" value="<?php echo session()->id ?>">
               </div>
               <div>
                 <input type="hidden" name="fk_ordem_servico_tipo" value="3">
-              </div>
-              <div>
-                <label for="imagem">Foto da OS assinada</label>
-                <input type="file" name="imagem" id="imagem"></input>
               </div>
 
             </div>
@@ -850,67 +840,63 @@ include("conexao.php");
 
             </hr>
             <div class="row">
-              <div class="form-group col-8 col-sm-6">
-                <label for="funcionario">Funcionario Solicitante:</label>
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="funcionario">Funcionario solicitante:</label>
                 <input type="text" class="form-control form-control-sm" id="funcionario" placeholder="Funcionario Solicitante" name="funcionario">
               </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="falha">Falha Apresentada:</label>
-                <input type="text" class="form-control form-control-sm" id="falha" placeholder="falha Apresentada" name="falha">
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="falha">Descrição do serviço solicitado:</label>
+                <input type="text" class="form-control form-control-sm" id="falha" placeholder="Descrição do serviço solicitado" name="falha">
               </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="defeito">descricao do defeito:</label>
-                <input type="text" class="form-control form-control-sm" id="defeito" placeholder="defeito" name="defeito">
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="defeito">Descrição da ocorrência:</label>
+                <input type="text" class="form-control form-control-sm" id="defeito" placeholder="Descrição da ocorrência" name="defeito">
               </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="solucao">descricao da Solução:</label>
-                <input type="text" class="form-control form-control-sm" id="solucao" placeholder="Solução" name="solucao">
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="solucao">Descrição do serviço realizado:</label>
+                <input type="text" class="form-control form-control-sm" id="solucao" placeholder="Descrição do serviço realizado" name="solucao">
               </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="causa">Causa do defeito:</label>
-                <input type="text" class="form-control form-control-sm" id="causa" placeholder="Causa" name="causa">
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="resolvido">Problema Resolvido:</label>
+                <input type="text" class="form-control form-control-sm" id="resolvido" placeholder="Sim ou Não?" name="resolvido">
               </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="resolvido">Problema Resolvido:</label>
-                <input type="text" class="form-control form-control-sm" id="resolvido" placeholder="sim ou nao" name="resolvido">
-              </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="agente">Agente:</label>
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="agente">Agente:</label>
                 <input type="text" class="form-control form-control-sm" id="agente" placeholder="Agente" name="agente">
               </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="tecnico">Tecnico:</label>
-                <input type="text" class="form-control form-control-sm" id="tecnico" placeholder="Tecnico" name="tecnico">
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="tecnico">Técnico:</label>
+                <input type="text" class="form-control form-control-sm" id="tecnico" placeholder="Técnico" name="tecnico">
               </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="dataEntrada">Data Entrada:</label>
-                <input type="date" class="form-control form-control-sm" id="data_entrada" name="data_entrada">
-              </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="horaEntrada">Hora Entrada:</label>
-                <input type="time" class="form-control form-control-sm" id="hora_entrada" placeholder="Hora de entrada" name="hora_entrada">
-              </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="dataSaida">Data Saida:</label>
-                <input type="date" class="form-control form-control-sm" id="data_saida" placeholder="Data Saida" name="data_saida">
-              </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="horaSaida">Hora Saida:</label>
-                <input type="time" class="form-control form-control-sm" id="hora_saida" placeholder="Hora Saida" name="hora_saida">
-              </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="material">Material utilizado:</label>
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="material">Material utilizado:</label>
                 <input type="text" class="form-control form-control-sm" id="material" placeholder="Material" name="material">
+              </div>
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="dataEntrada">Data Entrada:</label>
+                <input type="date" class="form-control form-control-sm" id="dataEntrada" name="data_entrada">
+              </div>
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="horaEntrada">Hora Entrada:</label>
+                <input type="time" class="form-control form-control-sm" id="horaEntrada" placeholder="Hora de entrada" name="hora_entrada">
+              </div>
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="dataSaida">Data Saida:</label>
+                <input type="date" class="form-control form-control-sm" id="dataSaida" placeholder="Data Saida" name="data_saida">
+              </div>
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="horaSaida">Hora Saida:</label>
+                <input type="time" class="form-control form-control-sm" id="horaSaida" placeholder="Hora Saida" name="hora_saida">
+              </div>
+              <div class="form-group col-12 col-sm-12">
+                <label class="label" for="imagem">Foto da OS assinada</label>
+                <input type="file" name="imagem" id="imagem"></input>
               </div>
               <div>
                 <input type="hidden" name="fk_usuario" value="<?php echo session()->id ?>">
               </div>
               <div>
                 <input type="hidden" name="fk_ordem_servico_tipo" value="6">
-              </div>
-              <div>
-                <label for="imagem">Foto da OS assinada</label>
-                <input type="file" name="imagem" id="imagem"></input>
               </div>
 
             </div>
@@ -941,57 +927,58 @@ include("conexao.php");
 
             </hr>
             <div class="row">
-              <div class="form-group col-8 col-sm-6">
-                <label for="funcionario">Funcionario Solicitante:</label>
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="funcionario">Funcionario solicitante:</label>
                 <input type="text" class="form-control form-control-sm" id="funcionario" placeholder="Funcionario Solicitante" name="funcionario">
               </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="falha">Falha Apresentada:</label>
-                <input type="text" class="form-control form-control-sm" id="falha" placeholder="falha Apresentada" name="falha">
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="falha">Descrição do serviço solicitado:</label>
+                <input type="text" class="form-control form-control-sm" id="falha" placeholder="Descrição do serviço solicitado" name="falha">
               </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="defeito">descricao do defeito:</label>
-                <input type="text" class="form-control form-control-sm" id="defeito" placeholder="defeito" name="defeito">
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="defeito">Descrição da ocorrência:</label>
+                <input type="text" class="form-control form-control-sm" id="defeito" placeholder="Descrição da ocorrência" name="defeito">
               </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="solucao">descricao da Solução:</label>
-                <input type="text" class="form-control form-control-sm" id="solucao" placeholder="Solução" name="solucao">
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="solucao">Descrição do serviço realizado:</label>
+                <input type="text" class="form-control form-control-sm" id="solucao" placeholder="Descrição do serviço realizado" name="solucao">
               </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="causa">Causa do defeito:</label>
-                <input type="text" class="form-control form-control-sm" id="causa" placeholder="Causa" name="causa">
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="resolvido">Problema Resolvido:</label>
+                <input type="text" class="form-control form-control-sm" id="resolvido" placeholder="Sim ou Não?" name="resolvido">
               </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="resolvido">Problema Resolvido:</label>
-                <input type="text" class="form-control form-control-sm" id="resolvido" placeholder="sim ou nao" name="resolvido">
-              </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="agente">Agente:</label>
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="agente">Agente:</label>
                 <input type="text" class="form-control form-control-sm" id="agente" placeholder="Agente" name="agente">
               </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="tecnico">Tecnico:</label>
-                <input type="text" class="form-control form-control-sm" id="tecnico" placeholder="Tecnico" name="tecnico">
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="tecnico">Técnico:</label>
+                <input type="text" class="form-control form-control-sm" id="tecnico" placeholder="Técnico" name="tecnico">
               </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="dataEntrada">Data Entrada:</label>
-                <input type="date" class="form-control form-control-sm" id="data_entrada" name="data_entrada">
-              </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="horaEntrada">Hora Entrada:</label>
-                <input type="time" class="form-control form-control-sm" id="hora_entrada" placeholder="Hora de entrada" name="hora_entrada">
-              </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="dataSaida">Data Saida:</label>
-                <input type="date" class="form-control form-control-sm" id="data_saida" placeholder="Data Saida" name="data_saida">
-              </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="horaSaida">Hora Saida:</label>
-                <input type="time" class="form-control form-control-sm" id="hora_saida" placeholder="Hora Saida" name="hora_saida">
-              </div>
-              <div class="form-group col-8 col-sm-6">
-                <label for="material">Material utilizado:</label>
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="material">Material utilizado:</label>
                 <input type="text" class="form-control form-control-sm" id="material" placeholder="Material" name="material">
+              </div>
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="dataEntrada">Data Entrada:</label>
+                <input type="date" class="form-control form-control-sm" id="dataEntrada" name="data_entrada">
+              </div>
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="horaEntrada">Hora Entrada:</label>
+                <input type="time" class="form-control form-control-sm" id="horaEntrada" placeholder="Hora de entrada" name="hora_entrada">
+              </div>
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="dataSaida">Data Saida:</label>
+                <input type="date" class="form-control form-control-sm" id="dataSaida" placeholder="Data Saida" name="data_saida">
+              </div>
+              <div class="form-group col-12 col-sm-6">
+                <label class="label" for="horaSaida">Hora Saida:</label>
+                <input type="time" class="form-control form-control-sm" id="horaSaida" placeholder="Hora Saida" name="hora_saida">
+              </div>
+              <div class="form-group col-12 col-sm-12">
+                <label class="label" for="imagem">Foto da OS assinada</label>
+
+                <input type="file" name="imagem" id="imagem"></input>
               </div>
               <div>
                 <input type="hidden" name="fk_usuario" value="<?php echo session()->id ?>">
@@ -999,11 +986,6 @@ include("conexao.php");
               <div>
                 <input type="hidden" name="fk_ordem_servico_tipo" value="5">
               </div>
-              <div>
-                <label for="imagem">Foto da OS assinada</label>
-                <input type="file" name="imagem" id="imagem"></input>
-              </div>
-
             </div>
             <div class="modal-footer">
               <input type="hidden" name="fk_equipamento" value="<?php echo $fk_equipamento = $dadosEquipamento['id'] ?>"></input>
@@ -1048,14 +1030,14 @@ include("conexao.php");
           </button>
         </div>
         <form action="" id="formExcluirOrdemServico">
-        <div class="modal-body">
-        <p>Deseja realmente excluir a Ordem de Serviço <span class="modal-excluir-span"></span>?</p>
+          <div class="modal-body">
+            <p>Deseja realmente excluir a Ordem de Serviço <span class="modal-excluir-span"></span>?</p>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
             <button type="submit" class="btn btn btn-danger">Excluir</button>
           </div>
-          </form>
+        </form>
       </div>
     </div>
   </div>

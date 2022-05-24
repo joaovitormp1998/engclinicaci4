@@ -12,6 +12,7 @@ class EquipamentoModel extends Model
     protected $allowedFields = [
         'nome',
         'marca',
+        'modelo',
         'numero_serie',
         'patrimonio',
         'criticidade',

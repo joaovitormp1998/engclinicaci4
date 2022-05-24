@@ -1,7 +1,7 @@
 <?php
 $_base   = 'equipamento/';
 
-include ('config.php');
+include('config.php');
 include("conexao.php");
 
 
@@ -30,7 +30,7 @@ include("conexao.php");
     <!-- Main content -->
 
     <style>
- .btn-editar:link {
+        .btn-editar:link {
             color: green;
             text-decoration: none
         }
@@ -58,7 +58,7 @@ include("conexao.php");
         .modal-content {
             border-color: #008080;
         }
-</style>
+    </style>
 
     <section class="content">
         <div class="container-fluid">
@@ -69,26 +69,28 @@ include("conexao.php");
 
             <p id="erros" class="alert-warning" align="center">
             </p>
-            <table id="tb-estagiario" class="display">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nome</th>
-                        <th>Setor</th>
-                        <th>N° Série</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($equipamentos as $equipamento) : ?>
+            <div class="table-responsive">
+                <table id="tb-estagiario" class="display">
+                    <thead>
                         <tr>
-                            <td><?= $equipamento['id'] ?></td>
-                            <td><a href="<?= base_url($_base . 'ordem/' . $equipamento['id']) ?>"><?= $equipamento['nome'] ?></td>
-                            <td><?= $equipamento['nome_setor'] ?></td>
-                            <td><?= $equipamento['numero_serie'] ?></td>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>Setor</th>
+                            <th>N° Série</th>
                         </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($equipamentos as $equipamento) : ?>
+                            <tr>
+                                <td><?= $equipamento['id'] ?></td>
+                                <td><a href="<?= base_url($_base . 'ordem/' . $equipamento['id']) ?>"><?= $equipamento['nome'] ?></td>
+                                <td><?= $equipamento['nome_setor'] ?></td>
+                                <td><?= $equipamento['numero_serie'] ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </section>
     <script type="text/javascript" src="<?= base_url('assets/js/main.js') ?>"></script>
