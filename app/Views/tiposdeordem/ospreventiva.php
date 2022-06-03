@@ -6,7 +6,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="text-warning" align="right">Ordens de Serviço em Alerta !</h1>
+                    <h1 class="text-warning" align="right">Ordens Preventivas Proximas </h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -49,7 +49,8 @@
                     $datapreventiva = strtotime($hoje);
                     $datafinal = strtotime('+7 day', $datapreventiva);
                     $datecerta = date('Y-m-d', $datafinal);
-                    $sql = "SELECT * FROM `ordem-servico` JOIN equipamento ON fk_equipamento=id WHERE dataProxima = '$datecerta'";
+                    $sql = "SELECT * FROM `ordem-servico` as os JOIN `equipamento`as eq ON os.fk_equipamento = eq.id
+                    WHERE  fk_ordem_servico_tipo=1 and data_proxima = '$datecerta'";
                     $resultadoT = mysqli_query($mysqli, $sql);
                     $row = $resultadoT->fetch_array(MYSQLI_ASSOC);
 
@@ -69,9 +70,9 @@
 
                         <tr>
                             <td><?= $row['id'];  ?></td>
-                            <td><a href="<?= base_url($_base . 'equipamento/ordem/' . $equipamento['id']) ?>"><?= $equipamento['nome']; ?></a></td>
-                            <td><?= date_format(new Datetime($equipamento['dataPreventiva']), 'd/m/Y '); ?></td>
-                            <td><?= date_format(new Datetime($equipamento['dataProxima']), 'd/m/Y '); ?></td>
+                            <td><a href="<?= base_url($_base . 'equipamento/ordem/' . $equipamento['eq.id']) ?>"><?= $equipamento['nome']; ?></a></td>
+                            <td><?= date_format(new Datetime($equipamento['data_preventiva']), 'd/m/Y '); ?></td>
+                            <td><?= date_format(new Datetime($equipamento['data_proxima']), 'd/m/Y '); ?></td>
                         </tr>
                     <?php endforeach; ?>
                     <br>

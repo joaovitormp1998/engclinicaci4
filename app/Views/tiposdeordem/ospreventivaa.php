@@ -46,7 +46,7 @@
         <tbody>
           <h3><?php
               include("conexao.php");
-              $sql = "SELECT * FROM `ordem-servico` JOIN equipamento ON fk_equipamento WHERE data_proxima < CURRENT_DATE ";
+              $sql = "SELECT DISTINCT * FROM `ordem-servico`  as os JOIN `equipamento`as eq ON os.fk_equipamento = eq.id WHERE fk_ordem_servico_tipo=1 and data_proxima < CURRENT_DATE and fk_ordem_servico_tipo =1 ORDER BY fk_equipamento";
               $resultadoT = mysqli_query($mysqli, $sql);
               $qtd_equipamentos = mysqli_num_rows($resultadoT);
               $row = $resultadoT->fetch_array(MYSQLI_ASSOC);
@@ -72,7 +72,7 @@
 
 
               </tr>
-            <?php endforeach; ?>
+            <?php endforeach; ?>  
           </h3>
         </tbody>
       </table>
