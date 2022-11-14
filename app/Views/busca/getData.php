@@ -2,9 +2,9 @@
 // Database connection info 
 $dbDetails = array(
     'host' => 'localhost',
-    'user' => 'root',
-    'pass' => '',
-    'db'   => 'engclinica'
+    'user' => 'u246849716_root',
+    'pass' => 'Base@321',
+    'db'   => 'u246849716_engclinica'
 );
 
 // DB table to use 
