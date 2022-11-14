@@ -60,7 +60,7 @@ class UsuarioModel extends Model
      * @param string $email
      * @return array
      */
-    public function getByEmail(string $email): array
+    public function getByEmail($email): array
     {
         $rq =  $this->where('email', $email)->first();
 
