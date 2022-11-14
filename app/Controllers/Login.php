@@ -53,12 +53,4 @@ class Login extends BaseController
 		return redirect()->to(base_url());
 	}
 
-	function forgot_password()
-	{
-		if ($this->request->isAJAX('email')) {
-			var_dump($this->request->isAJAX());
-		} else {
-			return view('login/forgot_password');
-		}
-	}
 }

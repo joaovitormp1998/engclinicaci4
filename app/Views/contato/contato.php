@@ -19,7 +19,7 @@
     <div class="container-fluid">
         <div class="row justify-content">
             <div class="col-12 col-md-12 col-lg-12 pb-5">
-                <form action="contato/enviar" method="post">
+                <form action="#" method="post">
                     <div class="card border-primary rounded-0">
                         <div class="card-header p-0">
                             <div class="bg-info text-white text-center py-2">
