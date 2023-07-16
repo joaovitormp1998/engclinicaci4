@@ -31,10 +31,10 @@ class Database extends \CodeIgniter\Database\Config
 	 */
 	public $default = [
 		'DSN'      => '',
-		'hostname' => 'localhost',
-		'username' => 'u246849716_root',
-		'password' => 'Base@321',
-		'database' => 'u246849716_engclinica',
+		'hostname' => '127.0.0.1',
+		'username' => 'root',
+		'password' => '1234',
+		'database' => '',
 		'DBDriver' => 'MySQLi',
 		'DBPrefix' => '',
 		'pConnect' => false,
@@ -50,6 +50,7 @@ class Database extends \CodeIgniter\Database\Config
 		'failover' => [],
 		'port'     => 3306,
 	];
+	
 
 	/**
 	 * This database connection is used when
@@ -59,14 +60,14 @@ class Database extends \CodeIgniter\Database\Config
 	 */
 	public $tests = [
 		'DSN'      => '',
-		'hostname' => 'localhost',
-		'username' => 'u246849716_root',
-		'password' => 'Base@321',
-		'database' => 'u246849716_engclinica',
+		'hostname' => '127.0.0.1',
+		'username' => 'root',
+		'password' => '1234',
+		'database' => '',
 		'DBDriver' => 'MySQLi',
 		'DBPrefix' => '',
 		'pConnect' => false,
-		'DBDebug'  => (ENVIRONMENT !== 'production'),
+		'DBDebug'  => (ENVIRONMENT !== 'development'),
 		'cacheOn'  => false,
 		'cacheDir' => '',
 		'charset'  => 'utf8',

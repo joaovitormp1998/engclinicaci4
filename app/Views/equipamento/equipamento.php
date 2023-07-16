@@ -103,7 +103,7 @@ $qrcode->render($url, 'assets/imgqrcode/' . $nome_img);
                                 <td><?= $equipamento['id'] ?></td>
                                 <td><a class="nome-equipamento" href="<?= base_url(URLQRCODE . 'ordem/' . $equipamento['id']) ?>"><?= $equipamento['nome'] ?></td>
                                 <td><?= $equipamento['marca'] ?></td>
-                                <td><?= $equipamento['nome_setor'] ?></td>
+                                <td><?= $equipamento['setor_nome'] ?></td>
                                 <td><?= $equipamento['criticidade'] ?></td>
                                 <td><?php echo "<img src='" . URLIMG . "imgqrcode/" .  $equipamento['id'] . ".svg' width='100'><br><hr>"; ?></td>
                                 <td><a href="<?= base_url(URLQRCODE . 'edit/' . $equipamento['id']) ?>" class="btn-editar" data-id="<?= $equipamento['id'] ?>" title="Editar dados do equipamento"><i class="far fa-edit"></i></a>

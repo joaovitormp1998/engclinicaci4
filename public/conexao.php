@@ -1,8 +1,8 @@
 <?php
-$host = "www.softeng.com.br";
-$user = "u246849716_root";
-$pass = "Base@321";
-$db = "u246849716_engclinica";
+$host = "127.0.0.1";
+$user = "root";
+$pass = "1234";
+$db = "engclinica";
 
 $mysqli = new mysqli($host, $user, $pass, $db);
 /* check erro

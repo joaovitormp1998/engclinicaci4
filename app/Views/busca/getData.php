@@ -2,9 +2,9 @@
 // Database connection info 
 $dbDetails = array(
     'host' => 'localhost',
-    'user' => 'u246849716_root',
-    'pass' => 'Base@321',
-    'db'   => 'u246849716_engclinica'
+    'user' => 'root',
+    'pass' => '1234',
+    'db'   => 'engclinica'
 );
 
 // DB table to use 
@@ -19,7 +19,7 @@ $primaryKey = 'id';
 $columns = array(
     array('db' => 'id', 'dt' => 0),
     array('db' => 'nome',  'dt' => 1),
-    array('db' => 'setor',      'dt' => 2),
+    array('db' => 'setor_nome',      'dt' => 2),
     array('db' => 'numeroSerie',     'dt' => 3),
 );
 

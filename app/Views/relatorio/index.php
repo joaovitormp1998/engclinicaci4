@@ -90,7 +90,7 @@
                                     <option value="">Selecione o Tipo de OS</option>
                                     <?php
                                     include("conexao.php");
-                                    $sql = "SELECT * FROM `ordem-servico-tipo` ";
+                                    $sql = "SELECT * FROM `ordem_servico_tipo` ";
                                     $resultadoT = mysqli_query($mysqli, $sql);
                                     while ($row = mysqli_fetch_assoc($resultadoT)) { ?>
                                         <option value="<?= $row['id']; ?>"><?= $row['nome']; ?></option><?php
