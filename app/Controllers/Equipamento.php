@@ -6,102 +6,108 @@ use App\Controllers\BaseController;
 use App\Models\EquipamentoModel;
 use App\Models\OrdemModel;
 use App\Models\SetorModel;
+use chillerlan\QRCode\QRCode;
+use chillerlan\QRCode\QROptions;
 
 class Equipamento extends BaseController
 {
-
-
-    /**
-     * Chama a view de listagem de clientes
-     *
-     * @return void
-     */
-    public function index($id = False)
+    protected $setorModel;
+    protected $equipamentoModel;
+    protected $ordemModel;
+    public function __construct()
     {
-        $setorModel = new SetorModel();
-        $equipamentoModel = new EquipamentoModel();
-        $view = \Config\Services::renderer();
-        echo view('common/cabecalho');
-        echo view('equipamento/equipamento', [
-            'equipamentos' => $equipamentoModel->getAll(),
-        ]);
-        $js['js'] = $view->render('equipamento/js/main.js');
-        echo view('common/rodape', $js);
-    }
-    /**
-     * Chama a view de cadastro de equipamentos
-     *
-     * @return void
-     */
-
-    public function create()
-    {
-        echo view('common/cabecalho');
-        echo view('equipamento/equipamento', [
-            'titulo' => 'Cadastro do Equipamento'
-        ]);
-        echo view('common/footer');
+        $this->setorModel = new SetorModel();
+        $this->equipamentoModel = new EquipamentoModel();
+        $this->ordemModel = new OrdemModel();
+    
     }
 
-    /**
-     * Salva o equipamento no banco dados.
-     *
-     * @return void
-     */
-    public function store()
+    public function index($id = false)
+    {
+        $equipamentos = $this->equipamentoModel->getAll();
+        $setores = $this->setorModel->findAll();
+    
+        $data = [
+            'equipamentos' => $equipamentos,
+            'setores' => $setores
+        ];
+    
+        $content = view('equipamento/equipamento', $data);
+    
+        return view('common/template', ['content' => $content]);
+    }
+
+    public function editar($id)
+    {
+        $data['equipamento'] = $this->equipamentoModel->getEquipamentoById($id);
+        $data['setores'] = $this->equipamentoModel->getSetores();
+    
+        return view('equipamento/editar', $data);
+    }
+
+    public function update()
     {
         $post = $this->request->getPost();
-        $id = $post['uid'];
-        $equipamentoModel = new EquipamentoModel();
-
+        $id = $post['id'];
+    
         if (!empty($id)) {
-            $equipamentoModel->update($id, $post);
+            $this->equipamentoModel->update($id, $post);
+            return redirect()->to('/equipamento')->with('mensagem', [
+                'mensagem' => 'Equipamento atualizado com sucesso!',
+                'tipo' => 'success'
+            ]);
         } else {
-            $equipamentoModel->save($post);
-        }
-        return redirect()->to('/equipamento');
-    }
-
-
-    /**
-     * Chama a view de edição com o equipamento carregado
-     *
-     * @param [type] $id
-     * @return void
-     */
-    public function edit($id)
-    {
-
-        $equipamentoModel = new EquipamentoModel();
-        $ospreventivaModel = new OrdemModel();
-
-
-        $dadosEquipamento = $equipamentoModel->find($id);
-
-        if (is_null($dadosEquipamento)) {
-            return redirect()->to('/mensagem')->with('mensagem', [
-                'mensagem' => 'Erro - equipamento não encontrado',
+            return redirect()->to('/equipamento')->with('mensagem', [
+                'mensagem' => 'Falha na atualização do equipamento.',
                 'tipo' => 'danger'
             ]);
         }
-
-        $ospreventivasEquipamento = $ospreventivaModel->getByIdEquipamento($dadosEquipamento['id']);
-        $equipamentos = $equipamentoModel->findAll();
-        echo json_encode($dadosEquipamento);
     }
 
-    /**
-     * Exclui o cliente do banco de dados.
-     *
-     * @param [type] $id
-     * @return void
-     */
+    public function create()
+    {
+        $setores = $this->setorModel->findAll();
+
+        $content = view('equipamento/equipamento', [
+            'titulo' => 'Cadastro de Equipamento',
+            'setores' => $setores
+        ]);
+
+        return view('common/template', ['content' => $content]);
+    }
+    public function store()
+    {
+        $post = $this->request->getPost();
+        var_dump($post); // Adicione esta linha para exibir os dados
+
+        if (!empty($post)) {
+            // Armazena os dados no banco de dados ou realiza as operações necessárias
+            // para salvar o equipamento
+    
+            return redirect()->to('/equipamento')->with('mensagem', [
+                'mensagem' => 'Equipamento cadastrado com sucesso!',
+                'tipo' => 'success'
+            ]);
+        } else {
+            return redirect()->to('/equipamento')->with('mensagem', [
+                'mensagem' => 'Falha no cadastro do equipamento.',
+                'tipo' => 'danger'
+            ]);
+        }
+    }
+    
+    public function show()
+    {
+        // Obtém os dados da variável de sessão
+        $formData = session()->getFlashdata('form_data');
+    
+        // Exibe os dados na página
+        var_dump($formData); // ou print_r($formData);
+    }
+        
     public function delete($id)
     {
-
-        $equipamentoModel = new EquipamentoModel();
-
-        if ($equipamentoModel->delete($id)) {
+        if ($this->equipamentoModel->deleteById($id)) {
             return redirect()->to('/equipamento')->with('mensagem', [
                 'mensagem' => 'Equipamento excluído com sucesso!',
                 'tipo' => 'info'
@@ -116,33 +122,20 @@ class Equipamento extends BaseController
 
     public function ordem($id)
     {
+        $dadosEquipamento = $this->equipamentoModel->find($id);
 
-        $equipamentoModel = new EquipamentoModel();
-        $ospreventivaModel = new OrdemModel();
-        $view = \Config\Services::renderer();
-
-        $dadosEquipamento = $equipamentoModel->find($id);
-        echo view('common/cabecalho');
-        echo view('equipamento/ordem', [
+        $content = view('equipamento/ordem', [
             'titulo' => 'Dados de Equipamento',
-            'osPreventivas' => $ospreventivaModel->where(['fk_equipamento' => $id, 'fk_ordem_servico_tipo' => 1])->findAll(),
-            'osCorretivas' => $ospreventivaModel->where(['fk_equipamento' => $id, 'fk_ordem_servico_tipo' => 3])->findAll(),
-            'osInstalacoes' => $ospreventivaModel->where(['fk_equipamento' => $id, 'fk_ordem_servico_tipo' => 2])->findAll(),
-            'osCalibracao' => $ospreventivaModel->where(['fk_equipamento' => $id, 'fk_ordem_servico_tipo' => 5])->findAll(),
-            'osInspecao' => $ospreventivaModel->where(['fk_equipamento' => $id, 'fk_ordem_servico_tipo' => 6])->findAll(),
-            'osTreinamento' => $ospreventivaModel->where(['fk_equipamento' => $id, 'fk_ordem_servico_tipo' => 4])->findAll(),
-
+            'osPreventivas' => $this->ordemModel->where(['fk_equipamento' => $id, 'fk_ordem_servico_tipo' => 1])->findAll(),
+            'osCorretivas' => $this->ordemModel->where(['fk_equipamento' => $id, 'fk_ordem_servico_tipo' => 3])->findAll(),
+            'osInstalacoes' => $this->ordemModel->where(['fk_equipamento' => $id, 'fk_ordem_servico_tipo' => 2])->findAll(),
+            'osCalibracao' => $this->ordemModel->where(['fk_equipamento' => $id, 'fk_ordem_servico_tipo' => 5])->findAll(),
+            'osInspecao' => $this->ordemModel->where(['fk_equipamento' => $id, 'fk_ordem_servico_tipo' => 6])->findAll(),
+            'osTreinamento' => $this->ordemModel->where(['fk_equipamento' => $id, 'fk_ordem_servico_tipo' => 4])->findAll(),
             'dadosEquipamento' => $dadosEquipamento
         ]);
-        $js['js'] = $view->render('equipamento/js/main.js');
-        echo view('common/rodape', $js);
 
-        if (is_null($dadosEquipamento)) {
-            return redirect()->to('/mensagem')->with('mensagem', [
-                'mensagem' => 'Erro - equipamento não encontrado',
-                'tipo' => 'danger'
-            ]);
-        }
+        return view('common/template', ['content' => $content]);
     }
 
     public function consultarOrdem()
@@ -150,10 +143,26 @@ class Equipamento extends BaseController
         $idTipoOrdem = $this->request->getPost('idTipo');
         $idOrdem = $this->request->getPost('uid');
 
-
-        $ospreventivaModel = new OrdemModel();
-        $dados = $ospreventivaModel->where(['id' => $idOrdem, 'fk_ordem_servico_tipo' => $idTipoOrdem])->findAll();
+        $dados = $this->ordemModel->where(['id' => $idOrdem, 'fk_ordem_servico_tipo' => $idTipoOrdem])->findAll();
 
         echo json_encode($dados[0]);
+    }
+
+    public function gerarQRCode($id)
+    {
+        $equipamento = $this->equipamentoModel->getEquipamentoById($id);
+        $url = base_url(URLQRCODE . 'ordem/' . $equipamento['id']);
+
+        $options = new QROptions([
+            'version' => 5,
+            'outputType' => QRCode::OUTPUT_MARKUP_SVG,
+            'eccLevel' => QRCode::ECC_L,
+        ]);
+
+        $qrcode = new QRCode($options);
+
+        $nome_img = $equipamento['id'] . '.svg';
+
+        $qrcode->render($url, 'assets/imgqrcode/' . $nome_img);
     }
 }

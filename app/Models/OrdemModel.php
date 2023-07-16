@@ -7,7 +7,7 @@ use CodeIgniter\Model;
 class OrdemModel extends Model
 {
     protected $DBGroup              = 'default';
-    protected $table                = 'ordem-servico';
+    protected $table                = 'ordem_servico';
     protected $primaryKey           = 'id';
     protected $useAutoIncrement     = true;
     protected $insertID             = 0;
@@ -84,4 +84,13 @@ class OrdemModel extends Model
 
         return !is_null($rq) ? $rq['fk_equipamento'] : null;
     }
+    public function getCountAtrasadas()
+    {
+        return $this->select('os.*')
+                    ->join('equipamento eq', 'os.fk_equipamento = eq.id')
+                    ->where('fk_ordem_servico_tipo', 1)
+                    ->where('data_proxima <', date('Y-m-d'))
+                    ->countAllResults();
+    }
+
 }

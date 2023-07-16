@@ -5,26 +5,25 @@ use chillerlan\QRCode\{
     QROptions
 };
 
+if ($equipamentos) {
+    foreach ($equipamentos as $equipamento) {
+        $url = base_url(URLQRCODE . 'ordem/' . $equipamento['id']);
 
-foreach ($equipamentos as $equipamento) :
+        $options = new QROptions([
+            'version' => 5,
+            'outputType' => QRCode::OUTPUT_MARKUP_SVG,
+            'eccLevel' => QRCode::ECC_L,
+        ]);
 
-endforeach;
+        $qrcode = new QRCode($options);
 
-$url = base_url(URLQRCODE . 'ordem/' . $equipamento['id']);
+        $nome_img = $equipamento['id'] . '.svg';
 
-$options = new QROptions([
-    'version' => 5,
-    'outputType' => QRCode::OUTPUT_MARKUP_SVG,
-    'eccLevel' => QRCode::ECC_L,
-]);
+        $qrcode->render($url, 'assets/imgqrcode/' . $nome_img);
+    }
+}
 
-$qrcode = new QRCode($options);
-
-$nome_img = $equipamento['id'] . '.svg';
-
-$qrcode->render($url, 'assets/imgqrcode/' . $nome_img);
 ?>
-
 
 <div class="content-wrapper">
     <div class="content-header">
@@ -52,7 +51,6 @@ $qrcode->render($url, 'assets/imgqrcode/' . $nome_img);
         .nome-equipamento {
             color: black;
             text-decoration: none;
-
         }
 
         .btn-excluir:link {
@@ -62,7 +60,6 @@ $qrcode->render($url, 'assets/imgqrcode/' . $nome_img);
 
         .modal-header {
             background-color: #008080;
-
         }
 
         .modal-title {
@@ -82,7 +79,8 @@ $qrcode->render($url, 'assets/imgqrcode/' . $nome_img);
 
     <section class="content">
         <div class="container-fluid">
-            <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#modalCadastroEquipamento"><i class="fas fa-plus"></i>
+            <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#modalCadastroEquipamento">
+                <i class="fas fa-plus"></i>
             </button>
             <div class="table-responsive">
                 <table id="tablita" class="table table-striped">
@@ -98,26 +96,246 @@ $qrcode->render($url, 'assets/imgqrcode/' . $nome_img);
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($equipamentos as $equipamento) : ?>
+                        <?php if (!empty($equipamentos)) : ?>
+                            <?php foreach ($equipamentos as $equipamento) : ?>
+                                <tr>
+                                    <td><?= $equipamento['id'] ?></td>
+                                    <td><a class="nome-equipamento" href="<?= base_url(URLQRCODE . 'ordem/' . $equipamento['id']) ?>"><?= $equipamento['nome'] ?></a></td>
+                                    <td><?= $equipamento['marca'] ?></td>
+                                    <td><?= $equipamento['setor_nome'] ?></td>
+                                    <td><?= $equipamento['criticidade'] ?></td>
+                                    <td>
+                                        <?php
+                                        $url = base_url(URLQRCODE . 'ordem/' . $equipamento['id']);
+                                        $options = new QROptions([
+                                            'version' => 5,
+                                            'outputType' => QRCode::OUTPUT_MARKUP_SVG,
+                                            'eccLevel' => QRCode::ECC_L,
+                                        ]);
+                                        $qrcode = new QRCode($options);
+                                        $nome_img = $equipamento['id'] . '.svg';
+                                        $qrcode->render($url, 'assets/imgqrcode/' . $nome_img);
+                                        echo "<img src='" . base_url(URLIMG . 'imgqrcode/' . $nome_img) . "' width='100'><br><hr>";
+                                        ?>
+                                    </td>
+                                    <td>
+                                        <a href="#" class="btn-editar" 
+                                        data-id="<?= $equipamento['id'] ?>" 
+                                        data-nome="<?= $equipamento['nome'] ?>"
+                                        data-marca="<?= $equipamento['marca'] ?>"
+                                        data-modelo="<?= $equipamento['modelo'] ?>"
+                                        data-numero-serie="<?= $equipamento['numero_serie'] ?>"
+                                        data-patrimonio="<?= $equipamento['patrimonio'] ?>"
+                                        data-criticidade="<?= $equipamento['criticidade'] ?>" 
+                                        data-tag="<?= $equipamento['tag'] ?>"
+                                        data-sincov="<?= $equipamento['sincov'] ?>"
+                                        data-localizacao="<?= $equipamento['localizacao'] ?>"
+                                        data-fornecedor="<?= $equipamento['fornecedor'] ?>"
+                                         data-unidade="<?= $equipamento['unidade'] ?>"
+                                        data-data-aquisicao="<?= $equipamento['data_aquisicao'] ?>"
+                                         data-data-fabricacao="<?= $equipamento['data_fabricacao'] ?>"
+                                        data-numero-pasta="<?= $equipamento['numero_pasta'] ?>" 
+                                        data-numero-certificado="<?= $equipamento['numero_certificado'] ?>"
+                                         data-periocidade="<?= $equipamento['periocidade'] ?>"
+                                          data-img-qrcode="<?= $equipamento['img_qrcode'] ?>"
+                                           data-fk-setor="<?= $equipamento['fk_setor'] ?>" 
+                                           data-fk-usuario="<?= $equipamento['fk_usuario'] ?>">
+                                            <i class="fas fa-pencil-alt text-success"></i>
+                                        </a>
+
+                                        <a href="<?= base_url(URLQRCODE . 'delete/' . $equipamento['id']) ?>" class="btn-excluir" data-id="<?= $equipamento['id'] ?>" title="Excluir dados do equipamento">
+                                            <i class="far fa-trash-alt"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        <?php else : ?>
                             <tr>
-                                <td><?= $equipamento['id'] ?></td>
-                                <td><a class="nome-equipamento" href="<?= base_url(URLQRCODE . 'ordem/' . $equipamento['id']) ?>"><?= $equipamento['nome'] ?></td>
-                                <td><?= $equipamento['marca'] ?></td>
-                                <td><?= $equipamento['setor_nome'] ?></td>
-                                <td><?= $equipamento['criticidade'] ?></td>
-                                <td><?php echo "<img src='" . URLIMG . "imgqrcode/" .  $equipamento['id'] . ".svg' width='100'><br><hr>"; ?></td>
-                                <td><a href="<?= base_url(URLQRCODE . 'edit/' . $equipamento['id']) ?>" class="btn-editar" data-id="<?= $equipamento['id'] ?>" title="Editar dados do equipamento"><i class="far fa-edit"></i></a>
-                                    &nbsp;&nbsp;
-                                    <a href="<?= base_url(URLQRCODE . 'delete/' . $equipamento['id']) ?>" class="btn-excluir" data-id="<?= $equipamento['id'] ?>" title="Excluir dados do equipamento"><i class="far fa-trash-alt"></i></a>
-                                </td>
+                                <td colspan="7">Nenhum equipamento encontrado.</td>
                             </tr>
-                        <?php endforeach; ?>
-                        <br>
+                        <?php endif; ?>
                     </tbody>
                 </table>
             </div>
         </div>
     </section>
+
+    <!-- Inclusão das bibliotecas jQuery e Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.btn-editar').on('click', function() {
+                var id = $(this).data('id');
+                var nome = $(this).data('nome');
+                var marca = $(this).data('marca');
+                var modelo = $(this).data('modelo');
+                var numeroSerie = $(this).data('numero-serie');
+                var patrimonio = $(this).data('patrimonio');
+                var criticidade = $(this).data('criticidade');
+                var tag = $(this).data('tag');
+                var sincov = $(this).data('sincov');
+                var localizacao = $(this).data('localizacao');
+                var fornecedor = $(this).data('fornecedor');
+                var unidade = $(this).data('unidade');
+                var setor = $(this).data('setor');
+                var dataAquisicao = $(this).data('data-aquisicao');
+                var dataFabricacao = $(this).data('data-fabricacao');
+                var numeroPasta = $(this).data('numero-pasta');
+                var numeroCertificado = $(this).data('numero-certificado');
+                var periocidade = $(this).data('periocidade');
+                var imgQrcode = $(this).data('img-qrcode');
+                var fkSetor = $(this).data('fk-setor');
+                var fkUsuario = $(this).data('fk-usuario');
+
+                $('#edit-id').val(id);
+                $('#edit-nome').val(nome);
+                $('#edit-marca').val(marca);
+                $('#edit-modelo').val(modelo);
+                $('#edit-numero-serie').val(numeroSerie);
+                $('#edit-patrimonio').val(patrimonio);
+                $('#edit-criticidade').val(criticidade);
+                $('#edit-tag').val(tag);
+                $('#edit-sincov').val(sincov);
+                $('#edit-localizacao').val(localizacao);
+                $('#edit-fornecedor').val(fornecedor);
+                $('#edit-unidade').val(unidade);
+                $('#edit-data-aquisicao').val(dataAquisicao);
+                $('#edit-data-fabricacao').val(dataFabricacao);
+                $('#edit-numero-pasta').val(numeroPasta);
+                $('#edit-numero-certificado').val(numeroCertificado);
+                $('#edit-periocidade').val(periocidade);
+                $('#edit-img-qrcode').val(imgQrcode);
+                $('#edit-setor').val(setor);
+                $('#edit-fk-setor').val(fkSetor);
+                $('#edit-fk-usuario').val(fkUsuario);
+
+                $('#modalEditarEquipamento').modal('show');
+            });
+        });
+    </script>
+    <div class="modal fade" id="modalEditarEquipamento" tabindex="-1" role="dialog" aria-labelledby="modalEditarEquipamentoLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalEditarEquipamentoLabel">Editar Equipamento</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="<?= base_url('equipamento/update') ?>" method="post">
+                        <input type="hidden" name="id" id="edit-id" value="">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="edit-nome">Nome</label>
+                                <input type="text" class="form-control" id="edit-nome" name="nome" placeholder="Nome do equipamento" value="">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="edit-marca">Marca</label>
+                                <input type="text" class="form-control" id="edit-marca" name="marca" placeholder="Marca do equipamento" value="">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="edit-modelo">Modelo</label>
+                                <input type="text" class="form-control" id="edit-modelo" name="modelo" placeholder="Modelo do equipamento" value="">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="edit-numero-serie">Número de Série</label>
+                                <input type="text" class="form-control" id="edit-numero-serie" name="numero_serie" placeholder="Número de Série do equipamento" value="">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="edit-patrimonio">Patrimônio</label>
+                                <input type="text" class="form-control" id="edit-patrimonio" name="patrimonio" placeholder="Patrimônio do equipamento" value="">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="edit-criticidade">Criticidade</label>
+                                <input type="text" class="form-control" id="edit-criticidade" name="criticidade" placeholder="Criticidade do equipamento" value="">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="edit-tag">Tag</label>
+                                <input type="text" class="form-control" id="edit-tag" name="tag" placeholder="Tag do equipamento" value="">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="edit-sincov">Sincov</label>
+                                <input type="text" class="form-control" id="edit-sincov" name="sincov" placeholder="Sincov do equipamento" value="">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="edit-localizacao">Localização</label>
+                                <input type="text" class="form-control" id="edit-localizacao" name="localizacao" placeholder="Localização do equipamento" value="">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="edit-fornecedor">Fornecedor</label>
+                                <input type="text" class="form-control" id="edit-fornecedor" name="fornecedor" placeholder="Fornecedor do equipamento" value="">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="edit-unidade">Unidade</label>
+                                <input type="text" class="form-control" id="edit-unidade" name="unidade" placeholder="Unidade do equipamento" value="">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="edit-data-aquisicao">Data de Aquisição</label>
+                                <input type="text" class="form-control" id="edit-data-aquisicao" name="data_aquisicao" placeholder="Data de Aquisição do equipamento" value="">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="edit-data-fabricacao">Data de Fabricação</label>
+                                <input type="text" class="form-control" id="edit-data-fabricacao" name="data_fabricacao" placeholder="Data de Fabricação do equipamento" value="">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="edit-numero-pasta">Número de Pasta</label>
+                                <input type="text" class="form-control" id="edit-numero-pasta" name="numero_pasta" placeholder="Número de Pasta do equipamento" value="">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="edit-numero-certificado">Número de Certificado</label>
+                                <input type="text" class="form-control" id="edit-numero-certificado" name="numero_certificado" placeholder="Número de Certificado do equipamento" value="">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="edit-periocidade">Periocidade</label>
+                                <input type="text" class="form-control" id="edit-periocidade" name="periocidade" placeholder="Periocidade do equipamento" value="">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="edit-img-qrcode">Imagem do QR Code</label>
+                                <input type="text" class="form-control" id="edit-img-qrcode" name="img_qrcode" placeholder="Imagem do QR Code do equipamento" value="">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="edit-fk-setor">Setor</label>
+                                <select class="form-control" id="edit-fk-setor" name="fk_setor">
+                                    <!-- Opções do select -->
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="edit-fk-usuario">Usuário</label>
+                                <select class="form-control" id="edit-fk-usuario" name="fk_usuario">
+                                    <!-- Opções do select -->
+                                </select>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                            <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 
 
@@ -131,47 +349,46 @@ $qrcode->render($url, 'assets/imgqrcode/' . $nome_img);
                     </button>
                 </div>
                 <div class="modal-body">
-
                     <form id="formCadastroEquipamento" action="<?= base_url('equipamento/store') ?>" method="post">
                         <input id="uid" type="hidden" name="uid" value="">
                         <h4>Dados do Equipamento</h4>
-                        </hr>
+                        <hr>
                         <div class="row">
                             <div class="form-group col-12 col-sm-6">
                                 <label for="nome">Nome:</label>
-                                <input type="text" value="<?php echo isset($dadosEquipamento) ? $dadosEquipamento['nome'] : '' ?>" class="form-control form-control-sm" id="nome" placeholder="Nome" name="nome" required>
+                                <input type="text" class="form-control form-control-sm" id="nome" placeholder="Nome" name="nome" required>
                             </div>
                             <div class="form-group col-12 col-sm-6">
                                 <label for="marca">Marca:</label>
-                                <input type="text" value="<?php echo isset($dadosEquipamento) ? $dadosEquipamento['marca'] : '' ?>" class="form-control form-control-sm" id="marca" placeholder="Marca" name="marca" required>
+                                <input type="text" class="form-control form-control-sm" id="marca" placeholder="Marca" name="marca" required>
                             </div>
                             <div class="form-group col-12 col-sm-6">
                                 <label for="modelo">Modelo:</label>
-                                <input type="text" value="<?php echo isset($dadosEquipamento) ? $dadosEquipamento['modelo'] : '' ?>" class="form-control form-control-sm" id="modelo" placeholder="Modelo" name="modelo" required>
+                                <input type="text" class="form-control form-control-sm" id="modelo" placeholder="Modelo" name="modelo" required>
                             </div>
                             <div class="form-group col-12 col-sm-6">
-                                <label for="numero_serie">Número de Serie:</label>
-                                <input type="text" value="<?php echo isset($dadosEquipamento) ? $dadosEquipamento['numero_serie'] : '' ?>" class="form-control form-control-sm" id="numero_serie" placeholder="Numero de Serie" name="numero_serie">
+                                <label for="numero_serie">Número de Série:</label>
+                                <input type="text" class="form-control form-control-sm" id="numero_serie" placeholder="Número de Série" name="numero_serie">
                             </div>
                             <div class="form-group col-12 col-sm-6">
-                                <label for="patrimonio">Patrimonio:</label>
-                                <input type="text" value="<?php echo isset($dadosEquipamento) ? $dadosEquipamento['patrimonio'] : '' ?>" class="form-control form-control-sm" id="patrimonio" placeholder="Patrimonio" name="patrimonio">
+                                <label for="patrimonio">Patrimônio:</label>
+                                <input type="text" class="form-control form-control-sm" id="patrimonio" placeholder="Patrimônio" name="patrimonio">
                             </div>
                             <div class="form-group col-12 col-sm-6">
                                 <label for="criticidade">Criticidade:</label>
-                                <input type="text" value="<?php echo isset($dadosEquipamento) ? $dadosEquipamento['criticidade'] : '' ?>" class="form-control form-control-sm" id="criticidade" placeholder="Criticidade" name="criticidade">
+                                <input type="text" class="form-control form-control-sm" id="criticidade" placeholder="Criticidade" name="criticidade">
                             </div>
                             <div class="form-group col-12 col-sm-6">
                                 <label for="tag">Tag:</label>
-                                <input type="text" value="<?php echo isset($dadosEquipamento) ? $dadosEquipamento['tag'] : '' ?>" class="form-control form-control-sm" id="tag" placeholder="Tag" name="tag">
+                                <input type="text" class="form-control form-control-sm" id="tag" placeholder="Tag" name="tag">
                             </div>
                             <div class="form-group col-12 col-sm-6">
                                 <label for="sincov">Siconv:</label>
-                                <input type="text" value="<?php echo isset($dadosEquipamento) ? $dadosEquipamento['sincov'] : '' ?>" class="form-control form-control-sm" id="sincov" placeholder="sincov" name="sincov">
+                                <input type="text" class="form-control form-control-sm" id="sincov" placeholder="Siconv" name="sincov">
                             </div>
                             <div class="form-group col-12 col-sm-6">
                                 <label for="localizacao">Localização:</label>
-                                <input type="text" value="<?php echo isset($dadosEquipamento) ? $dadosEquipamento['localizacao'] : '' ?>" class="form-control form-control-sm" id="localizacao" placeholder="Localização" name="localizacao">
+                                <input type="text" class="form-control form-control-sm" id="localizacao" placeholder="Localização" name="localizacao">
                             </div>
                             <div class="form-group col-12 col-sm-6">
                                 <label for="setor">Setor:</label>
@@ -179,81 +396,87 @@ $qrcode->render($url, 'assets/imgqrcode/' . $nome_img);
                                     <option value="">Selecione</option>
                                     <?php
                                     include("conexao.php");
-                                    $sql = "SELECT DISTINCT id,nome  FROM setor";
+                                    $sql = "SELECT DISTINCT id, nome FROM setor";
                                     $resultadoT = mysqli_query($mysqli, $sql);
-                                    while ($row = mysqli_fetch_assoc($resultadoT)) { ?>
-                                        <option value="<?= $row['id']; ?>"><?= $row['nome']; ?></option><?php
-                                                                                                    }
-                                                                                                        ?>
+                                    while ($row = mysqli_fetch_assoc($resultadoT)) {
+                                        echo '<option value="' . $row['id'] . '">' . $row['nome'] . '</option>';
+                                    }
+                                    ?>
                                 </select>
                             </div>
                             <div class="form-group col-12 col-sm-6">
                                 <label for="unidade">Unidade:</label>
-                                <input type="text" value="<?php echo isset($dadosEquipamento) ? $dadosEquipamento['unidade'] : '' ?>" class="form-control form-control-sm" id="unidade" placeholder="Unidade" name="unidade">
+                                <input type="text" class="form-control form-control-sm" id="unidade" placeholder="Unidade" name="unidade">
                             </div>
                             <div class="form-group col-12 col-sm-6">
                                 <label for="fornecedor">Fornecedor:</label>
-                                <input type="text" value="<?php echo isset($dadosEquipamento) ? $dadosEquipamento['fornecedor'] : '' ?>" class="form-control form-control-sm" id="fornecedor" placeholder="Fornecedor" name="fornecedor">
+                                <input type="text" class="form-control form-control-sm" id="fornecedor" placeholder="Fornecedor" name="fornecedor">
                             </div>
                             <div class="form-group col-12 col-sm-6">
-                                <label for="data_aquisicao">Data Aquisição:</label>
-                                <input type="date" value="<?php echo isset($dadosEquipamento) ? $dadosEquipamento['data_aquisicao'] : '' ?>" class="form-control form-control-sm" id="data_aquisicao" placeholder="Data Aquisição" name="data_aquisicao">
+                                <label for="data_aquisicao">Data de Aquisição:</label>
+                                <input type="date" class="form-control form-control-sm" id="data_aquisicao" placeholder="Data de Aquisição" name="data_aquisicao">
                             </div>
                             <div class="form-group col-12 col-sm-6">
-                                <label for="data_fabricacao">Data Fabricação:</label>
-                                <input type="date" value="<?php echo isset($dadosEquipamento) ? $dadosEquipamento['data_fabricacao'] : '' ?>" class="form-control form-control-sm" id="data_fabricacao" placeholder="Data Fabricação" name="data_fabricacao">
+                                <label for="data_fabricacao">Data de Fabricação:</label>
+                                <input type="date" class="form-control form-control-sm" id="data_fabricacao" placeholder="Data de Fabricação" name="data_fabricacao">
                             </div>
                             <div class="form-group col-12 col-sm-6">
                                 <label for="numero_pasta">Número da Pasta:</label>
-                                <input type="text" value="<?php echo isset($dadosEquipamento) ? $dadosEquipamento['numero_pasta'] : '' ?>" class="form-control form-control-sm" id="numero_pasta" placeholder="Numero Pasta" name="numero_pasta">
+                                <input type="text" class="form-control form-control-sm" id="numero_pasta" placeholder="Número da Pasta" name="numero_pasta">
                             </div>
                             <div class="form-group col-12 col-sm-6">
-                                <label for="numero_certificado">Número do certificado:</label>
-                                <input type="text" value="<?php echo isset($dadosEquipamento) ? $dadosEquipamento['numero_certificado'] : '' ?>" class="form-control form-control-sm" id="numero_certificado" placeholder="Numero de Certificado" name="numero_certificado">
+                                <label for="numero_certificado">Número do Certificado:</label>
+                                <input type="text" class="form-control form-control-sm" id="numero_certificado" placeholder="Número do Certificado" name="numero_certificado">
                             </div>
                             <div class="form-group col-12 col-sm-6">
                                 <label for="periocidade">Periodicidade:</label>
-                                <input type="text" value="<?php echo isset($dadosEquipamento) ? $dadosEquipamento['periocidade'] : '' ?>" class="form-control form-control-sm" id="periocidade" placeholder="Periodicidade" name="periocidade">
-                            </div>
-                            <div>
-                                <input type="hidden" name="fk_usuario" value="<?php echo session()->id ?>">
-                            </div>
-                            <div> <input type="hidden" id="nome_img_qr" name="nome_img_qr" value="<?= $nome_img ?>">
+                                <input type="text" class="form-control form-control-sm" id="periocidade" placeholder="Periodicidade" name="periocidade">
                             </div>
                         </div>
+                        <input type="hidden" name="fk_usuario" value="<?php echo session()->id ?>">
+                        <input type="hidden" id="nome_img_qr" name="nome_img_qr" value="<?= $nome_img ?>">
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
                             <button type="submit" class="btn btn-info">Salvar</button>
-                            <input type="hidden" name="id" value="<?php echo isset($dadosEquipamento) ? $dadosEquipamento['id'] : '' ?>">
-
-                            <?php echo form_close() ?>
-
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-    <div class="modal fade" id="modalExcluirEquipamento" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Excluir</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form id="formExcluirEquipamento" method="get">
-                        <input id="uid" type="hidden" name="id" value="">
-                        Deseja realmente excluir esse Equipamento : <span class="modal-excluir-span" id="modal-excluir-span"></span> ?
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                    <button type="submit" class="btn btn-danger">Excluir</button>
-                </div>
-                </form>
-            </div>
-        </div>
-    </div>
+    <!-- <script>
+$(document).ready(function() {
+    $('#formCadastroEquipamento').submit(function(e) {
+        e.preventDefault(); // Impede o envio do formulário tradicional
+        
+        var form = $(this);
+        var url = form.attr('action');
+        var formData = form.serialize(); // Serializa os dados do formulário
+        
+        $.ajax({
+            type: 'POST',
+            url: url,
+            data: formData,
+            success: function(response) {
+                // Manipule a resposta do servidor de acordo com suas necessidades
+                console.log(response);
+                // Exiba a mensagem de sucesso ou falha
+                if (response.success) {
+                    alert('Equipamento cadastrado com sucesso!');
+                    location.reload(); // Recarrega a página após o cadastro
+                } else {
+                    alert('Falha no cadastro do equipamento.');
+                }
+            },
+            error: function(xhr, status, error) {
+                // Trate os erros de requisição, se necessário
+                console.log(xhr.responseText);
+                alert('Ocorreu um erro na requisição.');
+            }
+        });
+    });
+});
+</script> -->
+
+    <!-- ... outros códigos HTML ... -->
 </div>
