@@ -1,6 +1,5 @@
-<?php echo view('common/header.php'); ?>
+<?php echo view('common/head.php'); ?>
 
-<body class="hold-transition sidebar-mini layout-fixed">
     <style>
         #barradolado {
             background: #00997D !important;
@@ -9,14 +8,14 @@
         .m-0 {
             color: #00997D !important;
         }
-        .center{
+
+        .center {
             margin-left: 20%;
             text-justify: center;
             color: #f2f2f2;
         }
     </style>
     <div class="wrapper">
-
 
         <!-- Navbar -->
         <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -26,7 +25,7 @@
                     <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="<?= base_url('') ?>" class="nav-link">Home</a>
+                    <a href="<?= base_url('/home') ?>" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="<?= base_url('/contato') ?>" class="nav-link">Contato</a>
@@ -46,7 +45,7 @@
                     <div class="image">
 
                         <img src="<?= base_url('uploads') ?>/<?php echo session()->foto
-                                                                    ?>" class="img-circle elevation-2" alt="User Image">
+                                                                ?>" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
                         <a href="#" class="d-block"><?php echo session()->nome ?></a>
@@ -55,44 +54,44 @@
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <li class="nav-item has-treeview">
-                            <?php if (session()->nivel !='F') { ?>
-                            <a href="#" class="nav-link">
-                                <i class="fas fa-plus"></i>
-                                <p>
-                                    Cadastro
-                                    <i class="fas fa-angle-left right"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="<?= base_url('usuario') ?>" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Usuario</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="<?= base_url('setor') ?>" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Setor</p>
-                                    </a>
-                                </li>
+                            <?php if (session()->nivel != 'F') { ?>
+                                <a href="#" class="nav-link">
+                                    <i class="fas fa-plus"></i>
+                                    <p>
+                                        Cadastro
+                                        <i class="fas fa-angle-left right"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="<?= base_url('usuario') ?>" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Usuario</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="<?= base_url('setor') ?>" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Setor</p>
+                                        </a>
+                                    </li>
 
-                            </ul>
-                        <?php };?>
+                                </ul>
+                            <?php }; ?>
                         </li>
-                        
-                        <li  class="nav-item has-treeview">
-                                    <a href="<?= base_url('equipamento') ?>" class="nav-link">
-                                    <i class="fas fa-toolbox mav-icon"></i>
-                                    <p>Equipamento</p>
-                                    </a>
-                                </li>
+
+                        <li class="nav-item has-treeview">
+                            <a href="<?= base_url('equipamento') ?>" class="nav-link">
+                                <i class="fas fa-toolbox mav-icon"></i>
+                                <p>Equipamento</p>
+                            </a>
+                        </li>
                         <li class="nav-item has-treeview">
                             <a href="<?= base_url('/contato') ?>" class="nav-link">
-                                    <i class="far fa-user"></i>
-                                    <p>Contato</p>
-                                    </a>
-                            </li>
+                                <i class="far fa-user"></i>
+                                <p>Contato</p>
+                            </a>
+                        </li>
                         <li class="nav-item has-treeview">
                             <a href="<?= base_url('busca') ?>" class="nav-link">
                                 <i class="fas fa-search"></i>
@@ -119,5 +118,3 @@
             </div>
             <!-- /.sidebar -->
         </aside>
-        <script>
-        </script>

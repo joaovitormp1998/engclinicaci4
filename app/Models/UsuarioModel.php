@@ -24,7 +24,7 @@ class UsuarioModel extends Model
         ],
         'email' => [
             'label' => 'E-mail',
-            'rules' => 'required|valid_email'
+            'rules' => 'required|valid_email|is_unique[usuario.email]'
         ],
         'senha' => [
             'label' => 'Senha',

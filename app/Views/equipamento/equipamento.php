@@ -1,30 +1,3 @@
-<?php
-
-use chillerlan\QRCode\{
-    QRCode,
-    QROptions
-};
-
-if ($equipamentos) {
-    foreach ($equipamentos as $equipamento) {
-        $url = base_url(URLQRCODE . 'ordem/' . $equipamento['id']);
-
-        $options = new QROptions([
-            'version' => 5,
-            'outputType' => QRCode::OUTPUT_MARKUP_SVG,
-            'eccLevel' => QRCode::ECC_L,
-        ]);
-
-        $qrcode = new QRCode($options);
-
-        $nome_img = $equipamento['id'] . '.svg';
-
-        $qrcode->render($url, 'assets/imgqrcode/' . $nome_img);
-    }
-}
-
-?>
-
 <div class="content-wrapper">
     <div class="content-header">
         <div class="container-fluid">
@@ -105,41 +78,10 @@ if ($equipamentos) {
                                     <td><?= $equipamento['setor_nome'] ?></td>
                                     <td><?= $equipamento['criticidade'] ?></td>
                                     <td>
-                                        <?php
-                                        $url = base_url(URLQRCODE . 'ordem/' . $equipamento['id']);
-                                        $options = new QROptions([
-                                            'version' => 5,
-                                            'outputType' => QRCode::OUTPUT_MARKUP_SVG,
-                                            'eccLevel' => QRCode::ECC_L,
-                                        ]);
-                                        $qrcode = new QRCode($options);
-                                        $nome_img = $equipamento['id'] . '.svg';
-                                        $qrcode->render($url, 'assets/imgqrcode/' . $nome_img);
-                                        echo "<img src='" . base_url(URLIMG . 'imgqrcode/' . $nome_img) . "' width='100'><br><hr>";
-                                        ?>
+
                                     </td>
                                     <td>
-                                        <a href="#" class="btn-editar" 
-                                        data-id="<?= $equipamento['id'] ?>" 
-                                        data-nome="<?= $equipamento['nome'] ?>"
-                                        data-marca="<?= $equipamento['marca'] ?>"
-                                        data-modelo="<?= $equipamento['modelo'] ?>"
-                                        data-numero-serie="<?= $equipamento['numero_serie'] ?>"
-                                        data-patrimonio="<?= $equipamento['patrimonio'] ?>"
-                                        data-criticidade="<?= $equipamento['criticidade'] ?>" 
-                                        data-tag="<?= $equipamento['tag'] ?>"
-                                        data-sincov="<?= $equipamento['sincov'] ?>"
-                                        data-localizacao="<?= $equipamento['localizacao'] ?>"
-                                        data-fornecedor="<?= $equipamento['fornecedor'] ?>"
-                                         data-unidade="<?= $equipamento['unidade'] ?>"
-                                        data-data-aquisicao="<?= $equipamento['data_aquisicao'] ?>"
-                                         data-data-fabricacao="<?= $equipamento['data_fabricacao'] ?>"
-                                        data-numero-pasta="<?= $equipamento['numero_pasta'] ?>" 
-                                        data-numero-certificado="<?= $equipamento['numero_certificado'] ?>"
-                                         data-periocidade="<?= $equipamento['periocidade'] ?>"
-                                          data-img-qrcode="<?= $equipamento['img_qrcode'] ?>"
-                                           data-fk-setor="<?= $equipamento['fk_setor'] ?>" 
-                                           data-fk-usuario="<?= $equipamento['fk_usuario'] ?>">
+                                        <a href="#" class="btn-editar" data-id="<?= $equipamento['id'] ?>" data-nome="<?= $equipamento['nome'] ?>" data-marca="<?= $equipamento['marca'] ?>" data-modelo="<?= $equipamento['modelo'] ?>" data-numero-serie="<?= $equipamento['numero_serie'] ?>" data-patrimonio="<?= $equipamento['patrimonio'] ?>" data-criticidade="<?= $equipamento['criticidade'] ?>" data-tag="<?= $equipamento['tag'] ?>" data-sincov="<?= $equipamento['sincov'] ?>" data-localizacao="<?= $equipamento['localizacao'] ?>" data-fornecedor="<?= $equipamento['fornecedor'] ?>" data-unidade="<?= $equipamento['unidade'] ?>" data-data-aquisicao="<?= $equipamento['data_aquisicao'] ?>" data-data-fabricacao="<?= $equipamento['data_fabricacao'] ?>" data-numero-pasta="<?= $equipamento['numero_pasta'] ?>" data-numero-certificado="<?= $equipamento['numero_certificado'] ?>" data-periocidade="<?= $equipamento['periocidade'] ?>" data-img-qrcode="<?= $equipamento['img_qrcode'] ?>" data-fk-setor="<?= $equipamento['fk_setor'] ?>" data-fk-usuario="<?= $equipamento['fk_usuario'] ?>">
                                             <i class="fas fa-pencil-alt text-success"></i>
                                         </a>
 
@@ -434,7 +376,6 @@ if ($equipamentos) {
                             </div>
                         </div>
                         <input type="hidden" name="fk_usuario" value="<?php echo session()->id ?>">
-                        <input type="hidden" id="nome_img_qr" name="nome_img_qr" value="<?= $nome_img ?>">
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
                             <button type="submit" class="btn btn-info">Salvar</button>
@@ -444,39 +385,4 @@ if ($equipamentos) {
             </div>
         </div>
     </div>
-    <!-- <script>
-$(document).ready(function() {
-    $('#formCadastroEquipamento').submit(function(e) {
-        e.preventDefault(); // Impede o envio do formulário tradicional
-        
-        var form = $(this);
-        var url = form.attr('action');
-        var formData = form.serialize(); // Serializa os dados do formulário
-        
-        $.ajax({
-            type: 'POST',
-            url: url,
-            data: formData,
-            success: function(response) {
-                // Manipule a resposta do servidor de acordo com suas necessidades
-                console.log(response);
-                // Exiba a mensagem de sucesso ou falha
-                if (response.success) {
-                    alert('Equipamento cadastrado com sucesso!');
-                    location.reload(); // Recarrega a página após o cadastro
-                } else {
-                    alert('Falha no cadastro do equipamento.');
-                }
-            },
-            error: function(xhr, status, error) {
-                // Trate os erros de requisição, se necessário
-                console.log(xhr.responseText);
-                alert('Ocorreu um erro na requisição.');
-            }
-        });
-    });
-});
-</script> -->
-
-    <!-- ... outros códigos HTML ... -->
 </div>

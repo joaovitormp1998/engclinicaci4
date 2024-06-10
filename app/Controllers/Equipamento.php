@@ -6,6 +6,7 @@ use App\Controllers\BaseController;
 use App\Models\EquipamentoModel;
 use App\Models\OrdemModel;
 use App\Models\SetorModel;
+use App\Models\UsuarioModel;
 use chillerlan\QRCode\QRCode;
 use chillerlan\QRCode\QROptions;
 
@@ -14,34 +15,34 @@ class Equipamento extends BaseController
     protected $setorModel;
     protected $equipamentoModel;
     protected $ordemModel;
+    protected $usuarioModel;
     public function __construct()
     {
         $this->setorModel = new SetorModel();
         $this->equipamentoModel = new EquipamentoModel();
         $this->ordemModel = new OrdemModel();
-    
+        $this->usuarioModel = new UsuarioModel();
     }
-
     public function index($id = false)
     {
-        $equipamentos = $this->equipamentoModel->getAll();
-        $setores = $this->setorModel->findAll();
-    
         $data = [
-            'equipamentos' => $equipamentos,
-            'setores' => $setores
+            'equipamentos' => $this->equipamentoModel->getAll(),
+            'setores' => $this->setorModel->findAll(),
+            'usuarios' => $this->usuarioModel->findAll(),
+            'baseURL' => base_url()
         ];
-    
         $content = view('equipamento/equipamento', $data);
     
         return view('common/template', ['content' => $content]);
     }
+    
+
 
     public function editar($id)
     {
         $data['equipamento'] = $this->equipamentoModel->getEquipamentoById($id);
         $data['setores'] = $this->equipamentoModel->getSetores();
-    
+
         return view('equipamento/editar', $data);
     }
 
@@ -49,7 +50,7 @@ class Equipamento extends BaseController
     {
         $post = $this->request->getPost();
         $id = $post['id'];
-    
+
         if (!empty($id)) {
             $this->equipamentoModel->update($id, $post);
             return redirect()->to('/equipamento')->with('mensagem', [
@@ -83,7 +84,7 @@ class Equipamento extends BaseController
         if (!empty($post)) {
             // Armazena os dados no banco de dados ou realiza as operações necessárias
             // para salvar o equipamento
-    
+
             return redirect()->to('/equipamento')->with('mensagem', [
                 'mensagem' => 'Equipamento cadastrado com sucesso!',
                 'tipo' => 'success'
@@ -95,16 +96,16 @@ class Equipamento extends BaseController
             ]);
         }
     }
-    
+
     public function show()
     {
         // Obtém os dados da variável de sessão
         $formData = session()->getFlashdata('form_data');
-    
+
         // Exibe os dados na página
         var_dump($formData); // ou print_r($formData);
     }
-        
+
     public function delete($id)
     {
         if ($this->equipamentoModel->deleteById($id)) {
@@ -123,20 +124,37 @@ class Equipamento extends BaseController
     public function ordem($id)
     {
         $dadosEquipamento = $this->equipamentoModel->find($id);
+        dd($dadosEquipamento);
+        if (!$dadosEquipamento) {
+            // Handle the case where the equipment is not found
+            return redirect()->to('/equipamento')->with('error', 'Equipamento não encontrado.');
+            // Or throw a 404 exception: throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+        }
 
-        $content = view('equipamento/ordem', [
+        $tiposOS = [
+            'osPreventivas' => 1,
+            'osCorretivas' => 3,
+            'osInstalacoes' => 2,
+            'osCalibracao' => 5,
+            'osInspecao' => 6,
+            'osTreinamento' => 4,
+        ];
+
+        $data = [
             'titulo' => 'Dados de Equipamento',
-            'osPreventivas' => $this->ordemModel->where(['fk_equipamento' => $id, 'fk_ordem_servico_tipo' => 1])->findAll(),
-            'osCorretivas' => $this->ordemModel->where(['fk_equipamento' => $id, 'fk_ordem_servico_tipo' => 3])->findAll(),
-            'osInstalacoes' => $this->ordemModel->where(['fk_equipamento' => $id, 'fk_ordem_servico_tipo' => 2])->findAll(),
-            'osCalibracao' => $this->ordemModel->where(['fk_equipamento' => $id, 'fk_ordem_servico_tipo' => 5])->findAll(),
-            'osInspecao' => $this->ordemModel->where(['fk_equipamento' => $id, 'fk_ordem_servico_tipo' => 6])->findAll(),
-            'osTreinamento' => $this->ordemModel->where(['fk_equipamento' => $id, 'fk_ordem_servico_tipo' => 4])->findAll(),
-            'dadosEquipamento' => $dadosEquipamento
-        ]);
+            'dadosEquipamento' => $dadosEquipamento,
+        ];
 
-        return view('common/template', ['content' => $content]);
+        foreach ($tiposOS as $key => $tipoId) {
+            $data[$key] = $this->ordemModel
+                ->where('fk_equipamento', $id)
+                ->where('fk_ordem_servico_tipo', $tipoId)
+                ->findAll();
+        }
+
+        return view('common/template', ['content' => view('equipamento/ordem', $data)]);
     }
+
 
     public function consultarOrdem()
     {

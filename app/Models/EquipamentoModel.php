@@ -43,19 +43,24 @@ class EquipamentoModel extends Model
         $this->db = &$db;
     }
 
+
     public function getAll($filtro = [], $fields = '*', $limit = 0, $offset = 0): array
     {
-        $database = $this->db->table('vw_equipamento_setor');
-        $database->select($fields)
-            ->where($filtro)
-            ->orderBy('id');
-
+        $builder = $this->db->table('equipamento AS e');
+        $builder->select("$fields, s.nome AS setor_nome, e.nome as nome")
+               ->join('setor AS s', 'e.fk_setor = s.id', 'left')
+               ->where($filtro)
+               ->orderBy('e.id'); // Especifique a tabela e a coluna na ordenação
+    
         if ($limit != 0 || $offset != 0) {
-            $database->limit($limit, $offset);
+            $builder->limit($limit, $offset);
         }
-
-        return $database->get()->getResultArray();
+    
+        return $builder->get()->getResultArray();
     }
+    
+    
+
 
     public function getBySetor($setorId, $fields = '*'): array
     {

@@ -16,135 +16,119 @@ class Usuario extends BaseController
     {
         $this->usuarioModel = new UsuarioModel();
     }
-    /**
-     * Chama a view de listagem de clientes
-     *
-     * @return void
-     */
+
     public function index($id = False)
     {
 
         $usuarioModel = new UsuarioModel();
 
-        if (session()->nivel !="F"){
+        if (session()->nivel != "F") {
 
-        echo view('common/cabecalho');
-        echo view('usuario/index', [
-            'usuarios' => $usuarioModel->paginate(1000),
-            'usuarioId' => $usuarioModel->find($id)
-        ]);
+            echo view('common/cabecalho');
+            echo view('usuario/index', [
+                'usuarios' => $usuarioModel->paginate(1000),
+                'usuarioId' => $usuarioModel->find($id)
+            ]);
 
-        $js['js'] = view('usuario/js/main');
-        echo view('common/rodape', $js);
-    }else{
-        echo view('common/cabecalho');
-        echo view('home/index');
-        echo view('common/rodape');
+            $js['js'] = view('usuario/js/main');
+            echo view('common/rodape', $js);
+        } else {
+            echo view('common/cabecalho');
+            echo view('home/index');
+            echo view('common/rodape');
         }
-
-}
+    }
 
     public function edit($id)
     {
+        $usuario = $this->usuarioModel->find($id);
 
-        $usuarioModel = new UsuarioModel();
-
-        $dadosUsuario = $usuarioModel->find($id);
-
-        if (is_null($dadosUsuario)) {
-            return redirect()->to('/mensagem')->with('mensagem', [
-                'mensagem' => 'Erro - equipamento não encontrado',
-                'tipo' => 'danger'
-            ]);
+        if (!$usuario) {
+            return redirect()->back()->with('error', 'Usuário não encontrado');
         }
-        echo json_encode($dadosUsuario);
+
+        return view('usuario/edit', ['usuario' => $usuario]);
     }
 
-    /**
-     * Exclui o cliente do banco de dados.
-     *
-     * @param [type] $id
-     * @return void
-     */
+    public function update($id)
+    {
+        $usuario = $this->usuarioModel->find($id);
+        if (!$usuario) {
+            return redirect()->back()->with('error', 'Usuário não encontrado');
+        }
+
+        if (!$this->validate($this->usuarioModel->getValidationRules())) {
+            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+        }
+
+        $data = $this->request->getPost();
+
+        // Manipulação da imagem (se houver)
+        $imagem = $this->request->getFile('foto');
+        if ($imagem && $imagem->isValid() && !$imagem->hasMoved()) {
+            $nomeImagem = $imagem->getRandomName();
+            $imagem->move(FCPATH . 'uploads/', $nomeImagem);
+            $data['foto'] = $nomeImagem;
+            // Se quiser deletar a imagem antiga, use: unlink(FCPATH . 'uploads/' . $usuario['foto']);
+        }
+
+        if ($this->usuarioModel->update($id, $data)) {
+            return redirect()->to('/usuario')->with('success', 'Usuário atualizado com sucesso');
+        } else {
+            return redirect()->back()->with('error', 'Erro ao atualizar o usuário');
+        }
+    }
+
     public function delete($id)
     {
-
-
-        $usuarioModel = new UsuarioModel();
-        $dadosUsuario = $usuarioModel->find($id);
-        if (is_null($dadosUsuario)) {
-            return redirect()->to('/mensagem')->with('mensagem', [
-                'mensagem' => 'Erro - equipamento não encontrado',
-                'tipo' => 'danger'
-            ]);
-        }
-
-        if ($usuarioModel->delete($id)) {
-            return redirect()->to('/usuario')->with('mensagem', [
-                'mensagem' => 'Usuario excluído com sucesso!',
-                'tipo' => 'info'
-            ]);
+        if ($this->usuarioModel->delete($id)) {
+            return redirect()->to('/usuario')->with('success', 'Usuário excluído com sucesso');
         } else {
-            return redirect()->to('/mensagem')->with('mensagem', [
-                'mensagem' => 'Falha na tentativa de Exclusão de Usuario.',
-                'tipo' => 'danger'
-
-            ]);
+            return redirect()->back()->with('error', 'Erro ao excluir o usuário');
         }
     }
-
     public function create()
-    {
-        // echo '<pre>';
-        // print_r($_POST);
-        // print_r($_FILES);
-        $post = $this->request->getPost();
-        $validationRule = [
-            'foto' => [
-                'label' => 'Image File',
-                'rules' => 'uploaded[foto]'
-                    . '|is_image[foto]'
-                    . '|mime_in[foto,image/jpg,image/jpeg,image/gif,image/png,image/webp]'
-                    . '|max_size[foto,10000]',
-                // . '|max_dims[foto,1024,768]',
-            ],
-        ];
+{
+    if ($this->request->getMethod() === 'post') {
+        $validationRules = $this->usuarioModel->getValidationRules();
 
-        $id = $post['uid'];
-        $equipamentoModel = new UsuarioModel();
+        if (!$this->validate($validationRules)) {
+            $errors = $this->validator->getErrors();
 
-
-
-        if (!$this->validate($validationRule)) {
-            $data = ['errors' => $this->validator->getErrors()];
-        }
-
-        $img = $this->request->getFile('foto');
-        $filepath = FCPATH  . 'uploads/';
-        $nomeImagem = $img->getRandomName();
-
-
-        if ($img->move($filepath, $nomeImagem)) {
-            // $filepathold = WRITEPATH . 'uploads/' . $img->store();
-
-
-            // mDebug($filepathold);
-            $post['foto'] = $nomeImagem;
-
-            if (!empty($id)) {
-                $equipamentoModel->update($id, $post);
-            } else {
-                $this->usuarioModel->save($post);
+            // Tradução das mensagens de erro (opcional)
+            if (function_exists('lang')) { // Verifica se a função lang() existe
+                foreach ($errors as $campo => $mensagem) {
+                    $errors[$campo] = lang('validation.' . $mensagem); 
+                }
             }
 
-            return redirect()->to('/usuario');
-            // return view('upload_success', $data);
-        } else {
-            $data = ['errors' => 'The file has already been moved.'];
-
-            print_r($data);
-
-            // return view('upload_form', $data);
+            return $this->response->setJSON([
+                'tipo' => 'error',
+                'mensagem' => 'Erro de validação',
+                'errors' => $errors
+            ]);
         }
+
+        $data = $this->request->getPost();
+
+        // Manipulação da imagem (se houver)
+        $imagem = $this->request->getFile('foto');
+        if ($imagem && $imagem->isValid() && !$imagem->hasMoved()) {
+            $nomeImagem = $imagem->getRandomName();
+            $imagem->move(FCPATH . 'uploads/', $nomeImagem);
+            $data['foto'] = $nomeImagem;
+        }
+
+        // Salva o usuário no banco de dados
+        if ($this->usuarioModel->save($data)) {
+            return $this->response->setJSON(['tipo' => 'success', 'mensagem' => 'Usuário criado com sucesso']);
+        } else {
+            return $this->response->setJSON(['tipo' => 'error', 'mensagem' => 'Erro ao criar o usuário']);
+        }
+    } else {
+        // Retorna erro se o método não for POST
+        return $this->response->setJSON(['tipo' => 'error', 'mensagem' => 'Método de requisição inválido']);
     }
+}
+    
 }

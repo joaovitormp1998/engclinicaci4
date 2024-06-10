@@ -2,28 +2,31 @@
 
 namespace App\Controllers;
 
-class Home extends BaseController
+use CodeIgniter\Controller;  // Import the base Controller class
+
+class Home extends Controller  // Extend the base Controller
 {
     public function index()
     {
-        include("conexao.php");
+        // Use CodeIgniter's database connection (safer and more convenient)
+        $db = \Config\Database::connect();
 
-        $sqlEquipamentos = "SELECT * FROM equipamento";
-        $resultadoEquipamentos = mysqli_query($mysqli, $sqlEquipamentos);
-        $qtdEquipamentos = mysqli_num_rows($resultadoEquipamentos);
+        // Query for equipment count
+        $queryEquipamentos = $db->query("SELECT COUNT(*) as total FROM equipamento");
+        $qtdEquipamentos = $queryEquipamentos->getRow()->total;
 
-        $hoje = date('Y-m-d H:i:s');
-        $datapreventiva = strtotime($hoje);
-        $datafinal = strtotime('+7 day', $datapreventiva);
-        $datecerta = date('Y-m-d', $datafinal);
+        // Calculate dates (using DateTime for better readability)
+        $hoje = new \DateTime();
+        $datafinal = $hoje->modify('+7 day');
+        $datecerta = $datafinal->format('Y-m-d');
 
-        $sqlPreventivas = "SELECT * FROM `ordem_servico` WHERE fk_ordem_servico_tipo = 1 AND data_proxima = '$datecerta'";
-        $resultadoPreventivas = mysqli_query($mysqli, $sqlPreventivas);
-        $qtdPreventivas = mysqli_num_rows($resultadoPreventivas);
+        // Query for preventive maintenance orders
+        $queryPreventivas = $db->query("SELECT COUNT(*) as total FROM ordem_servico WHERE fk_ordem_servico_tipo = 1 AND data_proxima = ?", [$datecerta]);
+        $qtdPreventivas = $queryPreventivas->getRow()->total;
 
-        $sqlAtrasadas = "SELECT * FROM `ordem_servico` AS os JOIN `equipamento` AS eq ON os.fk_equipamento = eq.id WHERE fk_ordem_servico_tipo = 1 AND data_proxima < CURRENT_DATE";
-        $resultadoAtrasadas = mysqli_query($mysqli, $sqlAtrasadas);
-        $qtdAtrasadas = mysqli_num_rows($resultadoAtrasadas);
+        // Query for overdue orders
+        $queryAtrasadas = $db->query("SELECT COUNT(*) as total FROM ordem_servico AS os JOIN equipamento AS eq ON os.fk_equipamento = eq.id WHERE fk_ordem_servico_tipo = 1 AND data_proxima < CURRENT_DATE");
+        $qtdAtrasadas = $queryAtrasadas->getRow()->total;
 
         $data = [
             'qtdEquipamentos' => $qtdEquipamentos,
@@ -31,8 +34,6 @@ class Home extends BaseController
             'qtdAtrasadas' => $qtdAtrasadas
         ];
 
-        $content = view('home/index', $data);
-
-        return view('common/template', ['content' => $content]);
+        return view('common/template', ['content' => view('home/index', $data)]);
     }
 }
